@@ -1,9 +1,9 @@
 # TextToAsp
-Text to ASP programming language using Valasp and LLM.
+Text to ASP programming language using [Valasp](https://github.com/alviano/valasp) and LLM (for now we'll use gpt 3.5 model by openAI).
 
 Idea:
 
-nput: testo in linguaggio naturale
+Input: testo in linguaggio naturale
  
 Accoppiamo l'input con delle domande a LLM. Ogni domanda ha l'obiettivo di estrarre qualche parte dell'input e mapparla su qualche predicato.
     usiamo YAML per definire una lista di domande
