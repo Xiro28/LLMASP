@@ -1,0 +1,19 @@
+extract_value:
+  "get the provenience cousin country"
+
+predicates:
+  user_request:
+    ["restaurant_kind(provenience_cousin)"]
+  input:
+    ["restaurant(name, main_cousin, ratings)"]
+
+arguments:
+  restaurant:
+    request:
+      "get the restaurants near and in rende"
+    data_type:
+      "restaurant(string, string, float)"
+
+  restaurant_kind:
+    data_type:
+      "restaurant_kind(string)"
