@@ -1,13 +1,12 @@
-from typing import AnyStr
-from clingo import Control
-from typeguard import typechecked
-from dataclasses import InitVar, dataclass, field
-from g4f.cookies import set_cookies
-
-import clingo
 import re
+from dataclasses import dataclass, field
+
 import g4f
 import yaml
+from dumbo_asp.primitives.models import Model
+from g4f.cookies import set_cookies
+from typeguard import typechecked
+
 
 @typechecked
 @dataclass(frozen=False)
@@ -24,7 +23,7 @@ class LLMASP:
     def __post_init__(self):
         set_cookies(".google.com", {
             "__Secure-1PSID": self._1PSID,
-            "__Secure-1PSIDTS" : self._1PSIDTS
+            "__Secure-1PSIDTS": self._1PSIDTS
         })
 
         self.__config = self.__loadConfig__(self.configFilename)
@@ -50,28 +49,23 @@ class LLMASP:
                 str: The seasoned input with added information to help the LLM for ASP atom extraction.
         """
 
-        questions =  self.__config['preprocessing']
+        questions = self.__config['preprocessing']
+        the_user_input = f"[USER_INPUT]{user_input}[/USER_INPUT]"
 
-        res =  "You are a NaturalLanguage to AnswerSetProgramming translator\n"
-        res += "You are going to be asked a series of questions and the answer are inside the user input provided with: [USRIN] input [/USRIN]\n"
-        res += "Be sure to control the arity of the predicates!\n"
-        res += "If a question doesn't have a clear answer, skip it.\n"
-        res += "Also, keep everything lowercase! \n\n" 
-        
-        inputToBeProcessed = f"[USRIN] {user_input} [/USRIN]\n\n"
-
-        for q in questions:
-            if q['prompt'].strip()[-1] == '$':
-                res += q['prompt'][:-1] + inputToBeProcessed + '\n'
-            else:
-                res += inputToBeProcessed + q['prompt'][1:]  + '\n'
-
-        res += '\nFill the answer in the following structure:\n'
-
-        for q in questions:
-            res += q['predicate'] + '\n'
-
-        return res
+        return '\n'.join([
+            """
+You are a NaturalLanguage to Datalog translator.
+You are going to be asked a series of questions. The answer are inside the user input provided with [USER_INPUT]input[/USER_INPUT]. The answer format is provided with [ANSWER_FORMAT]predicate(terms).[/ANSWER_FORMAT].
+Predicate is a lowercase string (possibly including underscores).
+Terms is a comma-separated list of either double quoted strings or integers.
+Be sure to control the number of terms in each answer!
+If a question doesn't have a clear answer, skip it.
+            """.strip() + '\n',
+            '\n'.join(
+                q['prompt'].replace('§', the_user_input, 1) + f" [ANSWER_FORMAT]{q['predicate']}[/ANSWER_FORMAT]\n"
+                for q in questions
+            ),
+        ])
 
     def __natural2ASP__(self, user_input: str) -> str:
         """
@@ -124,13 +118,8 @@ class LLMASP:
             Returns:
                 self object: The current LLMASP object with the calculated predicates.
         """
-        
-        control = Control()
-        control.load(self.aspCodeFilename)
-        control.add("base", [], self.preds)
-        control.ground([("base", [])])
 
-        self.calc_preds = control.solve(on_model=print)
+        self.calc_preds = Model.of_program(open(self.aspCodeFilename).read(), self.preds, sort=False)
         return self
     
     def getInfo(self) -> str:
