@@ -1,19 +1,17 @@
-extract_value:
-  "get the provenience cousin country"
-
-predicates:
-  user_request:
-    ["restaurant_kind(provenience_cousin)"]
-  input:
-    ["restaurant(name, main_cousin, ratings)"]
-
-arguments:
-  restaurant:
-    request:
-      "get the restaurants near and in rende"
-    data_type:
-      "restaurant(string, string, float)"
-
-  restaurant_kind:
-    data_type:
-      "restaurant_kind(string)"
+preprocessing:
+  - prompt: "$List all the people mentioned including me if indirectly included"  
+    predicate: "people(who)."
+  - prompt: "$When the request has to be done" 
+    predicate: "dayoftherequest(day)."
+  - prompt: "$For each people list any restaurant preferences" 
+    predicate: "cuisine_preferences(who, country)."
+  - prompt: "$Is the human alone" 
+    predicate: "alone."
+  - prompt: "$For each people list any allergies" 
+    predicate: "allergies(who, what)."
+  - prompt: "$For each people list any preferite food" 
+    predicate: "preferite_food(who, what)."
+  - prompt: "$For each people list what they what to eat" 
+    predicate: "want_food(who, what)."
+  - prompt: "$For each people list any  disliked food" 
+    predicate: "disliked_food(who, what)."
