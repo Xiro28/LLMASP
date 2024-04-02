@@ -35,10 +35,20 @@ class LLMASP:
     def __toGPTDict__(self, text: str) -> dict:
         return {"role": "user", "content": text}
  
-    def __cleanOutputRequest__(self, req: str) -> str:
+    def __filterASPAtoms__(self, req: str) -> str:
         return " ".join(re.findall(r"\b[a-zA-Z][\w_]*(?:\([^)]*\))?\.", req))
 
-    def __natural2ASP__(self, user_input: str) -> str:
+    def __inputSeasoning__(self, user_input: str) -> str:
+
+        """
+            Enhances the given input with additional information from the config file to help with the ASP atom extraction.
+            
+            Parameters:
+                user_input: str: The input to be seasoned.
+                
+            Returns:
+                str: The seasoned input with added information to help the LLM for ASP atom extraction.
+        """
 
         questions =  self.__config['preprocessing']
 
@@ -63,20 +73,55 @@ class LLMASP:
 
         return res
 
-    def __makeRequest__(self, user_input: str) -> str:
+    def __natural2ASP__(self, user_input: str) -> str:
+        """
+        Convert natural language input to ASP (Answer Set Programming) format.
+        
+        This method takes a natural language input provided by the user and converts it
+        into ASP format using the GPT-3.5-turbo model via the Gemini API. It preprocesses
+        the input by performing input seasoning to extract the atoms contained into the config file.
+        
+        Parameters:
+            user_input (str): The natural language input provided by the user.
+            
+        Returns:
+            str: The ASP-formatted output generated from the natural language input.
+        """
         return g4f.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 provider=g4f.Provider.Gemini,
-                messages=[self.__toGPTDict__(self.__natural2ASP__(user_input))],
+                messages=[self.__toGPTDict__(self.__inputSeasoning__(user_input))],
                 stream=False,
             )
     
     def extractPreds(self, user_input: str) -> str:
-        req = self.__makeRequest__(user_input)
-        self.preds = self.__cleanOutputRequest__(req)
+        """
+        Extract predicates from the given user input.
+        
+        This method extracts predicates from the user input by converting the input
+        to ASP format using the __natural2ASP__ method, and then filtering out the
+        relevant ASP atoms using the __filterASPAtoms__ method.
+        
+        Parameters:
+            user_input (str): The natural language input provided by the user.
+            
+        Returns:
+            str: The extracted predicates from the user input.
+        """
+        res = self.__natural2ASP__(user_input)
+        self.preds = self.__filterASPAtoms__(res)
         return self.preds
     
     def runASP(self):
+        """
+        Run ASP (Answer Set Programming) solver on the provided ASP code with predicates.
+        
+        This method initializes an ASP control instance, loads the ASP code from the specified file,
+        adds predicates extracted from the user input, grounds the program, and solves it using an ASP solver.
+        
+        Returns:
+            str: The calculated predicates from the ASP solver.
+        """
         control = Control()
         control.load(self.aspCodeFilename)
         control.add("base", [], self.preds)
