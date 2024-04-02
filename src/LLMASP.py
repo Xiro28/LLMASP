@@ -20,7 +20,8 @@ class LLMASP:
 
     __config: dict = field(init=False)
     __valasp_yaml: dict = field(init=False)
-    
+
+
     def __post_init__(self):
         set_cookies(".google.com", {
             "__Secure-1PSID": self._1PSID,
@@ -28,7 +29,10 @@ class LLMASP:
         })
 
         self.__config = self.__loadConfig__(self.configFilename)
-        #self.__valasp_yaml = self.__loadConfig__(self.valaspConfigFilename)
+        self.__valasp_yaml = self.__loadConfig__(self.valaspConfigFilename)
+
+        self.preds = None
+        self.calc_preds = None
 
     def __loadConfig__(self, path: str) -> dict:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
@@ -53,7 +57,8 @@ class LLMASP:
         questions =  self.__config['preprocessing']
 
         res =  "You are a NaturalLanguage to AnswerSetProgramming translator\n"
-        res += "You are going to be asked a series of questions and the answer are inside the user input provided with: [USRIN] input [/USRIN]\n"
+        res += ("You are going to be asked a series of questions and the answer are inside the user input provided "
+                "with: [USRIN] input [/USRIN]\n")
         res += "Be sure to control the arity of the predicates!\n"
         res += "If a question doesn't have a clear answer, skip it.\n"
         res += "Also, keep everything lowercase! \n\n" 
@@ -135,10 +140,10 @@ class LLMASP:
     
     def getInfo(self) -> str:
         """
-            Get the calculated predicates from the ASP solver.
+            Get the calculated and extracted predicates.
             
             Returns:
-                str: The calculated predicates from the ASP solver.
+                str: The calculated and extracted predicates.
         """
         
         return f"Atoms extracted: {self.preds}\nAtoms calculated: {self.calc_preds}"
