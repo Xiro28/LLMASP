@@ -1,17 +1,17 @@
 preprocessing:
-  - prompt: "$List all the people mentioned including me if indirectly included"  
-    predicate: "people(who)."
-  - prompt: "$When the request has to be done" 
-    predicate: "dayoftherequest(day)."
-  - prompt: "$For each people list any restaurant preferences" 
-    predicate: "cuisine_preferences(who, country)."
-  - prompt: "$Is the human alone" 
-    predicate: "alone."
-  - prompt: "$For each people list any allergies" 
-    predicate: "allergies(who, what)."
-  - prompt: "$For each people list any preferite food" 
-    predicate: "preferite_food(who, what)."
-  - prompt: "$For each people list what they what to eat" 
-    predicate: "want_food(who, what)."
-  - prompt: "$For each people list any  disliked food" 
-    predicate: "disliked_food(who, what)."
+  - prompt: § List all the people mentioned including me if indirectly included.
+    predicate: people("who").
+  - prompt: § When has the request to be done?
+    predicate: day_of_the_request("day").
+  - prompt: § For each people, list any restaurant preferences.
+    predicate: cousine_preferences("who", "country").
+  - prompt: § Is the subject alone?
+    predicate: alone(bool).
+  - prompt: § For each people, list any allergies.
+    predicate: allergies("who", "what").
+  - prompt: § For each people, list any favourite food.
+    predicate: favourite_food("who", "what").
+  - prompt: § For each people, list what they what to eat.
+    predicate: want_food("who", "what").
+  - prompt: § For each people, list any disliked food.
+    predicate: disliked_food("who", "what").
