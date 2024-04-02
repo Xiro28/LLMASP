@@ -1,5 +1,5 @@
-# TextToAsp
-Text to ASP programming language using [Valasp](https://github.com/alviano/valasp) and LLM (for now we'll use gpt 3.5 model by openAI).
+# LLMASP
+Natural language to ASP programming language using [Valasp](https://github.com/alviano/valasp) and LLM (for now we'll use Gemini from Google).
 
 Idea:
 
