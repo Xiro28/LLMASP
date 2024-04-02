@@ -27,7 +27,7 @@ class LLMASP:
         })
 
         self.__config = self.__loadConfig__(self.configFilename)
-        self.__valasp_yaml = self.__loadConfig__(self.valaspConfigFilename)
+        #self.__valasp_yaml = self.__loadConfig__(self.valaspConfigFilename)
 
     def __loadConfig__(self, path: str) -> dict:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
@@ -94,7 +94,7 @@ class LLMASP:
                 stream=False,
             )
     
-    def extractPreds(self, user_input: str) -> str:
+    def extractPreds(self, user_input: str) -> "LLMASP":
         """
             Extract predicates from the given user input.
             
@@ -106,14 +106,14 @@ class LLMASP:
                 user_input (str): The natural language input provided by the user.
                 
             Returns:
-                str: The extracted predicates from the user input.
+                self object: The current LLMASP object with the extracted predicates.
         """
         
         res = self.__natural2ASP__(user_input)
         self.preds = self.__filterASPAtoms__(res)
-        return self.preds
+        return self
     
-    def runASP(self):
+    def runASP(self) -> "LLMASP":
         """
             Run ASP (Answer Set Programming) solver on the provided ASP code with predicates.
             
@@ -121,7 +121,7 @@ class LLMASP:
             adds predicates extracted from the user input, grounds the program, and solves it using an ASP solver.
             
             Returns:
-                str: The calculated predicates from the ASP solver.
+                self object: The current LLMASP object with the calculated predicates.
         """
         
         control = Control()
@@ -129,5 +129,5 @@ class LLMASP:
         control.add("base", [], self.preds)
         control.ground([("base", [])])
         self.calc_preds = control.solve(on_model=print)
-        return self.calc_preds
+        return self
 
