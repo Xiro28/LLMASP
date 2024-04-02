@@ -5,7 +5,7 @@ def main():
                   "_1PSID token from gemini",
                   "_1PSIDTS token from gemini")\
             .extractPreds(input("Enter message to be converted to ASP:\n"))\
-            .runASP()
+            .runASP().getInfo()
     print(out)
 
 

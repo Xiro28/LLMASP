@@ -4,6 +4,7 @@ from typeguard import typechecked
 from dataclasses import InitVar, dataclass, field
 from g4f.cookies import set_cookies
 
+import clingo
 import re
 import g4f
 import yaml
@@ -128,6 +129,17 @@ class LLMASP:
         control.load(self.aspCodeFilename)
         control.add("base", [], self.preds)
         control.ground([("base", [])])
+
         self.calc_preds = control.solve(on_model=print)
         return self
+    
+    def getInfo(self) -> str:
+        """
+            Get the calculated predicates from the ASP solver.
+            
+            Returns:
+                str: The calculated predicates from the ASP solver.
+        """
+        
+        return f"Atoms extracted: {self.preds}\nAtoms calculated: {self.calc_preds}"
 
