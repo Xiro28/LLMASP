@@ -7,6 +7,17 @@ from typeguard import typechecked
 from dumbo_asp.primitives.models import Model
 from g4f.cookies import set_cookies, load_cookies_from_browsers
 
+"""
+
+    The Executor class is an abastract class tha defines the interface for the Executor classes.
+    An Executor class is a class that given the asp output it executes a specific task and execute the task 
+    specified inside the function run (must be implemented by the child class).
+
+"""
+@dataclass(frozen=True)
+class Executor:
+    def run(self) -> None:
+        raise NotImplementedError("The run method must be implemented by the child class.")
 
 @typechecked
 @dataclass(frozen=True)
@@ -45,7 +56,7 @@ class Evaluator:
 
         ])
 
-    def __asp2Natural(self) -> str:
+    def __asp2Natural__(self) -> str:
         """
             Convert ASP (Answer Set Programming) to natural language format.
             
@@ -73,7 +84,7 @@ class Evaluator:
         Returns:
             str: The natural language representation of the ASP output.
         """
-        return self.__asp2Natural()
+        return self.__asp2Natural__()
 
     def getInfo(self) -> str:
         """
