@@ -15,3 +15,9 @@ preprocessing:
     predicate: want_food("who", "what").
   - prompt: § For each people, list any disliked food.
     predicate: disliked_food("who", "what").
+
+
+postprocessing:
+  - prompt: § if alone is true in the output atoms say that he's alone.
+  - prompt: § if can_go_togheter(X, Y, Z) is defined say that X can go with Y to eat Z.
+  - prompt: § explain the input atoms in a human readable way.
