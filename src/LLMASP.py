@@ -24,6 +24,9 @@ class LLMASP:
         self.__config = self.__loadConfig__(self.__configFilename)
         self.__docs_rag = self.__loadConfig__(self.__ragDatabaseFilename)
 
+        self.preds = ""
+        self.calc_preds = ""
+
         load_cookies_from_browsers(".google.com")
 
     def __loadConfig__(self, path: str) -> dict | list:
@@ -47,8 +50,11 @@ class LLMASP:
         """
 
         def buildDoc():
+            if len(self.__docs_rag) == 0:
+                return "[DOC][/DOC]"
+            
             return ''.join(
-                f"[DOC]User input:{doc['prompt']}\nYour Output: {doc['response']}[/DOC]"
+                f"[DOC]User input: {doc['prompt']}\nYour Output: {doc['response']}[/DOC]"
                 for doc in self.__docs_rag
             )
 
