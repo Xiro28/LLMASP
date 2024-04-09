@@ -1,129 +1,34 @@
 import re
-from dataclasses import dataclass, field
-
-import g4f
 import yaml
+
+from ExecutorHandler import ExecutorHandler
+from Evaluator import Evaluator
 from typeguard import typechecked
+from g4f import ChatCompletion, Provider
+from dataclasses import dataclass, field
 from dumbo_asp.primitives.models import Model
 from g4f.cookies import set_cookies, load_cookies_from_browsers
-
-"""
-
-    The Executor class is an abastract class tha defines the interface for the Executor classes.
-    An Executor class is a class that given the asp output it executes a specific task and execute the task 
-    specified inside the function run (must be implemented by the child class).
-
-"""
-@dataclass(frozen=True)
-class Executor:
-    def run(self) -> None:
-        raise NotImplementedError("The run method must be implemented by the child class.")
-
-@typechecked
-@dataclass(frozen=True)
-class Evaluator:
-    config: dict
-    preds: str
-    calc_preds: str
-
-    def __toGPTDict__(self, text: str) -> dict:
-        return {"role": "user", "content": text}
-
-    def __postOutputSeasoning__(self) -> str:
-        """
-            Enhances the given input with additional information from the config file to help with the natural language conversion.
-
-            Returns:
-                str: The seasoned datalog output calculated after runASP function with added information to help the LLM for natural language conversion.
-        """
-
-        questions = self.config['postprocessing']
-        the_asp_output = f"[ASP_OUTPUT]{self.calc_preds}[/ASP_OUTPUT]"
-        the_asp_input  = f"[ASP_INPUT]{self.preds}[/ASP_INPUT]"
-
-        return '\n'.join([the_asp_input,
-            """
-                You are a Datalog to NaturalLanguage translator.
-                You are going to be asked a series of questions. 
-                The answer are inside the asp output provided with [ASP_OUTPUT]output[/ASP_OUTPUT]. 
-                Try to explain the output in a natural and human way.
-                If you want to add more info have a look at the input given to obtain the output [ASP_INPUT]input[/ASP_INPUT].
-            """.strip() + '\n',
-            '\n'.join(
-                q['prompt'].replace('§', the_asp_output, 1) + "\n"
-                for q in questions
-            ),
-
-        ])
-
-    def __asp2Natural__(self) -> str:
-        """
-            Convert ASP (Answer Set Programming) to natural language format.
-            
-            
-            This method takes ASP atoms and converts them into natural language format 
-            using the GPT-3.5-turbo model via the Gemini API.
-
-            Parameters:
-                asp_atoms (str): The ASP atoms to be converted to natural language.
-            
-            Returns:
-                str: The natural language output generated from the ASP atoms.
-        """
-        return g4f.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                provider=g4f.Provider.Gemini,
-                messages=[self.__toGPTDict__(self.__postOutputSeasoning__())],
-                stream=False,
-            )
-
-    def getNaturalOutput(self) -> str:
-        """
-        Convert the output of the ASP solver into a natural language string.
-
-        Returns:
-            str: The natural language representation of the ASP output.
-        """
-        return self.__asp2Natural__()
-
-    def getInfo(self) -> str:
-        """
-        Get the calculated and extracted predicates.
-
-        Returns:
-            str: The calculated and extracted predicates.
-        """
-        return f"Atoms extracted: {self.preds}\nAtoms calculated: {self.calc_preds}"
 
 
 @typechecked
 @dataclass(frozen=False)
 class LLMASP:
-    configFilename: str
-    valaspConfigFilename: str
-    aspCodeFilename: str
-    #_1PSID: str
-    #_1PSIDTS: str
+    __configFilename: str
+    __ragDatabaseFilename: str
+    __aspCodeFilename: str
 
     __config: dict = field(init=False)
-    __valasp_yaml: dict = field(init=False)
+    __docs_rag: list = field(init=False)
     
     def __post_init__(self):
-        """
-            set_cookies(".google.com", {
-                "__Secure-1PSID": self._1PSID,
-                "__Secure-1PSIDTS": self._1PSIDTS
-            })
-        """
+        self.__config = self.__loadConfig__(self.__configFilename)
+        self.__docs_rag = self.__loadConfig__(self.__ragDatabaseFilename)
 
         load_cookies_from_browsers(".google.com")
 
-        self.__config = self.__loadConfig__(self.configFilename)
-        self.__valasp_yaml = self.__loadConfig__(self.valaspConfigFilename)
-
-    def __loadConfig__(self, path: str) -> dict:
+    def __loadConfig__(self, path: str) -> dict | list:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
-   
+    
     def __toGPTDict__(self, text: str) -> dict:
         return {"role": "user", "content": text}
  
@@ -141,22 +46,33 @@ class LLMASP:
                 str: The seasoned input with added information to help the LLM for ASP atom extraction.
         """
 
+        def buildDoc():
+            return ''.join(
+                f"[DOC][USER_INPUT]{doc['prompt']}[/USER_INPUT]Your Output: {doc['response']}[/DOC]"
+                for doc in self.__docs_rag
+            )
+
+
         questions = self.__config['preprocessing']
         the_user_input = f"[USER_INPUT]{user_input}[/USER_INPUT]"
 
         return '\n'.join([
             """
                 You are a NaturalLanguage to Datalog translator.
-                You are going to be asked a series of questions. The answer are inside the user input provided with [USER_INPUT]input[/USER_INPUT]. The answer format is provided with [ANSWER_FORMAT]predicate(terms).[/ANSWER_FORMAT].
+                To translate your input to Datalog, you will be asked a series of questions.
+                The answer are inside the user input provided with [USER_INPUT]input[/USER_INPUT] and 
+                the format is provided with [ANSWER_FORMAT]predicate(terms).[/ANSWER_FORMAT].
                 Predicate is a lowercase string (possibly including underscores).
                 Terms is a comma-separated list of either double quoted strings or integers.
                 Be sure to control the number of terms in each answer!
                 If a question doesn't have a clear answer, skip it.
+                Have a look at the [DOC]documentation[/DOC] for help in conversion.
             """.strip() + '\n',
             '\n'.join(
                 q['prompt'].replace('§', the_user_input, 1) + f" [ANSWER_FORMAT]{q['predicate']}[/ANSWER_FORMAT]\n"
                 for q in questions
             ),
+            buildDoc()
         ])
 
     def __natural2ASP__(self, user_input: str) -> str:
@@ -174,24 +90,29 @@ class LLMASP:
                 str: The ASP-formatted output generated from the natural language input.
         """
         
-        return g4f.ChatCompletion.create(
+        return ChatCompletion.create(
                 model="gpt-3.5-turbo",
-                provider=g4f.Provider.Gemini,
+                provider=Provider.Gemini,
                 messages=[self.__toGPTDict__(self.__preInputSeasoning__(user_input))],
                 stream=False,
             )
         
     
-    def extractPreds(self, user_input: str) -> "LLMASP":
+    def extractPreds(self, user_input: str, TRAIN_ON: bool = False) -> "LLMASP":
         """
             Extract predicates from the given user input.
             
             This method extracts predicates from the user input by converting the input
             to ASP format using the __natural2ASP__ method, and then filtering out the
             relevant ASP atoms using the __filterASPAtoms__ method.
+
+            If TRAIN_ON is set to True, the extracted predicates will be saved 
+            to the rag_doc database.
             
             Parameters:
                 user_input (str): The natural language input provided by the user.
+                TRAIN_ON (bool): A flag to determine whether to save the extracted predicates 
+                to the rag_doc database.
                 
             Returns:
                 self object: The current LLMASP object with the extracted predicates.
@@ -199,6 +120,13 @@ class LLMASP:
         
         res = self.__natural2ASP__(user_input)
         self.preds = self.__filterASPAtoms__(res)
+        if TRAIN_ON:
+            out: str = input("Do you want to salve to rag_doc the result? (y/n): ")
+
+            if out == "y":
+                self.__docs_rag.append({"prompt": user_input, "response": self.preds})
+                yaml.dump(self.__docs_rag, open(self.__ragDatabaseFilename, "w"))
+
         return self
     
     def runASP(self) -> "LLMASP":
@@ -212,10 +140,10 @@ class LLMASP:
                 self object: The current LLMASP object with the calculated predicates.
         """
 
-        self.calc_preds = Model.of_program(open(self.aspCodeFilename).read(), self.preds, sort=False)
+        self.calc_preds = Model.of_program(open(self.__aspCodeFilename).read(), self.preds, sort=False)
         return self
     
     def getEvaluator(self) -> "Evaluator":
-        return Evaluator(self.__config, self.preds, self.calc_preds)
+        return Evaluator(self.__config, self.preds, str(self.calc_preds))
 
 
