@@ -1,6 +1,6 @@
 - prompt: Tonight, I'm in the mood for some Italian food.
-  response: 'restaurant(italian). alone(true). people(me). day_of_the_request(tonight). 
-  cousine_preferences(me, italian). '
+  response: 'restaurant(italian). alone(true). people(me). day_of_the_request(tonight).
+    cousine_preferences(me, italian). '
 - prompt: Me and Marco like to go to the Italian restaurant on 5th street. It's our
     favorite pizza.
   response: 'restaurant(italian). alone(false). people(me). people(marco). want_food(me,
@@ -8,7 +8,8 @@
     italian). '
 - prompt: Marco and Alessio wants to go to MCDonald, but I hate hamburgers. I really
     wanted to go to an Italian restaurant to eat pizza but Alessio in allergic to
-    tomato sauce.
+    tomato sauce
   response: people("Marco"). people("Alessio"). people("you"). alone(false). allergies("Alessio",
-    "tomato sauce"). favourite_food("you", "pizza"). want_food("Marco", "hamburger"). 
-    want_food("Alessio", "hamburger"). want_food("you", "pizza"). disliked_food("you", "hamburger").
+    "tomato sauce"). favourite_food("you", "pizza"). want_food("Marco", "hamburger").
+    want_food("Alessio", "hamburger"). want_food("you", "pizza"). disliked_food("you",
+    "hamburger"). cousine_preferences("you", "italian"). day_of_the_request("today").

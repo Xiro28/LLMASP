@@ -48,7 +48,7 @@ class LLMASP:
 
         def buildDoc():
             return ''.join(
-                f"[DOC][USER_INPUT]{doc['prompt']}[/USER_INPUT]Your Output: {doc['response']}[/DOC]"
+                f"[DOC]User input:{doc['prompt']}\nYour Output: {doc['response']}[/DOC]"
                 for doc in self.__docs_rag
             )
 
