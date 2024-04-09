@@ -121,7 +121,7 @@ class LLMASP:
         res = self.__natural2ASP__(user_input)
         self.preds = self.__filterASPAtoms__(res)
         if TRAIN_ON:
-            out: str = input("Do you want to salve to rag_doc the result? (y/n): ")
+            out: str = input(f"Do you want to salve to rag_doc these results: {self.preds}? (y/n): ")
 
             if out == "y":
                 self.__docs_rag.append({"prompt": user_input, "response": self.preds})
