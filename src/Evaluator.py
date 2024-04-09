@@ -21,7 +21,7 @@ class Evaluator(TaskHandler):
         return '\n'.join([the_asp_input,
             """
                 You are a Datalog to NaturalLanguage translator.
-                You are going to be asked a series of questions. 
+                To translate your input to NaturalLanguage, you will be asked a series of questions.
                 The answer are inside the asp output provided with [ASP_OUTPUT]output[/ASP_OUTPUT]. 
                 Try to explain the output in a natural and human way.
                 If you want to add more info have a look at the input given to obtain the output [ASP_INPUT]input[/ASP_INPUT].

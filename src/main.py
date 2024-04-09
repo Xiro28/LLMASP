@@ -6,7 +6,7 @@ def main():
             .runASP().getEvaluator()
     
     print(out.getInfo())
-    print(out.getNaturalOutput())
+    #print(out.getNaturalOutput())
 
 
 if __name__ == "__main__":

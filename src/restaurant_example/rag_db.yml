@@ -2,4 +2,4 @@
   response: "restaurant(italian). alone(true). people(me). day_of_the_request(tonight). cousine_preferences(me, italian). "
 
 - prompt: "Me and Marco like to go to the Italian restaurant on 5th street. It's our favorite pizza."
-  response: "restaurant(italian). alone(false). people(me). people(marco). want_food(me, pizza). want_food(marco, pizza). cousine_preferences(me, italian). cousine_preferences(marco, italian). want_food(me, pizza). want_food(marco, pizza). "
+  response: "restaurant(italian). alone(false). people(me). people(marco). want_food(me, pizza). want_food(marco, pizza). cousine_preferences(me, italian). cousine_preferences(marco, italian). "
