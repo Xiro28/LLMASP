@@ -49,12 +49,12 @@ class LLMASP:
                 str: The seasoned input with added information to help the LLM for ASP atom extraction.
         """
 
-        def buildDoc():
+        def buildExample():
             if len(self.__docs_rag) == 0:
-                return "[DOC][/DOC]"
+                return "[EXAMPLE][/EXAMPLE]"
             
             return ''.join(
-                f"[DOC]User input: {doc['prompt']}\nYour Output: {doc['response']}[/DOC]"
+                f"[EXAMPLE][USER_INPUT]{doc['prompt']}[/USER_INPUT]\n[ANSWER_FORMAT]{doc['response']}[/ANSWER_FORMAT][/EXAMPLE]"
                 for doc in self.__docs_rag
             )
 
@@ -63,22 +63,22 @@ class LLMASP:
         the_user_input = f"[USER_INPUT]{user_input}[/USER_INPUT]"
 
         return '\n'.join([
+            buildExample(),
             """
-                You are a NaturalLanguage to Datalog translator.
+                You are a Natural Language to Datalog translator.
                 To translate your input to Datalog, you will be asked a series of questions.
                 The answer are inside the user input provided with [USER_INPUT]input[/USER_INPUT] and 
                 the format is provided with [ANSWER_FORMAT]predicate(terms).[/ANSWER_FORMAT].
                 Predicate is a lowercase string (possibly including underscores).
                 Terms is a comma-separated list of either double quoted strings or integers.
                 Be sure to control the number of terms in each answer!
-                If a question doesn't have a clear answer, skip it.
-                Have a look at the [DOC]documentation[/DOC] for help in conversion.
+                A Natural Language to Datalog translator should work as showed inside [EXAMPLE][/EXAMPLE].
+                An answer must not be answered if it is not present in the user input, so general form predicate shoud be present.
             """.strip() + '\n',
             '\n'.join(
                 q['prompt'].replace('§', the_user_input, 1) + f" [ANSWER_FORMAT]{q['predicate']}[/ANSWER_FORMAT]\n"
                 for q in questions
-            ),
-            buildDoc()
+            )
         ])
 
     def __natural2ASP__(self, user_input: str) -> str:
@@ -126,6 +126,8 @@ class LLMASP:
         
         res = self.__natural2ASP__(user_input)
         self.preds = self.__filterASPAtoms__(res)
+
+        print("RAW OUTPUT: ", res)
         if TRAIN_ON:
             out: str = input(f"Do you want to salve to rag_doc these results: {self.preds}? (y/n): ")
 

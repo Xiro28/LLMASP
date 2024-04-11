@@ -25,6 +25,7 @@ class Evaluator(TaskHandler):
                 The answer are inside the asp output provided with [ASP_OUTPUT]output[/ASP_OUTPUT]. 
                 Try to explain the output in a natural and human way.
                 If you want to add more info have a look at the input given to obtain the output [ASP_INPUT]input[/ASP_INPUT].
+                Once you answered the questions, the output as to be a natural language phrase.
             """.strip() + '\n',
             '\n'.join(
                 q['prompt'].replace('§', the_asp_output, 1) + "\n"
