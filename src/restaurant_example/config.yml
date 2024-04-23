@@ -1,23 +1,14 @@
 preprocessing:
-  - prompt: § List all the people mentioned including me if indirectly included.
-    predicate: people("who").
-  - prompt: § When has the request to be done?
-    predicate: day_of_the_request("day").
-  - prompt: § For each people, list any restaurant preferences.
-    predicate: cousine_preferences("who", "country").
-  - prompt: § Is the subject alone?
-    predicate: alone(bool).
-  - prompt: § For each people, list any allergies.
-    predicate: allergies("who", "what").
-  - prompt: § For each people, list any favourite food.
-    predicate: favourite_food("who", "what").
-  - prompt: § For each people, list what they what to eat.
-    predicate: want_food("who", "what").
-  - prompt: § For each people, list any disliked food.
-    predicate: disliked_food("who", "what").
+- _: The user provides a request to obtain catering suggestions. The user can mention a day, other persons, and their cuisine preferences.
+- person("who"): List all the persons mentioned including me if indirectly included.
+- cuisine_preferences("who", "country"): For each person, list any restaurant preferences.
+- want_food("who", "what"): For each person, list what they want to eat.
 
+knowledge_base: |
+  can_go_together(X,Y,Z) :- person(X), person(Y), X < Y, want_food(X,Z), want_food(Y,Z).
+  can_go_together(X,Y,Z) :- person(X), person(Y), X < Y, cuisine_preferences(X,Z), cuisine_preferences(Y,Z).
+  #show can_go_together/3.
 
 postprocessing:
-  - prompt: § if alone is true in the output atoms say that he's alone.
-  - prompt: § if can_go_togheter(X, Y, Z) is defined say that X can go with Y to eat Z.
-  - prompt: § explain the input atoms in a human readable way.
+- _: Explain the facts in a human readable way, as a paragraph.
+- can_go_together("person 1", "person 2", "cuisine preference"): Say that "person 1" can go with "person 2" to eat "cuisine preference".

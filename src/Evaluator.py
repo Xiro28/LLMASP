@@ -15,12 +15,10 @@ class Evaluator(TaskHandler):
         return {"role": "system", "content": '\n'.join([
             build_example(),
             """
-                You are a Datalog to NaturalLanguage translator.
-                To translate your input to NaturalLanguage, you will be asked a series of questions.
-                The answer are inside the asp output provided with [ASP_OUTPUT]output[/ASP_OUTPUT]. 
-                Try to explain the output in a natural and human way.
-                If you want to add more info have a look at the input given to obtain the output [ASP_INPUT]input[/ASP_INPUT].
-                Once you answered the questions, the output as to be a natural language phrase.
+                You are now a Datalog to Natural Language translator.
+                You will be given relational facts and mapping instructions.
+                Relational facts are given in the form [FACTS]atoms[/FACTS].
+                Remember these instructions and don't say anything!
             """.strip() + '\n'])}
     
     def __post_output_seasoning__(self) -> str:
@@ -32,16 +30,23 @@ class Evaluator(TaskHandler):
         """
 
         questions = self._TaskHandler__config['postprocessing']
-        the_asp_output = f"[ASP_OUTPUT]{self._TaskHandler__calc_preds}[/ASP_OUTPUT]"
-        the_asp_input  = f"[ASP_INPUT]{self._TaskHandler__preds}[/ASP_INPUT]"
+        the_asp_output = f"[FACTS]{self._TaskHandler__calc_preds} {self._TaskHandler__preds}[/FACTS]"
 
-        return '\n'.join([the_asp_input,
-            '\n'.join(
-                q['prompt'].replace('§', the_asp_output, 1) + "\n"
-                for q in questions
-            ),
+        for q_key, q_value in questions.items():
 
-        ])
+            if q_key == '_':
+                prompt += f"""
+                            Here is some context that you MUST analyze and remember.
+                            {q_value}
+                            Remember this context and don't say anything!\n
+                            """
+            else:
+                prompt += f"""
+                            {the_asp_output}
+                            Each fact matching {q_key} must be interpreted as follows: {q_value}\n
+                            """
+
+        return prompt + '\nSummarize the following responses'
 
     def __asp_to_natural__(self) -> str:
         """
@@ -58,11 +63,13 @@ class Evaluator(TaskHandler):
                 str: The natural language output generated from the ASP atoms.
         """
         return self.__llm.create(
-                model="gpt-3.5-turbo",
-                temperature=0.7,
+                model="TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q5_K_M.gguf",
+                temperature=0.0,
                 messages=[self.__gpt_system_start_prompt__(), self.__to_gpt_dict__(self.__post_output_seasoning__())],
                 stream=False,
             )
+    
+
     
     def get_natural_output(self) -> str:
         """

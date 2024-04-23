@@ -17,7 +17,6 @@ from dumbo_asp.primitives.models import Model
 class LLMASP:
     __configFilename: str
     __ragDatabaseFilename: str
-    __aspCodeFilename: str
 
     __config: dict = field(init=False)
     __docs_rag: list = field(init=False)
@@ -38,16 +37,17 @@ class LLMASP:
     def __gpt_system_start_prompt__(self) -> list:
         res = [{"role": "system", "content": '\n'.join([
             """
-                You are a Natural Language to Datalog translator.
-                To translate your input to Datalog, you will be asked a series of questions.
-                The answer are inside the user input provided with [USER_INPUT]input[/USER_INPUT] and 
-                the format is provided with [ANSWER_FORMAT]predicate(terms).[/ANSWER_FORMAT].
-                Predicate is a lowercase string (possibly including underscores).
-                Terms is a comma-separated list of either double quoted strings or integers.
+                You are a Natural Language to Datalog translator. To translate your
+                input to Datalog, you will be asked a sequence of questions. The 
+                answers are inside the user input provided with 
+                [USER_INPUT]input[/USER_INPUT] and the format is provided with 
+                [ANSWER_FORMAT]predicate(terms).[/ANSWER_FORMAT]. Predicate is a 
+                lowercase string (possibly including underscores). Terms is a 
+                comma-separated list of either double quoted strings or integers. 
                 Be sure to control the number of terms in each answer!
-                An answer must not be answered if it is not present in the user input, so general form predicate shoud be present.
+                An answer MUST NOT be answered if it is not present in the user input.
+                Remember these instructions and don't say anything!
             """.strip() + '\n',])}]
-        
         for prompt, response in self.__docs_rag:
             res.append({"role": "user", "content": f"{self.__pre_input_seasoning__(prompt)}\n["})
             res.append({"role": "system", "content": f"{response}"})
@@ -73,11 +73,26 @@ class LLMASP:
 
         questions = self.__config['preprocessing']
         the_user_input = f"[USER_INPUT]{user_input}[/USER_INPUT]"
+        prompt = ""
 
-        return '\n'.join(
-                q['prompt'].replace('§', the_user_input, 1) + f" [ANSWER_FORMAT]{q['predicate']}[/ANSWER_FORMAT]\n"
-                for q in questions
-            )
+        for q in questions:
+
+            q_key, q_value = list(q.items())[0]
+
+            if q_key == '_':
+                prompt += f"""
+                            Here is some context that you MUST analyze and remember.
+                            {q_value}
+                            Remember this context and don't say anything!\n
+                            """
+            else:
+                prompt += f"""
+                            {the_user_input}
+                            {q_key}
+                            [ANSWER_FORMAT]{q_value}[/ANSWER_FORMAT]\n
+                            """
+
+        return prompt
 
     def __natural_to_asp__(self, user_input: str) -> str:
         """
@@ -97,9 +112,11 @@ class LLMASP:
         chrono = [prompt for prompt in self.__gpt_system_start_prompt__()]
         chrono.append(self.__to_gpt_user_dict__(self.__pre_input_seasoning__(user_input)))
 
+        print("\n".join([f"{i['role']}: {i['content']}" for i in chrono]))
+
         res =  self.__llm.create(
-            model="TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q4_K_S.gguf",
-            temperature=0.7,
+            model="TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q5_K_M.gguf",
+            temperature=0.0,
             messages=chrono,
             stream=False,
         )
@@ -139,21 +156,27 @@ class LLMASP:
 
         return self
     
-    def run_asp(self) -> "LLMASP":
+    def run_asp(self, use_preserved=False) -> "LLMASP":
         """
             Run ASP (Answer Set Programming) solver on the provided ASP code with predicates.
             
             This method initializes an ASP control instance, loads the ASP code from the specified file,
             adds predicates extracted from the user input, grounds the program, and solves it using an ASP solver.
+
+            parameters:
+                use_preserved (bool): A flag to determine whether to use the preserved predicates, calculated at each run.
             
             Returns:
                 self object: The current LLMASP object with the calculated predicates.
         """
+        if (not use_preserved):
+            self.calc_preds = Model.of_program(self.__config['knowledge_base'], self.preds, sort=False).as_facts
+        else:
+            self.calc_preds += Model.of_program(self.__config['knowledge_base'], self.preds + self.calc_preds, sort=False).as_facts
 
-        self.calc_preds = Model.of_program(open(self.__aspCodeFilename).read(), self.preds, sort=False)
         return self
     
     def get_evaluator(self) -> "Evaluator":
-        return Evaluator(self.__config, self.preds, str(self.calc_preds))
+        return Evaluator(self.__config, self.preds, self.calc_preds)
 
 
