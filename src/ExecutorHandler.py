@@ -9,7 +9,7 @@ from TaskHandler import TaskHandler
 from g4f import ChatCompletion, Provider
 
 @typechecked
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class ExecutorHandler(TaskHandler):
     
     def run(self) -> None:

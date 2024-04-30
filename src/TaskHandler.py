@@ -1,28 +1,17 @@
 from dataclasses import dataclass
 from typeguard import typechecked
 
-from openai import OpenAI
 
 @typechecked
-@dataclass(frozen=True)
+@dataclass(frozen=False)
 class TaskHandler:
     __config: dict
     __preds: str
     __calc_preds: str
 
     def __post_init__(self):
-
-        if len(self.__config) == 0:
-            raise ValueError("The config file must not be empty.")
-        
-        if len(self.__calc_preds) == 0:
-            print("Warning: The calculated predicates are empty.")
-            #raise ValueError("The calculated predicates must not be empty.")
-
-        self.__llm = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio").chat.completions
-
-    def __to_gpt_dict__(self, text: str) -> dict:
-        return {"role": "user", "content": text}
+        assert len(self.__config) > 0, "The config file must not be empty."
+        assert len(self.__calc_preds) > 0, "The calculated predicates must not be empty. ASP might not have found any predicates."
 
     def get_info(self) -> str:
         """
