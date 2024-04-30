@@ -6,7 +6,6 @@
 from dataclasses import dataclass
 from typeguard import typechecked
 from TaskHandler import TaskHandler
-from g4f import ChatCompletion, Provider
 
 @typechecked
 @dataclass(frozen=False)

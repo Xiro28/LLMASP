@@ -11,7 +11,7 @@ class TaskHandler:
 
     def __post_init__(self):
         assert len(self.__config) > 0, "The config file must not be empty."
-        assert len(self.__calc_preds) > 0, "The calculated predicates must not be empty. ASP might not have found any predicates."
+        #assert len(self.__calc_preds) > 0, "The calculated predicates must not be empty. ASP might not have found any predicates."
 
     def get_info(self) -> str:
         """

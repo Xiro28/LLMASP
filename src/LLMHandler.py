@@ -23,7 +23,7 @@ class LLMHandler:
     def __to_gpt_user_dict__(self, text: str) -> dict:
         return {"role": "user", "content": text}
     
-    def __to_gpt_system_dict__(self, text: str) -> dict:
+    def __to_gpt_system_dict__(self, text: str) -> str:
         return {"role": "system", "content": text}
 
     def invoke_llm(self, prompt: list, temperature = 0.0) -> dict:
@@ -33,11 +33,11 @@ class LLMHandler:
             Parameters:
                 system_prompt (str): The system prompt to be used for the LLM.
                 prompt (list): The prompt to be used for the LLM.
-                temperature (float): The temperature to be used for the LLM. A value between 0.0 (same response, zero randomness) 
+                temperature (float): The temperature to be used for the LLM. A value between 0.0 (always same response, zero randomness) 
                                      and 1.0 (high creativity, more randomness).
 
             Returns:
-                dict: The natural language output generated from the LLM.
+                str: The natural language output generated from the LLM.
         """
 
         chrono = [self.__to_gpt_system_dict__(self.__system_prompt)]

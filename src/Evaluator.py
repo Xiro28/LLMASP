@@ -10,12 +10,10 @@ class Evaluator(TaskHandler):
     def __post_init__(self):
         super().__post_init__()
 
-        self.__llm_instance = LLMHandler("""
-                You are now a Datalog to Natural Language translator.
-                You will be given relational facts and mapping instructions.
-                Relational facts are given in the form [FACTS]atoms[/FACTS].
-                Remember these instructions and don't say anything!
-            """)
+        self.__llm_instance = LLMHandler("""You are now a Datalog to Natural Language translator.
+                                            You will be given relational facts and mapping instructions.
+                                            Relational facts are given in the form [FACTS]atoms[/FACTS].
+                                            Remember these instructions and don't say anything!""")
     
     def __post_output_seasoning__(self) -> list:
         """
@@ -30,19 +28,17 @@ class Evaluator(TaskHandler):
 
         prompt = []
 
-        for q_key, q_value in questions.items():
+        for q in questions:
+
+            q_key, q_value = list(q.items())[0]
 
             if q_key == '_':
-                self.__post_output_seasoning__['content'] += f"""
-                            Here is some context that you MUST analyze and remember.
-                            {q_value}   
-                            Remember this context and don't say anything!\n
-                            """
+                prompt.append(f"""Here is some context that you MUST analyze and remember.
+                                  {q_value}   
+                                  Remember this context and don't say anything!\n""")
             else:
-                prompt.append(f"""
-                            {the_asp_output}
-                            Each fact matching {q_key} must be interpreted as follows: {q_value}\n
-                            """)
+                prompt.append(f"""{the_asp_output}
+                                  Each fact matching {q_key} must be interpreted as follows: {q_value}\n""")
 
         return prompt
 
@@ -77,5 +73,4 @@ class Evaluator(TaskHandler):
         Returns:
             str: The natural language representation of the ASP output.
         """
-
         return self.__asp_to_natural__()

@@ -30,24 +30,24 @@ class LLMASP:
         self.preds = ""
         self.calc_preds = ""
 
-        self.__llm_instance = LLMHandler("""You are a Natural Language to Datalog translator. To translate your
-                                            input to Datalog, you will be asked a sequence of questions. The 
-                                            answers are inside the user input provided with 
+        self.__llm_instance = LLMHandler("""You are a Natural Language to Datalog translator. 
+                                            To translate yourinput to Datalog, you will be asked a sequence of questions. 
+                                            The answers are inside the user input provided with 
                                             [USER_INPUT]input[/USER_INPUT] and the format is provided with 
-                                            [ANSWER_FORMAT]predicate(terms).[/ANSWER_FORMAT]. Predicate is a 
-                                            lowercase string (possibly including underscores). Terms is a 
-                                            comma-separated list of either double quoted strings or integers. 
+                                            [ANSWER_FORMAT]predicate(list, of, terms).[/ANSWER_FORMAT].  
+                                            Predicate is a lowercase string (possibly including underscores).  
+                                            Terms is a comma-separated list of either double quoted strings or integers. 
                                             Be sure to control the number of terms in each answer!
+                                            A predicate must terminate with a period.
                                             An answer MUST NOT be answered if it is not present in the user input.
-                                            Remember these instructions and don't say anything!
-            """)
+                                            Remember these instructions and don't say anything!""")
 
-
+ 
     def __load_config__(self, path: str) -> dict | list:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
  
     def __filter_asp_atoms__(self, req: str) -> str:
-        return " ".join(re.findall(r"\b[a-zA-Z][\w_]*(?:\([^)]*\))?\.", req))
+        return " ".join(re.findall(r"\b[a-zA-Z][\w_]*\([^)]*\)\.", req))
 
     def __pre_input_seasoning__(self, user_input: str) -> list:
         """
@@ -74,12 +74,9 @@ class LLMASP:
                             Remember this context and don't say anything!\n
                             """)
             else:
-                prompt.append(f""" {q_value}
+                prompt.append(f""" {q_value}. User will expect just the datalog predicate in the format: {q_key}.\n
                             {the_user_input}
-                            [ANSWER_FORMAT]{q_key}[/ANSWER_FORMAT]\n
                             """)
-                
-        print(prompt)
 
         return prompt
 
@@ -101,9 +98,10 @@ class LLMASP:
         F = ""
 
         for atom in self.__pre_input_seasoning__(user_input):
-            print(f"LLM: {atom}")
             response =  self.__llm_instance.invoke_llm([atom])
-            F += response
+            F += self.__filter_asp_atoms__(response)
+
+            print("VERBOSE: ", response)
 
         print(F)
 
@@ -130,9 +128,8 @@ class LLMASP:
                 self object: The current LLMASP object with the extracted predicates.
         """
         
-        res = self.__natural_to_asp__(user_input)
-        self.preds = self.__filter_asp_atoms__(res)
-
+        self.preds = self.__natural_to_asp__(user_input)
+         
         if TRAIN_ON:
             out: str = input(f"Do you want to salve to rag_doc these results: {self.preds}? (y/n): ")
 
