@@ -1,7 +1,115 @@
-# LLMASP
-Natural language to ASP programming language using [Valasp](https://github.com/alviano/valasp) and LLM (for now we'll use Gemini from Google).
+                
 
-Idea:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+# LLMASP
+
+LLM reasoner using ASP programming language with custom output handler. 
+The output handler can be of two types:
+ - Evaluator: The evaluator takes the output from the ASP solver and reason over it explaining to the user what it's happening.
+ - Executor: The executor takes the output from the ASP solver and execute user defined actions over it (robot controller, battleship player).
+
+[Valasp](https://github.com/alviano/valasp) will be used to syntax control the output of the LLM  (for now we'll use Gemini from Google as testing).
+ 
+## Getting Started
+
+These instructions will give you a copy of the project up and running on
+your local machine for development and testing purposes. See deployment
+for notes on deploying the project on a live system.
+ 
+### Prerequisites
+
+- Poetry
+- LM Studio for local LLM (optional)
+ 
+### Installing
+
+Run:
+
+    poetry install
+
+in the main folder of the project
+
+And
+
+- Windows:
+
+      poetry run python main.py
+
+- Mac:
+
+      poetry run python3 main.py
+
+to execute the demo provided
+ 
+## Authors
+
+See also the list of
+[contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
+who participated in this project.
+
+- **Lorenzo Grillo** - [Xiro28](https://github.com/Xiro28)
+- **Mario Alviano** - [alviano](https://github.com/alviano)
+
+ 
+## Acknowledgments
+
+- [G4F](https://github.com/xtekky/gpt4free) for the library used to  comunicate the Gemini client
+- [LM Studio](https://lmstudio.ai) for the tool to inference the LLM on local hardware offline
+
+## Original Idea (italian):
 
 Input: testo in linguaggio naturale
  
