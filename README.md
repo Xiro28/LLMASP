@@ -63,7 +63,8 @@ The output handler can be of two types:
 
 [Valasp](https://github.com/alviano/valasp) will be used to syntax control the output of the LLM  (for now we'll use Gemini from Google as testing).
 
-How does it work:
+Structure example of LLMASP:
+
 ![first_example](./battleship_image.png)
  
 ## Getting Started
@@ -95,13 +96,11 @@ And
 
       poetry run python3 main.py
 
-to execute the demo provided
+inside the src folder to execute the demo provided
  
 ## Authors
 
-See also the list of
-[contributors](https://github.com/PurpleBooth/a-good-readme-template/contributors)
-who participated in this project.
+See also the list of contributors who participated in this project.
 
 - **Lorenzo Grillo** - [Xiro28](https://github.com/Xiro28)
 - **Mario Alviano** - [alviano](https://github.com/alviano)
@@ -109,8 +108,19 @@ who participated in this project.
  
 ## Acknowledgments
 
-- [G4F](https://github.com/xtekky/gpt4free) for the library used to  comunicate the Gemini client
-- [LM Studio](https://lmstudio.ai) for the tool to inference the LLM on local hardware offline
+- [G4F](https://github.com/xtekky/gpt4free) for the library used to comunicate with the Gemini client
+- [LM Studio](https://lmstudio.ai) for the tool to inference on local hardware offline
+- [MakeReadMe](https://www.makeread.me/generator/purplebooth-a-good-readme-template) for this readme structure
+
+## TODO:
+ - Add possibility to load multiple yaml configurations to let the LLM decide which one to use based on user input context
+ - Possibility to create ASP knowlage based code by understanding what the user instructs (i.e. user input contains battleship rules, LLMASP learn how to play by converting the user input to asp code to be executed when it's requested to play battleship)
+ - BabyLLMASP: embedded version for raspberrian devices (example allowing motor/sensor controls from user input)
+ - Valasp
+
+## Further Ideas
+ - [LLM Instructor](https://python.useinstructor.com) for better conversion to ASP atoms or any LLM Grammar
+ - Build a little IDE to graphically edit the base knowlage of the config.yaml
 
 ## Original Idea (italian):
 
