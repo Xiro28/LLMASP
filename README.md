@@ -62,6 +62,9 @@ The output handler can be of two types:
  - Executor: The executor takes the output from the ASP solver and execute user defined actions over it (robot controller, battleship player).
 
 [Valasp](https://github.com/alviano/valasp) will be used to syntax control the output of the LLM  (for now we'll use Gemini from Google as testing).
+
+How does it work:
+![first_example](./battleship_image.png)
  
 ## Getting Started
 
