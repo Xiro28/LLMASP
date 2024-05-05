@@ -61,7 +61,7 @@ The output handler can be of two types:
  - Evaluator: The evaluator takes the output from the ASP solver and reason over it explaining to the user what it's happening.
  - Executor: The executor takes the output from the ASP solver and execute user defined actions over it (robot controller, battleship player).
 
-[Valasp](https://github.com/alviano/valasp) will be used to syntax control the output of the LLM  (for now we'll use Gemini from Google as testing).
+[Valasp](https://github.com/alviano/valasp) will be used to syntax control the output of the LLM. Currently we'll use Gemini from Google for quick test.
 
 Structure example of LLMASP:
 
@@ -119,7 +119,7 @@ See also the list of contributors who participated in this project.
  - Valasp
 
 ## Further Ideas
- - [LLM Instructor](https://python.useinstructor.com) for better conversion to ASP atoms or any LLM Grammar
+ - [LLM Instructor](https://python.useinstructor.com) for better conversion to ASP atoms (or any other LLM Grammar output formatter)
  - Build a little IDE to graphically edit the base knowlage of the config.yaml
 
 ## Original Idea (italian):
