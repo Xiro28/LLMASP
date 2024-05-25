@@ -1,8 +1,13 @@
-
-from ExecutorHandler import ExecutorHandler
 import pytest
 from unittest.mock import MagicMock, patch
 from LLMASP.src.LLMASP import LLMASP
+
+from LLMASP.src.outputHandlers.executeOutput import ExecuteOutput
+from LLMASP.src.inputHandlers.evaluateInput import EvaluateInput
+from inputHandlers.abstractInputHandler import AbstractInputHandler
+from outputHandlers.evaluateOutput import EvaluateOuput
+from utils.LLMHandler import LLMHandler
+
 
 
 @pytest.fixture
@@ -12,28 +17,27 @@ def llmasp_fix():
                            "preprocessing": [{"_": "Test request"}, {"test(x).": "Test predicate"}],
                            "knowledge_base": "res(x) :- test(x)."
                            }]):
-        return LLMASP("config.yml")
+        return LLMASP(EvaluateInput, '')
 
-def test_to_gpt_user_dict(llmasp_fix):
-    gpt_dict = llmasp_fix._LLMASP__llm_instance.__to_gpt_user_dict__("some text")
+def test_to_gpt_user_dict():
+    gpt_dict = LLMHandler("test").__to_gpt_user_dict__("some text")
     assert gpt_dict == {"role": "user", "content": "some text"}
 
-def test_to_gpt_system_dict(llmasp_fix):
-    gpt_dict = llmasp_fix._LLMASP__llm_instance.__to_gpt_system_dict__("some text")
+def test_to_gpt_system_dict():
+    gpt_dict = LLMHandler("test").__to_gpt_system_dict__("some text")
     assert gpt_dict == {"role": "system", "content": "some text"}
 
-def test_filter_asp_atoms(llmasp_fix):
-    filtered_req = llmasp_fix.__filter_asp_atoms__("some random text\nrequest(x).\nrandom")
+def test_filter_asp_atoms():
+    filtered_req = AbstractInputHandler({}, "test").__filter_asp_atoms__("some random text\ntest:request(x).\nrandom")
     assert filtered_req == "request(x)."
 
-def test_not_runnable_ExecutorHandler():
-    exec_handler = ExecutorHandler("config.yml", "rag_db.yml", "code.asp")
+def test_not_runnable_ExecutorHandler(llmasp_fix):
     with pytest.raises(NotImplementedError):
-        exec_handler.run()
+        llmasp_fix._as(ExecuteOutput).run()
 
 def test_get_empty_info(llmasp_fix):
     with pytest.raises(AssertionError):
-        llmasp_fix.get_evaluator().getInfo()
+        llmasp_fix._as(EvaluateOuput).getInfo()
 
 def test_run_asp_with_none_calc_preds(llmasp_fix):
     llmasp_fix.preds = "asp(x)."

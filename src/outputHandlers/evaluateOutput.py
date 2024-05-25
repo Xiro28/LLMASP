@@ -1,11 +1,11 @@
 from typeguard import typechecked
 from dataclasses import dataclass
-from LLMHandler import LLMHandler
-from TaskHandler import TaskHandler
+from outputHandlers.abstractOutputHandler import AbstractOutputHandler
+from utils.LLMHandler import LLMHandler
 
 @typechecked
 @dataclass(frozen=False)
-class Evaluator(TaskHandler):
+class EvaluateOuput(AbstractOutputHandler):
 
     def __post_init__(self):
         super().__post_init__()
@@ -23,10 +23,10 @@ class Evaluator(TaskHandler):
                 str: The seasoned datalog output calculated after runASP function with added information to help the LLM for natural language conversion.
         """
 
-        questions = self._TaskHandler__config['postprocessing']
-        the_asp_output = f"[FACTS]{self._TaskHandler__calc_preds} {self._TaskHandler__preds}[/FACTS]"
+        questions = self._AbstractOutputHandler__config['postprocessing']
+        the_asp_output = f"[FACTS]{self._AbstractOutputHandler__calc_preds} {self._AbstractOutputHandler__preds}[/FACTS]."
 
-        prompt = []
+        prompt = [the_asp_output]
 
         for q in questions:
 
@@ -37,12 +37,14 @@ class Evaluator(TaskHandler):
                                   {q_value}   
                                   Remember this context and don't say anything!\n""")
             else:
-                prompt.append(f"""{the_asp_output}
-                                  Each fact matching {q_key} must be interpreted as follows: {q_value}\n""")
+                #check if the predicate that we're going to explain is in the ASP output
+                if q_key.split('(')[0] in the_asp_output:
+                    prompt.append(f"Each fact matching {q_key} must be interpreted as follows: {q_value}")
+
 
         return prompt
 
-    def __asp_to_natural__(self) -> str:
+    def run(self) -> str:
         """
             Convert ASP (Answer Set Programming) to natural language format.
             
@@ -64,13 +66,3 @@ class Evaluator(TaskHandler):
             R += response
         
         return self.__llm_instance.invoke_llm([f"Summerize the following responses: {R}"])
-
-    
-    def get_natural_output(self) -> str:
-        """
-        Convert the output of the ASP solver into a natural language string.
-
-        Returns:
-            str: The natural language representation of the ASP output.
-        """
-        return self.__asp_to_natural__()

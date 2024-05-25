@@ -5,11 +5,10 @@
 """
 from dataclasses import dataclass
 from typeguard import typechecked
-from TaskHandler import TaskHandler
+
+from outputHandlers.abstractOutputHandler import AbstractOutputHandler
 
 @typechecked
 @dataclass(frozen=False)
-class ExecutorHandler(TaskHandler):
-    
-    def run(self) -> None:
-        raise NotImplementedError("The run method must be implemented by the child class.")
+class ExecuteOutput(AbstractOutputHandler):
+    pass

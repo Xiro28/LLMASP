@@ -1,5 +1,4 @@
 preprocessing:
-- _: The user provides a request to obtain catering suggestions. The user can mention a day, other persons, and their cuisine preferences.
 - person("who").: List all the persons mentioned including me if indirectly included.
 - cuisine_preferences("who", "country").: For each person, list any restaurant preferences.
 - want_food("who", "what").: For each person, list what they want to eat.

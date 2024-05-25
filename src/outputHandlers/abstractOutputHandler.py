@@ -4,14 +4,17 @@ from typeguard import typechecked
 
 @typechecked
 @dataclass(frozen=False)
-class TaskHandler:
+class AbstractOutputHandler:
     __config: dict
     __preds: str
     __calc_preds: str
 
     def __post_init__(self):
-        assert len(self.__config) > 0, "The config file must not be empty."
-        #assert len(self.__calc_preds) > 0, "The calculated predicates must not be empty. ASP might not have found any predicates."
+        assert self.__config == '', "The config array must not be empty."
+        assert self.__preds  == '', "Input predicates must not be empty. LLM might not have found any predicates."
+
+    def run(self) -> None:
+        raise NotImplementedError("Not implemented yet.")
 
     def get_info(self) -> str:
         """
