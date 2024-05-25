@@ -1,7 +1,128 @@
-# LLMASP
-Natural language to ASP programming language using [Valasp](https://github.com/alviano/valasp) and LLM (for now we'll use Gemini from Google).
+                
 
-Idea:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+# LLMASP
+
+LLM reasoner using ASP programming language with custom output handler. 
+The output handler can be of two types:
+ - Evaluator: The evaluator takes the output from the ASP solver and reason over it explaining to the user what it's happening.
+ - Executor: The executor takes the output from the ASP solver and execute user defined actions over it (robot controller, battleship player).
+
+[Valasp](https://github.com/alviano/valasp) will be used to syntax control the output of the LLM. Currently we'll use Gemini from Google for quick test.
+
+Structure example of LLMASP:
+
+![first_example](./battleship_image.png)
+ 
+## Getting Started
+
+These instructions will give you a copy of the project up and running on
+your local machine for development and testing purposes. See deployment
+for notes on deploying the project on a live system.
+ 
+### Prerequisites
+
+- Poetry
+- LM Studio for local LLM (optional)
+ 
+### Installing
+
+Run:
+
+    poetry install
+
+in the main folder of the project
+
+And
+
+- Windows:
+
+      poetry run python main.py
+
+- Mac:
+
+      poetry run python3 main.py
+
+inside the src folder to execute the demo provided
+ 
+## Authors
+
+See also the list of contributors who participated in this project.
+
+- **Lorenzo Grillo** - [Xiro28](https://github.com/Xiro28)
+- **Mario Alviano** - [alviano](https://github.com/alviano)
+
+ 
+## Acknowledgments
+
+- [G4F](https://github.com/xtekky/gpt4free) for the library used to comunicate with the Gemini client
+- [LM Studio](https://lmstudio.ai) for the tool to inference on local hardware offline
+- [MakeReadMe](https://www.makeread.me/generator/purplebooth-a-good-readme-template) for this readme structure
+
+## TODO:
+ - Add possibility to load multiple yaml configurations to let the LLM decide which one to use based on user input context
+ - Possibility to create ASP knowlage based code by understanding what the user instructs (i.e. user input contains battleship rules, LLMASP learn how to play by converting the user input to asp code to be executed when it's requested to play battleship)
+ - BabyLLMASP: embedded version for raspberrian devices (example allowing motor/sensor controls from user input)
+ - Valasp
+
+## Further Ideas
+ - [LLM Instructor](https://python.useinstructor.com) for better conversion to ASP atoms (or any other LLM Grammar output formatter)
+ - Build a little IDE to graphically edit the base knowlage of the config.yaml
+
+## Original Idea (italian):
 
 Input: testo in linguaggio naturale
  
