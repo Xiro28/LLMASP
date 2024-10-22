@@ -1,11 +1,11 @@
 preprocessing:
 - person("who").: List all the persons mentioned including me if indirectly included.
-- cuisine_preferences("who", "food_name", "guess_food_country").: For each person, list any restaurant preferences.
+- cuisine_preferences("who", "guess_food_preference_country").: For each person, list the food preference country.
 - want_food("who", "food_name").: For each person, list what they want to eat.
 
 knowledge_base: |
   can_go_together(X,Y,Z) :- person(X), person(Y), X < Y, want_food(X,Z), want_food(Y,Z).
-  can_go_together(X,Y,Z) :- person(X), person(Y), X < Y, cuisine_preferences(X,_, Z), cuisine_preferences(Y, _, Z).
+  can_go_together(X,Y,Z) :- person(X), person(Y), X < Y, cuisine_preferences(X, Z), cuisine_preferences(Y, Z).
   #show can_go_together/3.
 
 postprocessing:

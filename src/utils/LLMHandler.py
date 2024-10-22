@@ -4,7 +4,6 @@ from g4f.cookies import load_cookies_from_browsers
 from utils.customInstructor import CustomInstructor
 
 
-import ollama
 import instructor
 
 
@@ -41,7 +40,7 @@ class LLMHandler:
     def __to_gpt_system_dict__(self, text: str) -> str:
         return {"role": "system", "content": text}
     
-    def invoke_llm_constrained(self, prompt: str, class_response: any) -> dict:
+    def invoke_llm_constrained(self, prompt: str, class_response: any, extra_info: str) -> dict:
         """
             Invoke the LLM (Large Language Model)
 
@@ -58,20 +57,23 @@ class LLMHandler:
             return self.__llm_constrained.create(class_response, self.__to_gpt_user_dict__(prompt))
 
         print(class_response)
+        print(extra_info)
         return self.__llm_constrained.chat.completions.create(
                 model=MODEL_OLLAMA,
                 temperature=0.0,
+                max_tokens=100,
                 messages=[
                     {
                         "role": "system",
-                        "content": "You are a world class AI that excels at extracting user data from a sentence.",
+                        "content": f"""You are a world class AI that excels at extracting user data from a sentence. 
+                                    Do the following: {extra_info}.""",
                     },
                     {
                         "role": "user",
                         "content": prompt,
                     }
                 ],
-                response_model=class_response,
+                response_model=class_response
             )
 
     def invoke_llm(self, prompts: list, temperature = 0.0) -> dict:

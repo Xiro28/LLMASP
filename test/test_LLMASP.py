@@ -1,12 +1,12 @@
 import pytest
 from unittest.mock import MagicMock, patch
-from LLMASP.src.LLMASP import LLMASP
+from src.LLMASP import LLMASP
 
-from LLMASP.src.outputHandlers.executeOutput import ExecuteOutput
-from LLMASP.src.inputHandlers.evaluateInput import EvaluateInput
-from inputHandlers.abstractInputHandler import AbstractInputHandler
-from outputHandlers.evaluateOutput import EvaluateOuput
-from utils.LLMHandler import LLMHandler
+from src.outputHandlers.executeOutput import ExecuteOutput
+from src.inputHandlers.evaluateInput import EvaluateInput
+from src.inputHandlers.abstractInputHandler import AbstractInputHandler
+from src.outputHandlers.evaluateOutput import EvaluateOuput
+from src.utils.LLMHandler import LLMHandler
 
 
 

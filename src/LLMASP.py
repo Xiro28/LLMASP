@@ -13,26 +13,20 @@ from outputHandlers.abstractOutputHandler import AbstractOutputHandler
 @typechecked
 @dataclass(frozen=False)
 class LLMASP:
-    __input_evaluator_class: any = field(init=True)
     __configFilename: str = field(init=True, default="./config.yml")
     __config: dict = field(init=False)
     
     def __post_init__(self):
-
-        assert issubclass(self.__input_evaluator_class, AbstractInputHandler), "The input evaluator must be a subclass of Abstract"
-
-        self.__config = self.__load_config__(self.__configFilename)
-
         self.preds = ""
         self.calc_preds = ""
 
-        self.__input_evaluator = self.__input_evaluator_class(self.__config)
+        self.__config = self.__load_config__(self.__configFilename)
 
     def __load_config__(self, path: str) -> dict | list:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
 
     
-    def infer(self) -> "LLMASP":
+    def infer(self, __input_evaluator_class) -> "LLMASP":
         """
             This method extracts predicates from the input handler by converting the input
             to ASP format.
@@ -40,8 +34,11 @@ class LLMASP:
             Returns:
                 self object: The current LLMASP object with the extracted predicates.
         """
+
+        assert issubclass(__input_evaluator_class, AbstractInputHandler), "The input evaluator must be a subclass of Abstract"
+
         
-        self.preds = self.__input_evaluator.run()
+        self.preds = __input_evaluator_class(self.__config).run()
 
         return self
     

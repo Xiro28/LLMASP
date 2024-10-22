@@ -45,9 +45,7 @@ class EvaluateInput(AbstractInputHandler):
                             Remember this context and don't say anything!\n
                             """)
             else:
-                prompt.append(f"""{q_value}. User will expect the datalog predicate in the format: '{q_key}.'\n
-                            {the_user_input}
-                            """)
+                prompt.append(q_value)
 
         return prompt
     
@@ -76,7 +74,7 @@ class EvaluateInput(AbstractInputHandler):
             if "Here is some context that you MUST analyze and remember." in atom:
                 continue
 
-            response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(self.user_input, _list[i][1])
+            response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(self.user_input, _list[i][1], atom)
             F += ' ' + self.__filter_asp_atoms__(str(response))
         return F
     
