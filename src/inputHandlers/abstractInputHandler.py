@@ -5,6 +5,8 @@ from utils.LLMHandler import LLMHandler
 from dataclasses import dataclass, field
 from typeguard import typechecked
 
+from utils.classBuilder import ClassBuilder
+
 @typechecked
 @dataclass(frozen=False)
 class AbstractInputHandler:
@@ -16,11 +18,23 @@ class AbstractInputHandler:
         
         self.__llm_instance = LLMHandler(self.__system_prompt)
 
+        ## Create the classes needed for the instructor LLM
+        self.__classes = ClassBuilder(self._AbstractInputHandler__config['preprocessing'], True).get_classes()
+
     def __filter_asp_atoms__(self, req: str) -> str:
         return " ".join(re.findall(r"\b[a-zA-Z][\w_]*\([^)]*\)\.", req))
 
     def run(self) -> str:
         raise NotImplementedError("The run method must be implemented.")
+    
+    def get_classes(self) -> dict:
+        """
+        Get the classes.
+
+        Returns:
+            list: The classes.
+        """
+        return self.__classes
 
     def get_system_prompt(self) -> str:
         """

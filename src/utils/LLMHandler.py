@@ -1,12 +1,15 @@
+from openai import OpenAI
 from g4f import ChatCompletion, Provider
 from g4f.cookies import load_cookies_from_browsers
-
-from openai import OpenAI
-
-import instructor
 from utils.customInstructor import CustomInstructor
 
-USE_GEMINI_FLAG = True
+
+import ollama
+import instructor
+
+
+USE_GEMINI_FLAG = False
+MODEL_OLLAMA = 'llama3.1'
 
 class LLMHandler:
     def __init__(self, system_prompt: str):
@@ -25,11 +28,12 @@ class LLMHandler:
             self.__llm_constrained = CustomInstructor(self.__llm)
 
         else:
-            # Custom Model will use LLAMA.cpp and grammar checker
 
-            self.__llm = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio").chat.completions
-            self.__llm_constrained = instructor.patch(OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")).chat.completions
-
+            self.__llm = OpenAI(
+                            base_url="http://localhost:11434/v1",
+                            api_key="ollama",
+                        )
+            self.__llm_constrained = instructor.from_openai(self.__llm, mode=instructor.Mode.JSON)
 
     def __to_gpt_user_dict__(self, text: str) -> dict:
         return {"role": "user", "content": text}
@@ -50,21 +54,25 @@ class LLMHandler:
                 str: The natural language output generated from the LLM.
         """
 
-        print(class_response[1])
-
         if USE_GEMINI_FLAG:
-            return self.__llm_constrained.create(
-                response_model=class_response[1],
-                message=self.__to_gpt_user_dict__(prompt)
+            return self.__llm_constrained.create(class_response, self.__to_gpt_user_dict__(prompt))
+
+        print(class_response)
+        return self.__llm_constrained.chat.completions.create(
+                model=MODEL_OLLAMA,
+                temperature=0.0,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are a world class AI that excels at extracting user data from a sentence.",
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt,
+                    }
+                ],
+                response_model=class_response,
             )
-
-
-        return self.__llm_constrained.create(
-            model="TheBloke/CodeLlama-7B-Instruct-GGUF",
-            max_tokens=1024,
-            response_model=class_response[1],
-            messages=[self.__to_gpt_user_dict__(prompt)],
-            stream=False)
 
     def invoke_llm(self, prompts: list, temperature = 0.0) -> dict:
         """
@@ -93,9 +101,11 @@ class LLMHandler:
                 messages=chrono,
                 stream=False)
         else:
-            return self.__llm.create(
-                model="TheBloke/CodeLlama-7B-Instruct-GGUF",
+            completation = self.__llm.chat.completions.create(
+                model=MODEL_OLLAMA,
                 temperature=temperature,
                 messages=chrono,
-                seed=0,
-                stream=False).choices[0].message.content
+                seed=0
+            )
+
+            return completation.choices[0].message.content

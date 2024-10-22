@@ -10,10 +10,8 @@ class EvaluateOuput(AbstractOutputHandler):
     def __post_init__(self):
         super().__post_init__()
 
-        self.__llm_instance = LLMHandler("""You are now a Datalog to Natural Language translator.
-                                            You will be given relational facts and mapping instructions.
-                                            Relational facts are given in the form [FACTS]atoms[/FACTS].
-                                            Remember these instructions and don't say anything!""")
+        self.__llm_instance = LLMHandler("""You are an expert in Datalog to Natural Language translation. 
+                                         You are asked to summarize the response given in a detailed form.""")
     
     def __post_output_seasoning__(self) -> list:
         """
@@ -62,7 +60,7 @@ class EvaluateOuput(AbstractOutputHandler):
         R = ""
 
         for prompt in self.__post_output_seasoning__():
-            response = self.__llm_instance.invoke_llm([prompt]) 
+            response = self.__llm_instance.invoke_llm([prompt])
             R += response
         
         return self.__llm_instance.invoke_llm([f"Summerize the following responses: {R}"])

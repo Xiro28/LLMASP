@@ -13,25 +13,37 @@ class CustomInstructor:
         self._llm = _llm
 
     def create(self, response_model, message):
-
+        
         members = ''
-        for m in dir(response_model):
-            if not callable(getattr(response_model, m)):
+        for m in response_model[1].__dict__:
+            if '__' not in m:
                 members += str(m) + ' '
 
-        print(members)
-
-        _sysPrompt = {'role': 'system', 'content': f"""You are a query executor.
-                           Follow this schema:
-                           Given a user phrase, exctract those [""" + members + """] from the user message.
-                           The output has to be inside [] and it has to be a list of a list of elements."""}
-        
-        print(_sysPrompt)
+        _sysPrompt = {'role': 'system', 'content': \
+                          f"""You are a query executor and you have to extract specific elements from the user message.
+                           Query: """ + message['content'].split('.')[0] +"""
+                           exctract:""" + members + """
+                           context: """ + response_model[0] + """
+                           The output has to be inside [] and it has to be a tuple of elements.
+                           Don't format the string! Just return the elements separated by commas.
+                           if the information is not present in the user message return: None.
+                           Exact follow those instruction without saying anything else!"""}
         
         out = self._llm.create(
                 model="gpt-3.5-turbo",
                 provider=Provider.Gemini,
                 temperature=0.0,
                 seed=0,
-                messages=[_sysPrompt, message],
+                messages=[_sysPrompt],
                 stream=False)
+        
+        print(out)
+
+        if '[' in out or ']' in out:
+            filtered = out.split('[')[1].split(']')[0]
+        else:
+            return "None"
+
+        ## ADD output control here
+
+        return filtered

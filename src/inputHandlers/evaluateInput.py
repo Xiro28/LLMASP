@@ -1,7 +1,6 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typeguard import typechecked
 from inputHandlers.abstractInputHandler import AbstractInputHandler
-from utils.classBuilder import ClassBuilder
 
 
 @typechecked
@@ -20,9 +19,6 @@ class EvaluateInput(AbstractInputHandler):
                                 Remember these instructions and don't say anything!"""
 
         super().__post_init__()
-
-         ## Create the classes needed for the instructor LLM
-        self.__classes = ClassBuilder().build_classes(self._AbstractInputHandler__config['preprocessing']).get_classes()
 
     def __pre_input_seasoning__(self, user_input: str) -> list:
         """
@@ -54,7 +50,8 @@ class EvaluateInput(AbstractInputHandler):
                             """)
 
         return prompt
-
+    
+    
     def __natural_to_asp__(self, user_input: str) -> str:
         """
             Convert natural language input to ASP (Answer Set Programming) format.
@@ -73,15 +70,14 @@ class EvaluateInput(AbstractInputHandler):
 
         F = ""
 
-        _list = list(self.__classes.items())
+        _list = list(self.get_classes().items())
 
         for i, atom in enumerate(self.__pre_input_seasoning__(user_input)):
             if "Here is some context that you MUST analyze and remember." in atom:
                 continue
 
-            response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(atom, _list[i-1])
-            F += ' ' + self.__filter_asp_atoms__(response)
-
+            response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(self.user_input, _list[i][1])
+            F += ' ' + self.__filter_asp_atoms__(str(response))
         return F
     
 
@@ -95,8 +91,8 @@ class EvaluateInput(AbstractInputHandler):
             Returns:
                 str: The ASP-formatted output generated from the user input.
         """
-        user_input = input(">: ")
-        response = self.__natural_to_asp__(user_input)
+        self.user_input = input(">: ")
+        response = self.__natural_to_asp__( self.user_input)
 
         #Disable for now
         if TRAIN_ON and False:

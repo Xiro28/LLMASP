@@ -10,8 +10,8 @@ class AbstractOutputHandler:
     __calc_preds: str
 
     def __post_init__(self):
-        assert self.__config == '', "The config array must not be empty."
-        assert self.__preds  == '', "Input predicates must not be empty. LLM might not have found any predicates."
+        assert self.__config is not None, "The config array must not be empty."
+        assert self.__preds  != '', "Input predicates must not be empty. LLM might not have found any predicates."
 
     def run(self) -> None:
         raise NotImplementedError("Not implemented yet.")

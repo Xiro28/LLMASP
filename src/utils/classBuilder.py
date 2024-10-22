@@ -1,10 +1,8 @@
 from pydantic import BaseModel
 
 class ClassBuilder:
-    def __init__(self):
-        self.__classes = {}
 
-    def build_classes(self, predicates: list):
+    def __init__(self, predicates: list, custom_instructor: bool = False):
 
         """
             Build classes from the predicates dictionary.
@@ -19,7 +17,7 @@ class ClassBuilder:
                 predicates: [{"somepredicates(arg1, arg2).": "extract the arguments from the predicate."}, {"somepredicates2(arg3, arg4).": "..."}]
         """
 
-        code = ""
+        self.__classes = {}
 
         for predicate in predicates:
             for key in predicate.keys():
@@ -28,7 +26,7 @@ class ClassBuilder:
                     continue
 
                 data = key.split("(")
-                predicate = data[0]
+                class_name = data[0]
                 terms = []
 
                 data[1] = data[1].replace("\"", "")
@@ -38,27 +36,42 @@ class ClassBuilder:
                     terms[-1] = terms[-1].replace(").", "")
                 else:
                     terms.append(data[1].replace(").", ""))
-                
-                code += f"class {predicate}(BaseModel):\n"
 
-                # Adding terms to the class definition
+                class_dict = {}
+                annotations = {}
+
                 for term in terms:
-                    code += f"\t{term.strip()}: str\n"
-        
-        # unsafe but it's limited to just generate classes so heavily constrained 
-        # and the user input cannot control the code that is being executed
-        
-        # Let's clear the __classes dictionary to not have any security issues nor memory leaks
-        for key in self.__classes.keys():
-            del self.__classes[key]
+                    class_dict[term.strip()] = ''
+                    annotations[term.strip()] = list[str] # Fix this to str. TODO: Put the correct type.
 
-        self.__classes.clear()
-        exec(code, globals(), self.__classes)
+                class_dict['__annotations__'] = annotations
+                class_dict['__name__'] = class_name
 
-        print(code)
+                def str_method(self):
+                    # self.dict().items() -> [("arg1", ["t1", "t2"]), ("arg2", ["t1", "t2"])]
+                    
+                    data = self.dict()
+                    len_args = len(next(iter(data.values())))  
+                    ret_buff = [f"{self.__class__.__name__}(" for _ in range(len_args)]
 
-        return self
-    
+                    for key, variables in data.items():
+                        for i, var in enumerate(variables):
+                            ret_buff[i] += f"{var.replace(' ', '_')}, "
+
+                    # Remove the trailing comma and space from each buffer entry and close the parentheses
+                    for i in range(len(ret_buff)):
+                        ret_buff[i] = ret_buff[i][:-2] + "). "
+
+                    # BE sure to return the string in lowercase
+                    return "".join(ret_buff).lower()
+
+
+
+                class_dict['__str__'] = str_method
+
+                new_class = type(class_name, (BaseModel, ), class_dict)
+                
+                self.__classes[class_name] = new_class
+
     def get_classes(self):
         return self.__classes
-
