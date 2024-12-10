@@ -2,6 +2,9 @@ from dataclasses import dataclass
 from typeguard import typechecked
 from inputHandlers.abstractInputHandler import AbstractInputHandler
 
+from contextlib import suppress
+import networkx as nx
+import matplotlib.pyplot as plt
 
 @typechecked
 @dataclass(frozen=False)
@@ -17,8 +20,50 @@ class EvaluateInput(AbstractInputHandler):
                                 A predicate MUST terminate with a period.
                                 An answer MUST NOT be answered if it is not present in the user input.
                                 Remember these instructions and don't say anything!"""
+        self.tree = {}
 
         super().__post_init__()
+
+    def plot_tree(self, dictionary, root_label="root"):
+        """
+        Plots a dictionary as a tree using NetworkX and Matplotlib.
+        
+        Args:
+            dictionary (dict): Dictionary to plot as a tree.
+            root_label (str): Label for the root node.
+        """
+        def add_edges(graph, parent, subtree):
+            """
+            Recursively add edges to the graph from the dictionary.
+            """
+            if isinstance(subtree, dict):
+                for key, value in subtree.items():
+                    graph.add_edge(parent, key)
+                    add_edges(graph, key, value)
+            elif isinstance(subtree, list):
+                for item in subtree:
+                    graph.add_edge(parent, item)
+            else:
+                graph.add_edge(parent, subtree)
+
+        # Create a directed graph
+        graph = nx.DiGraph()
+
+        print(dictionary)
+
+        # Add edges from the dictionary
+        add_edges(graph, root_label, dictionary)
+
+        # Draw the graph
+        pos = nx.spring_layout(graph, seed=42)  # Position the nodes
+        plt.figure(figsize=(12, 8))
+        nx.draw(
+            graph, pos, with_labels=True, node_size=3000, 
+            node_color="lightblue", font_size=10, font_weight="bold", arrows=False
+        )
+        plt.title("Tree Representation of a Dictionary")
+        plt.show()
+
 
     def __pre_input_seasoning__(self, user_input: str) -> list:
         """
@@ -68,18 +113,63 @@ class EvaluateInput(AbstractInputHandler):
 
         F = ""
 
-        _list = list(self.get_classes().items())
+        _class_dict = self.get_classes()
+        _list = [list_class for list_class in self.get_classes().items() if "list_" in list_class[0]]
+        main_class = [main_class[0] for main_class in self.get_classes().items() if "list_" not in main_class[0]]
+        
+        i = 0
 
-        for i, atom in enumerate(self.__pre_input_seasoning__(user_input)):
+        primary_atoms_params = {}
+
+        self.tree = {}
+
+        for atom in self.__pre_input_seasoning__(user_input):
+            
             if "Here is some context that you MUST analyze and remember." in atom:
                 continue
 
-            response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(self.user_input, _list[i][1], atom)
-            F += ' ' + self.__filter_asp_atoms__(str(response))
+            if primary_class := self.links.isLinked(main_class[i]):
+                response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(self.user_input, _list[i][1], primary_atoms_params[primary_class])
+            else:
+                response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(self.user_input, _list[i][1], None)
+
+            print(response)
+           
+            # since the response is a dictionary, we need to extract the content
+            # there's just one key in the dictionary, so we can just get the first value
+            # which is an array of class instances
+            for atoms in response.dict().get(f"list_{main_class[i]}"):
+                
+                if self.links.isPrimary(main_class[i]):
+                    if (main_class[i] not in self.tree.keys()):
+                        self.tree[main_class[i]] = {}
+                        primary_atoms_params[main_class[i]] = []
+
+                    self.tree[main_class[i]][str(_class_dict[main_class[i]](**atoms))] = {}  
+
+                    primary_atoms_params[main_class[i]].append(atoms[list(atoms.keys())[0]])
+
+                elif primary_class := self.links.isLinked(main_class[i]):
+                    for key in self.tree[primary_class].keys():
+                        # Check if the key matches the first parameter in the atoms dictionary
+                        if list(atoms.values())[0].lower() in key:
+                            # Insert the value into the dictionary at the matching key
+                            self.tree[primary_class][key] = str(_class_dict[main_class[i]](**atoms))
+                else:
+                    self.tree[main_class[i]] = atoms[str(_class_dict[main_class[i]](**atoms))]
+
+
+                F += str(_class_dict[main_class[i]](**atoms))
+            
+            i += 1
+
+        #Plot the tree
+        self.plot_tree(self.tree)
+
         return F
     
 
-    def run(self, TRAIN_ON: bool = False) -> str:
+    def run(self, custom_input = "", TRAIN_ON: bool = False) -> str:
         """
             Run the input handler to convert the user input to ASP format.
             
@@ -89,8 +179,13 @@ class EvaluateInput(AbstractInputHandler):
             Returns:
                 str: The ASP-formatted output generated from the user input.
         """
-        self.user_input = input(">: ")
-        response = self.__natural_to_asp__( self.user_input)
+        
+        #self.user_input = input(">")#self._AbstractInputHandler__llm_instance.invoke_llm(["Create a short story about a 3 people who deciding where to eat. 4 sentences"], 0.5)
+        self.user_input = custom_input
+        response = self.__natural_to_asp__(self.user_input)
+
+        #self.f.writelines(f"{self.user_input}\n\n\n")
+        #self.f.flush()
 
         #Disable for now
         if TRAIN_ON and False:

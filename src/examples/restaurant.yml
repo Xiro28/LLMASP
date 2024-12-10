@@ -1,0 +1,12 @@
+preprocessing:
+- person("who").: List all the persons mentioned including me if indirectly included.
+- want_food("who", "food_name").: For each person, list what they want to eat.
+
+knowledge_base: |
+  can_go_together(X,Y,Z) :- person(X), person(Y), X < Y, want_food(X,Z), want_food(Y,Z).
+  can_go_together(X,Y,Z) :- person(X), person(Y), X < Y, cuisine_preferences(X, Z), cuisine_preferences(Y, Z).
+  #show can_go_together/3.
+
+postprocessing:
+- _: Explain the facts in a human readable way, as a paragraph.
+- can_go_together("person_1", "person_2", "cuisine preference"): Say that "person_1" can go with "person_2" to eat "cuisine preference".

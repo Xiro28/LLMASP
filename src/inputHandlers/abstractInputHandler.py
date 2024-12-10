@@ -1,6 +1,7 @@
 import re
 
 from utils.LLMHandler import LLMHandler
+from utils.links import Links
 
 from dataclasses import dataclass, field
 from typeguard import typechecked
@@ -20,6 +21,7 @@ class AbstractInputHandler:
 
         ## Create the classes needed for the instructor LLM
         self.__classes = ClassBuilder(self._AbstractInputHandler__config['preprocessing'], True).get_classes()
+        self.links = Links(self._AbstractInputHandler__config['links'])
 
     def __filter_asp_atoms__(self, req: str) -> str:
         return " ".join(re.findall(r"\b[a-zA-Z][\w_]*\([^)]*\)\.", req))

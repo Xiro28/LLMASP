@@ -10,8 +10,8 @@ class EvaluateOuput(AbstractOutputHandler):
     def __post_init__(self):
         super().__post_init__()
 
-        self.__llm_instance = LLMHandler("""You are an expert in Datalog to Natural Language translation. 
-                                         You are asked to summarize the response given in a detailed form.""")
+        self.__llm_instance = LLMHandler("""You are an expert in Datalog to Natural Language translator. 
+                                         Summarize the response given in a detailed form.""")
     
     def __post_output_seasoning__(self) -> list:
         """

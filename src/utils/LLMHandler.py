@@ -1,38 +1,14 @@
-from openai import OpenAI
-from g4f import ChatCompletion, Provider
-from g4f.cookies import load_cookies_from_browsers
-from utils.customInstructor import CustomInstructor
+from ollama import chat
 
-
-import instructor
-
-
-USE_GEMINI_FLAG = False
 MODEL_OLLAMA = 'llama3.1'
 
 class LLMHandler:
     def __init__(self, system_prompt: str):
 
+        # not used yet
         assert system_prompt is not None, "The system prompt must not be None."
 
-        self.__system_prompt = system_prompt
-
-        if USE_GEMINI_FLAG:
-            # Gemini API have custom instructor based on asking specific questions
-
-            print("Using Gemini API")
-
-            load_cookies_from_browsers(".google.com")
-            self.__llm = ChatCompletion
-            self.__llm_constrained = CustomInstructor(self.__llm)
-
-        else:
-
-            self.__llm = OpenAI(
-                            base_url="http://localhost:11434/v1",
-                            api_key="ollama",
-                        )
-            self.__llm_constrained = instructor.from_openai(self.__llm, mode=instructor.Mode.JSON)
+        self.__llm = chat
 
     def __to_gpt_user_dict__(self, text: str) -> dict:
         return {"role": "user", "content": text}
@@ -40,7 +16,7 @@ class LLMHandler:
     def __to_gpt_system_dict__(self, text: str) -> str:
         return {"role": "system", "content": text}
     
-    def invoke_llm_constrained(self, prompt: str, class_response: any, extra_info: str) -> dict:
+    def invoke_llm_constrained(self, prompt: str, class_response: any, link: list[str]) -> dict:
         """
             Invoke the LLM (Large Language Model)
 
@@ -53,28 +29,31 @@ class LLMHandler:
                 str: The natural language output generated from the LLM.
         """
 
-        if USE_GEMINI_FLAG:
-            return self.__llm_constrained.create(class_response, self.__to_gpt_user_dict__(prompt))
+        # With this, we improve our performance by providing the model with the expected output.
+        model_json = class_response.model_json_schema()
+        if link is not None:
+            model_json["properties"][class_response.__name__]["description"] = f"Just lorenzo"
 
-        print(class_response)
-        print(extra_info)
-        return self.__llm_constrained.chat.completions.create(
+            print(model_json["properties"][class_response.__name__]["description"])
+
+        ret_ =  self.__llm(
                 model=MODEL_OLLAMA,
-                temperature=0.0,
-                max_tokens=100,
                 messages=[
                     {
                         "role": "system",
                         "content": f"""You are a world class AI that excels at extracting user data from a sentence. 
-                                    Do the following: {extra_info}.""",
+                                    Be sure about the relationship between the entities.""",
                     },
                     {
                         "role": "user",
                         "content": prompt,
                     }
                 ],
-                response_model=class_response
+                options={'temperature': 0, "low_vram": True},
+                format=model_json
             )
+        
+        return class_response.model_validate_json(ret_["message"]["content"])
 
     def invoke_llm(self, prompts: list, temperature = 0.0) -> dict:
         """
@@ -89,25 +68,15 @@ class LLMHandler:
                 str: The natural language output generated from the LLM.
         """
 
-        chrono = [self.__to_gpt_system_dict__(self.__system_prompt)]
+        chrono = []
 
         for p in prompts:
             chrono.append(self.__to_gpt_user_dict__(p))
 
-        if USE_GEMINI_FLAG:
-            return self.__llm.create(
-                model="gpt-3.5-turbo",
-                provider=Provider.Gemini,
-                temperature=temperature,
-                seed=0,
-                messages=chrono,
-                stream=False)
-        else:
-            completation = self.__llm.chat.completions.create(
-                model=MODEL_OLLAMA,
-                temperature=temperature,
-                messages=chrono,
-                seed=0
-            )
+        completation = self.__llm(
+            messages=chrono,
+            model=MODEL_OLLAMA,
+            options={'temperature': temperature},
+        )
 
-            return completation.choices[0].message.content
+        return completation['message']['content']

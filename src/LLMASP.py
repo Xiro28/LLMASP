@@ -26,7 +26,7 @@ class LLMASP:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
 
     
-    def infer(self, __input_evaluator_class) -> "LLMASP":
+    def infer(self, __input_evaluator_class, custom_input = "") -> "LLMASP":
         """
             This method extracts predicates from the input handler by converting the input
             to ASP format.
@@ -38,7 +38,7 @@ class LLMASP:
         assert issubclass(__input_evaluator_class, AbstractInputHandler), "The input evaluator must be a subclass of Abstract"
 
         
-        self.preds = __input_evaluator_class(self.__config).run()
+        self.preds = __input_evaluator_class(self.__config).run(custom_input)
 
         return self
     
@@ -80,8 +80,6 @@ class LLMASP:
         """
         
         assert issubclass(_class, AbstractOutputHandler), "The class must be a subclass of AbstractOutputHandler."
-
-        print(self.preds, self.calc_preds)
         
         return _class(self.__config, self.preds, self.calc_preds)
 

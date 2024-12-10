@@ -1,4 +1,5 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, SkipValidation
+from typing import Optional, List, ForwardRef
 
 class ClassBuilder:
 
@@ -17,11 +18,11 @@ class ClassBuilder:
                 predicates: [{"somepredicates(arg1, arg2).": "extract the arguments from the predicate."}, {"somepredicates2(arg3, arg4).": "..."}]
         """
 
+
         self.__classes = {}
 
         for predicate in predicates:
             for key in predicate.keys():
-
                 if key == "_":
                     continue
 
@@ -41,37 +42,51 @@ class ClassBuilder:
                 annotations = {}
 
                 for term in terms:
-                    class_dict[term.strip()] = ''
-                    annotations[term.strip()] = list[str] # Fix this to str. TODO: Put the correct type.
+                    term_name = term.strip()
+                    if term_name in {"__annotations__", "__name__", "__str__"}:
+                        term_name = f"field_{term_name}"
+
+                    class_dict[term_name] = Field()
+                    annotations[term_name] = str | None
 
                 class_dict['__annotations__'] = annotations
                 class_dict['__name__'] = class_name
 
                 def str_method(self):
-                    # self.dict().items() -> [("arg1", ["t1", "t2"]), ("arg2", ["t1", "t2"])]
-                    
-                    data = self.dict()
-                    len_args = len(next(iter(data.values())))  
-                    ret_buff = [f"{self.__class__.__name__}(" for _ in range(len_args)]
-
-                    for key, variables in data.items():
-                        for i, var in enumerate(variables):
-                            ret_buff[i] += f"{var.replace(' ', '_')}, "
-
-                    # Remove the trailing comma and space from each buffer entry and close the parentheses
-                    for i in range(len(ret_buff)):
-                        ret_buff[i] = ret_buff[i][:-2] + "). "
-
-                    # BE sure to return the string in lowercase
-                    return "".join(ret_buff).lower()
-
-
+                    # Ensure items are processed properly
+                    atom = f"{self.__name__}("
+                    for key, value in self.dict().items():
+                        if value is None:
+                            return ""  # Invalid atom
+                        atom += f"{value.replace(' ', '_')}, "
+                    return f"{atom[:-2]}).".lower()
 
                 class_dict['__str__'] = str_method
 
-                new_class = type(class_name, (BaseModel, ), class_dict)
-                
+                # Create the new class dynamically
+                new_class = type(class_name, (BaseModel,), class_dict)
                 self.__classes[class_name] = new_class
+
+                # Ollama needs a list to generate multiple instances of the same class
+                wrapper_name = f"list_{class_name}"
+
+                wrapper = type(
+                    wrapper_name,
+                    (BaseModel,),
+                    {
+                        "__name__": f"{class_name}_list",
+                        f"list_{class_name}" : Field(description=predicate[key]),
+                        "__annotations__": {f"list_{class_name}": list[new_class]},  # Use ForwardRef for dynamic evaluation
+                    },
+                )
+
+                self.__classes[wrapper_name] = wrapper
+
+                print(wrapper)
+        
+        for classes in self.__classes.values():
+            for key, value in classes.__annotations__.items():
+                print(f"{key}: {value}")
 
     def get_classes(self):
         return self.__classes
