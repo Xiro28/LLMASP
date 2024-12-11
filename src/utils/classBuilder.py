@@ -1,5 +1,51 @@
-from pydantic import BaseModel, Field, SkipValidation
-from typing import Optional, List, ForwardRef
+from typing import Literal, Any, Dict, Type, List, Union
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, create_model
+from pydantic_core import CoreSchema, core_schema
+
+class DynamicLiteralBase:
+    _allowed_values: Dict[str, Union[List[str], str]] = {}
+
+    @classmethod
+    def add_allowed_values(cls, attribute: str, values: Union[List[str], str]) -> None:
+        """
+        Add new allowed values for a specific attribute. 
+        Pass '*' as `values` to accept all possible values.
+        """
+        cls._allowed_values[attribute] = values
+
+    @classmethod
+    def create_model(cls, model_name: str) -> Type[BaseModel]:
+        """
+        Dynamically create a Pydantic model using Literal values for validation.
+        
+        Args:
+            model_name (str): The name of the model to be created.
+        
+        Returns:
+            Type[BaseModel]: The dynamically generated Pydantic model.
+        """
+        fields = {}
+        for attr, values in cls._allowed_values.items():
+            if values == "*":
+                # Accept any value for this attribute
+                fields[attr] = (str, Field(...))
+            else:
+                # Restrict values using Literal
+                fields[attr] = (Literal[tuple(values)], Field(...))
+
+        cls._allowed_values.clear()
+        
+        # Dynamically create the model with proper configuration
+        return create_model(
+            model_name,
+            **fields,
+            __config__=ConfigDict(arbitrary_types_allowed=True)
+        )
+
+    @classmethod
+    def __get_pydantic_core_schema__(cls, source: Any, handler: Any) -> CoreSchema:
+        return core_schema.any_schema()
+
 
 class ClassBuilder:
 
@@ -43,9 +89,7 @@ class ClassBuilder:
 
                 for term in terms:
                     term_name = term.strip()
-                    if term_name in {"__annotations__", "__name__", "__str__"}:
-                        term_name = f"field_{term_name}"
-
+                
                     class_dict[term_name] = Field()
                     annotations[term_name] = str | None
 
@@ -77,6 +121,8 @@ class ClassBuilder:
                         "__name__": f"{class_name}_list",
                         f"list_{class_name}" : Field(description=predicate[key]),
                         "__annotations__": {f"list_{class_name}": list[new_class]},  # Use ForwardRef for dynamic evaluation
+                        "__extra_info__": predicate[key],
+                        "__class_params__": terms
                     },
                 )
 

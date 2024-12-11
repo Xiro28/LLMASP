@@ -1,6 +1,10 @@
+from typing import List, Type
 from ollama import chat
+from pydantic import BaseModel, Field
 
-MODEL_OLLAMA = 'llama3.1'
+from utils.classBuilder import DynamicLiteralBase
+
+MODEL_OLLAMA = 'llama3.2:3b-instruct-q8_0'
 
 class LLMHandler:
     def __init__(self, system_prompt: str):
@@ -30,11 +34,43 @@ class LLMHandler:
         """
 
         # With this, we improve our performance by providing the model with the expected output.
-        model_json = class_response.model_json_schema()
         if link is not None:
-            model_json["properties"][class_response.__name__]["description"] = f"Just lorenzo"
+            # this ugly code is needed to get the refernce of the main class used inside the definition of the list class
+            # Example: class list_class: List[Class]
+            # This cose gets the Class reference, which is useful since we have to rebuild this class with the 
+            # partial information found by the reasoning process did before (here's how the link works)
+            main_class = class_response.__annotations__[list(class_response.__annotations__.keys())[0]].__args__[0]
 
-            print(model_json["properties"][class_response.__name__]["description"])
+
+            # For the moment the link works by connecting the first parameter of the linked class with the main class
+            # So they have to match
+            # Example: person(name, age) -> gender(name, gender)
+            # The link in that case is the name parameter and both classes have it as the first parameter
+
+            # This will also act as a constraint for the LLM
+            # Since there we can control which output we want to get
+            # By changing the link list values
+            
+            # For example, if we don't want to generate Lorenzo, we can just remove it from the list
+            # and the LLM will not generate the associated atom
+
+            for i, param in enumerate(main_class.__annotations__.keys()):
+                if i == 0:
+                    DynamicLiteralBase.add_allowed_values(param, ["Lorenzo"]) # link the classes
+                else:
+                    DynamicLiteralBase.add_allowed_values(param, "*")
+
+            # create the class with the first parameter containing the partial information
+            class_with_partial_info = DynamicLiteralBase.create_model(main_class.__name__)
+
+            linked_class = type(class_response.__name__, (BaseModel,), 
+                                {"__annotations__": {class_response.__name__: List[class_with_partial_info]},
+                                 class_response.__name__: Field(description=class_response.__extra_info__)
+                                })
+
+            class_response = linked_class
+
+        model_json = class_response.model_json_schema()
 
         ret_ =  self.__llm(
                 model=MODEL_OLLAMA,
@@ -49,7 +85,7 @@ class LLMHandler:
                         "content": prompt,
                     }
                 ],
-                options={'temperature': 0, "low_vram": True},
+                options={'temperature': 0},
                 format=model_json
             )
         
