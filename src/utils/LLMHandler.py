@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 
 from utils.classBuilder import DynamicLiteralBase
 
+#MODEL_OLLAMA = 'llama3.1'
 MODEL_OLLAMA = 'llama3.2:3b-instruct-q8_0'
 
 class LLMHandler:
@@ -20,7 +21,7 @@ class LLMHandler:
     def __to_gpt_system_dict__(self, text: str) -> str:
         return {"role": "system", "content": text}
     
-    def invoke_llm_constrained(self, prompt: str, class_response: any, link: list[str]) -> dict:
+    def invoke_llm_constrained(self, prompt: str, class_response: any, accepted_values: list[str]) -> dict:
         """
             Invoke the LLM (Large Language Model)
 
@@ -34,13 +35,13 @@ class LLMHandler:
         """
 
         # With this, we improve our performance by providing the model with the expected output.
-        if link is not None:
+        if accepted_values is not None:
             # this ugly code is needed to get the refernce of the main class used inside the definition of the list class
+
             # Example: class list_class: List[Class]
             # This cose gets the Class reference, which is useful since we have to rebuild this class with the 
             # partial information found by the reasoning process did before (here's how the link works)
             main_class = class_response.__annotations__[list(class_response.__annotations__.keys())[0]].__args__[0]
-
 
             # For the moment the link works by connecting the first parameter of the linked class with the main class
             # So they have to match
@@ -49,23 +50,36 @@ class LLMHandler:
 
             # This will also act as a constraint for the LLM
             # Since there we can control which output we want to get
-            # By changing the link list values
+            # By changing the accepted_values list
             
             # For example, if we don't want to generate Lorenzo, we can just remove it from the list
             # and the LLM will not generate the associated atom
 
+            # Or if we want to generate a specific atom, we can just add it to the list
+            # For example:
+            #  accepted_values=["Lorenzo"] 
+            #  and atom(name, age)
+            #  with the prompt "Lorenzo is 23 years old. Matt is 22 years old."
+            #  will only generate the atom with Lorenzo informations
+            #  So: atom("Lorenzo", 23) 
+
+            # Guarda LangChain e max_retry
+
+            accepted_values = ["Marco", "Alex", "Sarah", "Claire", "David"]
+
+            max_elements = len(accepted_values)
             for i, param in enumerate(main_class.__annotations__.keys()):
                 if i == 0:
-                    DynamicLiteralBase.add_allowed_values(param, ["Lorenzo"]) # link the classes
+                    DynamicLiteralBase.add_allowed_values(param, accepted_values) # link the classes
                 else:
-                    DynamicLiteralBase.add_allowed_values(param, "*")
+                    DynamicLiteralBase.add_allowed_values(param, "*") # allow any value for the other parameters
 
             # create the class with the first parameter containing the partial information
             class_with_partial_info = DynamicLiteralBase.create_model(main_class.__name__)
 
             linked_class = type(class_response.__name__, (BaseModel,), 
-                                {"__annotations__": {class_response.__name__: List[class_with_partial_info]},
-                                 class_response.__name__: Field(description=class_response.__extra_info__)
+                                {"__annotations__": {class_response.__name__: List[class_with_partial_info] | None},
+                                 class_response.__name__: Field(description=class_response.__extra_info__, strict=True, max_length=max_elements, min_length=0)
                                 })
 
             class_response = linked_class

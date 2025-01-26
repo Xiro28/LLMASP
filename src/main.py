@@ -6,7 +6,7 @@ from LLMASP import LLMASP
 
 def main():
     
-    _instance = LLMASP("examples/restaurant_linked.yml")
+    _instance = LLMASP("examples/king.yml")
     
     inp = open("stories.txt", "r")
     f = open("output.txt", "w")
@@ -20,7 +20,7 @@ def main():
     for line in inp:
         if line == "\n" or "person" in line or "want_food" in line:
             continue
-        out = _instance.infer(EvaluateInput, "Lorenzo, Marco, Alex, Sarah, Claire and David wanted to go out at an ethnic place for a nice evening. Someone suggested salad, knowing it's one of lorenzo's favorite dishes. pizza seemed to be the dish marco liked the most. Someone suggested Chinese food, knowing it's one of alex's favorite dishes. Sarah was excited to try Chinese food. pizza seemed to be the dish claire liked the most. David hadn't had Chinese food for a long time and thought it was a good idea.").preds
+        out = _instance.infer(EvaluateInput, "There is a hole in position (14, 7). The chess board size is 45*45. The square in position (14, 28) is forbidden. There is a hole in position (12, 21). There is a hole in position (1, 15). There is a hole in position (11, 32). There is a hole in position (10, 26). The square in position (1, 33) is forbidden. The square in position (11, 9) is forbidden.").preds
 
         lines += out + "\n\n"
         
@@ -31,6 +31,7 @@ def main():
             f.write(f"Time taken: {time.time() - time_start}")
 
         story_idx += 1
+        break
     
     f.write(f"Time taken: {time.time() - time_start}")
     f.close()

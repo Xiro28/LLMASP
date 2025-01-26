@@ -1,0 +1,300 @@
+Marco, Alex, Andrew, Luke and Lorenzo wanted to go out by the seaside for a nice evening. Marco was excited to try pasta. Alex was excited to try Chinese food. Andrew hadn't had poke for a long time and thought it was a good idea. Luke was excited to try poke. Lorenzo hadn't had Chinese food for a long time and thought it was a good idea.
+person(marco). want_food(marco, pasta). person(alex). want_food(alex, chinese_food). person(andrew). want_food(andrew, poke). person(luke). want_food(luke, poke). person(lorenzo). want_food(lorenzo, chinese_food).
+
+Luke, Julia, Alex and Andrew wanted to go out at the pub in the square for a nice evening. Luke was excited to try burgers. Someone suggested pizza, knowing it's one of julia's favorite dishes. Alex was excited to try pasta. Someone suggested burgers, knowing it's one of andrew's favorite dishes.
+person(luke). want_food(luke, burgers). person(julia). want_food(julia, pizza). person(alex). want_food(alex, pasta). person(andrew). want_food(andrew, burgers).
+
+Sarah, Frances, Julia, Luke and Claire decided to meet at the new bistro to celebrate a birthday. salad seemed to be the dish sarah liked the most. Frances was excited to try ramen. Julia was excited to try Indian food. poke seemed to be the dish luke liked the most. Claire hadn't had paella for a long time and thought it was a good idea.
+person(sarah). want_food(sarah, salad). person(frances). want_food(frances, ramen). person(julia). want_food(julia, indian_food). person(luke). want_food(luke, poke). person(claire). want_food(claire, paella).
+
+After planning for a few days, Lorenzo, Alex, Martina, Frances, Sarah and Andrew finally met at the new bistro. Someone suggested salad, knowing it's one of lorenzo's favorite dishes. pasta seemed to be the dish alex liked the most. burgers seemed to be the dish martina liked the most. Frances was excited to try poke. Sarah was excited to try burgers. Andrew hadn't had pizza for a long time and thought it was a good idea.
+person(lorenzo). want_food(lorenzo, salad). person(alex). want_food(alex, pasta). person(martina). want_food(martina, burgers). person(frances). want_food(frances, poke). person(sarah). want_food(sarah, burgers). person(andrew). want_food(andrew, pizza).
+
+Julia, Marco and Martina decided to meet at the new bistro to celebrate a birthday. Someone suggested kebab, knowing it's one of julia's favorite dishes. Someone suggested Chinese food, knowing it's one of marco's favorite dishes. pizza seemed to be the dish martina liked the most.
+person(julia). want_food(julia, kebab). person(marco). want_food(marco, chinese_food). person(martina). want_food(martina, pizza).
+
+Julia, Lorenzo, Alex and Claire decided to meet at the restaurant downtown to celebrate a birthday. Indian food seemed to be the dish julia liked the most. Lorenzo was excited to try burgers. tacos seemed to be the dish alex liked the most. Claire was excited to try poke.
+person(julia). want_food(julia, indian_food). person(lorenzo). want_food(lorenzo, burgers). person(alex). want_food(alex, tacos). person(claire). want_food(claire, poke).
+
+After planning for a few days, Lorenzo, Luke, Sarah, Julia, Frances and Alex finally met at the trattoria nearby. pizza seemed to be the dish lorenzo liked the most. Someone suggested tacos, knowing it's one of luke's favorite dishes. Sarah was excited to try pasta. Julia was excited to try Chinese food. Frances hadn't had burgers for a long time and thought it was a good idea. kebab seemed to be the dish alex liked the most.
+person(lorenzo). want_food(lorenzo, pizza). person(luke). want_food(luke, tacos). person(sarah). want_food(sarah, pasta). person(julia). want_food(julia, chinese_food). person(frances). want_food(frances, burgers). person(alex). want_food(alex, kebab).
+
+Lorenzo, Frances, Martina, Luke and David decided to meet by the seaside just to enjoy each other's company. Lorenzo hadn't had Indian food for a long time and thought it was a good idea. Someone suggested kebab, knowing it's one of frances's favorite dishes. Martina hadn't had ramen for a long time and thought it was a good idea. Someone suggested sushi, knowing it's one of luke's favorite dishes. David was excited to try Chinese food.
+person(lorenzo). want_food(lorenzo, indian_food). person(frances). want_food(frances, kebab). person(martina). want_food(martina, ramen). person(luke). want_food(luke, sushi). person(david). want_food(david, chinese_food).
+
+Lorenzo, Marco, Matt and Andrew decided to meet at the restaurant downtown because they had not seen each other for a while. ramen seemed to be the dish lorenzo liked the most. Someone suggested ramen, knowing it's one of marco's favorite dishes. Matt was excited to try kebab. kebab seemed to be the dish andrew liked the most.
+person(lorenzo). want_food(lorenzo, ramen). person(marco). want_food(marco, ramen). person(matt). want_food(matt, kebab). person(andrew). want_food(andrew, kebab).
+
+After planning for a few days, Claire, Julia, Matt, Andrew, Sarah and Lorenzo finally met at the pub in the square. Someone suggested Indian food, knowing it's one of claire's favorite dishes. Julia was excited to try poke. Matt was excited to try pasta. Andrew hadn't had pizza for a long time and thought it was a good idea. salad seemed to be the dish sarah liked the most. poke seemed to be the dish lorenzo liked the most.
+person(claire). want_food(claire, indian_food). person(julia). want_food(julia, poke). person(matt). want_food(matt, pasta). person(andrew). want_food(andrew, pizza). person(sarah). want_food(sarah, salad). person(lorenzo). want_food(lorenzo, poke).
+
+After planning for a few days, Matt, Sarah, Julia and Frances finally met at the pub in the square. Someone suggested pizza, knowing it's one of matt's favorite dishes. kebab seemed to be the dish sarah liked the most. Someone suggested poke, knowing it's one of julia's favorite dishes. Someone suggested sushi, knowing it's one of frances's favorite dishes.
+person(matt). want_food(matt, pizza). person(sarah). want_food(sarah, kebab). person(julia). want_food(julia, poke). person(frances). want_food(frances, sushi).
+
+Luke, Frances, Marco and Matt wanted to go out at the pub in the square for a nice evening. Luke was excited to try poke. Someone suggested sushi, knowing it's one of frances's favorite dishes. kebab seemed to be the dish marco liked the most. sushi seemed to be the dish matt liked the most.
+person(luke). want_food(luke, poke). person(frances). want_food(frances, sushi). person(marco). want_food(marco, kebab). person(matt). want_food(matt, sushi).
+
+Sarah, Marco, Lorenzo and Luke decided to meet by the seaside just to enjoy each other's company. Someone suggested kebab, knowing it's one of sarah's favorite dishes. Someone suggested paella, knowing it's one of marco's favorite dishes. pasta seemed to be the dish lorenzo liked the most. Someone suggested burgers, knowing it's one of luke's favorite dishes.
+person(sarah). want_food(sarah, kebab). person(marco). want_food(marco, paella). person(lorenzo). want_food(lorenzo, pasta). person(luke). want_food(luke, burgers).
+
+Frances, Matt, David and Julia decided to meet at the new bistro to celebrate a birthday. Frances hadn't had kebab for a long time and thought it was a good idea. Someone suggested paella, knowing it's one of matt's favorite dishes. David hadn't had salad for a long time and thought it was a good idea. Julia hadn't had poke for a long time and thought it was a good idea.
+person(frances). want_food(frances, kebab). person(matt). want_food(matt, paella). person(david). want_food(david, salad). person(julia). want_food(julia, poke).
+
+After planning for a few days, Martina, Luke, Sarah, Alex and Lorenzo finally met at an ethnic place. tacos seemed to be the dish martina liked the most. Luke hadn't had poke for a long time and thought it was a good idea. Sarah hadn't had burgers for a long time and thought it was a good idea. pasta seemed to be the dish alex liked the most. Someone suggested poke, knowing it's one of lorenzo's favorite dishes.
+person(martina). want_food(martina, tacos). person(luke). want_food(luke, poke). person(sarah). want_food(sarah, burgers). person(alex). want_food(alex, pasta). person(lorenzo). want_food(lorenzo, poke).
+
+Marco, Martina, Frances, Luke and Andrew wanted to go out by the seaside for a nice evening. Marco hadn't had ramen for a long time and thought it was a good idea. Martina was excited to try burgers. Frances was excited to try pizza. Luke was excited to try paella. ramen seemed to be the dish andrew liked the most.
+person(marco). want_food(marco, ramen). person(martina). want_food(martina, burgers). person(frances). want_food(frances, pizza). person(luke). want_food(luke, paella). person(andrew). want_food(andrew, ramen).
+
+Alex, Andrew, David, Sarah, Julia and Luke wanted to go out at the restaurant downtown for a nice evening. tacos seemed to be the dish alex liked the most. Someone suggested paella, knowing it's one of andrew's favorite dishes. pizza seemed to be the dish david liked the most. Sarah hadn't had Indian food for a long time and thought it was a good idea. Someone suggested Indian food, knowing it's one of julia's favorite dishes. Someone suggested tacos, knowing it's one of luke's favorite dishes.
+person(alex). want_food(alex, tacos). person(andrew). want_food(andrew, paella). person(david). want_food(david, pizza). person(sarah). want_food(sarah, indian_food). person(julia). want_food(julia, indian_food). person(luke). want_food(luke, tacos).
+
+Marco, Matt, Andrew, Claire, Lorenzo and Sarah wanted to go out at the restaurant downtown for a nice evening. Marco hadn't had pasta for a long time and thought it was a good idea. Matt hadn't had ramen for a long time and thought it was a good idea. Someone suggested sushi, knowing it's one of andrew's favorite dishes. Chinese food seemed to be the dish claire liked the most. Someone suggested poke, knowing it's one of lorenzo's favorite dishes. Sarah was excited to try Indian food.
+person(marco). want_food(marco, pasta). person(matt). want_food(matt, ramen). person(andrew). want_food(andrew, sushi). person(claire). want_food(claire, chinese_food). person(lorenzo). want_food(lorenzo, poke). person(sarah). want_food(sarah, indian_food).
+
+Julia, Sarah and Luke decided to meet at the restaurant downtown because they wanted to spend some time together. kebab seemed to be the dish julia liked the most. pasta seemed to be the dish sarah liked the most. Luke was excited to try sushi.
+person(julia). want_food(julia, kebab). person(sarah). want_food(sarah, pasta). person(luke). want_food(luke, sushi).
+
+After planning for a few days, Sarah, David, Luke, Lorenzo and Julia finally met at a popular food truck. sushi seemed to be the dish sarah liked the most. David was excited to try ramen. Someone suggested salad, knowing it's one of luke's favorite dishes. Lorenzo was excited to try salad. Julia was excited to try tacos.
+person(sarah). want_food(sarah, sushi). person(david). want_food(david, ramen). person(luke). want_food(luke, salad). person(lorenzo). want_food(lorenzo, salad). person(julia). want_food(julia, tacos).
+
+Luke, David, Julia, Matt and Sarah wanted to go out at the pub in the square for a nice evening. Someone suggested tacos, knowing it's one of luke's favorite dishes. David hadn't had kebab for a long time and thought it was a good idea. Julia hadn't had poke for a long time and thought it was a good idea. tacos seemed to be the dish matt liked the most. sushi seemed to be the dish sarah liked the most.
+person(luke). want_food(luke, tacos). person(david). want_food(david, kebab). person(julia). want_food(julia, poke). person(matt). want_food(matt, tacos). person(sarah). want_food(sarah, sushi).
+
+Matt, Martina, Marco and Lorenzo wanted to go out at an ethnic place for a nice evening. Someone suggested pasta, knowing it's one of matt's favorite dishes. Someone suggested pizza, knowing it's one of martina's favorite dishes. Someone suggested Indian food, knowing it's one of marco's favorite dishes. Lorenzo was excited to try pizza.
+person(matt). want_food(matt, pasta). person(martina). want_food(martina, pizza). person(marco). want_food(marco, indian_food). person(lorenzo). want_food(lorenzo, pizza).
+
+Lorenzo, David, Marco, Frances and Martina wanted to go out at the restaurant downtown for a nice evening. Someone suggested tacos, knowing it's one of lorenzo's favorite dishes. David was excited to try Chinese food. Someone suggested pasta, knowing it's one of marco's favorite dishes. Someone suggested pizza, knowing it's one of frances's favorite dishes. Martina hadn't had kebab for a long time and thought it was a good idea.
+person(lorenzo). want_food(lorenzo, tacos). person(david). want_food(david, chinese_food). person(marco). want_food(marco, pasta). person(frances). want_food(frances, pizza). person(martina). want_food(martina, kebab).
+
+Frances, David, Matt, Alex and Martina decided to meet at a popular food truck to relax after a long day. Frances was excited to try Chinese food. David hadn't had salad for a long time and thought it was a good idea. Someone suggested pizza, knowing it's one of matt's favorite dishes. Alex was excited to try burgers. Martina was excited to try sushi.
+person(frances). want_food(frances, chinese_food). person(david). want_food(david, salad). person(matt). want_food(matt, pizza). person(alex). want_food(alex, burgers). person(martina). want_food(martina, sushi).
+
+Julia, Martina, Alex and Luke wanted to go out at the trattoria nearby for a nice evening. salad seemed to be the dish julia liked the most. Someone suggested sushi, knowing it's one of martina's favorite dishes. Alex hadn't had burgers for a long time and thought it was a good idea. Luke was excited to try Chinese food.
+person(julia). want_food(julia, salad). person(martina). want_food(martina, sushi). person(alex). want_food(alex, burgers). person(luke). want_food(luke, chinese_food).
+
+Matt, Martina, Claire, Frances and Andrew decided to meet at the pub in the square to try something new. sushi seemed to be the dish matt liked the most. Martina was excited to try ramen. Claire was excited to try pasta. tacos seemed to be the dish frances liked the most. Andrew hadn't had paella for a long time and thought it was a good idea.
+person(matt). want_food(matt, sushi). person(martina). want_food(martina, ramen). person(claire). want_food(claire, pasta). person(frances). want_food(frances, tacos). person(andrew). want_food(andrew, paella).
+
+Matt, Marco, Luke, Julia, Andrew and Frances decided to meet at the pub in the square to celebrate a birthday. Indian food seemed to be the dish matt liked the most. pizza seemed to be the dish marco liked the most. Luke was excited to try sushi. Someone suggested pizza, knowing it's one of julia's favorite dishes. Someone suggested salad, knowing it's one of andrew's favorite dishes. Someone suggested poke, knowing it's one of frances's favorite dishes.
+person(matt). want_food(matt, indian_food). person(marco). want_food(marco, pizza). person(luke). want_food(luke, sushi). person(julia). want_food(julia, pizza). person(andrew). want_food(andrew, salad). person(frances). want_food(frances, poke).
+
+Luke, Claire, Andrew, Frances, Alex and Lorenzo decided to meet at the pub in the square because they wanted to spend some time together. kebab seemed to be the dish luke liked the most. Someone suggested tacos, knowing it's one of claire's favorite dishes. Indian food seemed to be the dish andrew liked the most. Someone suggested sushi, knowing it's one of frances's favorite dishes. Alex was excited to try tacos. Lorenzo was excited to try kebab.
+person(luke). want_food(luke, kebab). person(claire). want_food(claire, tacos). person(andrew). want_food(andrew, indian_food). person(frances). want_food(frances, sushi). person(alex). want_food(alex, tacos). person(lorenzo). want_food(lorenzo, kebab).
+
+After planning for a few days, Luke, Sarah, Julia, Martina, Claire and Frances finally met at the pub in the square. ramen seemed to be the dish luke liked the most. Sarah was excited to try salad. Julia hadn't had pizza for a long time and thought it was a good idea. Martina was excited to try poke. Claire hadn't had sushi for a long time and thought it was a good idea. Frances was excited to try ramen.
+person(luke). want_food(luke, ramen). person(sarah). want_food(sarah, salad). person(julia). want_food(julia, pizza). person(martina). want_food(martina, poke). person(claire). want_food(claire, sushi). person(frances). want_food(frances, ramen).
+
+After planning for a few days, Luke, Marco and Julia finally met at an ethnic place. Someone suggested kebab, knowing it's one of luke's favorite dishes. Marco was excited to try pasta. Indian food seemed to be the dish julia liked the most.
+person(luke). want_food(luke, kebab). person(marco). want_food(marco, pasta). person(julia). want_food(julia, indian_food).
+
+Julia, David and Lorenzo wanted to go out at a popular food truck for a nice evening. Julia was excited to try burgers. Someone suggested paella, knowing it's one of david's favorite dishes. Lorenzo hadn't had paella for a long time and thought it was a good idea.
+person(julia). want_food(julia, burgers). person(david). want_food(david, paella). person(lorenzo). want_food(lorenzo, paella).
+
+Julia, Andrew, Martina and Luke wanted to go out at the pub in the square for a nice evening. Julia hadn't had burgers for a long time and thought it was a good idea. tacos seemed to be the dish andrew liked the most. Martina was excited to try Chinese food. Someone suggested Indian food, knowing it's one of luke's favorite dishes.
+person(julia). want_food(julia, burgers). person(andrew). want_food(andrew, tacos). person(martina). want_food(martina, chinese_food). person(luke). want_food(luke, indian_food).
+
+After planning for a few days, Luke, Alex, Claire, Lorenzo and Matt finally met at the restaurant downtown. Luke hadn't had Chinese food for a long time and thought it was a good idea. Chinese food seemed to be the dish alex liked the most. Claire hadn't had salad for a long time and thought it was a good idea. Someone suggested paella, knowing it's one of lorenzo's favorite dishes. pasta seemed to be the dish matt liked the most.
+person(luke). want_food(luke, chinese_food). person(alex). want_food(alex, chinese_food). person(claire). want_food(claire, salad). person(lorenzo). want_food(lorenzo, paella). person(matt). want_food(matt, pasta).
+
+After planning for a few days, Sarah, Lorenzo, Marco, David and Julia finally met at a popular food truck. Someone suggested Chinese food, knowing it's one of sarah's favorite dishes. Someone suggested salad, knowing it's one of lorenzo's favorite dishes. Marco hadn't had tacos for a long time and thought it was a good idea. David hadn't had kebab for a long time and thought it was a good idea. poke seemed to be the dish julia liked the most.
+person(sarah). want_food(sarah, chinese_food). person(lorenzo). want_food(lorenzo, salad). person(marco). want_food(marco, tacos). person(david). want_food(david, kebab). person(julia). want_food(julia, poke).
+
+Andrew, Alex, Sarah, Claire, David and Lorenzo wanted to go out at an ethnic place for a nice evening. Andrew hadn't had kebab for a long time and thought it was a good idea. Someone suggested paella, knowing it's one of alex's favorite dishes. Sarah hadn't had pasta for a long time and thought it was a good idea. Claire was excited to try salad. tacos seemed to be the dish david liked the most. paella seemed to be the dish lorenzo liked the most.
+person(andrew). want_food(andrew, kebab). person(alex). want_food(alex, paella). person(sarah). want_food(sarah, pasta). person(claire). want_food(claire, salad). person(david). want_food(david, tacos). person(lorenzo). want_food(lorenzo, paella).
+
+Luke, Alex and Frances decided to meet at the trattoria nearby because they wanted to spend some time together. Indian food seemed to be the dish luke liked the most. Alex was excited to try pizza. Frances hadn't had Chinese food for a long time and thought it was a good idea.
+person(luke). want_food(luke, indian_food). person(alex). want_food(alex, pizza). person(frances). want_food(frances, chinese_food).
+
+Andrew, Frances, Luke, Alex and David decided to meet at the trattoria nearby to relax after a long day. burgers seemed to be the dish andrew liked the most. Frances hadn't had ramen for a long time and thought it was a good idea. poke seemed to be the dish luke liked the most. kebab seemed to be the dish alex liked the most. Someone suggested pizza, knowing it's one of david's favorite dishes.
+person(andrew). want_food(andrew, burgers). person(frances). want_food(frances, ramen). person(luke). want_food(luke, poke). person(alex). want_food(alex, kebab). person(david). want_food(david, pizza).
+
+Julia, Andrew, Alex, David, Sarah and Frances decided to meet at the pub in the square because they wanted to spend some time together. Julia hadn't had pizza for a long time and thought it was a good idea. poke seemed to be the dish andrew liked the most. Alex hadn't had Chinese food for a long time and thought it was a good idea. paella seemed to be the dish david liked the most. Sarah hadn't had pasta for a long time and thought it was a good idea. Frances was excited to try kebab.
+person(julia). want_food(julia, pizza). person(andrew). want_food(andrew, poke). person(alex). want_food(alex, chinese_food). person(david). want_food(david, paella). person(sarah). want_food(sarah, pasta). person(frances). want_food(frances, kebab).
+
+Julia, Sarah and Frances decided to meet at the restaurant downtown just to enjoy each other's company. Someone suggested burgers, knowing it's one of julia's favorite dishes. Someone suggested Chinese food, knowing it's one of sarah's favorite dishes. Indian food seemed to be the dish frances liked the most.
+person(julia). want_food(julia, burgers). person(sarah). want_food(sarah, chinese_food). person(frances). want_food(frances, indian_food).
+
+Luke, Julia, Lorenzo, Andrew and David decided to meet at a popular food truck to celebrate a birthday. Luke was excited to try kebab. Julia hadn't had tacos for a long time and thought it was a good idea. Lorenzo was excited to try burgers. Andrew was excited to try kebab. paella seemed to be the dish david liked the most.
+person(luke). want_food(luke, kebab). person(julia). want_food(julia, tacos). person(lorenzo). want_food(lorenzo, burgers). person(andrew). want_food(andrew, kebab). person(david). want_food(david, paella).
+
+Matt, Lorenzo, Sarah and Andrew decided to meet at the restaurant downtown because they wanted to spend some time together. Matt hadn't had paella for a long time and thought it was a good idea. sushi seemed to be the dish lorenzo liked the most. Someone suggested Indian food, knowing it's one of sarah's favorite dishes. Andrew hadn't had pizza for a long time and thought it was a good idea.
+person(matt). want_food(matt, paella). person(lorenzo). want_food(lorenzo, sushi). person(sarah). want_food(sarah, indian_food). person(andrew). want_food(andrew, pizza).
+
+Frances, Lorenzo, Luke, Andrew and Claire wanted to go out by the seaside for a nice evening. Frances hadn't had poke for a long time and thought it was a good idea. Someone suggested salad, knowing it's one of lorenzo's favorite dishes. Luke hadn't had Chinese food for a long time and thought it was a good idea. Someone suggested burgers, knowing it's one of andrew's favorite dishes. Claire hadn't had poke for a long time and thought it was a good idea.
+person(frances). want_food(frances, poke). person(lorenzo). want_food(lorenzo, salad). person(luke). want_food(luke, chinese_food). person(andrew). want_food(andrew, burgers). person(claire). want_food(claire, poke).
+
+Alex, Sarah, Julia, Frances, Luke and Matt decided to meet at the pub in the square to celebrate a birthday. poke seemed to be the dish alex liked the most. poke seemed to be the dish sarah liked the most. Julia hadn't had kebab for a long time and thought it was a good idea. Frances was excited to try burgers. Someone suggested kebab, knowing it's one of luke's favorite dishes. Matt hadn't had ramen for a long time and thought it was a good idea.
+person(alex). want_food(alex, poke). person(sarah). want_food(sarah, poke). person(julia). want_food(julia, kebab). person(frances). want_food(frances, burgers). person(luke). want_food(luke, kebab). person(matt). want_food(matt, ramen).
+
+After planning for a few days, Marco, Luke, Frances and Sarah finally met at a popular food truck. pasta seemed to be the dish marco liked the most. Luke was excited to try pasta. Someone suggested sushi, knowing it's one of frances's favorite dishes. Someone suggested pasta, knowing it's one of sarah's favorite dishes.
+person(marco). want_food(marco, pasta). person(luke). want_food(luke, pasta). person(frances). want_food(frances, sushi). person(sarah). want_food(sarah, pasta).
+
+Frances, Lorenzo, Claire, Marco, Sarah and Matt decided to meet at the pub in the square to relax after a long day. Frances was excited to try Chinese food. Lorenzo hadn't had salad for a long time and thought it was a good idea. Claire was excited to try burgers. Someone suggested pasta, knowing it's one of marco's favorite dishes. sushi seemed to be the dish sarah liked the most. Matt hadn't had tacos for a long time and thought it was a good idea.
+person(frances). want_food(frances, chinese_food). person(lorenzo). want_food(lorenzo, salad). person(claire). want_food(claire, burgers). person(marco). want_food(marco, pasta). person(sarah). want_food(sarah, sushi). person(matt). want_food(matt, tacos).
+
+After planning for a few days, Marco, Andrew and Claire finally met at the restaurant downtown. tacos seemed to be the dish marco liked the most. Andrew hadn't had tacos for a long time and thought it was a good idea. Claire hadn't had pizza for a long time and thought it was a good idea.
+person(marco). want_food(marco, tacos). person(andrew). want_food(andrew, tacos). person(claire). want_food(claire, pizza).
+
+Julia, David, Matt, Martina, Luke and Sarah wanted to go out at the pub in the square for a nice evening. Someone suggested Indian food, knowing it's one of julia's favorite dishes. David hadn't had tacos for a long time and thought it was a good idea. pizza seemed to be the dish matt liked the most. Someone suggested paella, knowing it's one of martina's favorite dishes. tacos seemed to be the dish luke liked the most. Someone suggested ramen, knowing it's one of sarah's favorite dishes.
+person(julia). want_food(julia, indian_food). person(david). want_food(david, tacos). person(matt). want_food(matt, pizza). person(martina). want_food(martina, paella). person(luke). want_food(luke, tacos). person(sarah). want_food(sarah, ramen).
+
+After planning for a few days, Alex, Sarah, Andrew and Frances finally met at the trattoria nearby. burgers seemed to be the dish alex liked the most. pasta seemed to be the dish sarah liked the most. Andrew hadn't had paella for a long time and thought it was a good idea. Frances hadn't had sushi for a long time and thought it was a good idea.
+person(alex). want_food(alex, burgers). person(sarah). want_food(sarah, pasta). person(andrew). want_food(andrew, paella). person(frances). want_food(frances, sushi).
+
+After planning for a few days, Alex, Lorenzo, Matt, Luke, Sarah and Martina finally met at an ethnic place. Someone suggested burgers, knowing it's one of alex's favorite dishes. salad seemed to be the dish lorenzo liked the most. Someone suggested Indian food, knowing it's one of matt's favorite dishes. Someone suggested ramen, knowing it's one of luke's favorite dishes. Someone suggested kebab, knowing it's one of sarah's favorite dishes. Someone suggested paella, knowing it's one of martina's favorite dishes.
+person(alex). want_food(alex, burgers). person(lorenzo). want_food(lorenzo, salad). person(matt). want_food(matt, indian_food). person(luke). want_food(luke, ramen). person(sarah). want_food(sarah, kebab). person(martina). want_food(martina, paella).
+
+After planning for a few days, David, Martina and Lorenzo finally met at the trattoria nearby. David hadn't had sushi for a long time and thought it was a good idea. Someone suggested kebab, knowing it's one of martina's favorite dishes. kebab seemed to be the dish lorenzo liked the most.
+person(david). want_food(david, sushi). person(martina). want_food(martina, kebab). person(lorenzo). want_food(lorenzo, kebab).
+
+Matt, Lorenzo, Frances, Andrew, Julia and Martina decided to meet at an ethnic place to try something new. Someone suggested ramen, knowing it's one of matt's favorite dishes. Someone suggested ramen, knowing it's one of lorenzo's favorite dishes. Someone suggested paella, knowing it's one of frances's favorite dishes. Andrew hadn't had burgers for a long time and thought it was a good idea. Julia hadn't had Indian food for a long time and thought it was a good idea. Martina was excited to try Chinese food.
+person(matt). want_food(matt, ramen). person(lorenzo). want_food(lorenzo, ramen). person(frances). want_food(frances, paella). person(andrew). want_food(andrew, burgers). person(julia). want_food(julia, indian_food). person(martina). want_food(martina, chinese_food).
+
+Alex, Marco, Martina, Lorenzo, Julia and Claire decided to meet at the restaurant downtown because they had not seen each other for a while. Alex hadn't had pizza for a long time and thought it was a good idea. Marco was excited to try paella. Someone suggested ramen, knowing it's one of martina's favorite dishes. Someone suggested ramen, knowing it's one of lorenzo's favorite dishes. Someone suggested poke, knowing it's one of julia's favorite dishes. Someone suggested burgers, knowing it's one of claire's favorite dishes.
+person(alex). want_food(alex, pizza). person(marco). want_food(marco, paella). person(martina). want_food(martina, ramen). person(lorenzo). want_food(lorenzo, ramen). person(julia). want_food(julia, poke). person(claire). want_food(claire, burgers).
+
+Luke, Sarah and Claire decided to meet at the trattoria nearby just to enjoy each other's company. Luke was excited to try kebab. ramen seemed to be the dish sarah liked the most. Someone suggested burgers, knowing it's one of claire's favorite dishes.
+person(luke). want_food(luke, kebab). person(sarah). want_food(sarah, ramen). person(claire). want_food(claire, burgers).
+
+Lorenzo, Sarah, Luke and Martina decided to meet by the seaside just to enjoy each other's company. Lorenzo was excited to try salad. Someone suggested sushi, knowing it's one of sarah's favorite dishes. Luke hadn't had paella for a long time and thought it was a good idea. Martina hadn't had sushi for a long time and thought it was a good idea.
+person(lorenzo). want_food(lorenzo, salad). person(sarah). want_food(sarah, sushi). person(luke). want_food(luke, paella). person(martina). want_food(martina, sushi).
+
+Alex, Matt, Lorenzo and Marco wanted to go out at the restaurant downtown for a nice evening. Alex hadn't had sushi for a long time and thought it was a good idea. salad seemed to be the dish matt liked the most. Someone suggested poke, knowing it's one of lorenzo's favorite dishes. Someone suggested salad, knowing it's one of marco's favorite dishes.
+person(alex). want_food(alex, sushi). person(matt). want_food(matt, salad). person(lorenzo). want_food(lorenzo, poke). person(marco). want_food(marco, salad).
+
+Andrew, David and Sarah wanted to go out at the pub in the square for a nice evening. Someone suggested kebab, knowing it's one of andrew's favorite dishes. ramen seemed to be the dish david liked the most. kebab seemed to be the dish sarah liked the most.
+person(andrew). want_food(andrew, kebab). person(david). want_food(david, ramen). person(sarah). want_food(sarah, kebab).
+
+After planning for a few days, Luke, Lorenzo and Matt finally met by the seaside. Luke hadn't had sushi for a long time and thought it was a good idea. Lorenzo hadn't had tacos for a long time and thought it was a good idea. Matt hadn't had Chinese food for a long time and thought it was a good idea.
+person(luke). want_food(luke, sushi). person(lorenzo). want_food(lorenzo, tacos). person(matt). want_food(matt, chinese_food).
+
+After planning for a few days, Luke, Martina, Julia and Claire finally met at the new bistro. Luke was excited to try sushi. Martina was excited to try sushi. Julia was excited to try pizza. ramen seemed to be the dish claire liked the most.
+person(luke). want_food(luke, sushi). person(martina). want_food(martina, sushi). person(julia). want_food(julia, pizza). person(claire). want_food(claire, ramen).
+
+Frances, Lorenzo, Sarah, Martina and Alex decided to meet by the seaside just to enjoy each other's company. poke seemed to be the dish frances liked the most. Someone suggested Chinese food, knowing it's one of lorenzo's favorite dishes. Sarah hadn't had tacos for a long time and thought it was a good idea. sushi seemed to be the dish martina liked the most. Someone suggested Chinese food, knowing it's one of alex's favorite dishes.
+person(frances). want_food(frances, poke). person(lorenzo). want_food(lorenzo, chinese_food). person(sarah). want_food(sarah, tacos). person(martina). want_food(martina, sushi). person(alex). want_food(alex, chinese_food).
+
+Julia, Alex, Matt and Frances wanted to go out by the seaside for a nice evening. Julia was excited to try salad. Alex hadn't had sushi for a long time and thought it was a good idea. Chinese food seemed to be the dish matt liked the most. Someone suggested Indian food, knowing it's one of frances's favorite dishes.
+person(julia). want_food(julia, salad). person(alex). want_food(alex, sushi). person(matt). want_food(matt, chinese_food). person(frances). want_food(frances, indian_food).
+
+Frances, Alex and Julia wanted to go out at the trattoria nearby for a nice evening. Frances hadn't had pizza for a long time and thought it was a good idea. Someone suggested poke, knowing it's one of alex's favorite dishes. Julia was excited to try pizza.
+person(frances). want_food(frances, pizza). person(alex). want_food(alex, poke). person(julia). want_food(julia, pizza).
+
+After planning for a few days, Claire, Marco and Frances finally met by the seaside. Claire was excited to try paella. Marco was excited to try Chinese food. Frances was excited to try kebab.
+person(claire). want_food(claire, paella). person(marco). want_food(marco, chinese_food). person(frances). want_food(frances, kebab).
+
+Alex, Martina, Andrew and Julia wanted to go out at the trattoria nearby for a nice evening. Someone suggested Indian food, knowing it's one of alex's favorite dishes. Martina hadn't had Indian food for a long time and thought it was a good idea. sushi seemed to be the dish andrew liked the most. Julia was excited to try pizza.
+person(alex). want_food(alex, indian_food). person(martina). want_food(martina, indian_food). person(andrew). want_food(andrew, sushi). person(julia). want_food(julia, pizza).
+
+Lorenzo, Andrew, Matt, Luke and Marco decided to meet at a popular food truck just to enjoy each other's company. Lorenzo hadn't had pizza for a long time and thought it was a good idea. Andrew was excited to try Indian food. Matt hadn't had burgers for a long time and thought it was a good idea. Someone suggested poke, knowing it's one of luke's favorite dishes. Marco hadn't had poke for a long time and thought it was a good idea.
+person(lorenzo). want_food(lorenzo, pizza). person(andrew). want_food(andrew, indian_food). person(matt). want_food(matt, burgers). person(luke). want_food(luke, poke). person(marco). want_food(marco, poke).
+
+Julia, Lorenzo, David and Andrew wanted to go out at the trattoria nearby for a nice evening. Someone suggested Chinese food, knowing it's one of julia's favorite dishes. burgers seemed to be the dish lorenzo liked the most. David hadn't had burgers for a long time and thought it was a good idea. Andrew was excited to try tacos.
+person(julia). want_food(julia, chinese_food). person(lorenzo). want_food(lorenzo, burgers). person(david). want_food(david, burgers). person(andrew). want_food(andrew, tacos).
+
+David, Julia, Martina, Matt, Sarah and Frances wanted to go out at a popular food truck for a nice evening. David was excited to try paella. Julia hadn't had ramen for a long time and thought it was a good idea. Someone suggested pizza, knowing it's one of martina's favorite dishes. Indian food seemed to be the dish matt liked the most. Someone suggested kebab, knowing it's one of sarah's favorite dishes. Frances was excited to try paella.
+person(david). want_food(david, paella). person(julia). want_food(julia, ramen). person(martina). want_food(martina, pizza). person(matt). want_food(matt, indian_food). person(sarah). want_food(sarah, kebab). person(frances). want_food(frances, paella).
+
+Andrew, David and Lorenzo wanted to go out at the trattoria nearby for a nice evening. Andrew was excited to try poke. David was excited to try salad. Lorenzo was excited to try Chinese food.
+person(andrew). want_food(andrew, poke). person(david). want_food(david, salad). person(lorenzo). want_food(lorenzo, chinese_food).
+
+Martina, David, Sarah, Frances, Luke and Lorenzo decided to meet at the new bistro because they had not seen each other for a while. Someone suggested pizza, knowing it's one of martina's favorite dishes. burgers seemed to be the dish david liked the most. Someone suggested Indian food, knowing it's one of sarah's favorite dishes. pizza seemed to be the dish frances liked the most. Luke hadn't had Chinese food for a long time and thought it was a good idea. Someone suggested burgers, knowing it's one of lorenzo's favorite dishes.
+person(martina). want_food(martina, pizza). person(david). want_food(david, burgers). person(sarah). want_food(sarah, indian_food). person(frances). want_food(frances, pizza). person(luke). want_food(luke, chinese_food). person(lorenzo). want_food(lorenzo, burgers).
+
+Claire, Julia, Sarah, Matt, Alex and Frances decided to meet at the trattoria nearby to relax after a long day. Claire hadn't had ramen for a long time and thought it was a good idea. pizza seemed to be the dish julia liked the most. Someone suggested kebab, knowing it's one of sarah's favorite dishes. Matt hadn't had Indian food for a long time and thought it was a good idea. salad seemed to be the dish alex liked the most. Frances was excited to try pasta.
+person(claire). want_food(claire, ramen). person(julia). want_food(julia, pizza). person(sarah). want_food(sarah, kebab). person(matt). want_food(matt, indian_food). person(alex). want_food(alex, salad). person(frances). want_food(frances, pasta).
+
+Lorenzo, Marco, Alex, Sarah, Claire and David wanted to go out at an ethnic place for a nice evening. Someone suggested salad, knowing it's one of lorenzo's favorite dishes. pizza seemed to be the dish marco liked the most. Someone suggested Chinese food, knowing it's one of alex's favorite dishes. Sarah was excited to try Chinese food. pizza seemed to be the dish claire liked the most. David hadn't had Chinese food for a long time and thought it was a good idea.
+person(lorenzo). want_food(lorenzo, salad). person(marco). want_food(marco, pizza). person(alex). want_food(alex, chinese_food). person(sarah). want_food(sarah, chinese_food). person(claire). want_food(claire, pizza). person(david). want_food(david, chinese_food).
+
+After planning for a few days, Frances, Martina and Sarah finally met at the pub in the square. Frances hadn't had ramen for a long time and thought it was a good idea. Someone suggested Indian food, knowing it's one of martina's favorite dishes. Someone suggested tacos, knowing it's one of sarah's favorite dishes.
+person(frances). want_food(frances, ramen). person(martina). want_food(martina, indian_food). person(sarah). want_food(sarah, tacos).
+
+Claire, Martina and Julia wanted to go out at the pub in the square for a nice evening. Someone suggested pasta, knowing it's one of claire's favorite dishes. Someone suggested poke, knowing it's one of martina's favorite dishes. pasta seemed to be the dish julia liked the most.
+person(claire). want_food(claire, pasta). person(martina). want_food(martina, poke). person(julia). want_food(julia, pasta).
+
+Matt, Luke, Julia, Claire, Andrew and Alex decided to meet at an ethnic place because they wanted to spend some time together. Someone suggested paella, knowing it's one of matt's favorite dishes. kebab seemed to be the dish luke liked the most. Julia was excited to try kebab. Claire hadn't had pizza for a long time and thought it was a good idea. Andrew hadn't had kebab for a long time and thought it was a good idea. Someone suggested sushi, knowing it's one of alex's favorite dishes.
+person(matt). want_food(matt, paella). person(luke). want_food(luke, kebab). person(julia). want_food(julia, kebab). person(claire). want_food(claire, pizza). person(andrew). want_food(andrew, kebab). person(alex). want_food(alex, sushi).
+
+After planning for a few days, Matt, Luke, Marco, Frances and David finally met at the pub in the square. Matt hadn't had sushi for a long time and thought it was a good idea. Someone suggested paella, knowing it's one of luke's favorite dishes. Marco was excited to try pasta. Someone suggested Chinese food, knowing it's one of frances's favorite dishes. David was excited to try tacos.
+person(matt). want_food(matt, sushi). person(luke). want_food(luke, paella). person(marco). want_food(marco, pasta). person(frances). want_food(frances, chinese_food). person(david). want_food(david, tacos).
+
+David, Julia, Claire, Matt, Martina and Luke wanted to go out at the trattoria nearby for a nice evening. Someone suggested salad, knowing it's one of david's favorite dishes. Someone suggested pizza, knowing it's one of julia's favorite dishes. Chinese food seemed to be the dish claire liked the most. Someone suggested pizza, knowing it's one of matt's favorite dishes. sushi seemed to be the dish martina liked the most. tacos seemed to be the dish luke liked the most.
+person(david). want_food(david, salad). person(julia). want_food(julia, pizza). person(claire). want_food(claire, chinese_food). person(matt). want_food(matt, pizza). person(martina). want_food(martina, sushi). person(luke). want_food(luke, tacos).
+
+Alex, Claire and Frances decided to meet at the pub in the square because they wanted to spend some time together. Indian food seemed to be the dish alex liked the most. tacos seemed to be the dish claire liked the most. Frances hadn't had kebab for a long time and thought it was a good idea.
+person(alex). want_food(alex, indian_food). person(claire). want_food(claire, tacos). person(frances). want_food(frances, kebab).
+
+Lorenzo, Andrew, David, Julia, Matt and Luke wanted to go out by the seaside for a nice evening. Lorenzo was excited to try pasta. Someone suggested poke, knowing it's one of andrew's favorite dishes. David was excited to try paella. Julia was excited to try pizza. Matt hadn't had kebab for a long time and thought it was a good idea. Luke was excited to try burgers.
+person(lorenzo). want_food(lorenzo, pasta). person(andrew). want_food(andrew, poke). person(david). want_food(david, paella). person(julia). want_food(julia, pizza). person(matt). want_food(matt, kebab). person(luke). want_food(luke, burgers).
+
+After planning for a few days, Marco, Luke, Martina, Sarah and Claire finally met at the new bistro. Marco hadn't had pasta for a long time and thought it was a good idea. Luke was excited to try Chinese food. tacos seemed to be the dish martina liked the most. Sarah hadn't had burgers for a long time and thought it was a good idea. Claire was excited to try ramen.
+person(marco). want_food(marco, pasta). person(luke). want_food(luke, chinese_food). person(martina). want_food(martina, tacos). person(sarah). want_food(sarah, burgers). person(claire). want_food(claire, ramen).
+
+Matt, Lorenzo and Alex wanted to go out at the trattoria nearby for a nice evening. kebab seemed to be the dish matt liked the most. Lorenzo hadn't had poke for a long time and thought it was a good idea. Indian food seemed to be the dish alex liked the most.
+person(matt). want_food(matt, kebab). person(lorenzo). want_food(lorenzo, poke). person(alex). want_food(alex, indian_food).
+
+Luke, David and Claire decided to meet at an ethnic place to celebrate a birthday. Someone suggested burgers, knowing it's one of luke's favorite dishes. Someone suggested ramen, knowing it's one of david's favorite dishes. salad seemed to be the dish claire liked the most.
+person(luke). want_food(luke, burgers). person(david). want_food(david, ramen). person(claire). want_food(claire, salad).
+
+After planning for a few days, Martina, Andrew and Marco finally met at the restaurant downtown. Martina was excited to try tacos. sushi seemed to be the dish andrew liked the most. Marco hadn't had ramen for a long time and thought it was a good idea.
+person(martina). want_food(martina, tacos). person(andrew). want_food(andrew, sushi). person(marco). want_food(marco, ramen).
+
+Martina, Lorenzo, Claire, Andrew and Matt wanted to go out by the seaside for a nice evening. Martina was excited to try paella. Lorenzo hadn't had Chinese food for a long time and thought it was a good idea. Someone suggested pizza, knowing it's one of claire's favorite dishes. Andrew hadn't had ramen for a long time and thought it was a good idea. paella seemed to be the dish matt liked the most.
+person(martina). want_food(martina, paella). person(lorenzo). want_food(lorenzo, chinese_food). person(claire). want_food(claire, pizza). person(andrew). want_food(andrew, ramen). person(matt). want_food(matt, paella).
+
+Luke, David and Claire decided to meet at the trattoria nearby to try something new. Luke hadn't had paella for a long time and thought it was a good idea. David hadn't had Indian food for a long time and thought it was a good idea. tacos seemed to be the dish claire liked the most.
+person(luke). want_food(luke, paella). person(david). want_food(david, indian_food). person(claire). want_food(claire, tacos).
+
+Martina, Julia, David, Andrew and Matt wanted to go out at a popular food truck for a nice evening. paella seemed to be the dish martina liked the most. sushi seemed to be the dish julia liked the most. pizza seemed to be the dish david liked the most. Andrew hadn't had kebab for a long time and thought it was a good idea. Matt was excited to try Chinese food.
+person(martina). want_food(martina, paella). person(julia). want_food(julia, sushi). person(david). want_food(david, pizza). person(andrew). want_food(andrew, kebab). person(matt). want_food(matt, chinese_food).
+
+After planning for a few days, David, Martina, Andrew and Luke finally met at the pub in the square. pasta seemed to be the dish david liked the most. Someone suggested pizza, knowing it's one of martina's favorite dishes. sushi seemed to be the dish andrew liked the most. Luke hadn't had burgers for a long time and thought it was a good idea.
+person(david). want_food(david, pasta). person(martina). want_food(martina, pizza). person(andrew). want_food(andrew, sushi). person(luke). want_food(luke, burgers).
+
+After planning for a few days, Sarah, Marco and Frances finally met at an ethnic place. Someone suggested ramen, knowing it's one of sarah's favorite dishes. Marco was excited to try kebab. Frances was excited to try Chinese food.
+person(sarah). want_food(sarah, ramen). person(marco). want_food(marco, kebab). person(frances). want_food(frances, chinese_food).
+
+Marco, Alex, Lorenzo, David and Frances wanted to go out at the pub in the square for a nice evening. Marco hadn't had burgers for a long time and thought it was a good idea. paella seemed to be the dish alex liked the most. Chinese food seemed to be the dish lorenzo liked the most. David was excited to try sushi. tacos seemed to be the dish frances liked the most.
+person(marco). want_food(marco, burgers). person(alex). want_food(alex, paella). person(lorenzo). want_food(lorenzo, chinese_food). person(david). want_food(david, sushi). person(frances). want_food(frances, tacos).
+
+After planning for a few days, Martina, Marco, Lorenzo, Luke and Andrew finally met at an ethnic place. Someone suggested ramen, knowing it's one of martina's favorite dishes. Marco hadn't had poke for a long time and thought it was a good idea. Someone suggested burgers, knowing it's one of lorenzo's favorite dishes. Luke was excited to try pizza. Andrew was excited to try paella.
+person(martina). want_food(martina, ramen). person(marco). want_food(marco, poke). person(lorenzo). want_food(lorenzo, burgers). person(luke). want_food(luke, pizza). person(andrew). want_food(andrew, paella).
+
+After planning for a few days, Lorenzo, Luke and Marco finally met at a popular food truck. Lorenzo hadn't had burgers for a long time and thought it was a good idea. Luke hadn't had burgers for a long time and thought it was a good idea. Chinese food seemed to be the dish marco liked the most.
+person(lorenzo). want_food(lorenzo, burgers). person(luke). want_food(luke, burgers). person(marco). want_food(marco, chinese_food).
+
+Julia, Luke, Andrew and Marco decided to meet at a popular food truck to relax after a long day. Julia hadn't had pizza for a long time and thought it was a good idea. Luke was excited to try paella. Andrew was excited to try tacos. sushi seemed to be the dish marco liked the most.
+person(julia). want_food(julia, pizza). person(luke). want_food(luke, paella). person(andrew). want_food(andrew, tacos). person(marco). want_food(marco, sushi).
+
+Andrew, Claire, Sarah and Matt decided to meet at the restaurant downtown just to enjoy each other's company. Andrew hadn't had kebab for a long time and thought it was a good idea. Someone suggested ramen, knowing it's one of claire's favorite dishes. Sarah hadn't had salad for a long time and thought it was a good idea. Someone suggested burgers, knowing it's one of matt's favorite dishes.
+person(andrew). want_food(andrew, kebab). person(claire). want_food(claire, ramen). person(sarah). want_food(sarah, salad). person(matt). want_food(matt, burgers).
+
+After planning for a few days, Claire, Julia and David finally met at an ethnic place. Someone suggested pasta, knowing it's one of claire's favorite dishes. Someone suggested kebab, knowing it's one of julia's favorite dishes. Someone suggested kebab, knowing it's one of david's favorite dishes.
+person(claire). want_food(claire, pasta). person(julia). want_food(julia, kebab). person(david). want_food(david, kebab).
+
+Marco, Alex, Martina, Claire and Sarah decided to meet by the seaside just to enjoy each other's company. Someone suggested paella, knowing it's one of marco's favorite dishes. Someone suggested salad, knowing it's one of alex's favorite dishes. Martina hadn't had pizza for a long time and thought it was a good idea. Claire was excited to try pizza. Chinese food seemed to be the dish sarah liked the most.
+person(marco). want_food(marco, paella). person(alex). want_food(alex, salad). person(martina). want_food(martina, pizza). person(claire). want_food(claire, pizza). person(sarah). want_food(sarah, chinese_food).
+
+Alex, Julia and Sarah wanted to go out at the trattoria nearby for a nice evening. Alex hadn't had Indian food for a long time and thought it was a good idea. Julia hadn't had paella for a long time and thought it was a good idea. Sarah was excited to try burgers.
+person(alex). want_food(alex, indian_food). person(julia). want_food(julia, paella). person(sarah). want_food(sarah, burgers).
+
+After planning for a few days, Luke, Lorenzo and Matt finally met at the pub in the square. Luke was excited to try ramen. Someone suggested tacos, knowing it's one of lorenzo's favorite dishes. Someone suggested tacos, knowing it's one of matt's favorite dishes.
+person(luke). want_food(luke, ramen). person(lorenzo). want_food(lorenzo, tacos). person(matt). want_food(matt, tacos).
+
+Lorenzo, Marco, Claire, Luke, Andrew and Julia decided to meet at the pub in the square because they had not seen each other for a while. Lorenzo was excited to try paella. Marco was excited to try salad. paella seemed to be the dish claire liked the most. Luke hadn't had ramen for a long time and thought it was a good idea. Andrew was excited to try sushi. Julia was excited to try tacos.
+person(lorenzo). want_food(lorenzo, paella). person(marco). want_food(marco, salad). person(claire). want_food(claire, paella). person(luke). want_food(luke, ramen). person(andrew). want_food(andrew, sushi). person(julia). want_food(julia, tacos).
+
+After planning for a few days, David, Julia, Luke, Martina and Alex finally met at the pub in the square. David hadn't had sushi for a long time and thought it was a good idea. Julia was excited to try tacos. Luke was excited to try pasta. Someone suggested pasta, knowing it's one of martina's favorite dishes. Someone suggested pasta, knowing it's one of alex's favorite dishes.
+person(david). want_food(david, sushi). person(julia). want_food(julia, tacos). person(luke). want_food(luke, pasta). person(martina). want_food(martina, pasta). person(alex). want_food(alex, pasta).
+
+Sarah, Andrew, Lorenzo and Frances wanted to go out at a popular food truck for a nice evening. salad seemed to be the dish sarah liked the most. Andrew hadn't had tacos for a long time and thought it was a good idea. Lorenzo hadn't had salad for a long time and thought it was a good idea. poke seemed to be the dish frances liked the most.
+person(sarah). want_food(sarah, salad). person(andrew). want_food(andrew, tacos). person(lorenzo). want_food(lorenzo, salad). person(frances). want_food(frances, poke).
+
+Martina, Sarah and Julia wanted to go out at a popular food truck for a nice evening. Martina hadn't had paella for a long time and thought it was a good idea. Someone suggested burgers, knowing it's one of sarah's favorite dishes. Julia was excited to try Indian food.
+person(martina). want_food(martina, paella). person(sarah). want_food(sarah, burgers). person(julia). want_food(julia, indian_food).
+
+Matt, Claire, Alex and Martina wanted to go out at the restaurant downtown for a nice evening. Someone suggested pasta, knowing it's one of matt's favorite dishes. Someone suggested poke, knowing it's one of claire's favorite dishes. pasta seemed to be the dish alex liked the most. Indian food seemed to be the dish martina liked the most.
+person(matt). want_food(matt, pasta). person(claire). want_food(claire, poke). person(alex). want_food(alex, pasta). person(martina). want_food(martina, indian_food).
+

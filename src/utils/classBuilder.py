@@ -1,4 +1,4 @@
-from typing import Literal, Any, Dict, Type, List, Union
+from typing import Literal, Any, Dict, Optional, Type, List, Union
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, create_model
 from pydantic_core import CoreSchema, core_schema
 
@@ -24,14 +24,18 @@ class DynamicLiteralBase:
         Returns:
             Type[BaseModel]: The dynamically generated Pydantic model.
         """
+
+        # Guarada validazione errore come viene gestito
+
         fields = {}
         for attr, values in cls._allowed_values.items():
             if values == "*":
                 # Accept any value for this attribute
-                fields[attr] = (str, Field(...))
+                fields[attr] = (Optional[str], Field(default="", description="Get all possible values related"))
             else:
                 # Restrict values using Literal
-                fields[attr] = (Literal[tuple(values)], Field(...))
+                # Used as a constraint for the attribute. AKA only the values contained in the field are allowed.
+                fields[attr] = (Optional[Literal[tuple(values)]], Field(default="", description="Get all possible values related"))
 
         cls._allowed_values.clear()
         
@@ -91,7 +95,7 @@ class ClassBuilder:
                     term_name = term.strip()
                 
                     class_dict[term_name] = Field()
-                    annotations[term_name] = str | None
+                    annotations[term_name] = int | None
 
                 class_dict['__annotations__'] = annotations
                 class_dict['__name__'] = class_name
@@ -102,7 +106,10 @@ class ClassBuilder:
                     for key, value in self.dict().items():
                         if value is None:
                             return ""  # Invalid atom
-                        atom += f"{value.replace(' ', '_')}, "
+                        
+                        if isinstance(value, str):
+                            value = value.replace(" ", "_")
+                        atom += f"{value}, "
                     return f"{atom[:-2]}).".lower()
 
                 class_dict['__str__'] = str_method
@@ -119,7 +126,7 @@ class ClassBuilder:
                     (BaseModel,),
                     {
                         "__name__": f"{class_name}_list",
-                        f"list_{class_name}" : Field(description=predicate[key]),
+                        f"list_{class_name}" : Field(description=predicate[key], fail_fast=True),
                         "__annotations__": {f"list_{class_name}": list[new_class]},  # Use ForwardRef for dynamic evaluation
                         "__extra_info__": predicate[key],
                         "__class_params__": terms

@@ -11,6 +11,8 @@ links:
 # - principal_predicate: [predicate1, predicate2] 
 
 
+
+
 knowledge_base: |
   can_go_together(X,Y,Z) :- person(X), person(Y), X < Y, want_food(X,Z), want_food(Y,Z).
   can_go_together(X,Y,Z) :- person(X), person(Y), X < Y, cuisine_preferences(X, Z), cuisine_preferences(Y, Z).

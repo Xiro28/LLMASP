@@ -24,7 +24,7 @@ class EvaluateInput(AbstractInputHandler):
 
         super().__post_init__()
 
-    def plot_tree(self, dictionary, root_label="root"):
+    def plot_tree(self, dictionary, root_label="person"):
         """
         Plots a dictionary as a tree using NetworkX and Matplotlib.
         
@@ -54,14 +54,18 @@ class EvaluateInput(AbstractInputHandler):
         # Add edges from the dictionary
         add_edges(graph, root_label, dictionary)
 
-        # Draw the graph
-        pos = nx.spring_layout(graph, seed=42)  # Position the nodes
-        plt.figure(figsize=(12, 8))
-        nx.draw(
-            graph, pos, with_labels=True, node_size=3000, 
-            node_color="lightblue", font_size=10, font_weight="bold", arrows=False
-        )
-        plt.title("Tree Representation of a Dictionary")
+        plt.figure(figsize=(14, 10))
+        pos = nx.spring_layout(graph, seed=42)  # Position the nodes for a clearer layout
+
+        # Draw nodes and edges with improved styling
+        nx.draw_networkx_nodes(graph, pos, node_size=3500, node_color="lightblue", edgecolors="black")
+        nx.draw_networkx_edges(graph, pos, arrows=True, arrowstyle='-|>', arrowsize=15, edge_color="gray")
+        nx.draw_networkx_labels(graph, pos, font_size=12, font_weight="bold", font_color="darkblue")
+
+        # Add title and adjust layout
+        plt.title("Tree Representation of a Dictionary", fontsize=16, fontweight="bold")
+        plt.axis("off")  # Turn off axis for better visualization
+        plt.tight_layout()
         plt.show()
 
 
@@ -133,38 +137,19 @@ class EvaluateInput(AbstractInputHandler):
             else:
                 response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(self.user_input, _list[i][1], None)
 
-            print(response)
-           
-            # since the response is a dictionary, we need to extract the content
-            # there's just one key in the dictionary, so we can just get the first value
-            # which is an array of class instances
+            print(response.dict().get(f"list_{main_class[i]}"))
+
             for atoms in response.dict().get(f"list_{main_class[i]}"):
-                
-                if self.links.isPrimary(main_class[i]):
-                    if (main_class[i] not in self.tree.keys()):
-                        self.tree[main_class[i]] = {}
-                        primary_atoms_params[main_class[i]] = []
+                class_name = main_class[i]
+                class_instance = str(_class_dict[class_name](**atoms))
 
-                    self.tree[main_class[i]][str(_class_dict[main_class[i]](**atoms))] = {}  
+                F += class_instance + "\n"
 
-                    primary_atoms_params[main_class[i]].append(atoms[list(atoms.keys())[0]])
-
-                elif primary_class := self.links.isLinked(main_class[i]):
-                    for key in self.tree[primary_class].keys():
-                        # Check if the key matches the first parameter in the atoms dictionary
-                        if list(atoms.values())[0].lower() in key:
-                            # Insert the value into the dictionary at the matching key
-                            self.tree[primary_class][key] = str(_class_dict[main_class[i]](**atoms))
-                else:
-                    self.tree[main_class[i]] = atoms[str(_class_dict[main_class[i]](**atoms))]
-
-
-                F += str(_class_dict[main_class[i]](**atoms))
             
             i += 1
 
         #Plot the tree
-        self.plot_tree(self.tree)
+        # self.plot_tree(self.tree)
 
         return F
     
@@ -180,12 +165,8 @@ class EvaluateInput(AbstractInputHandler):
                 str: The ASP-formatted output generated from the user input.
         """
         
-        #self.user_input = input(">")#self._AbstractInputHandler__llm_instance.invoke_llm(["Create a short story about a 3 people who deciding where to eat. 4 sentences"], 0.5)
         self.user_input = custom_input
         response = self.__natural_to_asp__(self.user_input)
-
-        #self.f.writelines(f"{self.user_input}\n\n\n")
-        #self.f.flush()
 
         #Disable for now
         if TRAIN_ON and False:

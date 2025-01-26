@@ -8,6 +8,11 @@
 
 class Links:
     def __init__(self, links):
+        if links is None:
+            self.links = {}
+            self.primary_atoms = []
+            return
+        
         self.links = links[0]
         self.primary_atoms = self.links.keys()
 

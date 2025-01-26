@@ -1,0 +1,10 @@
+preprocessing:
+- size(N).: Chess board N size positive integer.
+- forbidden(X1,Y1).: List all the forbidden squares, taken from position(X1, Y1).
+
+links:
+
+knowledge_base:
+
+postprocessing:
+- _: Explain the moves facts in a human readable way, as a paragraph.
