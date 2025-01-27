@@ -21,7 +21,7 @@ class LLMHandler:
     def __to_gpt_system_dict__(self, text: str) -> str:
         return {"role": "system", "content": text}
     
-    def invoke_llm_constrained(self, prompt: str, class_response: any, accepted_values: list[str]) -> dict:
+    def invoke_llm_constrained(self, prompt: str, class_response: any, accepted_values: list[str] = None, command: str = "") -> dict:
         """
             Invoke the LLM (Large Language Model)
 
@@ -92,7 +92,8 @@ class LLMHandler:
                     {
                         "role": "system",
                         "content": f"""You are a world class AI that excels at extracting user data from a sentence. 
-                                    Be sure about the relationship between the entities.""",
+                                    Be sure about the relationship between the entities.
+                                    {command}""",
                     },
                     {
                         "role": "user",

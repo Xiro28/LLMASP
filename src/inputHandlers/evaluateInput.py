@@ -6,6 +6,11 @@ from contextlib import suppress
 import networkx as nx
 import matplotlib.pyplot as plt
 
+import en_core_web_md
+import spacy
+
+nlp = en_core_web_md.load()
+
 @typechecked
 @dataclass(frozen=False)
 class EvaluateInput(AbstractInputHandler):
@@ -23,6 +28,77 @@ class EvaluateInput(AbstractInputHandler):
         self.tree = {}
 
         super().__post_init__()
+
+    def userinput_to_chunk(self, user_input: str) -> list:
+        doc = nlp(user_input)
+
+        nsubj_dict = {}
+
+        # Helper function to recursively collect adjectives and connect to nouns
+        def get_phrase_with_adjectives(token):
+            adjectives = []
+            for child in token.children:
+                if child.pos_ == "ADJ":
+                    adjectives.append(child.text)  # Collect adjective text
+            # Concatenate adjectives with the noun or main token
+            if adjectives:
+                return " ".join(adjectives + [token.text])
+            return token.text
+
+        # Current subject being processed
+        current_subject = []
+        check_subj = any(token.dep_ == "nsubj" for token in doc)
+
+        pos_vec = {}
+        idx_vec = {}
+
+        for token in doc:
+            word, lemma, pos, dep = token.text, token.lemma_, token.pos_, token.dep_
+
+            if (token.is_sent_start or dep == "nsubj") and not any(chld.dep_ == "ccomp" for chld in token.ancestors):
+                subj = word if check_subj else "you"
+
+                if subj not in nsubj_dict:
+                    nsubj_dict[subj] = [[]]
+                    pos_vec[subj] = [[]]
+                    idx_vec[subj] = 0
+                else:
+                    idx_vec[subj] += 1
+                    nsubj_dict[subj].append([])
+                    pos_vec[subj].append([])
+                
+                if not check_subj:
+                    nsubj_dict[subj][idx_vec[subj]].append(word)
+                    pos_vec[subj][idx_vec[subj]].append(token.i)
+                
+                current_subject = [subj]
+            elif dep == "conj" and pos not in {"VERB", "AUX"}:
+                if word not in nsubj_dict:
+                    current_subject.append(word)
+                    nsubj_dict[word] = [[]]
+                    pos_vec[word] = [[]]
+                    idx_vec[word] = 0
+            elif current_subject:
+                # Collect phrases associated with the current subject
+                # Add the phrase with adjectives
+                for subj in current_subject:
+                    #phrase = get_phrase_with_adjectives(token)
+                    if token.dep_ != "conj":
+                        nsubj_dict[subj][idx_vec[subj]].append(token.text)
+                        pos_vec[subj][idx_vec[subj]].append(token.i)
+
+        chunks = []
+        for key, values in nsubj_dict.items():
+            #print(values)
+            iter_pos = iter(pos_vec[key])
+            values.sort(key=lambda _:next(iter_pos), reverse=False)
+            part_ = ""
+            for v in values:
+                part_ += " ".join([key, *v]).replace(", ,", "")
+                part_ += "\n"
+            chunks.append(part_)
+
+        return chunks
 
     def plot_tree(self, dictionary, root_label="person"):
         """
@@ -89,10 +165,14 @@ class EvaluateInput(AbstractInputHandler):
             q_key, q_value = list(q.items())[0]
 
             if q_key == '_':
-                prompt.append(f"""Here is some context that you MUST analyze and remember.
-                            {q_value}
-                            Remember this context and don't say anything!\n
-                            """)
+
+                #prompt.append(f"""Here is some context that you MUST analyze and remember.
+                #            {q_value}
+                #            Remember this context and don't say anything!\n
+                #            """)
+
+                pass
+
             else:
                 prompt.append(q_value)
 
@@ -117,36 +197,64 @@ class EvaluateInput(AbstractInputHandler):
 
         F = ""
 
-        _class_dict = self.get_classes()
-        _list = [list_class for list_class in self.get_classes().items() if "list_" in list_class[0]]
-        main_class = [main_class[0] for main_class in self.get_classes().items() if "list_" not in main_class[0]]
-        
-        i = 0
+        chunk = self.userinput_to_chunk(user_input)
+        chunk_tokenized = [nlp(line) for line in chunk]
 
+        #print(f"{user_input}\nChunk:\n{chunk}")
+
+        _class_dict = self.get_classes()
+        _list = [list_class for list_class in _class_dict.items() if "list_" in list_class[0]]
+        main_class = [main_class[0] for main_class in _class_dict.items() if "list_" not in main_class[0]]
+        
+    
         primary_atoms_params = {}
 
         self.tree = {}
 
-        for atom in self.__pre_input_seasoning__(user_input):
+        for i, descr in enumerate(self.__pre_input_seasoning__(user_input)):
+            atom = main_class[i]
+            #print(f"Atom: {atom}")
             
-            if "Here is some context that you MUST analyze and remember." in atom:
-                continue
+            weighted_chunk = []
+            sort_chunk = True
+            
+            for f_chunk, tokens in zip(chunk, chunk_tokenized):
+                atom_ = nlp(atom)
+
+                if atom_.vector_norm == 0:
+                    sort_chunk = False
+                    sim = 0
+                else:
+                    sim = tokens.similarity(atom_)
+
+                weighted_chunk.append((f_chunk, sim))
+
+            if sort_chunk:
+                weighted_chunk.sort(key=lambda x: x[1], reverse=True)
+
+            final_chunk = "\n".join([w[0] for w in weighted_chunk])
+
+            #print(f"Final Chunk:\n{final_chunk}")
+
+            # Get the class similar to the atom
+            #atom_ = nlp(atom)
+            #word = nlp(chunk)
+            #if (word.similarity(atom_) <= 0.15):
+            #    continue
+            #print(f"Similarity: {word.similarity(atom_).conjugate()}, Atom: {chunk}")
 
             if primary_class := self.links.isLinked(main_class[i]):
-                response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(self.user_input, _list[i][1], primary_atoms_params[primary_class])
+                response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(final_chunk, _list[i][1], primary_atoms_params[primary_class], command=descr)
             else:
-                response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(self.user_input, _list[i][1], None)
+                response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(final_chunk, _list[i][1], command=descr)
 
-            print(response.dict().get(f"list_{main_class[i]}"))
 
+            #print(f"Response: {response}")
             for atoms in response.dict().get(f"list_{main_class[i]}"):
                 class_name = main_class[i]
                 class_instance = str(_class_dict[class_name](**atoms))
 
                 F += class_instance + "\n"
-
-            
-            i += 1
 
         #Plot the tree
         # self.plot_tree(self.tree)

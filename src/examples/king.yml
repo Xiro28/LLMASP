@@ -1,6 +1,7 @@
 preprocessing:
 - size(N).: Chess board N size positive integer.
 - forbidden(X1,Y1).: List all the forbidden squares, taken from position(X1, Y1).
+- hole(X,Y).: List all the holes in the board, taken from position(X, Y).
 
 links:
 

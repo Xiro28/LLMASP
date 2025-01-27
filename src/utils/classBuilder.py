@@ -95,7 +95,7 @@ class ClassBuilder:
                     term_name = term.strip()
                 
                     class_dict[term_name] = Field()
-                    annotations[term_name] = int | None
+                    annotations[term_name] = str | None
 
                 class_dict['__annotations__'] = annotations
                 class_dict['__name__'] = class_name
