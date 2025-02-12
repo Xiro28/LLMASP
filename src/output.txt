@@ -1,0 +1,3 @@
+forbidden(14, 7). forbidden(12, 21). forbidden(11, 32). forbidden(10, 26). forbidden(1, 15).
+
+Time taken: 17.337021112442017

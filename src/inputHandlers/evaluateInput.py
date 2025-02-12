@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from pydantic import BaseModel, Field
 from typeguard import typechecked
 from inputHandlers.abstractInputHandler import AbstractInputHandler
 
@@ -6,10 +7,11 @@ from contextlib import suppress
 import networkx as nx
 import matplotlib.pyplot as plt
 
-import en_core_web_md
+import en_core_web_lg
 import spacy
+import string
 
-nlp = en_core_web_md.load()
+nlp = en_core_web_lg.load()
 
 @typechecked
 @dataclass(frozen=False)
@@ -32,30 +34,32 @@ class EvaluateInput(AbstractInputHandler):
     def userinput_to_chunk(self, user_input: str) -> list:
         doc = nlp(user_input)
 
-        nsubj_dict = {}
+        # remove useless stuff without changing the meaning
+        result = []
+        temp_str = ''
+        for token in doc:
+            if "." in token.text:
+                result.append(temp_str + '\n')
+                temp_str = ''
+                continue
 
-        # Helper function to recursively collect adjectives and connect to nouns
-        def get_phrase_with_adjectives(token):
-            adjectives = []
-            for child in token.children:
-                if child.pos_ == "ADJ":
-                    adjectives.append(child.text)  # Collect adjective text
-            # Concatenate adjectives with the noun or main token
-            if adjectives:
-                return " ".join(adjectives + [token.text])
-            return token.text
+            if token.pos_ == "VERB":
+                if token.dep_ == "ROOT":
+                    temp_str += f"(IMPORTANT) {token.lemma_.upper()} "
+                else:
+                    temp_str += token.lemma_.upper() + ' '
+            elif token.text not in string.punctuation:
+                if token.dep_ == "ROOT":
+                    temp_str += f"(IMPORTANT INFO) {token.text.upper()} "
+                else:
+                    temp_str += f"{token.text} "
 
-        # Current subject being processed
-        current_subject = []
-        check_subj = any(token.dep_ == "nsubj" for token in doc)
 
-        pos_vec = {}
-        idx_vec = {}
-
+        """
         for token in doc:
             word, lemma, pos, dep = token.text, token.lemma_, token.pos_, token.dep_
 
-            if (token.is_sent_start or dep == "nsubj") and not any(chld.dep_ == "ccomp" for chld in token.ancestors):
+            if (token.is_sent_start == True or dep == "nsubj") and not any(chld.dep_ == "ccomp" for chld in token.ancestors):
                 subj = word if check_subj else "you"
 
                 if subj not in nsubj_dict:
@@ -72,7 +76,7 @@ class EvaluateInput(AbstractInputHandler):
                     pos_vec[subj][idx_vec[subj]].append(token.i)
                 
                 current_subject = [subj]
-            elif dep == "conj" and pos not in {"VERB", "AUX"}:
+            elif dep == "conj" and pos not in {"VERB", "AUX"} and any(chld.dep_ in {"nsubj", "dobj", "nsubjpass"} or token.is_sent_start == True for chld in token.ancestors):
                 if word not in nsubj_dict:
                     current_subject.append(word)
                     nsubj_dict[word] = [[]]
@@ -86,10 +90,10 @@ class EvaluateInput(AbstractInputHandler):
                     if token.dep_ != "conj":
                         nsubj_dict[subj][idx_vec[subj]].append(token.text)
                         pos_vec[subj][idx_vec[subj]].append(token.i)
+        """
 
-        chunks = []
+        """chunks = [result]
         for key, values in nsubj_dict.items():
-            #print(values)
             iter_pos = iter(pos_vec[key])
             values.sort(key=lambda _:next(iter_pos), reverse=False)
             part_ = ""
@@ -97,8 +101,9 @@ class EvaluateInput(AbstractInputHandler):
                 part_ += " ".join([key, *v]).replace(", ,", "")
                 part_ += "\n"
             chunks.append(part_)
-
-        return chunks
+        """
+        # sort the array to heva similar information near so that the llm model doesn't have to continuosly change contex
+        return sorted(result, reverse=True)
 
     def plot_tree(self, dictionary, root_label="person"):
         """
@@ -145,7 +150,7 @@ class EvaluateInput(AbstractInputHandler):
         plt.show()
 
 
-    def __pre_input_seasoning__(self, user_input: str) -> list:
+    def __pre_input_seasoning__(self, user_input: str) -> tuple[list, str]:
         """
             Enhances the given input with additional information from the config file to help with the ASP atom extraction.
             
@@ -159,6 +164,7 @@ class EvaluateInput(AbstractInputHandler):
         questions = self._AbstractInputHandler__config['preprocessing']
         the_user_input = f"USER_INPUT: {user_input}"
         prompt = []
+        extra_info = ""
 
         for q in questions:
 
@@ -171,12 +177,13 @@ class EvaluateInput(AbstractInputHandler):
                 #            Remember this context and don't say anything!\n
                 #            """)
 
-                pass
+                #pass
+                extra_info += q_value + '\n'
 
             else:
                 prompt.append(q_value)
 
-        return prompt
+        return prompt, extra_info
     
     
     def __natural_to_asp__(self, user_input: str) -> str:
@@ -195,71 +202,34 @@ class EvaluateInput(AbstractInputHandler):
                 str: The ASP-formatted output generated from the natural language input.
         """
 
-        F = ""
+        result_atoms = ""
 
-        chunk = self.userinput_to_chunk(user_input)
-        chunk_tokenized = [nlp(line) for line in chunk]
+        chunk = "".join(self.userinput_to_chunk(user_input))
+        #chunk = self._AbstractInputHandler__llm_instance.invoke_llm(["Extract the important detailed information. Be precise\n", chunk])
 
-        #print(f"{user_input}\nChunk:\n{chunk}")
+        print(chunk)
 
         _class_dict = self.get_classes()
-        _list = [list_class for list_class in _class_dict.items() if "list_" in list_class[0]]
-        main_class = [main_class[0] for main_class in _class_dict.items() if "list_" not in main_class[0]]
-        
-    
-        primary_atoms_params = {}
+        main_class = [main_class for main_class in _class_dict.items() if "list_" not in main_class[0]]
 
-        self.tree = {}
+        descrs, extra_sys_prompt = self.__pre_input_seasoning__(user_input)
 
-        for i, descr in enumerate(self.__pre_input_seasoning__(user_input)):
-            atom = main_class[i]
-            #print(f"Atom: {atom}")
-            
-            weighted_chunk = []
-            sort_chunk = True
-            
-            for f_chunk, tokens in zip(chunk, chunk_tokenized):
-                atom_ = nlp(atom)
+        dict_ = {f"g_{class_[0]}":  Field(description=descrs[idx]) for idx, class_ in enumerate(main_class)}
+        dict_["__annotations__"] = {f"g_{name}": list[cls] for name, cls in main_class}
 
-                if atom_.vector_norm == 0:
-                    sort_chunk = False
-                    sim = 0
-                else:
-                    sim = tokens.similarity(atom_)
+        wrapper =  type(
+            "BaseModelWrapper",
+            (BaseModel,),
+            dict_
+        )
 
-                weighted_chunk.append((f_chunk, sim))
+        response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(chunk, wrapper, command = extra_sys_prompt)
 
-            if sort_chunk:
-                weighted_chunk.sort(key=lambda x: x[1], reverse=True)
+        for c, _ in main_class:
+            for atoms in response.dict().get(f"g_{c}"):
+                    result_atoms += str(_class_dict[c](**atoms)) + "\n"
 
-            final_chunk = "\n".join([w[0] for w in weighted_chunk])
-
-            #print(f"Final Chunk:\n{final_chunk}")
-
-            # Get the class similar to the atom
-            #atom_ = nlp(atom)
-            #word = nlp(chunk)
-            #if (word.similarity(atom_) <= 0.15):
-            #    continue
-            #print(f"Similarity: {word.similarity(atom_).conjugate()}, Atom: {chunk}")
-
-            if primary_class := self.links.isLinked(main_class[i]):
-                response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(final_chunk, _list[i][1], primary_atoms_params[primary_class], command=descr)
-            else:
-                response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(final_chunk, _list[i][1], command=descr)
-
-
-            #print(f"Response: {response}")
-            for atoms in response.dict().get(f"list_{main_class[i]}"):
-                class_name = main_class[i]
-                class_instance = str(_class_dict[class_name](**atoms))
-
-                F += class_instance + "\n"
-
-        #Plot the tree
-        # self.plot_tree(self.tree)
-
-        return F
+        return result_atoms
     
 
     def run(self, custom_input = "", TRAIN_ON: bool = False) -> str:

@@ -85,14 +85,15 @@ class LLMHandler:
             class_response = linked_class
 
         model_json = class_response.model_json_schema()
+        #print(model_json)
 
         ret_ =  self.__llm(
                 model=MODEL_OLLAMA,
                 messages=[
                     {
                         "role": "system",
-                        "content": f"""You are a world class AI that excels at extracting user data from a sentence. 
-                                    Be sure about the relationship between the entities.
+                        "content": f"""My job is to extract relevant information and map to prolog language. 
+                                    Be sure about the relationship between the entities and positioning.
                                     {command}""",
                     },
                     {

@@ -93,9 +93,18 @@ class ClassBuilder:
 
                 for term in terms:
                     term_name = term.strip()
-                
+                    """
+                    if ":" in term:
+                        data = term.split(":")
+                        term = data[0]
+                        class_dict[term_name] = Field(pattern='^\w+(?:\s+\b\w+\b){0,' + (str(int(data[1]) - 1)) + ' }?$')
+                    else:
+                        class_dict[term_name] = Field(pattern='^\w+(?:\s+\b\w+\b){0,}?$')
+                    """
+
+
                     class_dict[term_name] = Field()
-                    annotations[term_name] = str | None
+                    annotations[term_name] = str | int | None
 
                 class_dict['__annotations__'] = annotations
                 class_dict['__name__'] = class_name

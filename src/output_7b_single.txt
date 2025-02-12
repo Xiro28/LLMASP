@@ -1,0 +1,201 @@
+person(marco). person(alex). person(andrew). person(luke). person(lorenzo). want_food(marco, pasta). want_food(luke, poke). want_food(alex, chinese_food). want_food(andrew, poke). want_food(lorenzo, chinese_food).
+
+person(luke). person(julia). person(alex). person(andrew). want_food(luke, burgers). want_food(alex, pasta). want_food(julia, pizza). want_food(andrew, burgers).
+
+person(sarah). person(frances). person(julia). person(luke). person(claire). want_food(sarah, salad). want_food(frances, ramen). want_food(julia, indian_food). want_food(luke, poke). want_food(claire, paella).
+
+person(lorenzo). person(alex). person(martina). person(frances). person(sarah). person(andrew). want_food(lorenzo, salad). want_food(alex, pasta). want_food(martina, burgers). want_food(frances, poke). want_food(sarah, burgers). want_food(andrew, pizza).
+
+person(julia). person(marco). person(martina). want_food(julia, kebab). want_food(marco, chinese_food). want_food(martina, pizza).
+
+person(julia). person(lorenzo). person(alex). person(claire). want_food(julia, indian_food). want_food(alex, tacos). want_food(claire, poke).
+
+person(lorenzo). person(luke). person(sarah). person(julia). person(frances). person(alex). want_food(sarah, pasta). want_food(julia, chinese_food). want_food(frances, burgers). want_food(luke, tacos).
+
+person(lorenzo). person(frances). person(martina). person(luke). person(david). want_food(lorenzo, indian_food). want_food(martina, ramen). want_food(david, chinese_food).
+
+person(lorenzo). person(marco). person(matt). person(andrew). want_food(lorenzo, ramen). want_food(marco, ramen). want_food(andrew, kebab).
+
+person(claire). person(julia). person(matt). person(andrew). person(sarah). person(lorenzo). want_food(claire, indian_food). want_food(julia, poke). want_food(matt, pasta). want_food(andrew, pizza). want_food(sarah, salad). want_food(lorenzo, poke).
+
+person(matt). person(sarah). person(julia). person(frances). want_food(matt, pizza). want_food(julia, poke). want_food(frances, sushi). want_food(sarah, kebab).
+
+person(luke). person(frances). person(marco). person(matt). want_food(luke, poke). want_food(marco, kebab). want_food(matt, sushi).
+
+person(sarah). person(marco). person(lorenzo). person(luke). want_food(sarah, kebab). want_food(marco, paella). want_food(luke, burgers). want_food(lorenzo, pasta).
+
+person(frances). person(matt). person(david). person(julia). want_food(frances, kebab). want_food(david, salad). want_food(julia, poke).
+
+person(martina). person(luke). person(sarah). person(alex). person(lorenzo). want_food(martina, tacos). want_food(alex, pasta). want_food(luke, poke). want_food(sarah, burgers). want_food(lorenzo, poke).
+
+person(marco). person(martina). person(frances). person(luke). person(andrew). want_food(marco, ramen). want_food(martina, pizza). want_food(frances, pizza). want_food(luke, paella). want_food(andrew, ramen).
+
+person(alex). person(andrew). person(sarah). person(david). person(julia). person(luke). want_food(alex, tacos). want_food(andrew, paella). want_food(sarah, indian_food). want_food(david, pizza). want_food(julia, indian_food). want_food(luke, tacos).
+
+person(marco). person(matt). person(andrew). person(claire). person(lorenzo). person(sarah). want_food(marco, pasta). want_food(matt, ramen). want_food(andrew, sushi). want_food(lorenzo, poke). want_food(claire, chinese_food).
+
+person(julia). person(sarah). person(luke). want_food(julia, kebab). want_food(sarah, pasta).
+
+person(sarah). person(david). person(luke). person(lorenzo). person(julia). want_food(david, ramen). want_food(lorenzo, salad). want_food(julia, tacos).
+
+person(luke). person(david). person(julia). person(matt). person(sarah). want_food(luke, kebab). want_food(david, poke). want_food(julia, poke). want_food(matt, tacos). want_food(sarah, sushi).
+
+person(matt). person(martina). person(marco). person(lorenzo). want_food(matt, ethnic_place). want_food(martina, ethnic_place). want_food(marco, ethnic_place). want_food(lorenzo, ethnic_place).
+
+person(lorenzo). person(david). person(marco). person(frances). person(martina). want_food(lorenzo, tacos). want_food(david, chinese_food). want_food(marco, pasta). want_food(frances, pizza). want_food(martina, kebab).
+
+person(frances). person(david). person(matt). person(alex). person(martina). want_food(frances, chinese_food). want_food(david, salad). want_food(matt, pizza). want_food(alex, burgers). want_food(martina, sushi).
+
+person(julia). person(martina). person(alex). person(luke). want_food(julia, evening_at_trattoria). want_food(martina, evening_at_trattoria). want_food(alex, evening_at_trattoria). want_food(luke, evening_at_trattoria).
+
+person(matt). person(martina). person(claire). person(frances). person(andrew). want_food(matt, sushi). want_food(martina, ramen). want_food(claire, pasta). want_food(frances, tacos). want_food(andrew, paella).
+
+person(matt). person(marco). person(luke). person(julia). person(andrew). person(frances). want_food(matt, indian_food). want_food(marco, pizza). want_food(luke, sushi). want_food(julia, pizza). want_food(andrew, salad). want_food(frances, poke).
+
+person(luke). person(claire). person(andrew). person(frances). person(alex). person(lorenzo). want_food(luke, tacos). want_food(claire, tacos). want_food(andrew, indian_food). want_food(frances, sushi). want_food(alex, tacos). want_food(lorenzo, kebab).
+
+person(luke). person(sarah). person(julia). person(martina). person(claire). person(frances). want_food(luke, ramen). want_food(sarah, salad). want_food(julia, pizza). want_food(martina, poke). want_food(claire, sushi). want_food(frances, ramen).
+
+person(luke). person(marco). person(julia). want_food(marco, pasta). want_food(luke, kebab).
+
+person(julia). person(david). person(lorenzo). want_food(julia, burgers). want_food(david, paella). want_food(lorenzo, paella).
+
+person(julia). person(andrew). person(martina). person(luke). want_food(julia, burgers). want_food(andrew, tacos). want_food(luke, indian_food).
+
+person(luke). person(alex). person(claire). person(lorenzo). person(matt). want_food(luke, chinese_food). want_food(claire, salad). want_food(alex, chinese_food). want_food(lorenzo, paella). want_food(matt, pasta).
+
+person(sarah). person(lorenzo). person(marco). person(david). person(julia). want_food(marco, tacos). want_food(david, kebab). want_food(sarah, chinese_food). want_food(lorenzo, salad). want_food(julia, poke).
+
+person(andrew). person(alex). person(sarah). person(claire). person(david). person(lorenzo). want_food(andrew, kebab). want_food(sarah, pasta). want_food(claire, salad). want_food(david, tacos). want_food(lorenzo, paella).
+
+person(luke). person(alex). person(frances). want_food(luke, pizza). want_food(frances, chinese_food).
+
+person(andrew). person(frances). person(luke). person(alex). person(david). want_food(andrew, burgers). want_food(frances, ramen). want_food(luke, poke). want_food(alex, kebab). want_food(david, pizza).
+
+person(julia). person(andrew). person(alex). person(david). person(sarah). person(frances). want_food(julia, pizza). want_food(andrew, poke). want_food(alex, chinese_food). want_food(david, paella). want_food(sarah, pasta). want_food(frances, kebab).
+
+person(julia). person(sarah). person(frances). want_food(julia, burgers). want_food(sarah, chinese_food). want_food(frances, indian_food).
+
+person(luke). person(julia). person(lorenzo). person(andrew). person(david). want_food(luke, kebab). want_food(lorenzo, burgers). want_food(andrew, kebab). want_food(julia, tacos). want_food(david, paella).
+
+person(matt). person(lorenzo). person(sarah). person(andrew). want_food(matt, paella). want_food(andrew, pizza). want_food(lorenzo, sushi). want_food(sarah, indian_food).
+
+person(frances). person(lorenzo). person(luke). person(andrew). person(claire). want_food(frances, poke). want_food(luke, chinese_food). want_food(claire, poke).
+
+person(alex). person(sarah). person(julia). person(frances). person(luke). person(matt). want_food(alex, poke). want_food(sarah, poke). want_food(julia, kebab). want_food(luke, kebab).
+
+person(marco). person(luke). person(frances). person(sarah). want_food(luke, pasta). want_food(sarah, pasta). want_food(frances, sushi).
+
+person(frances). person(lorenzo). person(claire). person(marco). person(sarah). person(matt). want_food(frances, chinese_food). want_food(claire, burgers). want_food(marco, pasta). want_food(sarah, sushi). want_food(matt, tacos).
+
+person(marco). person(andrew). person(claire). want_food(marco, tacos). want_food(andrew, tacos). want_food(claire, pizza).
+
+person(julia). person(david). person(matt). person(martina). person(luke). person(sarah). want_food(julia, pub_food). want_food(david, pub_food). want_food(matt, pub_food). want_food(martina, pub_food). want_food(luke, pub_food). want_food(sarah, pub_food).
+
+person(alex). person(sarah). person(andrew). person(frances). want_food(alex, burgers). want_food(sarah, pasta). want_food(andrew, paella). want_food(frances, sushi).
+
+person(alex). person(lorenzo). person(matt). person(luke). person(sarah). person(martina). want_food(alex, burgers). want_food(matt, indian_food). want_food(luke, ramen). want_food(sarah, kebab). want_food(martina, paella).
+
+person(david). person(martina). person(lorenzo). want_food(david, sushi). want_food(martina, kebab). want_food(lorenzo, kebab).
+
+person(matt). person(lorenzo). person(frances). person(andrew). person(julia). person(martina). want_food(matt, ramen). want_food(lorenzo, ramen). want_food(frances, paella). want_food(andrew, burgers). want_food(julia, indian_food). want_food(martina, chinese_food).
+
+person(alex). person(marco). person(martina). person(lorenzo). person(julia). person(claire). want_food(alex, pizza). want_food(marco, paella). want_food(martina, ramen). want_food(lorenzo, ramen). want_food(julia, poke). want_food(claire, burgers).
+
+person(luke). person(sarah). person(claire). want_food(luke, kebab). want_food(sarah, ramen). want_food(claire, burgers).
+
+person(lorenzo). person(sarah). person(luke). person(martina). want_food(lorenzo, salad). want_food(luke, paella). want_food(martina, sushi).
+
+person(alex). person(matt). person(lorenzo). person(marco). want_food(alex, sushi). want_food(matt, salad). want_food(lorenzo, poke). want_food(marco, salad).
+
+person(andrew). person(david). person(sarah). want_food(andrew, kebab). want_food(david, ramen). want_food(sarah, kebab).
+
+person(luke). person(lorenzo). person(matt). want_food(luke, sushi). want_food(lorenzo, tacos). want_food(matt, chinese_food).
+
+person(luke). person(martina). person(julia). person(claire). want_food(luke, sushi). want_food(martina, sushi). want_food(julia, pizza). want_food(claire, ramen).
+
+person(frances). person(lorenzo). person(sarah). person(martina). person(alex). want_food(frances, tacos). want_food(lorenzo, chinese_food). want_food(martina, sushi). want_food(alex, chinese_food).
+
+person(julia). person(alex). person(matt). person(frances). want_food(julia, salad). want_food(alex, sushi). want_food(matt, chinese_food). want_food(frances, indian_food).
+
+person(frances). person(alex). person(julia). want_food(frances, pizza). want_food(alex, poke).
+
+person(claire). person(marco). person(frances). want_food(claire, paella). want_food(marco, chinese_food). want_food(frances, kebab).
+
+person(alex). person(martina). person(andrew). person(julia). want_food(alex, indian_food). want_food(martina, indian_food). want_food(andrew, sushi). want_food(julia, pizza).
+
+person(lorenzo). person(andrew). person(matt). person(luke). person(marco). want_food(lorenzo, pizza). want_food(matt, burgers). want_food(luke, poke). want_food(marco, poke).
+
+person(julia). person(lorenzo). person(david). person(andrew). want_food(julia, tacos). want_food(lorenzo, burgers). want_food(david, burgers). want_food(andrew, tacos).
+
+person(david). person(julia). person(martina). person(matt). person(sarah). person(frances). want_food(david, paella). want_food(julia, ramen). want_food(martina, pizza). want_food(sarah, kebab). want_food(matt, indian_food). want_food(frances, paella).
+
+person(andrew). person(david). person(lorenzo). want_food(andrew, poke). want_food(david, salad). want_food(lorenzo, chinese_food).
+
+person(martina). person(david). person(sarah). person(frances). person(luke). person(lorenzo). want_food(martina, pizza). want_food(david, burgers). want_food(sarah, indian_food). want_food(frances, pizza). want_food(luke, chinese_food). want_food(lorenzo, burgers).
+
+person(claire). person(julia). person(sarah). person(matt). person(alex). person(frances). want_food(claire, ramen). want_food(matt, indian_food). want_food(frances, pasta).
+
+person(lorenzo). person(marco). person(alex). person(sarah). person(claire). person(david). want_food(lorenzo, ethnic_food). want_food(marco, ethnic_food). want_food(alex, ethnic_food). want_food(sarah, ethnic_food). want_food(claire, ethnic_food). want_food(david, ethnic_food).
+
+person(frances). person(martina). person(sarah). want_food(frances, ramen). want_food(martina, indian_food). want_food(sarah, tacos).
+
+person(claire). person(martina). person(julia). want_food(claire, pasta). want_food(martina, poke). want_food(julia, pasta).
+
+person(matt). person(luke). person(julia). person(claire). person(andrew). person(alex). want_food(matt, kebab). want_food(luke, kebab). want_food(julia, kebab). want_food(claire, pizza). want_food(andrew, kebab).
+
+person(matt). person(luke). person(marco). person(frances). person(david). want_food(matt, sushi). want_food(marco, pasta). want_food(david, tacos).
+
+person(david). person(julia). person(claire). person(matt). person(martina). person(luke). want_food(david, salad). want_food(julia, pizza). want_food(matt, pizza). want_food(claire, chinese_food). want_food(martina, sushi). want_food(luke, tacos).
+
+person(alex). person(claire). want_food(alex, indian_food). want_food(claire, tacos).
+
+person(lorenzo). person(andrew). person(david). person(julia). person(matt). person(luke). want_food(lorenzo, pasta). want_food(andrew, poke). want_food(david, paella). want_food(julia, pizza). want_food(matt, kebab). want_food(luke, burgers).
+
+person(marco). person(luke). person(martina). person(sarah). person(claire). want_food(marco, pasta). want_food(luke, chinese_food). want_food(martina, tacos). want_food(sarah, burgers). want_food(claire, ramen).
+
+person(matt). person(lorenzo). person(alex). want_food(matt, trattoria). want_food(lorenzo, poke). want_food(alex, trattoria).
+
+person(luke). person(david). person(claire). want_food(luke, burgers). want_food(david, ramen). want_food(claire, salad).
+
+person(martina). person(andrew). person(marco). want_food(martina, tacos). want_food(marco, ramen). want_food(andrew, sushi).
+
+person(martina). person(lorenzo). person(claire). person(andrew). person(matt). want_food(martina, paella). want_food(lorenzo, chinese_food). want_food(claire, pizza). want_food(andrew, ramen).
+
+person(luke). person(david). person(claire). want_food(luke, paella). want_food(david, indian_food). want_food(claire, tacos).
+
+person(martina). person(julia). person(david). person(andrew). person(matt). want_food(martina, paella). want_food(julia, sushi). want_food(david, pizza). want_food(andrew, kebab).
+
+person(david). person(martina). person(andrew). person(luke). want_food(luke, burgers). want_food(david, pasta). want_food(martina, pizza). want_food(andrew, sushi).
+
+person(sarah). person(marco). person(frances). want_food(marco, kebab). want_food(frances, chinese_food).
+
+person(marco). person(alex). person(lorenzo). person(david). person(frances). want_food(marco, burgers). want_food(alex, paella). want_food(lorenzo, chinese_food). want_food(david, sushi). want_food(frances, tacos).
+
+person(martina). person(marco). person(lorenzo). person(luke). person(andrew). want_food(martina, ramen). want_food(lorenzo, burgers). want_food(marco, poke). want_food(luke, pizza). want_food(andrew, paella).
+
+person(lorenzo). person(luke). person(marco). want_food(lorenzo, burgers). want_food(luke, burgers). want_food(marco, chinese_food).
+
+person(julia). person(luke). person(andrew). person(marco). want_food(julia, pizza). want_food(luke, paella). want_food(andrew, tacos). want_food(marco, sushi).
+
+person(andrew). person(claire). person(sarah). person(matt). want_food(andrew, kebab). want_food(sarah, salad). want_food(claire, ramen). want_food(matt, burgers).
+
+person(claire). person(julia). person(david). want_food(claire, pasta). want_food(julia, kebab). want_food(david, kebab).
+
+person(marco). person(alex). person(martina). person(claire). person(sarah). want_food(marco, paella). want_food(alex, salad). want_food(martina, pizza). want_food(sarah, chinese_food).
+
+person(alex). person(julia). person(sarah). want_food(alex, indian_food). want_food(julia, paella). want_food(sarah, burgers).
+
+person(luke). person(lorenzo). person(matt). want_food(luke, ramen). want_food(lorenzo, tacos). want_food(matt, tacos).
+
+person(lorenzo). person(marco). person(claire). person(luke). person(andrew). person(julia). want_food(lorenzo, paella). want_food(marco, salad). want_food(claire, paella). want_food(luke, ramen). want_food(andrew, sushi). want_food(julia, tacos).
+
+person(david). person(julia). person(luke). person(martina). person(alex). want_food(david, sushi). want_food(julia, tacos). want_food(luke, pasta). want_food(martina, pasta). want_food(alex, pasta).
+
+person(sarah). person(andrew). person(lorenzo). person(frances). want_food(sarah, tacos). want_food(andrew, tacos). want_food(lorenzo, salad). want_food(frances, poke).
+
+person(martina). person(sarah). person(julia). want_food(martina, paella). want_food(sarah, burgers). want_food(julia, indian_food).
+
+person(matt). person(claire). person(alex). person(martina). want_food(matt, pasta). want_food(claire, poke). want_food(alex, pasta). want_food(martina, indian_food).
+
+Time taken: 935.1027841567993

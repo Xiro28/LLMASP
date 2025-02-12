@@ -1,6 +1,6 @@
 preprocessing:
-- person("who").: List all the persons mentioned including me if indirectly included.
-- want_food("who", "food_name").: For each person, list what they want to eat.
+- person("who":1).: List all the persons mentioned including me if indirectly included.
+- want_food("person":1, "food_name").: For each person, list what they want to eat.
 
 links:
 
