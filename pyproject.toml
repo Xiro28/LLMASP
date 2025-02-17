@@ -17,6 +17,7 @@ anthropic = "^0.25.7"
 ollama = "^0.3.1"
 g4f = "^0.3.2.1"
 curl-cffi = "^0.7.3"
+word2number = "^1.1"
 
 
 [tool.poetry.group.dev.dependencies]

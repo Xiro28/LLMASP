@@ -1,0 +1,36 @@
+preprocessing:
+- _: |
+    Problem description:
+    Ricochet Robots is a board game played on an NxN grid with predefined horizontal and vertical barriers between some of the adjacent board positions. Board positions may be occupied by robots of distinct colors, and the goal is to guide some robot to a target position via a sequence of robot moves. 
+    A robot can move horizontally or vertically from its current position; once a direction is chosen, the robot moves in that direction until encountering an obstacle, i.e. a barrier, another robot, or the edge of the board, precluding that the robot moves further. 
+    While the original objective of the game is to achieve the goal with a minimum number of moves, we consider a decision version, viz. whether the goal can be established via some sequence (a plan) consisting of a predefined number of robot moves.
+    
+    Format description of the predicates to be extracted:
+    The dimensions of a quadratic board are given by dim/1, e.g. dim(1). dim(2). dim(3). for a 3x3 board. 
+    The start positions of robots are given by pos/3}}, e.g. {{{pos(red,2,3). states that a red robot starts at position (2,3). 
+    The locations and orientations of barriers are given by barrier/3, e.g. barrier(4,3,east). states that there is a barrier between position (4,3) and position (5,3); note that the same barrier is also represented by barrier(5,3,west)., and a problem instance may include either or both representations. 
+    In any atom of the form barrier(x,y,d), a value "east", "west", "south", or "north" of d indicates a neighboring position (x+1,y), (x-1,y), (x,y+1), or (x,y-1), respectively, of position (x,y) on the board. The color and location of a target are given by target/3, e.g. target(red,4,3). states that the red robot should be guided to position (4,3). 
+    The number of moves in a plan is given by length/1, e.g. length(3). for a plan of three moves. A problem instance contains exactly one fact of the form length(l). and exactly one fact of the form target(c,x,y).; the color name c appears also in some fact of the form pos(c,x',y')., and there is exactly one fact pos(c',x',y'). per color name c' such that no distinct colors share the same start position (x',y').
+- dim(value): |
+    List all the dimensions of the square board.
+    Dimensions form a sequence starting from 1.
+- pos(robot,x,y): |
+     For each robot, provide the starting position or location (x,y).
+     robot is an unquoted string.
+     Coordinates (x,y) are integers.
+- barrier(x,y,direction): |
+    List all the barriers in position (x,y) towards a given direction.
+    Coordinates (x,y) are integers.
+    direction is one of the following unquoted strings: north, sud, east, west.
+- target(robot,x,y): |
+    Specify the position (x,y) that the robot must reach.
+    Coordinates (x,y) are integers.
+- length(value): |
+    value is the number of moves in the plan.
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- go(c,d,i): Say that the robot of color 'c' moves in direction 'd' at step 'i'.

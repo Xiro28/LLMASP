@@ -13,6 +13,17 @@ import string
 
 nlp = en_core_web_lg.load()
 
+import torch
+from transformers import BertForQuestionAnswering
+from transformers import BertTokenizer
+
+from word2number import w2n
+
+model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
+
+tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
+
+
 @typechecked
 @dataclass(frozen=False)
 class EvaluateInput(AbstractInputHandler):
@@ -45,7 +56,7 @@ class EvaluateInput(AbstractInputHandler):
 
             if token.pos_ == "VERB":
                 if token.dep_ == "ROOT":
-                    temp_str += f"(IMPORTANT) {token.lemma_.upper()} "
+                    temp_str += f"{token.lemma_.upper()} "
                 else:
                     temp_str += token.lemma_.upper() + ' '
             elif token.text not in string.punctuation:
@@ -53,7 +64,6 @@ class EvaluateInput(AbstractInputHandler):
                     temp_str += f"(IMPORTANT INFO) {token.text.upper()} "
                 else:
                     temp_str += f"{token.text} "
-
 
         """
         for token in doc:
@@ -185,6 +195,17 @@ class EvaluateInput(AbstractInputHandler):
 
         return prompt, extra_info
     
+    def replace_textual_numbers(self, tokens):
+        new_tokens = []
+        for token in tokens:
+            try:
+                number = w2n.word_to_num(token.lower())
+                new_tokens.append(str(number))
+            except Exception:
+                new_tokens.append(token)
+
+        return new_tokens
+    
     
     def __natural_to_asp__(self, user_input: str) -> str:
         """
@@ -204,26 +225,49 @@ class EvaluateInput(AbstractInputHandler):
 
         result_atoms = ""
 
-        chunk = "".join(self.userinput_to_chunk(user_input))
-        #chunk = self._AbstractInputHandler__llm_instance.invoke_llm(["Extract the important detailed information. Be precise\n", chunk])
-
-        print(chunk)
-
         _class_dict = self.get_classes()
         main_class = [main_class for main_class in _class_dict.items() if "list_" not in main_class[0]]
-
         descrs, extra_sys_prompt = self.__pre_input_seasoning__(user_input)
 
-        dict_ = {f"g_{class_[0]}":  Field(description=descrs[idx]) for idx, class_ in enumerate(main_class)}
+        data = ""
+        for i, name in enumerate(main_class):
+            encoding = tokenizer.encode_plus(text=descrs[i],text_pair=user_input)
+            inputs = encoding['input_ids']  
+            sentence_embedding = encoding['token_type_ids'] 
+            tokens = tokenizer.convert_ids_to_tokens(inputs)
+
+            outputs = model(input_ids=torch.tensor([inputs]), token_type_ids=torch.tensor([sentence_embedding]))
+
+            start_scores = outputs['start_logits']
+            end_scores = outputs['end_logits']     
+
+            start_index = torch.argmax(start_scores)
+
+            end_index = torch.argmax(end_scores)
+
+            tokens = self.replace_textual_numbers(tokens[start_index:end_index+1])
+
+            answer = ' '.join(tokens)
+            data += f"{name}: {answer}\n"
+
+
+        #chunk = "".join(self.userinput_to_chunk(user_input))
+        #chunk = self._AbstractInputHandler__llm_instance.invoke_llm([f"Reason over this: {info_needed}. Be detailed but also don't say extra info or reasoning.", chunk])
+
+        print(user_input, data) 
+
+
+        #dict_ = {f"g_{class_[0]}":  Field(description=descrs[idx]) for idx, class_ in enumerate(main_class)}
+        dict_ = {f"g_{class_[0]}":  Field(title=class_[0], description=descrs[idx], ) for idx, class_ in enumerate(main_class)}
         dict_["__annotations__"] = {f"g_{name}": list[cls] for name, cls in main_class}
 
         wrapper =  type(
             "BaseModelWrapper",
-            (BaseModel,),
+            (BaseModel,), 
             dict_
         )
 
-        response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(chunk, wrapper, command = extra_sys_prompt)
+        response =  self._AbstractInputHandler__llm_instance.invoke_llm_constrained(f"Extra info:\n{data}\n{user_input}", wrapper, command = extra_sys_prompt)
 
         for c, _ in main_class:
             for atoms in response.dict().get(f"g_{c}"):

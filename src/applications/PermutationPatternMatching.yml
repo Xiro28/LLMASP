@@ -1,0 +1,22 @@
+preprocessing:
+- _: |
+    Problem description:
+    Permutation Pattern Matching (PPM) is an NP-complete pattern matching problem. Given a permutation T (the text) and a permutation P (the pattern) the question is whether there exists a matching of P into T. 
+    A matching is a subsequence of T that has the same relative order as P. For example the permutation T = 53142 (written in one-line representation) contains the pattern 231, since the subsequence 342 of T is order-isomorphic to 231 (i.e. the smallest element is in the third position, the second smallest in the first position and the largest in the second position). Note that: 1. 
+    Both text and pattern consist only of numbers. 2. A text of length m is a permutation on {1,...,m} , i.e., every element appears exactly once. 3. A pattern of length n is a permutation on {1,...,n} . Hence 241 is not a pattern. But note that 241 might be matching! (For example: 241 is a matching from the pattern 231 into the text 32451.)
+    
+    Format description of the predicates to be extracted:
+    The permutations T and P are encoded as binary predicates, e.g. T=132 is encoded as t(1,1). t(2,3). t(3,2). Additionally, patternlength/1 describes the length of the pattern P.
+- t(index, number): |
+    Represent the permutation text T by a sequence of facts, each fact associating an index (an integer starting from 1) to the number (an integer) at that index.
+- p(p,n): |
+    Represent the permutation pattern P by a sequence of facts, each fact associating an index (an integer starting from 1) to the number (an integer) at that index.
+- patternlength(value): |
+    value is the length of the pattern (an integer).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- solution(p,n): Say that the number 'n' is at position 'p'.

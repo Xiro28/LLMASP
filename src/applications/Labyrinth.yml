@@ -1,0 +1,36 @@
+preprocessing:
+- _: |
+    Problem description:
+    Ravensburger's Labyrinth game deals with guiding an avatar through a dynamically changing labyrinth to certain fields. 
+    The labyrinth is represented by a quadratic board whose fields can (but do not have to) be connected in the four cardinal directions. 
+    The shape of the labyrinth changes over time as its rows and columns can be pushed either horizontally or vertically, which involves moving fields out of and into the board. 
+    To get to another field, in each turn, the avatar can follow paths that starting from the avatar's location traverse pairwisely connected fields. We here consider a variation of the original game in which: - The field of the labyrinth pushed out of the board (possibly hosting the avatar) immediately returns into the board (possibly with the avatar still residing on it) on the other end of the pushed row or column, respectively. - After a push, the avatar can move to any field reachable via a path in which every (non-terminal) field has a connection to its successor, and vice versa. (Note that there always is a path to a field the avatar already resides on.) - There is a unique starting and a unique goal field in the labyrinth. - A solution is represented by pushes of the labyrinth's rows and columns such that the avatar can from its starting field (which changes its location when pushed) reach the goal field (which also changes its location when pushed) by a move along some path after each push. - There is a maximum number of pushes, and the avatar must be able to reach the goal field (which can be relocated by pushes) by moving along some path after each push. The proposed variant of the Labyrinth game is a hard (presumably NP-complete) search problem.
+    
+    Format description of the predicates to be extracted:
+    The fields of a quadratic NxN-labyrinth are provided by instances of predicate "field" as follows: field(1,1). field(1,2). ... field(1,N). field(2,1). field(2,2). ... field(2,N). ... field(N,1). field(N,2). ... field(N,N).
+    The starting and the goal field are specified by exactly one instance of "init_on" and exactly one instance of "goal_on": init_on(x_i,y_i). goal_on(x_g,y_g).
+    It always holds that 1 ≤ x_i,y_i,x_g,y_g ≤ N. The connections of fields are given by instances of "connect" looking as follows: connect(x,y,d).
+    Again, we have 1 ≤ x,y ≤ N. Furthermore, direction d can be "n" for north, "s" for south, "e" for east, or "w" for west. Finally, the maximum number of pushes is determined by exactly one instance of "max_steps": max_steps(m).
+    Argument m is a positive integer. An exemplary input for the above example looks as follows: field(1,1). ... field(1,4). .... field(4,1). ... field(4,4). init_on(3,2). goal_on(1,4). connect(1,1,s). connect(1,1,w). connect(1,2,n). connect(1,2,e). connect(1,2,w). connect(1,3,e). connect(1,4,n). connect(1,4,w). ... connect(4,4,w). max_steps(2).
+- field(x,y): |
+    List all the fields of the quadratic labyrinth by specifying their coordinates (x,y).
+    Coordinates are integers.
+- init_on(x,y): |
+    Specify the starting position field by giving its coordinates (x,y).
+    Coordinates are integers.
+- goal_on(x,y): |
+    Specify the goal position field by giving its coordinates (x,y).
+    Coordinates are integers.
+- connect(x,y, direction): |
+    List all the connections of fields.
+    Coordinates (x,y) are integers.
+    direction is one of the following unquoted strings: n, s, e, w.
+- max_steps(value): |
+    value is the maximum number of pushes or steps (an integer).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- push(z,d,s): Say that in step 's' the row or column 'z' is pushed towards direction 'd'.

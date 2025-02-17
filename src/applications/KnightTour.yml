@@ -1,0 +1,23 @@
+preprocessing:
+- _: |
+    Problem description:
+    Find a tour for the knight piece that starts at any square, travels all squares, and comes back to the origin, following the rules of chess.
+    
+    Format description of the predicates to be extracted:
+    The input file contains one atom size(N), which states that the chess board size is N*N and a number of atoms givemove(X1,Y1,X2,Y2). 
+    The rows of the board are numbered 1, 2, and so on up to N from top to bottom, and the columns are numbered 1, 2, and so on up to N from left to right. 
+    In this way, each square can be represented by a unique pair of coordinates.
+- size(value): |
+    value is the chess board size (an integer).
+- givemove(source_x,source_y, target_x,target_y): |
+    List all the given moves from position (source_x,source_y) to position (target_x,target_y).
+    All terms are integers.
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- move(X1,Y1,X2,Y2): | 
+    Say that there is a valid move from position ('X1', 'Y1') to position ('X2', 'Y2').
+

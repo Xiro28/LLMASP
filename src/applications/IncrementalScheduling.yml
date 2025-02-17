@@ -1,0 +1,85 @@
+preprocessing:
+- _: |
+    Problem description:
+    In this domain, a reasoner keeps a schedule updated with respect to the addition of jobs and to equipment going offline.
+    All numerical quantities discussed below are integers. The largest possible value is specified by relation max_value(mv).    
+    List of devices
+    Each device has one or more identical instances. Each instance may be offline, meaning that it cannot be used for scheduling.    
+    List of jobs
+    For each job, the following are specified:
+    - Job's device, i.e. which device should be used for the job (REQUIRED).
+    - Length, i.e. how long production of the job will take (REQUIRED).
+    - Deadline, i.e. the job's latest end time (OPTIONAL).
+    - Importance: an integer imp >= 1 (OPTIONAL, DEFAULTS TO 1).
+    - A list of jobs that precede it, i.e. must be completely executed before the current job can start.
+    A job is tardy if it is completed after its deadline. Its tardiness is computed as the difference between the job's actual end time and its deadline. The penalty for a job being tardy is computed as td * imp, where td is the job's tardiness and imp is the job's importance. NOTE: For jobs that don't have a deadline tardiness is intended as undefined; and since the penalty is tardiness * importance, the penalty of jobs without a deadline is undefined as well.    
+    Maximum total penalty
+    The total penalty of a schedule is the sum of the penalties of the single jobs. Schedules with a higher total penalty greater than the specified maximum total penalty are not valid solutions.    
+    Current schedule
+    The current schedule, which must be updated by the scheduler, specifies, FOR A SUBSET OF THE AVAILABLE JOBS, each job's start time and the device instance the job must be run on. Intuitively, elements of the list of jobs (see section above) that have no start time and device instance assigned in the current schedule should be viewed as jobs that have been added after the current schedule was computed.    
+    Current time
+    The current time ct is an integer specifying at which point the execution of the schedule is. Jobs whose end time is smaller than OR EQUAL TO ct are expected to have already been completed.    
+    The scheduling task
+    Given the list of devices, the list of jobs, the current schedule, and the current time, the scheduler is expected to find a new schedule such that:
+    - the start time and allocated instance of a job that has already been completed remain the same;
+    - the start time and allocated instance of a job that is currently being executed on a device instance which is online remain the same;
+    - jobs whose expected end time is greater than the current time cannot be scheduled on a device instance that is offline;
+    - precedences between jobs are respected;
+    - the total penalty is no larger than the maximum total penalty.    
+    Rescheduling a job
+    Whenever a job needs to be re-scheduled after it has already started, the scheduler will need to re-schedule the complete job, i.e. it will discard the part of the job that has already performed. The output of the scheduler should indicate that the job has been re-scheduled.    
+    
+    Format description of the predicates to be extracted:
+    max_value(<mv>): maximum possible value for the numerical quantities
+    device(<d>): d is a device
+    instances(<d>,<n>): device d has n instances
+    offline_instance(<d>,<i>): instance 1 <= i <= n is offline
+    job(<j>): j is a job
+    job_device(<j>,<d>): j must be executed by device d
+    job_len(<j>,<l>): the amount of time needed to perform j is l, where l is an integer
+    deadline(<j>,<dl>): the deadline of j is dl
+    importance(<j>,<imp>): the importance of j is imp >= 1
+    precedes(<j1>,<j2>): the end time of j1 must precede (be less than or equal to) the start time of j2
+    max_total_penalty(<mp>): the total penalty of the schedule must be less than or equal to mp.
+    curr_job_start(<j>,<st>): the start time of j in the current schedule is st
+    curr_on_instance(<j>,<i>): in the current schedule, j is scheduled to run on device instance i
+    curr_time(<ct>): the current time is ct
+- max_value(value): |
+    Indicate the maximum possible value for the numerical quantities.
+- device(id): |
+    List all devices id (an integer).
+- instances(device, quantity): |
+    List all the instances quantities (integer) by devices (integer).
+- offline_instance(device, instance): |
+    List all the offline instances (integer) by device (integer).
+- job(id): |
+    List all the jobs id (integer).
+- job_device(job, device): |
+    List all jobs (integer) by devices (integer).
+- job_len(job, time): |
+    List the time (integer) needed for executing each job (integer).
+- deadline(job, deadline): |
+    List the deadline (an integer) for each job (an integer).
+- importance(job, value): |
+    List the importance (an integer) for each job (an integer).
+- precedes(job_1, job_2): |
+    List all precedences where job_1 (an integer) must precede job_2 (an integer).
+- max_total_penalty(value): |
+    Specify the total penalty of the schedule (an integer).
+- curr_job_start(job, time): |
+    List all the starting times (integer) for the jobs (integer).
+- curr_on_instance(job, instance): |
+    List all the jobs (integer) scheduled to run on device instance (integer).
+- curr_time(value): |
+    Specify the current time (an integer).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- start(j, t): Say that the execution of job 'j' will start at time 't'.
+- on_instance(j, i): Say that job 'j' will be executed on instance 'i'.
+- penalty(j, p): Say that the penalty of job 'j' is 'p'.
+- tot_penalty(tp): Say that the total penalty of the schedule is 'tp'.
+- rescheduled(j): Say that job 'j' has been re-scheduled after execution had already started.

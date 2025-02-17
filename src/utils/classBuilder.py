@@ -92,7 +92,7 @@ class ClassBuilder:
                 annotations = {}
 
                 for term in terms:
-                    term_name = term.strip()
+                    term_name = term.strip().replace(")", "").replace(":", "")
                     """
                     if ":" in term:
                         data = term.split(":")

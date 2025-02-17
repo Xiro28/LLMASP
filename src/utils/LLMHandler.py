@@ -34,74 +34,36 @@ class LLMHandler:
                 str: The natural language output generated from the LLM.
         """
 
-        # With this, we improve our performance by providing the model with the expected output.
-        if accepted_values is not None:
-            # this ugly code is needed to get the refernce of the main class used inside the definition of the list class
-
-            # Example: class list_class: List[Class]
-            # This cose gets the Class reference, which is useful since we have to rebuild this class with the 
-            # partial information found by the reasoning process did before (here's how the link works)
-            main_class = class_response.__annotations__[list(class_response.__annotations__.keys())[0]].__args__[0]
-
-            # For the moment the link works by connecting the first parameter of the linked class with the main class
-            # So they have to match
-            # Example: person(name, age) -> gender(name, gender)
-            # The link in that case is the name parameter and both classes have it as the first parameter
-
-            # This will also act as a constraint for the LLM
-            # Since there we can control which output we want to get
-            # By changing the accepted_values list
-            
-            # For example, if we don't want to generate Lorenzo, we can just remove it from the list
-            # and the LLM will not generate the associated atom
-
-            # Or if we want to generate a specific atom, we can just add it to the list
-            # For example:
-            #  accepted_values=["Lorenzo"] 
-            #  and atom(name, age)
-            #  with the prompt "Lorenzo is 23 years old. Matt is 22 years old."
-            #  will only generate the atom with Lorenzo informations
-            #  So: atom("Lorenzo", 23) 
-
-            # Guarda LangChain e max_retry
-
-            accepted_values = ["Marco", "Alex", "Sarah", "Claire", "David"]
-
-            max_elements = len(accepted_values)
-            for i, param in enumerate(main_class.__annotations__.keys()):
-                if i == 0:
-                    DynamicLiteralBase.add_allowed_values(param, accepted_values) # link the classes
-                else:
-                    DynamicLiteralBase.add_allowed_values(param, "*") # allow any value for the other parameters
-
-            # create the class with the first parameter containing the partial information
-            class_with_partial_info = DynamicLiteralBase.create_model(main_class.__name__)
-
-            linked_class = type(class_response.__name__, (BaseModel,), 
-                                {"__annotations__": {class_response.__name__: List[class_with_partial_info] | None},
-                                 class_response.__name__: Field(description=class_response.__extra_info__, strict=True, max_length=max_elements, min_length=0)
-                                })
-
-            class_response = linked_class
 
         model_json = class_response.model_json_schema()
-        #print(model_json)
+
+        # Chain-of-thought
+        cot = f"""
+            Extract only the relevant information from user_prompt.
+            Before producing your final answer, follow these internal steps:
+            Reason over the text and identify key entities.
+            Determine their relationships and positions.
+            Validate your result to ensure it adheres to the schema.
+            After these internal steps, output ONLY the final JSON result without showing your internal reasoning.
+            
+            {command}
+            """
+        
+        print(cot)
 
         ret_ =  self.__llm(
                 model=MODEL_OLLAMA,
                 messages=[
                     {
                         "role": "system",
-                        "content": f"""My job is to extract relevant information and map to prolog language. 
-                                    Be sure about the relationship between the entities and positioning.
-                                    {command}""",
+                        "content": cot,
                     },
                     {
                         "role": "user",
                         "content": prompt,
                     }
                 ],
-                options={'temperature': 0},
+                options={'temperature': 0.0},
                 format=model_json
             )
         

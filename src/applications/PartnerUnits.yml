@@ -1,0 +1,30 @@
+preprocessing:
+- _: |
+    Problem description:
+    A given people counting system includes three types of components, namely door sensor, zone, and communication unit. The problem requirements are: 
+    1. Each zone as well as each door sensor must be connected to exactly one unit; 
+    2. Each unit can control at most two door sensors and at most two zones; 
+    3. If a unit controls a door sensor that contributes to a zone controlled by another unit, then the two units must be connected directly, i.e. one unit becomes a partner unit of the other and vice versa; 
+    4. Each unit can have at most maxPU (>2) partner units.
+    The solution of the Partner Units problem is defined as follows: Given a consistent configuration of door sensors and zones (encoded in the binary predicate zone2sensor/2), a set of available units (comUnit/1), and a maximum number of allowed partnerunits (maxPU/1), find a valid assignment of units that satisfies all requirements.
+
+    Format description of the predicates to be extracted:
+    The predicates comUnit/1 and maxPU/1 define available units and the number of allowed partner units respectively. 
+    The fact that a door sensor belongs to a zone is given by means of zone2sensor/2 predicate, e.g. zone2sensor(1,1) means that doorSensor(1) belongs to zone(1).
+- comUnit(unit_id): |
+    List all the available units by specifying their unit_id (an integer).
+    Units form a sequence from 1 to the total number of units.
+- maxPU(value): |
+    value is the number of allowed partner units (an integer).
+- zone2sensor(zone, sensor): |
+    For each zone (an integer), list every sensor (an integer) that belongs to the zone.
+    Write only the zone id (an integer) and the sensor id (an integer).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- unit2sensor(u, s): Say that unit 'u' is assigned to sensor 's'.
+- unit2zone(u, z): Say that unit 'u' is assigned to zone 'z'.
+- partnerunits(i, j): Say that there is a connection between 'i' and 'j'.

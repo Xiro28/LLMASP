@@ -2499,6 +2499,16 @@ makefun = "*"
 six = "*"
 
 [[package]]
+name = "word2number"
+version = "1.1"
+description = "Convert number words eg. three hundred and forty two to numbers (342)."
+optional = false
+python-versions = "*"
+files = [
+    {file = "word2number-1.1.zip", hash = "sha256:70e27a5d387f67b04c71fbb7621c05930b19bfd26efd6851e6e0f9969dcde7d0"},
+]
+
+[[package]]
 name = "yarl"
 version = "1.18.3"
 description = "Yet another URL library"
@@ -2597,4 +2607,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "750b50656b342bf6d07ed020423e560fdfe05d27dbc137f220ee68d680d72966"
+content-hash = "542d9023542865ec2489f59c13803fc094a30baf197fde8bcbd59bbf2fca4068"
