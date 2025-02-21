@@ -1,55 +1,8 @@
-from typing import Literal, Any, Dict, Type, List, Union
-from pydantic import BaseModel, ConfigDict, Field, ValidationError, create_model
-from pydantic_core import CoreSchema, core_schema
-
-class DynamicLiteralBase:
-    _allowed_values: Dict[str, Union[List[str], str]] = {}
-
-    @classmethod
-    def add_allowed_values(cls, attribute: str, values: Union[List[str], str]) -> None:
-        """
-        Add new allowed values for a specific attribute. 
-        Pass '*' as `values` to accept all possible values.
-        """
-        cls._allowed_values[attribute] = values
-
-    @classmethod
-    def create_model(cls, model_name: str) -> Type[BaseModel]:
-        """
-        Dynamically create a Pydantic model using Literal values for validation.
-        
-        Args:
-            model_name (str): The name of the model to be created.
-        
-        Returns:
-            Type[BaseModel]: The dynamically generated Pydantic model.
-        """
-        fields = {}
-        for attr, values in cls._allowed_values.items():
-            if values == "*":
-                # Accept any value for this attribute
-                fields[attr] = (str, Field(...))
-            else:
-                # Restrict values using Literal
-                fields[attr] = (Literal[tuple(values)], Field(...))
-
-        cls._allowed_values.clear()
-        
-        # Dynamically create the model with proper configuration
-        return create_model(
-            model_name,
-            **fields,
-            __config__=ConfigDict(arbitrary_types_allowed=True)
-        )
-
-    @classmethod
-    def __get_pydantic_core_schema__(cls, source: Any, handler: Any) -> CoreSchema:
-        return core_schema.any_schema()
-
+from pydantic import BaseModel, Field
 
 class ClassBuilder:
 
-    def __init__(self, predicates: list, custom_instructor: bool = False):
+    def __init__(self, predicates: list):
 
         """
             Build classes from the predicates dictionary.
@@ -62,6 +15,23 @@ class ClassBuilder:
 
             Input example:
                 predicates: [{"somepredicates(arg1, arg2).": "extract the arguments from the predicate."}, {"somepredicates2(arg3, arg4).": "..."}]
+
+            Output example:
+                class_1:
+                    arg1: str | int | None
+                    arg2: str | int | None
+
+                list_class_1:
+                    list_class_1: list[class_1]
+            
+                etc...
+
+            NB: The list_ prefix is added to the class name to generate a list of instances of the same class. Useful for single inference with LLM.
+            Since then the LLM will be called with this wrapper class:
+
+                atom_class:
+                    _list_class_1: list[list_class_1]
+                    _list_class_2: list[list_class_2] 
         """
 
 
@@ -119,20 +89,13 @@ class ClassBuilder:
                     (BaseModel,),
                     {
                         "__name__": f"{class_name}_list",
-                        f"list_{class_name}" : Field(description=predicate[key]),
-                        "__annotations__": {f"list_{class_name}": list[new_class]},  # Use ForwardRef for dynamic evaluation
+                        "__annotations__": {f"list_{class_name}": list[new_class]},
                         "__extra_info__": predicate[key],
                         "__class_params__": terms
                     },
                 )
 
                 self.__classes[wrapper_name] = wrapper
-
-                print(wrapper)
-        
-        for classes in self.__classes.values():
-            for key, value in classes.__annotations__.items():
-                print(f"{key}: {value}")
 
     def get_classes(self):
         return self.__classes

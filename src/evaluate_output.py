@@ -1,17 +1,23 @@
 from typeguard import typechecked
 from dataclasses import dataclass
-from outputHandlers.abstractOutputHandler import AbstractOutputHandler
-from utils.LLMHandler import LLMHandler
+from utils.llm_handler import LLMHandler
 
 @typechecked
 @dataclass(frozen=False)
-class EvaluateOuput(AbstractOutputHandler):
+class EvaluateOuput:
 
     def __post_init__(self):
-        super().__post_init__()
-
         self.__llm_instance = LLMHandler("""You are an expert in Datalog to Natural Language translator. 
                                          Summarize the response given in a detailed form.""")
+        
+    def get_info(self) -> str:
+        """
+        Get the calculated and extracted predicates.
+
+        Returns:
+            str: The calculated and extracted predicates.
+        """
+        return f"Atoms extracted: {self.__preds}\nAtoms calculated: {self.__calc_preds}"
     
     def __post_output_seasoning__(self) -> list:
         """

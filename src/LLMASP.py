@@ -1,19 +1,20 @@
 import yaml
 
-from openai import OpenAI
-
 from typeguard import typechecked
 from dataclasses import dataclass, field
 
 from dumbo_asp.primitives.models import Model
 
-from inputHandlers.abstractInputHandler import AbstractInputHandler
-from outputHandlers.abstractOutputHandler import AbstractOutputHandler
+from evaluate_input import EvaluateInput
+from evaluate_output import EvaluateOuput
+
+
 
 @typechecked
 @dataclass(frozen=False)
 class LLMASP:
     __configFilename: str = field(init=True, default="./config.yml")
+    __llm_model: dict = field(init=True, default="")
     __config: dict = field(init=False)
     
     def __post_init__(self):
@@ -26,7 +27,7 @@ class LLMASP:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
 
     
-    def infer(self, __input_evaluator_class, custom_input = "") -> "LLMASP":
+    def infer(self, custom_input = "") -> "LLMASP":
         """
             This method extracts predicates from the input handler by converting the input
             to ASP format.
@@ -34,11 +35,8 @@ class LLMASP:
             Returns:
                 self object: The current LLMASP object with the extracted predicates.
         """
-
-        assert issubclass(__input_evaluator_class, AbstractInputHandler), "The input evaluator must be a subclass of Abstract"
-
         
-        self.preds = __input_evaluator_class(self.__config).run(custom_input)
+        self.preds = EvaluateInput(self.__llm_model, self.__config).run(custom_input)
 
         return self
     
@@ -66,7 +64,7 @@ class LLMASP:
         return self
 
     
-    def _as(self, _class) -> "any":
+    def explain(self) -> str:
         """
             Convert the current LLMASP object to the specified class.
             
@@ -79,8 +77,6 @@ class LLMASP:
                 any: The current LLMASP object converted to the specified class.
         """
         
-        assert issubclass(_class, AbstractOutputHandler), "The class must be a subclass of AbstractOutputHandler."
-        
-        return _class(self.__config, self.preds, self.calc_preds)
+        return EvaluateOuput(self.__llm_model, self.__config, self.preds, self.calc_preds).run()
 
 
