@@ -1,0 +1,16 @@
+preprocessing:
+- _: |
+    Problem description:
+    A graph (V,E) is called a graceful graph if its vertices V can be labelled with distinct integers from 0 to |E| such that, when each edge is labelled with the absolute difference between its vertex labels, the resulting edge labels are all distinct. The task is to determine the existence of a graceful labelling of a graph.
+    
+    Format description of the predicates to be extracted:
+    The edges of the graph are provided by instances of the predicate edge/2.
+- edge(source, target): |
+    List all the edges from source (an integer) to target (an integer).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- value(X, I): Say that vertex 'X' is labeled with 'I'.

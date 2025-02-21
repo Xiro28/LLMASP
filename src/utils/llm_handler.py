@@ -1,7 +1,7 @@
 from ollama import chat
 
 class LLMHandler:
-    def __init__(self, system_prompt: str, llm_model: str) -> None:
+    def __init__(self, llm_model: str, system_prompt: str) -> None:
 
         # not used yet
         assert system_prompt is not None, "The system prompt must not be None."
@@ -16,7 +16,7 @@ class LLMHandler:
         return {"role": role, "content": text}
     
     
-    def invoke_llm_constrained(self, prompt: str, class_response: any) -> dict:
+    def invoke_llm_constrained(self, prompt: str, class_response: any, command: str) -> dict:
         """
             Invoke the LLM (Large Language Model)
 
@@ -32,7 +32,7 @@ class LLMHandler:
         ret_ =  self.__llm(
                 model=self.llm_model,
                 messages=[
-                    self.__to_gpt_dict__("systen", self.system_prompt),
+                    self.__to_gpt_dict__("systen", f"{command}\n{self.system_prompt}"),
                     self.__to_gpt_dict__("user", prompt)
                 ],
                 options={'temperature': 0},

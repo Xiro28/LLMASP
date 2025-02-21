@@ -1,0 +1,56 @@
+preprocessing:
+- _: |
+    Problem description:
+    Sokoban is a classic problem which appeared so far in all the ASP Competitions. This year the problem specifications were adapted in order to adhere to the specifications of the homologous problem used at IPC 2011 and 2008, in order to achieve a clearer comparative picture between planners and ASP solvers. 
+    Sokoban is a game puzzle developed by the Japanese company Thinking Rabbit, Inc. in 1982. 'Sokoban' means 'warehouse-keeper' in Japanese. Each puzzle consists of a room layout (a number of square fields representing walls or parts of the floor, some of which are marked as storage space) and a starting situation (one sokoban and a number of boxes, all of which must reside on some floor location, where one box occupies precisely one location and each location can hold at most one box). 
+    The goal is to move all boxes onto storage locations. To this end, the sokoban can walk on floor locations (unless occupied by some box), and push single boxes onto unoccupied floor locations. In the decision version of this problem, the question to answer is whether a solution involving at most N actions exists, for N given as input. If so, a witness containing the sequence of actions should be produced; otherwise no solution should be output.
+    
+    Format description of the predicates to be extracted:
+    In our setting, an instance contains the warehouse layout, representing the floor locations, and in particular their horizontal and vertical relationships; storage locations, where the boxes should eventually go to; and, initial positions of stones and the sokoban. 
+    This information is encoded as facts using predicates movedir/3, goal/1, stone/1, isgoal/2, player/1, at/2, clear/2 as follows:
+    movedir(x,y,dir): y is a location reachable by location x by moving towards direction dir, where dir can be one of 'dir_up','dir_down','dir_left','dir_right'.
+    goal(s): the stone s must be put in a goal location 
+    stone(s): s is a stone 
+    isgoal(l): l is a goal location 
+    isnongoal(l): l is not a goal location. 
+    This information can be obtained by complehementing information given by isgoal, but it has been retained for compatibility with the IPC 2011 domain description. 
+    player(p): p is the sokoban. 
+    at(o,p): the object o (either the sokoban or a stone) is initially at position p. 
+    clear(p): the floor location p is clear of objects.
+    Each instance has exactly one fact for player/1. There can be in principle non-goal stones (i.e. there can be s such that stone(s) holds, but not goal(s)).
+    An instance also contains a sequence of time-steps for warehouse configurations, between which the actions occur:
+    step(s): s is an allowed step. It can be assumed steps are consecutive integers ranging from 1 towards a limit value N. Steps are associated to actions. It's up to problem modeller's how to treat properly the presence of N+1 intermediate states.
+- at(object,position): |
+    For each object (an unquoted string), provide its initial position (an unquoted string).
+- clear(position): |
+    List every position (an unquoted string) that is clear of objects. 
+- goal(stone): |
+    List every stone (an unquoted string) that is a goal, i.e., a stone that must reach a goal location.
+- isgoal(location): |
+    List every location (an unquoted string) that is a goal, i.e., that must hold a stone at the end.
+- isnongoal(location): |
+    List all locations (unquoted string) that are not a goal location.
+- movedir(source,target,direction): |
+    List all possible movements from location source (an unquoted string) to location target (an unquoted string) towards a given direction.
+    direction is an unquoted string among dir_up, dir_down, dir_left, dir_right.
+- player(id): |
+    Specify the sokoban player id (an unquoted string).
+- step(value): |
+    List all the allowed steps.
+    Steps form a sequence starting from 1.
+- stone(id): |
+    List all the stones id (an unquoted string).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- pushtonongoal(p,s,ppos,from,to,dir,t): | 
+    States that at step 't', the sokoban 'p' pushes the stone 's' in direction 'dir', from location 'from' to location 'to'. 
+    The sokoban itself moves from 'ppos' to 'from'.
+- pushtogoal(p,s,ppos,from,to,dir,t): | 
+    States that at step 't', the sokoban 'p' pushes the stone 's' in direction 'dir', from location 'from' to location 'to',
+    which is a goal location. The sokoban itself moves from 'ppos' to 'from'.
+- move(p,from,to,dir,t): |
+    States that at step 't', the sokoban 'p' is moved from 'from' to 'to' in direction 'dir'.

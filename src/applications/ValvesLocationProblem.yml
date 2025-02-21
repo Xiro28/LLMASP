@@ -1,0 +1,38 @@
+preprocessing:
+- _: |
+    Problem description:
+    The Valves Location problem is a typical design issue of Urban Hydraulic Networks. A generic Urban Hydraulic Network can be modelled as an indirect and weighted graph: the nodes represent the junctions of the pipes (junction/1), and the edges represent the pipes. 
+    The two arguments of predicate pipe/2 are the two junctions connected by the pipe. The third argument of dem/3 is the weight associated to the pipe defined by the first two arguments, and represents the water demand delivered by the pipe (i.e., the average water demand, in litres/seconds, of the houses that take water from that pipe). 
+    One or more tanks feed the network; the tanks are located on the junction nodes given by predicate tank/1. In order to permit the maintenance of any pipe, each pipe must be isolable. The isolation of a pipe can be performed by closing a set of "isolation valves". 
+    In any solution, for every pipe there must exist a set of valves that, when closed, disconnects that pipe from all the tanks.
+    Valves can only be located on the pipes near one extreme (i.e., near a junction), thus in general there can be at most two valves in a pipe. However, in some instances, the number of valves per pipe can be at most 1. The maximum number of valves in a pipe is given by predicate valves_per_pipe/1 (as said, it can be either 1 or 2).
+    Due to the limited number of available valves, when a pipe is isolated for maintenance, other pipes become isolated as well: all those pipes that are no longer reachable from one of the tanks. This gives a disruption in the service of water delivery. The measure of disruption (given some isolation) is the total amount of water that is not delivered, given as the sum of the weights on the edges that are unreachable from all tanks. 
+    The general measure of disruption is the disruption in the worst case, and the aim is to minimize such a quantity.
+
+    Format description of the predicates to be extracted:
+    The input predicates are explained as follows:
+    junction/1: the nodes represent the junctions of the pipes 
+    pipe/2: The two arguments are the two junctions connected by the pipe 
+    dem/3: The third argument is the weight associated to the pipe defined by the first two arguments, and represents the water demand delivered by the pipe 
+    tank/1: Represent a tank, the tanks are located on the junction nodes given by the first parameter 
+    valves_per_pipe/1: Represents the maximum number of valves in a pipe 
+    valves_number/1: Represents the number of valves
+- junction(id): |
+    List all the junctions present by providing their ids (integer).
+- pipe(source,target): |
+    List all the pipes connecting junctions source (an integer) and target (an integer).
+- dem(source,target, weight): |
+    List all the specified weights (integer) for pipes connecting junctions source (an integer) and target (an integer).
+- tank(junction): |
+    List all the tanks present at a given junction (an integer).
+- valves_number(number): |
+    Specify the maximum number of valves to be placed in the network.
+- valves_per_pipe(number): |
+    Specify the maximum number of valves in a pipe.
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- valve(j1,j2): Say that a valve has been placed on the pipe between junctions 'j1' and 'j2', close to 'j1'. 

@@ -1,0 +1,23 @@
+preprocessing:
+- _: |
+    Problem description:
+    Given n men and n women, where each person has ranked all members of the opposite sex with a unique number between 1 and n in order of preference, marry the men and women together such that there are no two people of opposite sex who would both rather have each other than their current partners. If there are no such people, all the marriages are "stable". 
+    Instances comprise n men and n women. Each person has ranked all members of the opposite sex with a number between 1 and n in order of preference. Note that ties are permitted in this setting, i.e., one person can equally prefer two or more members of opposite sex. The stable matching problem has several practical applications, as well as several variants (some of which are hard to solve). 
+    The variant proposed in the following is known to be polynomially solvable. The (strong) stable marriage problem is the problem of finding a (strong) stable matching mapping men to women. A matching is strong stable if and only if there is no pair m,w such that both the following conditions are satisfied: 1. Man m is matched with a woman w' different from w and such that m prefers w over w'; 2. Woman w is matched with a man m' different from m and such that w prefers m over m', or m and m' are equally preferred by w. 
+    There are instances that have no strongly stable matching when ties are permitted.
+    
+    Format description of the predicates to be extracted:
+    Let w1,...,wn and m1,...,mn be n women and men, respectively. - womanAssignsScore(w,m,s) when a woman w assigns a score s to a man m - manAssignsScore(m,w,s) when a man m assigns a score s to a woman w
+    Relations womanAssignsScore and manAssignsScore are complete specifications of preferences, i.e., womanAssignsScore (resp. manAssignsScore) is defined for each pair WOMAN,MAN (resp. MAN,WOMAN). 
+    A score is a positive integer ranging from 1 to n. The higher the score is, the higher the preference is. Ties in scores are admitted, that is, a woman can assign the same score to several men, and vice versa.
+- womanAssignsScore(woman,man,score): |
+    List every score (an integer) that a woman (an unquoted string) assigns to a man (an unquoted string).
+- manAssignsScore(man,woman,score): |
+    List every score (an integer) that a man (an unquoted string) assigns to a woman (an unquoted string).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- match(m,w),: Say that there is a match between man 'm' and woman 'w'.

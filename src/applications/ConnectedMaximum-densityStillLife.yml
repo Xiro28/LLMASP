@@ -1,0 +1,23 @@
+preprocessing:
+- _: |
+    Problem description:
+    A still life is a set of connected live cells from a grid that is fixed under the transition function of John Horton Conway 1970's Game of Life:
+    1. Any cell with 3 neighbours becomes a live cell. 
+    2. Any live cell with 2-3 live neighbours lives on. 
+    3. Any live cell with <2 or >3 live neighbours dies. 
+    
+    The Connected Maximum-density Still Life problem is the task of fitting a given region of the grid with a maximally dense still life, i.e., a maximum number of live cells. (Most work has only looked at pseudo still lifes where the connectedness criterion is dropped.)
+    
+    Format description of the predicates to be extracted:
+    We here consider square shaped regions. 
+    The size n of the region is provided by an instance of the predicate size/1. 
+    Cells connect horizontally, vertically, and diagonally.
+- size(value): |
+    value is the size of the region (an integer).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- lives(X, Y): Indicate that position ('X', 'Y') is a live cell.

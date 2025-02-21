@@ -10,10 +10,10 @@ def main():
 
         yaml : str = obj["problem_name"].replace(" ", "") 
 
-        _instance = LLMASP(f"applications/{yaml}.yaml", 'llama3.2:3b-instruct-q8_0')
+        _instance = LLMASP(f"applications/{yaml}.yml", 'llama3.2:3b-instruct-q8_0')
         out = _instance.infer(obj["text"]).preds + "\n" + obj["output"] + "\n\n"
 
-        print(f"Story {problem_n} done. {out}")
+        print(f"Problem N {problem_n} done. Output: {out}")
 
         f.write(out)
 

@@ -1,0 +1,33 @@
+preprocessing:
+- _: |
+    Problem description:
+    The standard approach for drawing hierarchical network diagrams is a three phase approach in which 1. nodes in the graph are assigned levels producing a k-level graph; 2. nodes are assigned an order so as to minimize edge crossings in the k-level graph; and 3. the edge routes and node positions are computed.
+    There has been considerable research into step 2 which is called k-level crossing minimization. Unfortunately this step is NP-hard for even two layers (k = 2) where the ordering on one layer is given. Thus, research has focussed on developing heuristics to solve it. In practice the approach is to iterate through the levels, re-ordering the nodes on each level using heuristic techniques such as the barycentric method. Recently it was shown that modern optimization technology can tackle the complete k-level crossing minimization problem at least for small to medium sized graphs, generating optimal crossings.
+
+    A crossing in a graph occurs if there are:
+    nodes N1, N2 on layer i, and
+    nodes N3, N4 on layer j, (j <> i), and
+    edges e1 = (N1,N3), e2 = (N2,N4), and
+    the position of N1 is antecedent of the position of N2, and
+    the position of N4 is antecedent of the position of N3.
+
+    Format description of the predicates to be extracted:
+    The predicates layers/1 and in_layer/2 give the partitioning of nodes into layers. 
+    For convenience, width/2 gives the number of nodes in a layer. 
+    For example layers(2). width(0, 2). in_layer(0,n1). in_layer(0,n2). width(1, 1). in_layer(1,n3). defines two layers, layer 0 containing nodes {n1, n2} and layer 1 containing {n3}. 
+    The predicate edge/2 defines edges between nodes. For example edge(n1,n3). edge(n2,n3).
+- edge(source, target): |
+    List all the edges from source (an integer) to target (an integer).
+- layers(value): |
+    value is the total number of layers (an integer).
+- width(layer, number_of_nodes): |
+    For each layer (an integer), specify the number of nodes.
+- in_layer(layer, node): |
+    For each layer (an integer), list every node (an integer) that belongs to that layer.
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- position(n, p): Say that node 'n' is assigned to position 'p' in its layer.

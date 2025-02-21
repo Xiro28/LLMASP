@@ -1,0 +1,24 @@
+preprocessing:
+- _: |
+    Problem description:
+    This is the problem of finding a maximal clique C in an undirected graph G. 
+    That is, for each other clique C' in G, the number of nodes in C should be larger than or equal to the number of nodes in C'. 
+    As input, a directed graph is given, encoded by facts over the predicates node/1 and edge/2, providing respectively the nodes and the edges. 
+    A solution to the problem is a maximal clique in the undirected version of the input graph (i.e., in the symmetric closure of the input graph). 
+    A solution is encoded by the predicate clique/1: the set of nodes v such that clique(v) holds should form a maximal clique (possibly one of maximum cardinality).
+    
+    Format description of the predicates to be extracted:
+    As input, a directed graph is given. An instance is a sequence of facts (atoms followed by the dot "." character) with only predicates of the input vocabulary, possibly separated by spaces and line breaks. 
+    A solution is the largest clique in the symmetric closure of this input graph. The nodes of the input graph are given by facts of the form node(i). 
+    The edges of the graph are given by facts of the form edge(i,j). Examples for facts: node(a)., edge(a,b). The terms a and b are positive integers belonging to the vocabulary.
+- edge(source, target): |
+    List all the edges from source (an integer) to target (an integer).
+- node(id): |
+    List all the nodes. Associate to every node its ID (an integer).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- clique(v): Say that a set of nodes 'v' form a maximal clique. 

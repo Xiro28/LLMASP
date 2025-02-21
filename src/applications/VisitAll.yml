@@ -1,0 +1,29 @@
+preprocessing:
+- _: |
+    Problem description:
+    This domain was created by Nir Lipovetzky and Héctor Geffner for the IPC 2011, to evaluate the performance of planners in problems with multiple conflicting goals. It is somehow inspired by the Dispose domain created by Héctor Palacios and Héctor Geffner for the conformant subtrack of the uncertainty part of the International Planning Competition celebrated in 2008 [1]. 
+    In the Visitall domain a robot in the middle of a $n\times n$ square grid must visit all the cells in the grid. There is only one action in this domain, which moves the robot from one cell to another one. From a planning community perspective, in this kind of problem, progress toward one goal means moving away from other goals. Such problems typically produce large plateaus in planners based on delete-relaxation heuristics, where this heuristic is almost useless. 
+    Similarly, the specific features of this domain cause ASP solvers to visit a large search tree with few or no possibility of early pruning. In the ASP Comp 2013 version, some unreachable grid cells were added in the grid, while the original problem was defined over plain square grids. 
+    The objective is to minimize the number of moves. The number of goals is the number of cells, except for the sequential optimal subtrack where there are problems where only half of the cells have to be visited. In addition to be challenging to the delete-relaxation heuristics, this domain has a high number of goals, up to 2,500 in the most complex problem.
+    
+    Format description of the predicates to be extracted:
+    The grid consists of a square matrix of NxN locations. While most of them can be occupied by a robot, a few are unreachable. 
+    Thus, to describe the geometry of the grid, the predicate connected/2 explicitly describes what positions are reachable from the other (so that unreachable locations are just ignored): connected(l1,l2): l2 is reachable from l1 (i.e. the robot can step from l1 to l2). 
+    There is a single robot. The original position of the robot is described with: at(l): the robot is located at location l The goal of this problem is to find the optimal path that takes the robot from its current location to a number of given cells. 
+    The goal locations are identified with the predicate visit/1: visit(l): l is a goal location On the other hand, since the solution consists of a sequence of steps, these are identified by the following input predicate: step(s): s is a step, for s a positive integer.
+- connected(source, target): |
+    List all connected locations from source (an integer) to target (an integer).
+- at(location): |
+    Specify the location (an integer) of the robot. 
+- visit(location): |
+    List every location (an integer) that is a goal location. 
+- step(value): |
+    List all the steps.
+    Steps form a sequence of integers (starting from 1). 
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- move(l1,l2,s): Specify to move the robot from 'l1' to 'l2' at time step 's'.

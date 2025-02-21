@@ -1,0 +1,24 @@
+preprocessing:
+- _: |
+    Problem description:
+    A graph is a set of nodes and a symmetric, binary link relation on nodes. Given a set of N colours, a graph is colourable if each node can be assigned a colour in such a way that any two nodes that are linked together cannot have the same colour.
+    
+    Format description of the predicates to be extracted:
+    A number of node facts which give the names of the nodes. 
+    Node names are consecutive, ascending integers starting from 1. 
+    A number of colour facts which give the names of the colours. 
+    Colour names start with the sequence "red", "green", "blue". 
+    A number of link facts which say which nodes are linked. Note that if link(N1,N2). is included then so will link(N2,N1).
+- link(source, target): |
+    List all the edges from source (an integer) to target (an integer).
+- node(id): |
+    List all the nodes. Associate to every node its ID (an integer).
+- colour(name): |
+    List all the colors. Each colour is associated with a name (an unquoted string).
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- chosenColour(n, c): Say node 'n' has color 'c'. 

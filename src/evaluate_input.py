@@ -10,14 +10,15 @@ from utils.llm_handler import LLMHandler
 @dataclass(frozen=False)
 class EvaluateInput:
 
-    def __post_init__ (self, _llm_model, config):
-        self.__llm_instance = LLMHandler(_llm_model, "Extract only the relevant information from user_prompt following the description of each atom.")
+    def __init__ (self, _llm_model, config):
+        self.__llm_instance = LLMHandler(_llm_model, "Extract only the relevant information following the description. Search for an int or a string.")
         self.__classes = ClassBuilder(config['preprocessing']).get_classes()
+        self.__config = config
 
     def __filter_asp_atoms__(self, req: str) -> str:
         return " ".join(re.findall(r"\b[a-zA-Z][\w_]*\([^)]*\)\.", req))
 
-    def __extract_atom_descr(self) -> list:  
+    def __extract_atom_descr(self) -> tuple[list, str]:  
         questions = self.__config['preprocessing']
         extra_context = ""
         atom_description = []
@@ -35,7 +36,7 @@ class EvaluateInput:
         return atom_description, extra_context
     
     
-    def __natural_to_asp__(self, user_input: str) -> str:
+    def __natural_to_asp__(self, _input: str) -> str:
         """
             Convert natural language input to ASP (Answer Set Programming) format.
             
@@ -71,19 +72,23 @@ class EvaluateInput:
         )
         
         # Invoke the constrained llm with json schema and return the atoms
-        response =  self.__llm_instance.invoke_llm_constrained(user_input, atoms_class, command = extra_context)
+        response =  self.__llm_instance.invoke_llm_constrained(_input, atoms_class, extra_context)
 
         # from each main_class inside a list of main_class, extract the value of the parameters and use the __str__ method 
         # defined during the class_builder to create the atom structure
 
-        for c, _ in main_class:
-            for atoms in response.dict().get(f"g_{c}"):
-                    result_atoms += str(_class_dict[c](**atoms)) + "\n"
+        if response is not None:
+            for c, _ in main_class:
+                list_of_atoms = response.dict().get(f"g_{c}")
+
+                if list_of_atoms:
+                    for atoms in list_of_atoms:
+                        result_atoms += str(_class_dict[c](**atoms)) + "\n"
 
         return result_atoms
     
 
-    def run(self, custom_input = "", TRAIN_ON: bool = False) -> str:
+    def run(self, _input = "") -> str:
         """
             Run the input handler to convert the user input to ASP format.
             
@@ -93,8 +98,6 @@ class EvaluateInput:
             Returns:
                 str: The ASP-formatted output generated from the user input.
         """
-        
-        self.user_input = custom_input
-        response = self.__natural_to_asp__(self.user_input)
+        response = self.__natural_to_asp__(_input)
 
         return self.__filter_asp_atoms__(response)

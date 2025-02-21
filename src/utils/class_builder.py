@@ -61,18 +61,20 @@ class ClassBuilder:
                     term_name = term.strip()
                 
                     class_dict[term_name] = Field()
-                    annotations[term_name] = str | None
+                    annotations[term_name] = str | int | None
 
                 class_dict['__annotations__'] = annotations
                 class_dict['__name__'] = class_name
 
                 def str_method(self):
-                    # Ensure items are processed properly
                     atom = f"{self.__name__}("
-                    for key, value in self.dict().items():
+                    for _, value in self.dict().items():
                         if value is None:
-                            return ""  # Invalid atom
-                        atom += f"{value.replace(' ', '_')}, "
+                            return ""  
+                        
+                        if isinstance(value, str):
+                            value = value.replace(" ", "_")
+                        atom += f"{value}, "
                     return f"{atom[:-2]}).".lower()
 
                 class_dict['__str__'] = str_method
@@ -81,7 +83,6 @@ class ClassBuilder:
                 new_class = type(class_name, (BaseModel,), class_dict)
                 self.__classes[class_name] = new_class
 
-                # Ollama needs a list to generate multiple instances of the same class
                 wrapper_name = f"list_{class_name}"
 
                 wrapper = type(
