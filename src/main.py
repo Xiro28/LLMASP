@@ -2,6 +2,8 @@ from llmasp import LLMASP
 
 import json
 
+# models: llama3.2:8b-instruct-q8_0
+
 def main():
     _dataset = json.load(open("./dataset.json", "r"))
     f = open("./output.txt", "w")
@@ -10,8 +12,8 @@ def main():
 
         yaml : str = obj["problem_name"].replace(" ", "") 
 
-        _instance = LLMASP(f"applications/{yaml}.yml", 'llama3.2:3b-instruct-q8_0')
-        out = _instance.infer(obj["text"]).preds #+ "\n" + obj["output"] + "\n\n"
+        _instance = LLMASP(f"applications/{yaml}.yml", 'llama3.1')
+        out = _instance.infer(obj["text"]).preds + "\n" #+ obj["output"] + "\n\n"
 
         print(f"Problem N {problem_n} done. Output: {out}")
 

@@ -11,7 +11,7 @@ from utils.llm_handler import LLMHandler
 class EvaluateInput:
 
     def __init__ (self, _llm_model, config):
-        self.__llm_instance = LLMHandler(_llm_model, "Extract only the relevant information following the description. Search for an int or a string.")
+        self.__llm_instance = LLMHandler(_llm_model, "You are an AI that excels at understanding and extracting information from natural language text. Given the user prompt reason over it and extract the relevant information.")
         self.__classes = ClassBuilder(config['preprocessing']).get_classes()
         self.__config = config
 
@@ -62,7 +62,7 @@ class EvaluateInput:
 
         #for each main_class, define the fields and annotations
         dict_ = {f"g_{class_[0]}":  Field(title=class_[0], description=atom_descriptions[idx], ) for idx, class_ in enumerate(main_class)}
-        dict_["__annotations__"] = {f"g_{name}": list[cls] | None for name, cls in main_class}
+        dict_["__annotations__"] = {f"g_{name}": list[cls] for name, cls in main_class}
 
         # Create the atoms class dynamically during runtime
         atoms_class =  type(
