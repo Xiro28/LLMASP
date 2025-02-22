@@ -32,10 +32,11 @@ class LLMHandler:
         ret_ =  self.__llm(
                 model=self.llm_model,
                 messages=[
-                    self.__to_gpt_dict__("systen", f"{command}\n{self.system_prompt}"),
+                    self.__to_gpt_dict__("system", self.system_prompt),
+                    self.__to_gpt_dict__("assistant", command),
                     self.__to_gpt_dict__("user", prompt)
                 ],
-                options={'temperature': 0},
+                options={'temperature': 0, "top_k": 5, "top_p": 0.4},
                 format=model_json
             )
         
