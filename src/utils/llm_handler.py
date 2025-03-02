@@ -29,16 +29,19 @@ class LLMHandler:
 
         model_json = class_response.model_json_schema()
 
+        #print(model_json)
+
         ret_ =  self.__llm(
                 model=self.llm_model,
-                messages=[
+                messages = [
                     self.__to_gpt_dict__("system", self.system_prompt),
-                    self.__to_gpt_dict__("assistant", command),
-                    self.__to_gpt_dict__("user", prompt)
+                    self.__to_gpt_dict__("user", f"Problem statement:\n{command}\n\nExtract the necessary information from the text below:\nReturn only a JSON object matching the expected format. Do not include any extra commentary or explanations.\n{prompt}")
                 ],
-                options={'temperature': 0, "top_k": 5, "top_p": 0.4},
+                options={'temperature': 0},
                 format=model_json
             )
+
+        #print(ret_["message"]["content"])
         
         return class_response.model_validate_json(ret_["message"]["content"])
 

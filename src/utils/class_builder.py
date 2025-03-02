@@ -1,5 +1,7 @@
 from pydantic import BaseModel, Field
 
+from typing import Optional
+
 class ClassBuilder:
 
     def __init__(self, predicates: list):
@@ -57,11 +59,25 @@ class ClassBuilder:
                 class_dict = {}
                 annotations = {}
 
+                ENABLE_TYPES = True
+
                 for term in terms:
-                    term_name = term.strip()
-                
-                    class_dict[term_name] = Field()
-                    annotations[term_name] = str | int | None
+                    term_name = term.strip().replace(")", "")
+
+                    if ":" in term_name:
+                        name, term_type = term_name.split(":")
+                        class_dict[name] = Field()
+
+                        if ENABLE_TYPES:
+                            if term_type == "int":
+                                annotations[name] = int
+                            else:
+                                annotations[name] = str
+                        else:
+                            annotations[name] =  str | int
+                    else:
+                        class_dict[term_name] = Field()
+                        annotations[term_name] = int | str
 
                 class_dict['__annotations__'] = annotations
                 class_dict['__name__'] = class_name
@@ -90,7 +106,7 @@ class ClassBuilder:
                     (BaseModel,),
                     {
                         "__name__": f"{class_name}_list",
-                        "__annotations__": {f"list_{class_name}": list[new_class]},
+                        "__annotations__": {f"list_{class_name}": list[new_class | None]},
                         "__extra_info__": predicate[key],
                         "__class_params__": terms
                     },

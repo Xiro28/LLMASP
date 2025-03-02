@@ -1,6 +1,6 @@
 import json
 
-with open("./output.txt", "r") as f:
+with open("./test_with_default_none.txt", "r") as f:
     output = f.readlines()
 
 _dataset = json.load(open("./dataset.json", "r"))
@@ -15,14 +15,15 @@ i = 0
 
 for problem in _dataset:
     name = problem["problem_name"]
-    expected_atoms = problem["output"]
+    expected_atoms = problem["output"].lower()
+
 
     if i >= len(output):
         print(f"Warning: 'output' is exhausted at problem {name}")
         break
 
     expected_line = output[i].strip()
-    i += 3
+    i += 1
     
     if ") " in expected_atoms:
         expected_atoms = expected_atoms.replace(") ", "). ")

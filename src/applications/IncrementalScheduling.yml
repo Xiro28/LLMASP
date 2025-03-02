@@ -44,33 +44,33 @@ preprocessing:
     curr_job_start(<j>,<st>): the start time of j in the current schedule is st
     curr_on_instance(<j>,<i>): in the current schedule, j is scheduled to run on device instance i
     curr_time(<ct>): the current time is ct
-- max_value(value): |
+- max_value(value:int): |
     Indicate the maximum possible value for the numerical quantities.
-- device(id): |
+- device(id:int): |
     List all devices id (an integer).
-- instances(device, quantity): |
+- instances(device:int, quantity:int): |
     List all the instances quantities (integer) by devices (integer).
-- offline_instance(device, instance): |
+- offline_instance(device:int, instance:int): |
     List all the offline instances (integer) by device (integer).
-- job(id): |
+- job(id:int): |
     List all the jobs id (integer).
-- job_device(job, device): |
+- job_device(job:int, device:int): |
     List all jobs (integer) by devices (integer).
-- job_len(job, time): |
+- job_len(job:int, time:int): |
     List the time (integer) needed for executing each job (integer).
-- deadline(job, deadline): |
+- deadline(job:int, deadline:int): |
     List the deadline (an integer) for each job (an integer).
-- importance(job, value): |
+- importance(job:int, value:int): |
     List the importance (an integer) for each job (an integer).
-- precedes(job_1, job_2): |
+- precedes(job_1:int, job_2:int): |
     List all precedences where job_1 (an integer) must precede job_2 (an integer).
-- max_total_penalty(value): |
+- max_total_penalty(value:int): |
     Specify the total penalty of the schedule (an integer).
-- curr_job_start(job, time): |
+- curr_job_start(job:int, time:int): |
     List all the starting times (integer) for the jobs (integer).
-- curr_on_instance(job, instance): |
+- curr_on_instance(job:int, instance:int): |
     List all the jobs (integer) scheduled to run on device instance (integer).
-- curr_time(value): |
+- curr_time(value:int): |
     Specify the current time (an integer).
 
 knowledge_base:

@@ -6,14 +6,20 @@ import json
 
 def main():
     _dataset = json.load(open("./dataset.json", "r"))
-    f = open("./output.txt", "w")
+    f = open("./test_with_default_none.txt", "w")
 
     for problem_n, obj in enumerate(_dataset):
 
+        #if problem_n <= 138:
+        #    continue
+
+        #if obj["problem_name"] != "VisitAll":
+        #    continue
+
         yaml : str = obj["problem_name"].replace(" ", "") 
 
-        _instance = LLMASP(f"applications/{yaml}.yml", 'qwen2.5:1.5b-instruct-q8_0')
-        out = _instance.infer(obj["text"]).preds + "\n" #+ obj["output"] + "\n\n"
+        _instance = LLMASP(f"applications/{yaml}.yml", 'llama3.1:8b')
+        out = _instance.infer(obj["text"], obj["format"]).preds + "\n"
 
         print(f"Problem N {problem_n} done. Output: {out}")
 

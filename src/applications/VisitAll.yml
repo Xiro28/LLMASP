@@ -11,13 +11,13 @@ preprocessing:
     Thus, to describe the geometry of the grid, the predicate connected/2 explicitly describes what positions are reachable from the other (so that unreachable locations are just ignored): connected(l1,l2): l2 is reachable from l1 (i.e. the robot can step from l1 to l2). 
     There is a single robot. The original position of the robot is described with: at(l): the robot is located at location l The goal of this problem is to find the optimal path that takes the robot from its current location to a number of given cells. 
     The goal locations are identified with the predicate visit/1: visit(l): l is a goal location On the other hand, since the solution consists of a sequence of steps, these are identified by the following input predicate: step(s): s is a step, for s a positive integer.
-- connected(source, target): |
+- connected(source:int, target:int): |
     List all connected locations from source (an integer) to target (an integer).
-- at(location): |
+- at(location:int): |
     Specify the location (an integer) of the robot. 
-- visit(location): |
+- visit(location:int): |
     List every location (an integer) that is a goal location. 
-- step(value): |
+- step(value:int): |
     List all the steps.
     Steps form a sequence of integers (starting from 1). 
 

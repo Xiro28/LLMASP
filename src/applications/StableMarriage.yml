@@ -10,9 +10,9 @@ preprocessing:
     Let w1,...,wn and m1,...,mn be n women and men, respectively. - womanAssignsScore(w,m,s) when a woman w assigns a score s to a man m - manAssignsScore(m,w,s) when a man m assigns a score s to a woman w
     Relations womanAssignsScore and manAssignsScore are complete specifications of preferences, i.e., womanAssignsScore (resp. manAssignsScore) is defined for each pair WOMAN,MAN (resp. MAN,WOMAN). 
     A score is a positive integer ranging from 1 to n. The higher the score is, the higher the preference is. Ties in scores are admitted, that is, a woman can assign the same score to several men, and vice versa.
-- womanAssignsScore(woman,man,score): |
+- womanAssignsScore(woman:str,man:str,score:int): |
     List every score (an integer) that a woman (an unquoted string) assigns to a man (an unquoted string).
-- manAssignsScore(man,woman,score): |
+- manAssignsScore(man:str,woman:str,score:int): |
     List every score (an integer) that a man (an unquoted string) assigns to a woman (an unquoted string).
 
 knowledge_base:

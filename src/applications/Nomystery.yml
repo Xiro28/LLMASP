@@ -15,16 +15,16 @@ preprocessing:
     - goal(p,l): at the final step, the package p must stay at location
     - l step(s): s is an allowed step, for s a positive integer value
     the predicate step is intended in order to encode the maximum number of allowed steps. It can be assumed that for 1..n the allowed steps, then step(1) .. step(n) assertions hold.
-- at(object,location): |
+- at(object:str,location:str): |
     For each object (an unquoted string), specify its initial location (an unquoted string).
-- fuel(truck,quantity): |
+- fuel(truck:str,quantity:str): |
     For each truck (an unquoted string), specify the initial quantity of fuel (an integer).
-- fuelcost(cost,source,target): |
+- fuelcost(cost:int,source:str,target:str): |
     For each source location connected to a target location, specify the cost (an integer) to travel between them.
     Locations are unquoted strings.
-- goal(package,location): |
+- goal(package:str,location:str): |
     Specify the localtion (an unquoted string) where the package (an unquoted string) must stay at the final step.
-- step(value): |
+- step(value:int): |
     List all the allowed steps.
     Steps form a sequence starting from 1.
 

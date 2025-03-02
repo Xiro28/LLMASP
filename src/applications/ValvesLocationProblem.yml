@@ -17,17 +17,17 @@ preprocessing:
     tank/1: Represent a tank, the tanks are located on the junction nodes given by the first parameter 
     valves_per_pipe/1: Represents the maximum number of valves in a pipe 
     valves_number/1: Represents the number of valves
-- junction(id): |
+- junction(id:int): |
     List all the junctions present by providing their ids (integer).
-- pipe(source,target): |
+- pipe(source:int,target:int): |
     List all the pipes connecting junctions source (an integer) and target (an integer).
-- dem(source,target, weight): |
+- dem(source:int,target:int, weight:int): |
     List all the specified weights (integer) for pipes connecting junctions source (an integer) and target (an integer).
-- tank(junction): |
+- tank(junction:int): |
     List all the tanks present at a given junction (an integer).
-- valves_number(number): |
+- valves_number(number:int): |
     Specify the maximum number of valves to be placed in the network.
-- valves_per_pipe(number): |
+- valves_per_pipe(number:int): |
     Specify the maximum number of valves in a pipe.
 
 knowledge_base:

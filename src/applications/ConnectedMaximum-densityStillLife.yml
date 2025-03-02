@@ -12,8 +12,8 @@ preprocessing:
     We here consider square shaped regions. 
     The size n of the region is provided by an instance of the predicate size/1. 
     Cells connect horizontally, vertically, and diagonally.
-- size(value): |
-    value is the size of the region (an integer).
+- size(value:int): |
+    value is the size of the region.
 
 knowledge_base:
 

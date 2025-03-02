@@ -7,11 +7,11 @@ preprocessing:
     
     Format description of the predicates to be extracted:
     The permutations T and P are encoded as binary predicates, e.g. T=132 is encoded as t(1,1). t(2,3). t(3,2). Additionally, patternlength/1 describes the length of the pattern P.
-- t(index, number): |
+- t(index:int, number:int): |
     Represent the permutation text T by a sequence of facts, each fact associating an index (an integer starting from 1) to the number (an integer) at that index.
-- p(p,n): |
+- p(p:int,n:int): |
     Represent the permutation pattern P by a sequence of facts, each fact associating an index (an integer starting from 1) to the number (an integer) at that index.
-- patternlength(value): |
+- patternlength(value:int): |
     value is the length of the pattern (an integer).
 
 knowledge_base:

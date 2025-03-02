@@ -5,7 +5,7 @@ preprocessing:
     
     Format description of the predicates to be extracted:
     The edges of the graph are provided by instances of the predicate edge/2.
-- edge(source, target): |
+- edge(source:int, target:int): |
     List all the edges from source (an integer) to target (an integer).
 
 knowledge_base:

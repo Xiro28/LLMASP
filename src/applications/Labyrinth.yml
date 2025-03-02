@@ -12,20 +12,20 @@ preprocessing:
     It always holds that 1 ≤ x_i,y_i,x_g,y_g ≤ N. The connections of fields are given by instances of "connect" looking as follows: connect(x,y,d).
     Again, we have 1 ≤ x,y ≤ N. Furthermore, direction d can be "n" for north, "s" for south, "e" for east, or "w" for west. Finally, the maximum number of pushes is determined by exactly one instance of "max_steps": max_steps(m).
     Argument m is a positive integer. An exemplary input for the above example looks as follows: field(1,1). ... field(1,4). .... field(4,1). ... field(4,4). init_on(3,2). goal_on(1,4). connect(1,1,s). connect(1,1,w). connect(1,2,n). connect(1,2,e). connect(1,2,w). connect(1,3,e). connect(1,4,n). connect(1,4,w). ... connect(4,4,w). max_steps(2).
-- field(x,y): |
+- field(x:int,y:int): |
     List all the fields of the quadratic labyrinth by specifying their coordinates (x,y).
     Coordinates are integers.
-- init_on(x,y): |
+- init_on(x:int,y:int): |
     Specify the starting position field by giving its coordinates (x,y).
     Coordinates are integers.
-- goal_on(x,y): |
+- goal_on(x:int,y:int): |
     Specify the goal position field by giving its coordinates (x,y).
     Coordinates are integers.
-- connect(x,y, direction): |
+- connect(x:int,y:int, direction:str): |
     List all the connections of fields.
     Coordinates (x,y) are integers.
     direction is one of the following unquoted strings: n, s, e, w.
-- max_steps(value): |
+- max_steps(value:int): |
     value is the maximum number of pushes or steps (an integer).
 
 knowledge_base:

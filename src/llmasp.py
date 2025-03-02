@@ -3,7 +3,7 @@ import yaml
 from typeguard import typechecked
 from dataclasses import dataclass, field
 
-from dumbo_asp.primitives.models import Model
+#from dumbo_asp.primitives.models import Model
 
 from evaluate_input import EvaluateInput
 from evaluate_output import EvaluateOuput
@@ -27,7 +27,7 @@ class LLMASP:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
 
     
-    def infer(self, custom_input = "") -> "LLMASP":
+    def infer(self, _input:str, _format:str) -> "LLMASP":
         """
             This method extracts predicates from the input handler by converting the input
             to ASP format.
@@ -36,7 +36,7 @@ class LLMASP:
                 self object: The current LLMASP object with the extracted predicates.
         """
         
-        self.preds = EvaluateInput(self.__llm_model, self.__config).run(custom_input)
+        self.preds = EvaluateInput(self.__llm_model, self.__config).run(_input, _format)
 
         return self
     

@@ -11,7 +11,7 @@ from utils.llm_handler import LLMHandler
 class EvaluateInput:
 
     def __init__ (self, _llm_model, config):
-        self.__llm_instance = LLMHandler(_llm_model, "Extract from the prompt the parameters to create the atoms")
+        self.__llm_instance = LLMHandler(_llm_model, """Extract only the required info. Strictly follow the format.""")
         self.__classes = ClassBuilder(config['preprocessing']).get_classes()
         self.__config = config
 
@@ -31,12 +31,12 @@ class EvaluateInput:
                 extra_context += q_value + '\n'
 
             else:
-                atom_description.append(q_value)
+                atom_description.append(q_value.replace("\n", ""))
 
         return atom_description, extra_context
     
     
-    def __natural_to_asp__(self, _input: str) -> str:
+    def __natural_to_asp__(self, _input: str, _format:str) -> str:
         """
             Convert natural language input to ASP (Answer Set Programming) format.
             
@@ -61,8 +61,8 @@ class EvaluateInput:
         main_class = [main_class for main_class in _class_dict.items() if "list_" not in main_class[0]]
 
         #for each main_class, define the fields and annotations
-        dict_ = {f"{class_[0]}_s":  Field(title=class_[0], description=atom_descriptions[idx]) for idx, class_ in enumerate(main_class)}
-        dict_["__annotations__"] = {f"{name}_s": list[cls] | None for name, cls in main_class}
+        dict_ = {f"{class_[0]}":  Field(title=class_[0], description=atom_descriptions[idx], default=None) for idx, class_ in enumerate(main_class)}
+        dict_["__annotations__"] = {f"{name}": list[cls] for name, cls in main_class}
 
         # Create the atoms class dynamically during runtime
         atoms_class =  type(
@@ -70,25 +70,26 @@ class EvaluateInput:
             (BaseModel,), 
             dict_
         )
-        
+        #print(extra_context)
         # Invoke the constrained llm with json schema and return the atoms
-        response =  self.__llm_instance.invoke_llm_constrained(_input, atoms_class, extra_context)
+        response =  self.__llm_instance.invoke_llm_constrained(_input, atoms_class, _format)
 
         # from each main_class inside a list of main_class, extract the value of the parameters and use the __str__ method 
         # defined during the class_builder to create the atom structure
 
         if response is not None:
             for c, _ in main_class:
-                list_of_atoms = response.dict().get(f"{c}_s")
+                list_of_atoms = response.dict().get(f"{c}")
 
                 if list_of_atoms:
                     for atoms in list_of_atoms:
-                        result_atoms += str(_class_dict[c](**atoms)) + "\n"
+                        if atoms is not None:
+                            result_atoms += str(_class_dict[c](**atoms)) + "\n"
 
         return result_atoms
     
 
-    def run(self, _input = "") -> str:
+    def run(self, _input:str, _format:str) -> str:
         """
             Run the input handler to convert the user input to ASP format.
             
@@ -98,6 +99,6 @@ class EvaluateInput:
             Returns:
                 str: The ASP-formatted output generated from the user input.
         """
-        response = self.__natural_to_asp__(_input)
+        response = self.__natural_to_asp__(_input, _format)
 
         return self.__filter_asp_atoms__(response)
