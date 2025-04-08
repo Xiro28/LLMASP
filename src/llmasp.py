@@ -14,14 +14,24 @@ from evaluate_output import EvaluateOuput
 @dataclass(frozen=False)
 class LLMASP:
     __configFilename: str = field(init=True, default="./config.yml")
-    __llm_model: dict = field(init=True, default="")
+    __config_behaviour: str = field(init=True, default="")
+    __llm_model_extractor: str = field(init=True, default="")
+    __llm_model_reasoner: str = field(init=True, default="")
     __config: dict = field(init=False)
+    __b_config: dict = field(init=False)
     
     def __post_init__(self):
         self.preds = ""
         self.calc_preds = ""
 
+        assert self.__llm_model_extractor != "", "The LLM extractor cannot be empty"
+
+        if self.__llm_model_reasoner == "":
+            self.__llm_model_reasoner = None
+
         self.__config = self.__load_config__(self.__configFilename)
+        self.__b_config = self.__load_config__(self.__config_behaviour)
+        self.evaluator = EvaluateInput((self.__llm_model_extractor, self.__llm_model_reasoner), self.__config, self.__b_config["preprocessing"])
 
     def __load_config__(self, path: str) -> dict | list:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
@@ -36,7 +46,7 @@ class LLMASP:
                 self object: The current LLMASP object with the extracted predicates.
         """
         
-        self.preds = EvaluateInput(self.__llm_model, self.__config).run(_input, _format)
+        self.preds = self.evaluator.run(_input, _format)
 
         return self
     

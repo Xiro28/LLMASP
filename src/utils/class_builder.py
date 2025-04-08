@@ -66,6 +66,10 @@ class ClassBuilder:
 
                     if ":" in term_name:
                         name, term_type = term_name.split(":")
+                        
+                        name = name.strip()
+                        term_type = term_type.strip()
+
                         class_dict[name] = Field()
 
                         if ENABLE_TYPES:
@@ -88,8 +92,10 @@ class ClassBuilder:
                         if value is None:
                             return ""  
                         
-                        if isinstance(value, str):
-                            value = value.replace(" ", "_")
+                        # spaces are not allowed inside the parameter of an atom
+                        if isinstance(value, str) and " " in value:
+                            return ""
+
                         atom += f"{value}, "
                     return f"{atom[:-2]}).".lower()
 
@@ -107,7 +113,7 @@ class ClassBuilder:
                     {
                         "__name__": f"{class_name}_list",
                         "__annotations__": {f"list_{class_name}": list[new_class | None]},
-                        "__extra_info__": predicate[key],
+                        "__description__": predicate[key],
                         "__class_params__": terms
                     },
                 )
