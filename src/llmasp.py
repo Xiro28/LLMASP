@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 
 from evaluate_input import EvaluateInput
 from evaluate_output import EvaluateOuput
+from utils.llm_handler import LLMHandler
 
 
 
@@ -31,13 +32,13 @@ class LLMASP:
 
         self.__config = self.__load_config__(self.__configFilename)
         self.__b_config = self.__load_config__(self.__config_behaviour)
-        self.evaluator = EvaluateInput((self.__llm_model_extractor, self.__llm_model_reasoner), self.__config, self.__b_config["preprocessing"])
+        self.evaluator = EvaluateInput((self.__llm_model_extractor, self.__llm_model_reasoner), self.__config, self.__b_config["preprocessing"], "")
 
     def __load_config__(self, path: str) -> dict | list:
         return yaml.load(open(path, "r"), Loader=yaml.Loader)
 
     
-    def infer(self, _input:str, _format:str) -> "LLMASP":
+    def infer(self, _input:str, _format:any) -> "LLMASP":
         """
             This method extracts predicates from the input handler by converting the input
             to ASP format.
@@ -45,10 +46,21 @@ class LLMASP:
             Returns:
                 self object: The current LLMASP object with the extracted predicates.
         """
-        
+        self.evaluator.set_mode(self.__config['mode'])
         self.preds = self.evaluator.run(_input, _format)
-
         return self
+
+    def generate_asp(self, _input:str, _format:str, atoms:str) -> str:
+        """
+            This method generates ASP code from the input handler by converting the input
+            to ASP format.
+                
+            Returns:
+                str: The generated ASP code.
+        """
+
+        code = LLMHandler(self.__llm_model_reasoner, """You are an expert PROLOG code generator.""").invoke_llm_constrained("Given the atoms description and the problem statement, return just a working PROLOG code that matches the requirements. No comments or other info", _format, _input)
+        return code
     
     def run_asp(self, use_preserved=False) -> "LLMASP":
         """
@@ -89,4 +101,19 @@ class LLMASP:
         
         return EvaluateOuput(self.__llm_model, self.__config, self.preds, self.calc_preds).run()
 
+    def set_mode(self, mode: str) -> "LLMASP":
+        """
+            Set the mode of the LLMASP object.
+            
+            This method sets the mode of the LLMASP object to the specified mode.
+            
+            Parameters:
+                mode (str): The mode to set for the LLMASP object.
+                
+            Returns:
+                self object: The current LLMASP object with the updated mode.
+        """
+        
+        self.__config['mode'] = mode
+        return self
 

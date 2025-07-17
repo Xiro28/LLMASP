@@ -10,11 +10,11 @@ preprocessing:
     Colour names start with the sequence "red", "green", "blue". 
     A number of link facts which say which nodes are linked. Note that if link(N1,N2). is included then so will link(N2,N1).
 - link(source:int, target:int): |
-    List all the edges from source (an integer) to target (an integer).
+    List all the edges from source to target.
 - node(id:int): |
-    List all the nodes. Associate to every node its ID (an integer).
-- colour(name:str): |
-    List all the colors. Each colour is associated with a name (an unquoted string).
+    List all the nodes. Associate to every node its ID.
+- colour(name:str$int+): |
+    List all the colors. Each colour is associated with a name.
 
 knowledge_base:
 

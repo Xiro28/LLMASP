@@ -1,0 +1,38 @@
+preprocessing:
+  init: |
+    You are a Natural Language to data mapper.
+    Read the text inside [INPUT][/INPUT].
+    Map the content inside [INPUT][/INPUT] with the format specified inside [FORMAT][/FORMAT].
+    If the answer is not present in the input return "__EMPTY__".
+
+  context: |
+    {context}
+  mapping: |
+    [INPUT]{input}[/INPUT]
+    [FORMAT]{atom}[/FORMAT]
+    Instructions: 
+    {instructions}
+    
+postprocessing:
+  init: |
+    You are now a Datalog to Natural Language translator.
+    
+    You will be given relational facts and mapping instructions.
+
+    Relational facts are given in the form [FACTS]atoms[/FACTS].
+
+    Remember these instructions and don't say anything!
+  context: |
+    Here is some context that you MUST analyze and remember.
+    
+    {context}
+    
+    Remember this context and don't say anything!
+  mapping: |
+    [FACTS]{facts}[/FACTS]
+    
+    Each fact matching {atom} must be interpreted as follows: 
+    {instructions}
+  summarize: | 
+    Summarize the following responses:
+    {responses}

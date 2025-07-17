@@ -1,0 +1,256 @@
+Tokens in output: 50897
+Time taken: 1420.93821144104
+Global metrics for single_no_reason_csvno_descr:
+  Accuracy: 0.516
+  F1:       0.680
+  TP:      1903
+  FP:      984
+  FN:      804
+
+Problem: Connected Maximum-density Still Life
+  TP: 3
+  FP: 0
+  FN: 0
+  Accuracy: 1.000
+  F1: 1.000
+
+Problem: Crossing Minimization
+  TP: 148
+  FP: 8
+  FN: 50
+  Accuracy: 0.718
+  F1: 0.836
+
+Problem: Graceful Graphs
+  TP: 24
+  FP: 0
+  FN: 8
+  Accuracy: 0.750
+  F1: 0.857
+
+Problem: Graph Colouring
+  TP: 360
+  FP: 206
+  FN: 127
+  Accuracy: 0.519
+  F1: 0.684
+
+Problem: Incremental Scheduling
+  TP: 68
+  FP: 63
+  FN: 224
+  Accuracy: 0.192
+  F1: 0.322
+
+Problem: Knight Tour
+  TP: 14
+  FP: 3
+  FN: 3
+  Accuracy: 0.700
+  F1: 0.824
+
+Problem: Knight Tour With Holes
+  TP: 31
+  FP: 0
+  FN: 5
+  Accuracy: 0.861
+  F1: 0.925
+
+Problem: Labyrinth
+  TP: 738
+  FP: 508
+  FN: 57
+  Accuracy: 0.566
+  F1: 0.723
+
+Problem: Maximal Clique Problem
+  TP: 59
+  FP: 8
+  FN: 23
+  Accuracy: 0.656
+  F1: 0.792
+
+Problem: Nomystery
+  TP: 75
+  FP: 0
+  FN: 39
+  Accuracy: 0.658
+  F1: 0.794
+
+Problem: Partner Units
+  TP: 89
+  FP: 0
+  FN: 7
+  Accuracy: 0.927
+  F1: 0.962
+
+Problem: Permutation Pattern Matching
+  TP: 19
+  FP: 8
+  FN: 49
+  Accuracy: 0.250
+  F1: 0.400
+
+Problem: Ricochet Robots
+  TP: 44
+  FP: 16
+  FN: 44
+  Accuracy: 0.423
+  F1: 0.595
+
+Problem: Sokoban
+  TP: 125
+  FP: 39
+  FN: 68
+  Accuracy: 0.539
+  F1: 0.700
+
+Problem: Stable Marriage
+  TP: 41
+  FP: 50
+  FN: 23
+  Accuracy: 0.360
+  F1: 0.529
+
+Problem: Valves Location Problem
+  TP: 61
+  FP: 3
+  FN: 49
+  Accuracy: 0.540
+  F1: 0.701
+
+Problem: VisitAll
+  TP: 4
+  FP: 72
+  FN: 28
+  Accuracy: 0.038
+  F1: 0.074
+
+Tokens in output: 51267
+Time taken: 334.35008430480957
+Global metrics for single_no_reason_csvdescr:
+  Accuracy: 0.512
+  F1:       0.677
+  TP:      1852
+  FP:      913
+  FN:      855
+
+Problem: Connected Maximum-density Still Life
+  TP: 3
+  FP: 0
+  FN: 0
+  Accuracy: 1.000
+  F1: 1.000
+
+Problem: Crossing Minimization
+  TP: 183
+  FP: 24
+  FN: 15
+  Accuracy: 0.824
+  F1: 0.904
+
+Problem: Graceful Graphs
+  TP: 31
+  FP: 0
+  FN: 1
+  Accuracy: 0.969
+  F1: 0.984
+
+Problem: Graph Colouring
+  TP: 375
+  FP: 270
+  FN: 112
+  Accuracy: 0.495
+  F1: 0.663
+
+Problem: Incremental Scheduling
+  TP: 53
+  FP: 104
+  FN: 239
+  Accuracy: 0.134
+  F1: 0.236
+
+Problem: Knight Tour
+  TP: 17
+  FP: 0
+  FN: 0
+  Accuracy: 1.000
+  F1: 1.000
+
+Problem: Knight Tour With Holes
+  TP: 36
+  FP: 0
+  FN: 0
+  Accuracy: 1.000
+  F1: 1.000
+
+Problem: Labyrinth
+  TP: 563
+  FP: 398
+  FN: 232
+  Accuracy: 0.472
+  F1: 0.641
+
+Problem: Maximal Clique Problem
+  TP: 78
+  FP: 2
+  FN: 4
+  Accuracy: 0.929
+  F1: 0.963
+
+Problem: Nomystery
+  TP: 86
+  FP: 2
+  FN: 28
+  Accuracy: 0.741
+  F1: 0.851
+
+Problem: Partner Units
+  TP: 96
+  FP: 0
+  FN: 0
+  Accuracy: 1.000
+  F1: 1.000
+
+Problem: Permutation Pattern Matching
+  TP: 24
+  FP: 2
+  FN: 44
+  Accuracy: 0.343
+  F1: 0.511
+
+Problem: Ricochet Robots
+  TP: 47
+  FP: 11
+  FN: 41
+  Accuracy: 0.475
+  F1: 0.644
+
+Problem: Sokoban
+  TP: 133
+  FP: 41
+  FN: 60
+  Accuracy: 0.568
+  F1: 0.725
+
+Problem: Stable Marriage
+  TP: 43
+  FP: 46
+  FN: 21
+  Accuracy: 0.391
+  F1: 0.562
+
+Problem: Valves Location Problem
+  TP: 60
+  FP: 1
+  FN: 50
+  Accuracy: 0.541
+  F1: 0.702
+
+Problem: VisitAll
+  TP: 24
+  FP: 12
+  FN: 8
+  Accuracy: 0.545
+  F1: 0.706
+

@@ -16,14 +16,14 @@ preprocessing:
     For convenience, width/2 gives the number of nodes in a layer. 
     For example layers(2). width(0, 2). in_layer(0,n1). in_layer(0,n2). width(1, 1). in_layer(1,n3). defines two layers, layer 0 containing nodes {n1, n2} and layer 1 containing {n3}. 
     The predicate edge/2 defines edges between nodes. For example edge(n1,n3). edge(n2,n3).
-- edge(source:str, target:str): |
-    List all the edges from source (a string) to target (a string).
+- edge(source:"n"$int, target:"n"$int): |
+    List all the edges from source to target.
 - layers(value:int): |
-    value is the total number of layers (an integer).
+    value is the total number of layers.
 - width(layer:int, number_of_nodes:int): |
-    For each layer (an integer), specify the number of nodes.
-- in_layer(layer:int, node:str): |
-    For each layer (an integer), list every node (a string) that belongs to that layer.
+    For each layer, specify the number of nodes.
+- in_layer(layer:int, node:"n"$int): |
+    For each layer, list every node that belongs to that layer.
 
 knowledge_base:
 

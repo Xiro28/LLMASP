@@ -1,11 +1,17 @@
 from dataclasses import dataclass
 from utils.yaml_to_csv import GrammarsBuilder
+from utils.yaml_to_atom import AtomGrammarsBuilder
+from utils.yaml_to_csv_single import GrammarsBuilder as SingleGrammarsBuilder
 from typeguard import typechecked
 from pydantic import BaseModel, Field
 
 import re
 from utils.class_builder import ClassBuilder
 from utils.llm_handler import LLMHandler
+import math
+from collections import Counter
+
+import spacy
 
 @typechecked
 @dataclass(frozen=False)
@@ -13,16 +19,22 @@ class EvaluateInput:
 
     ## TODO: Move part of this logic to a better place (Consider creating a class Reasoning)
 
-    def __init__ (self, _llm_models, config, b_config):
+    def __init__ (self, _llm_models, config, b_config, _mode):
         #self.__llm_instance_extractor = LLMHandler(_llm_models[0], """You are an expert in data extraction.""")
         self.__llm_instance_reasoner = LLMHandler(_llm_models[1], """You are an expert in data description.""")
         self.__llm_instance_extractor = LLMHandler(_llm_models[0], b_config["init"])
         self.__classes = ClassBuilder(config['preprocessing']).get_classes()
         self.__grammars = GrammarsBuilder(config['preprocessing']).get_grammars()
+        self.__single_grammar = SingleGrammarsBuilder(config['preprocessing']).get_grammars()["single"]
+        self.__atom_grammars = AtomGrammarsBuilder(config['preprocessing']).get_grammars()
         self.__config = config
         self.__b_config = b_config
 
-        print("Grammars:", self.__grammars)
+        self.__mode = _mode
+
+        #self.nlp = spacy.load("en_core_web_lg")
+
+        #print("Grammars:", self.__grammars)
 
         #self.__reasoning_out = {}
 
@@ -161,7 +173,7 @@ class EvaluateInput:
 
         mapping = self.__b_config["mapping"]
         mapping = mapping.replace("{input}", _input)
-        mapping = mapping.replace("{instructions}", refined_instruction)
+        mapping = mapping.replace("{instructions}", joined_descriptions + "\n" + refined_instruction)
         mapping = mapping.replace("{atom}", " ".join(atom_to_extract))
         real_context = self.__b_config["context"].replace("{context}", f"{_format}")
 
@@ -199,6 +211,8 @@ class EvaluateInput:
 
         mapping = self.__b_config["mapping"]
         mapping = mapping.replace("{input}", _input)
+
+        tokens = 0
         
         for i, descr in enumerate(atom_descriptions):
 
@@ -215,7 +229,6 @@ class EvaluateInput:
             
             appl_mapping = mapping.replace("{instructions}", descr)
             appl_mapping = appl_mapping.replace("{atom}", atoms[i])
-            print(appl_mapping)
 
             response = self.__llm_instance_extractor.invoke_llm_constrained(appl_mapping, _list[i][1], real_context)
 
@@ -283,39 +296,168 @@ class EvaluateInput:
         
         return result_atoms
 
-    def __natural_no_reason_to_asp_multi_csv__(self, _input: str, _format:str) -> str:
+    def text_to_vector(self, text):
+        word = re.compile(r'\w+')
+        words = word.findall(text)
+        return Counter(words)
+
+    def __natural_no_reason_to_asp_multi_csv__(self, _input: str, _format:any) -> str:
 
         result_atoms = ""
 
         atoms, atom_descriptions, extra_context = self.__extract_atom_descr()
-        print(atoms)
 
         _class_dict = self.__classes
         _list = [list_class for list_class in _class_dict.items() if "list_" in list_class[0]]
         main_class = [main_class[0] for main_class in _class_dict.items() if "list_" not in main_class[0]]
 
         mapping = self.__b_config["mapping"]
-        mapping = mapping.replace("{input}", _input)
+        real_context = self.__b_config["context"].replace("{context}", _format)
+
+
+        def to_asp(response):
+            tokens = response.split("\t")
+            return f"{tokens[0]}({",".join(tokens[1:])})."
         
+        def to_asp_no_head(atom_name, params):
+            tokens = params.split("\t")
+            return f"{atom_name}({",".join(tokens)})."
+
+        #nlp_input = ner_highlight_text(_input)
+        #print(nlp_input)
         for i, descr in enumerate(atom_descriptions):
-            grammar, example, res_to_asp = self.__grammars[main_class[i]]
+            grammar, example = self.__grammars[main_class[i]]
 
-            real_context = self.__b_config["context"].replace("{context}", f"{_format}")
+            _appl_mapping = mapping.replace("{input}", _input)
             
-            appl_mapping = mapping.replace("{instructions}", descr)
-            appl_mapping = appl_mapping.replace("{atom}", example)
-
+            appl_mapping = _appl_mapping.replace("{instructions}", f"{descr}")
+            appl_mapping = appl_mapping.replace("{atom}", f"{example[0]} {example[1]}")
 
             response = self.__llm_instance_extractor.invoke_llm_constrained(appl_mapping, grammar, real_context)
 
-            if response != None or response != "":
-                for atom in response.split("\n"):
-                    if atom != "":
-                        result_atoms += res_to_asp(atom) + "\n"
+            if response != None and response != "" and response != "empty_predicate":
+                for atom in response.split("\n"):  # Skip the first line which is the header
+                    if atom != "" and "empty_predicate" not in atom:
+                        #result_atoms += to_asp_no_head(main_class[i], atom) + "\n"
+                        result_atoms += to_asp(atom) + "\n"
+
+        return result_atoms
+    
+    def __natural_reason_to_asp_single_csv__(self, _input: str, _format:any) -> str:
+
+        result_atoms = ""
+
+        atoms, atom_descriptions, extra_context = self.__extract_atom_descr()
+
+        _class_dict = self.__classes
+        _list = [list_class for list_class in _class_dict.items() if "list_" in list_class[0]]
+        main_class = [main_class[0] for main_class in _class_dict.items() if "list_" not in main_class[0]]
+
+        mapping = self.__b_config["mapping"]
+        real_context = self.__b_config["context"].replace("{context}", _format)
+
+
+        def to_asp(str):
+            tokens = str.split("\t")
+            return f"{tokens[0]}({",".join(tokens[1:])})."
+
+        combined_descriptions = "\n".join(atom_descriptions)
         
+        _appl_mapping = mapping.replace("{input}", _input)
+        
+        appl_mapping = _appl_mapping.replace("{instructions}", f"{combined_descriptions}")
+        appl_mapping = appl_mapping.replace("{atom}", self.__single_grammar[1])
+
+        response = self.__llm_instance_extractor.invoke_llm_constrained(appl_mapping, self.__single_grammar[0], real_context)
+
+        if response != None and response != "" and response != "__EMPTY__":
+            res_atoms = response.split("\n")
+            res_atoms = set(res_atoms)
+            print(res_atoms)
+            for atom in res_atoms:
+                if atom != "" and "__EMPTY__" not in atom:
+                    result_atoms += to_asp(atom) + "\n"
+    
         return result_atoms
 
-    def run(self, _input:str, _format:str) -> str:
+
+    def __natural_no_reason_to_asp_multi_atom__(self, _input: str, _format:any) -> str:
+
+        result_atoms = ""
+
+        atoms, atom_descriptions, extra_context = self.__extract_atom_descr()
+
+        _class_dict = self.__classes
+        _list = [list_class for list_class in _class_dict.items() if "list_" in list_class[0]]
+        main_class = [main_class[0] for main_class in _class_dict.items() if "list_" not in main_class[0]]
+
+        mapping = self.__b_config["mapping"]
+        real_context = self.__b_config["context"].replace("{context}", _format)
+
+        for i, descr in enumerate(atom_descriptions):
+            grammar = self.__atom_grammars[main_class[i]]
+
+            _appl_mapping = mapping.replace("{input}", _input)
+            
+            appl_mapping = _appl_mapping.replace("{instructions}", f"{descr}")
+            appl_mapping = appl_mapping.replace("{atom}", f"{atoms[i]}")
+
+            response = self.__llm_instance_extractor.invoke_llm_constrained(appl_mapping, grammar, real_context)
+
+            if response != None and response != "" and response != "__EMPTY__":
+                result_atoms += response + "\n"
+        
+        return result_atoms
+    
+    def __natural_no_grammar__(self, _input: str, _format:any) -> str:
+
+        result_atoms = ""
+
+        atoms, atom_descriptions, extra_context = self.__extract_atom_descr()
+
+
+        mapping = self.__b_config["mapping"]
+        real_context = self.__b_config["context"].replace("{context}", _format)
+
+        atom_reg = re.compile(r'\[OUTPUT\](([a-zA-Z][\w_]*\([^)]*\)[\. | \,]?\s?)*)\[\/OUTPUT\]')
+
+        for i, descr in enumerate(atom_descriptions):
+            _appl_mapping = mapping.replace("{input}", _input)
+            
+            appl_mapping = _appl_mapping.replace("{instructions}", f"{descr}")
+            appl_mapping = appl_mapping.replace("{atom}", f"{atoms[i]}")
+
+            response = self.__llm_instance_extractor.invoke_llm_constrained(appl_mapping, "", real_context)
+
+            l_facts = atom_reg.findall(response)
+
+            if l_facts and len(l_facts) > 0:
+                for facts in l_facts:
+                    for fact in facts:
+                        if fact != "" and fact != "empty_predicate" and fact not in result_atoms:
+                            fact = fact.replace("),", ").")
+                            result_atoms += fact + "\n"
+        
+        return result_atoms
+    
+    def set_mode(self, mode: str):
+        """
+            Set the mode for the input handler.
+            
+            This method allows you to set the mode of the input handler, which determines how the input will be processed.
+            The available modes are:
+                - "single_cot": Single-step reasoning with chain of thought.
+                - "single_no_reason": Single-step reasoning without chain of thought.
+                - "multi_no_reason": Multi-step reasoning without chain of thought.
+                - "multi_no_reason_csv": Multi-step reasoning without chain of thought, output in CSV format.
+                - "multi_no_reason_atom": Multi-step reasoning without chain of thought, output in atom format.
+                
+            Parameters:
+                mode (str): The mode to set for the input handler.
+        """
+        self.__mode = mode
+
+    def run(self, _input:str, _format:any) -> str:
         """
             Run the input handler to convert the user input to ASP format.
             
@@ -325,6 +467,17 @@ class EvaluateInput:
             Returns:
                 str: The ASP-formatted output generated from the user input.
         """
-        response = self.__natural_no_reason_to_asp_multi_csv__(_input, _format)
+        if self.__mode == "single_cot":
+            response = self.__natural_to_asp_single_cot__(_input, _format)
+        elif self.__mode == "single_no_reason":
+            response = self.__natural_no_reason_to_asp_single__(_input, _format)
+        elif self.__mode == "multi_no_reason":
+            response = self.__natural_no_reason_to_asp_multi__(_input, _format)
+        elif self.__mode == "multi_no_reason_csv":
+            response = self.__natural_no_reason_to_asp_multi_csv__(_input, _format)
+        elif self.__mode == "single_no_reason_csv":
+            response = self.__natural_reason_to_asp_single_csv__(_input, _format)
+        else:
+            response = self.__natural_no_grammar__(_input, _format)
 
         return self.__filter_asp_atoms__(response)

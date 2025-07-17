@@ -1,4 +1,4 @@
-class GrammarsBuilder:
+class AtomGrammarsBuilder:
 
     def __init__(self, predicates: list):
 
@@ -48,26 +48,20 @@ class GrammarsBuilder:
                     terms_no_type.append(term.strip().replace("_", ""))
                 
                 
-                joined_terms = '"\t"'.join(terms_no_type).lower()
+                joined_terms = '","'.join(terms_no_type)
                 joined_terms_no_tab = " ".join(terms_no_type)
 
-                structure_str = class_name + " " + " ".join(terms_no_type)
+                class_name_no_tab = class_name.replace("_", "")
 
-                class_name_no_tab = class_name.replace("_", " ")
-                #Make the first letter of each word uppercase
-                class_name_no_tab = "".join([word.capitalize() for word in class_name_no_tab.split()])
-
-
-                description = predicate[key].strip().replace("\n", " ").replace("\t", " ")
-
+                description = predicate[key].strip().replace("\n", "").replace("\t", " ")
 
                 # Build the main grammar rule; note the use of escaped newline and tab.
                 current_grammar = (
-                    f"root ::= (output | none)\n"
-                    f"output ::= {class_name_no_tab} newline ({class_name_no_tab} newline?)*\n"
-                    f"none ::= \"empty_predicate\"\n"
-                    f"newline ::= \"\\n\"\n"
-                    f"{class_name_no_tab} ::= \"{class_name}\t\"{joined_terms}\n"
+                    f"root ::= \"RESPONSE:\" NEWLINE (output | empty)\n"
+                    f"output ::= {class_name_no_tab} (NEWLINE {class_name_no_tab})*\n"
+                    f"empty ::= \"__EMPTY__\"\n"
+                    f"NEWLINE ::= \"\\n\"\n"
+                    f"{class_name_no_tab} ::= \"{class_name}(\"{joined_terms}\").\"\n"
                 )
 
                 # This is needed to be instruct the LLM to generate the predicates how we want

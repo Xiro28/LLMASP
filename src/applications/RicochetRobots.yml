@@ -18,7 +18,7 @@ preprocessing:
      For each robot, provide the starting position or location (x,y).
      robot is an unquoted string.
      Coordinates (x,y) are integers.
-- barrier(x:int,y:int,direction:str): |
+- barrier(x:int,y:int,direction:"north"|"sud"|"east"|"west"): |
     List all the barriers in position (x,y) towards a given direction.
     Coordinates (x,y) are integers.
     direction is one of the following unquoted strings: north, sud, east, west.
