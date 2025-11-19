@@ -18,7 +18,7 @@ def check_validity(time=None, mode=None, graph_name=None, full_description=False
 
     _new_dataset = []
 
-    FEW_SAMPLE_MODE = 3
+    FEW_SAMPLE_MODE = 0
     if FEW_SAMPLE_MODE > 0:
         samples = FEW_SAMPLE_MODE
         current_problem = "None"
@@ -32,7 +32,7 @@ def check_validity(time=None, mode=None, graph_name=None, full_description=False
                     _new_dataset.append(None)
                     continue
 
-                samples = FEW_SAMPLE_MODE
+                samples = FEW_SAMPLE_MODE - 1
                 _new_dataset.append(obj)
     else:
         _new_dataset = _dataset

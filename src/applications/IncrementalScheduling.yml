@@ -1,6 +1,4 @@
-preprocessing:
-- _: |
-    Problem description:
+problem_definition: |
     In this domain, a reasoner keeps a schedule updated with respect to the addition of jobs and to equipment going offline.
     All numerical quantities discussed below are integers. The largest possible value is specified by relation max_value(mv).    
     List of devices
@@ -44,6 +42,8 @@ preprocessing:
     curr_job_start(<j>,<st>): the start time of j in the current schedule is st
     curr_on_instance(<j>,<i>): in the current schedule, j is scheduled to run on device instance i
     curr_time(<ct>): the current time is ct
+    
+predicates:
 - max_value(value:int): |
     Indicate the maximum possible value for the numerical quantities.
 - device(id:int): |

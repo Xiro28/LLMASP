@@ -6,7 +6,7 @@ authors = ["Lorenzo Grillo", "Mario Alviano <mario.alviano@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "3.12.2"
+python = "^3.12.3"
 typeguard = "^4.2.1"
 pyyaml = "^6.0.1"
 browser-cookie3 = "^0.19.1"
@@ -17,7 +17,7 @@ ollama = "^0.3.1"
 g4f = "^0.3.2.1"
 curl-cffi = "^0.7.3"
 matplotlib = "^3.10.1"
-spacy = "^3.8.5"
+dumbo-asp = "^0.3.17"
 
 
 [tool.poetry.dev-dependencies]

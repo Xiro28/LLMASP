@@ -1,12 +1,12 @@
-preprocessing:
-- _: |
-    Problem description:
+problem_definition: |
     Find a tour for the knight piece that starts at any square, travels all squares, and comes back to the origin, following the rules of chess.
     
     Format description of the predicates to be extracted:
     The input file contains one atom size(N), which states that the chess board size is N*N and a number of atoms givemove(X1,Y1,X2,Y2). 
     The rows of the board are numbered 1, 2, and so on up to N from top to bottom, and the columns are numbered 1, 2, and so on up to N from left to right. 
     In this way, each square can be represented by a unique pair of coordinates.
+
+predicates:
 - size(value:int): |
     value is the chess board size (an integer).
 - givemove(source_x:int,source_y:int, target_x:int,target_y:int): |

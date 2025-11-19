@@ -1,6 +1,4 @@
-preprocessing:
-- _: |
-    Problem description:
+problem_definition: |
     The Valves Location problem is a typical design issue of Urban Hydraulic Networks. A generic Urban Hydraulic Network can be modelled as an indirect and weighted graph: the nodes represent the junctions of the pipes (junction/1), and the edges represent the pipes. 
     The two arguments of predicate pipe/2 are the two junctions connected by the pipe. The third argument of dem/3 is the weight associated to the pipe defined by the first two arguments, and represents the water demand delivered by the pipe (i.e., the average water demand, in litres/seconds, of the houses that take water from that pipe). 
     One or more tanks feed the network; the tanks are located on the junction nodes given by predicate tank/1. In order to permit the maintenance of any pipe, each pipe must be isolable. The isolation of a pipe can be performed by closing a set of "isolation valves". 
@@ -17,6 +15,8 @@ preprocessing:
     tank/1: Represent a tank, the tanks are located on the junction nodes given by the first parameter 
     valves_per_pipe/1: Represents the maximum number of valves in a pipe 
     valves_number/1: Represents the number of valves
+
+predicates:
 - junction(id:int): |
     List all the junctions present by providing their ids (integer).
 - pipe(source:int,target:int): |

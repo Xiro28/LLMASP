@@ -1,0 +1,1160 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+size(14).
+
+
+
+
+size(13).
+
+
+
+
+
+
+size(14).
+
+
+
+
+
+
+edge(n15, n21). width(0, 8). width(1, 8). in_layer(1, n11). edge(n13, n20). in_layer(2, n25). in_layer(1, n17). in_layer(2, n23). in_layer(1, n12). in_layer(0, n3). in_layer(2, n21). edge(n12, n24). edge(n2, n26). in_layer(3, n29). in_layer(0, n8). in_layer(0, n7). in_layer(0, n1). width(3, 8). in_layer(1, n13). in_layer(3, n28). in_layer(3, n31). in_layer(1, n14). in_layer(2, n24). in_layer(0, n6). in_layer(1, n16). in_layer(3, n34). in_layer(0, n2). in_layer(2, n20). in_layer(0, n4). width(2, 7). in_layer(3, n35). in_layer(2, n22). in_layer(3, n32). edge(n1, n10). layers(4). in_layer(1, n10). in_layer(3, n30). edge(n10, n26). in_layer(0, n5). in_layer(2, n26). in_layer(2, n19). edge(n14, n21). in_layer(1, n15). in_layer(3, n33). edge(n11, n26).
+in_layer(5, n47). width(2, 8). in_layer(5, n43). in_layer(1, n9). width(0, 8). in_layer(4, n33). width(1, 8). in_layer(1, n11). edge(n11, n18). edge(n1, n13). in_layer(2, n23). in_layer(1, n12). in_layer(4, n38). in_layer(0, n3). in_layer(4, n39). in_layer(4, n36). in_layer(5, n45). in_layer(2, n21). in_layer(3, n25). edge(n12, n19). in_layer(0, n8). in_layer(0, n7). in_layer(3, n29). in_layer(0, n1). width(3, 8). in_layer(1, n13). in_layer(3, n27). in_layer(3, n28). in_layer(3, n31). in_layer(1, n14). in_layer(2, n18). in_layer(0, n6). in_layer(1, n16). in_layer(2, n24). in_layer(4, n35). edge(n11, n23). width(5, 8). in_layer(0, n2). in_layer(2, n20). in_layer(5, n41). in_layer(0, n4). edge(n1, n12). in_layer(5, n46). in_layer(2, n22). in_layer(3, n32). in_layer(5, n42). in_layer(4, n37). in_layer(5, n48). width(4, 8). in_layer(1, n10). in_layer(4, n34). in_layer(3, n30). in_layer(0, n5). in_layer(3, n26). in_layer(2, n19). in_layer(4, n40). in_layer(1, n15). in_layer(2, n17). in_layer(5, n44).
+
+
+
+
+
+
+
+
+
+
+
+
+
+size(14).
+
+
+
+
+size(13).
+
+
+
+
+
+
+size(14).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+size(14).
+
+
+
+
+size(13).
+
+
+
+
+
+
+size(14).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+size(14).
+
+
+
+
+size(13).
+
+
+
+
+
+
+size(14).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+size(14).
+
+
+
+
+size(13).
+
+
+
+
+
+
+size(14).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+size(14).
+
+
+
+
+size(13).
+
+
+
+
+
+
+size(14).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+in_layer(0, n7). in_layer(3, n31). in_layer(3, n33). in_layer(3, n34). edge(n11, n26). in_layer(0, n5). edge(n2, n26). in_layer(0, n6). in_layer(2, n22). in_layer(2, n25). in_layer(1, n15). edge(n1, n10). in_layer(2, n23). in_layer(2, n20). in_layer(3, n29). in_layer(3, n32). in_layer(0,n7). in_layer(3,n31). in_layer(3,n33). in_layer(3,n34). in_layer(0,n5). in_layer(0,n6). in_layer(2,n22). in_layer(2,n25). in_layer(1,n15). in_layer(2,n23). in_layer(2,n20). in_layer(3,n29). in_layer(3,n32). in_layer(3,n35). in_layer(0,n1). in_layer(0,n2). in_layer(0,n8). in_layer(1,n10). in_layer(1,n14). in_layer(2,n26). in_layer(3,n28). in_layer(1,n17). in_layer(2,n19). in_layer(1,n12). in_layer(3,n30). in_layer(2,n24). in_layer(1,n11). in_layer(1,n16). in_layer(0,n3). in_layer(0,n4). in_layer(2,n21). in_layer(1,n13). edge(n11,n26). edge(n2,n26). edge(n1,n10). edge(n13,n20). edge(n10,n26). edge(n14,n21). edge(n15,n21). edge(n12,n24). in_layer(3, n35). edge(n13, n20). in_layer(0, n1). in_layer(0, n2). edge(n10, n26). in_layer(0, n8). in_layer(1, n10). in_layer(1, n14). in_layer(2, n26). edge(n14, n21). in_layer(3, n28). in_layer(1, n17). in_layer(2, n19). edge(n15, n21). in_layer(1, n12). in_layer(3, n30). in_layer(2, n24). in_layer(1, n11). in_layer(1, n16). in_layer(0, n3). in_layer(0, n4). in_layer(2, n21). edge(n12, n24). in_layer(1, n13).
+in_layer(0, n7). in_layer(3, n31). in_layer(4, n40). in_layer(5, n42). in_layer(3, n25). in_layer(4, n35). in_layer(2, n17). in_layer(0, n5). in_layer(4, n36). in_layer(2, n18). in_layer(0, n6). in_layer(2, n22). in_layer(4, n39). in_layer(5, n48). in_layer(1, n15). edge(n11, n18). in_layer(3, n26). in_layer(4, n38). in_layer(2, n23). in_layer(2, n20). in_layer(5, n46). in_layer(3, n29). in_layer(3, n32). in_layer(5, n41). in_layer(0, n1). in_layer(0, n2). in_layer(0, n8). in_layer(1, n10). in_layer(1, n14). in_layer(1, n9). in_layer(3, n27). in_layer(3, n28). in_layer(5, n47). in_layer(0,n7). in_layer(3,n31). in_layer(4,n40). in_layer(5,n42). in_layer(3,n25). in_layer(4,n35). in_layer(2,n17). in_layer(0,n5). in_layer(4,n36). in_layer(2,n18). in_layer(0,n6). in_layer(2,n22). in_layer(4,n39). in_layer(5,n48). in_layer(1,n15). in_layer(3,n26). in_layer(4,n38). in_layer(2,n23). in_layer(2,n20). in_layer(5,n46). in_layer(3,n29). in_layer(3,n32). in_layer(5,n41). in_layer(0,n1). in_layer(0,n2). in_layer(0,n8). in_layer(1,n10). in_layer(1,n14). in_layer(1,n9). in_layer(3,n27). in_layer(3,n28). in_layer(5,n47). in_layer(2,n19). in_layer(5,n45). in_layer(4,n33). in_layer(4,n34). in_layer(1,n12). in_layer(4,n37). in_layer(3,n30). in_layer(2,n24). in_layer(1,n11). in_layer(1,n16). in_layer(5,n43). in_layer(0,n3). in_layer(5,n44). in_layer(0,n4). in_layer(2,n21). in_layer(1,n13). edge(n11,n18). edge(n1,n12). edge(n12,n19). edge(n1,n13). edge(n11,n23). edge(n1, n12). edge(n12, n19). in_layer(2, n19). in_layer(5, n45). in_layer(4, n33). in_layer(4, n34). edge(n1, n13). in_layer(1, n12). in_layer(4, n37). in_layer(3, n30). in_layer(2, n24). in_layer(1, n11). in_layer(1, n16). in_layer(5, n43). in_layer(0, n3). in_layer(5, n44). in_layer(0, n4). in_layer(2, n21). edge(n11, n23). in_layer(1, n13).
+in_layer(0, n7). in_layer(3, n31). edge(n10, n19). in_layer(3, n33). in_layer(3, n34). in_layer(3, n38). in_layer(3, n37). in_layer(2, n27). in_layer(0, n5). in_layer(0, n6). in_layer(2, n22). edge(n10, n13). in_layer(2, n25). in_layer(1, n15). in_layer(2, n23). edge(n12, n23). in_layer(3, n32). in_layer(0,n7). in_layer(3,n31). in_layer(3,n33). in_layer(3,n34). in_layer(3,n38). in_layer(3,n37). in_layer(2,n27). in_layer(0,n5). in_layer(0,n6). in_layer(2,n22). in_layer(2,n25). in_layer(1,n15). in_layer(2,n23). in_layer(3,n32). in_layer(3,n35). in_layer(0,n1). in_layer(0,n2). in_layer(3,n36). in_layer(0,n10). in_layer(1,n14). in_layer(2,n28). in_layer(2,n26). in_layer(1,n17). in_layer(1,n18). in_layer(1,n12). in_layer(2,n24). in_layer(1,n11). in_layer(1,n16). in_layer(0,n3). in_layer(0,n4). in_layer(2,n21). in_layer(1,n13). edge(n10,n19). edge(n10,n13). edge(n12,n23). edge(n11,n25). edge(n11,n22). edge(n12,n22). edge(n1,n20). edge(n11,n30). edge(n11, n25). in_layer(3, n35). in_layer(0, n1). in_layer(0, n2). in_layer(3, n36). in_layer(0, n10). in_layer(1, n14). in_layer(2, n28). edge(n11, n22). in_layer(2, n26). edge(n12, n22). in_layer(1, n17). in_layer(1, n18). in_layer(1, n12). edge(n1, n20). in_layer(2, n24). in_layer(1, n11). edge(n11, n30). in_layer(1, n16). in_layer(0, n3). in_layer(0, n4). in_layer(2, n21). in_layer(1, n13).
+in_layer(0, n7). in_layer(3, n31). in_layer(3, n25). edge(n13, n18). edge(n10, n20). in_layer(0, n5). edge(n11, n17). in_layer(2, n17). in_layer(2, n18). in_layer(0, n6). edge(n1, n11). in_layer(2, n22). in_layer(1, n15). edge(n11, n18). in_layer(3, n26). in_layer(2, n23). in_layer(2, n20). in_layer(3, n29). in_layer(3, n32). in_layer(0,n7). in_layer(3,n31). in_layer(3,n25). in_layer(0,n5). in_layer(2,n17). in_layer(2,n18). in_layer(0,n6). in_layer(2,n22). in_layer(1,n15). in_layer(3,n26). in_layer(2,n23). in_layer(2,n20). in_layer(3,n29). in_layer(3,n32). in_layer(0,n1). in_layer(0,n2). in_layer(0,n8). in_layer(1,n10). in_layer(1,n14). in_layer(1,n9). in_layer(3,n27). in_layer(3,n28). in_layer(2,n19). in_layer(1,n12). in_layer(3,n30). in_layer(2,n24). in_layer(1,n11). in_layer(1,n16). in_layer(0,n3). in_layer(0,n4). in_layer(2,n21). in_layer(1,n13). edge(n13,n18). edge(n10,n20). edge(n11,n17). edge(n1,n11). edge(n11,n18). edge(n1,n12). in_layer(0, n1). in_layer(0, n2). in_layer(0, n8). in_layer(1, n10). in_layer(1, n14). in_layer(1, n9). in_layer(3, n27). in_layer(3, n28). edge(n1, n12). in_layer(2, n19). in_layer(1, n12). in_layer(3, n30). in_layer(2, n24). in_layer(1, n11). in_layer(1, n16). in_layer(0, n3). in_layer(0, n4). in_layer(2, n21). in_layer(1, n13).
+in_layer(0, n7). in_layer(3, n31). in_layer(3, n33). in_layer(3, n34). edge(n11, n24). in_layer(4, n40). in_layer(4, n43). in_layer(0, n5). in_layer(0, n6). in_layer(2, n22). in_layer(4, n39). in_layer(2, n25). in_layer(1, n15). edge(n1, n10). edge(n2, n3). in_layer(2, n23). in_layer(2, n20). in_layer(4, n38). in_layer(3, n29). edge(n12, n23). in_layer(3, n32). in_layer(4, n44). in_layer(3, n35). in_layer(0, n1). in_layer(0, n2). in_layer(0, n8). in_layer(1, n10). in_layer(1, n14). in_layer(4, n41). in_layer(2, n26). in_layer(3, n28). in_layer(1, n17). edge(n12, n19). in_layer(2, n19). in_layer(4, n42). in_layer(1, n12). in_layer(0,n7). in_layer(3,n31). in_layer(3,n33). in_layer(3,n34). in_layer(4,n40). in_layer(4,n43). in_layer(0,n5). in_layer(0,n6). in_layer(2,n22). in_layer(4,n39). in_layer(2,n25). in_layer(1,n15). in_layer(2,n23). in_layer(2,n20). in_layer(4,n38). in_layer(3,n29). in_layer(3,n32). in_layer(4,n44). in_layer(3,n35). in_layer(0,n1). in_layer(0,n2). in_layer(0,n8). in_layer(1,n10). in_layer(1,n14). in_layer(4,n41). in_layer(2,n26). in_layer(3,n28). in_layer(1,n17). in_layer(2,n19). in_layer(4,n42). in_layer(1,n12). in_layer(4,n37). in_layer(3,n30). in_layer(2,n24). in_layer(1,n11). in_layer(1,n16). in_layer(0,n3). in_layer(0,n4). in_layer(2,n21). in_layer(1,n13). edge(n11,n24). edge(n1,n10). edge(n2,n3). edge(n12,n23). edge(n12,n19). edge(n14,n23). in_layer(4, n37). in_layer(3, n30). in_layer(2, n24). edge(n14, n23). in_layer(1, n11). in_layer(1, n16). in_layer(0, n3). in_layer(0, n4). in_layer(2, n21). in_layer(1, n13).
+in_layer(0, n7). in_layer(0,n7). in_layer(2,n27). in_layer(0,n5). in_layer(0,n6). in_layer(2,n22). in_layer(2,n25). in_layer(1,n15). in_layer(2,n23). in_layer(0,n1). in_layer(0,n2). in_layer(1,n13). in_layer(0,n10). in_layer(1,n14). in_layer(2,n28). in_layer(2,n26). in_layer(1,n17). in_layer(1,n18). in_layer(1,n12). in_layer(2,n24). in_layer(1,n11). in_layer(1,n16). in_layer(0,n3). in_layer(0,n4). in_layer(2,n21). edge(n11,n27). edge(n10,n18). edge(n11,n25). edge(n1,n19). edge(n12,n29). edge(n10,n11). edge(n13,n21). edge(n1,n18). edge(n11, n27). in_layer(2, n27). in_layer(0, n5). in_layer(0, n6). in_layer(2, n22). in_layer(2, n25). in_layer(1, n15). in_layer(2, n23). edge(n10, n18). edge(n11, n25). edge(n1, n19). edge(n12, n29). in_layer(0, n1). in_layer(0, n2). in_layer(1, n13). in_layer(0, n10). in_layer(1, n14). in_layer(2, n28). in_layer(2, n26). in_layer(1, n17). in_layer(1, n18). in_layer(1, n12). edge(n10, n11). in_layer(2, n24). in_layer(1, n11). in_layer(1, n16). in_layer(0, n3). edge(n13, n21). in_layer(0, n4). in_layer(2, n21). edge(n1, n18).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+edge(1, 2). edge(11, 12). edge(10, 14). edge(1, 4). edge(10, 12). edge(1, 3). edge(10, 11). edge(1, 5).
+edge(11, 12). edge(10, 14). edge(1, 4). edge(10, 12). edge(1, 3). edge(1, 5).
+edge(1, 2). edge(11, 12). edge(10, 27). edge(12, 27). edge(12, 13). edge(1, 27). edge(10, 11). edge(11, 27).
+edge(1, 2). edge(11, 15).
+edge(1, 2). edge(12, 31). edge(10, 31). edge(11, 31).
+edge(11, 12). edge(12, 17). edge(12, 13). edge(11, 16). edge(10, 15). edge(1, 6). edge(10, 6).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+link(105, 125). node(131). link(101, 105). node(50). link(104, 116). node(37). link(104, 37). node(8). node(120). node(1). link(10, 84). node(32). link(105, 113). link(105, 24). node(134). node(24). link(105, 116). link(1, 22). link(101, 20). node(23). link(103, 46). link(100, 21). node(88). link(10, 93). node(16). node(43). node(22). node(46). colour(blue0). node(130). link(103, 27). link(102, 75). node(75). colour(red0). link(101, 117). link(105, 131). node(4). node(25). node(112). link(102, 15). link(103, 53). node(2). link(104, 134). link(102, 125). node(17). link(100, 104). link(10, 4). link(1, 21). node(103). colour(green0). link(102, 130). link(104, 43). link(103, 75). node(20). node(121). link(103, 127). link(10, 20). node(124). link(10, 119). link(101, 121). link(101, 32). node(21). link(101, 134). link(100, 113). link(105, 4). link(10, 88). link(104, 100). node(53). node(101). node(13). link(102, 50). colour(yellow0). link(100, 13). link(1, 29). node(113). link(102, 112). link(104, 58). link(103, 25). link(10, 23). node(27). node(10). node(45). node(99). node(115). link(102, 117). node(58). node(105). link(1, 27). node(83). node(93). node(5). node(15). link(100, 16). link(1, 113). node(117). link(10, 99). link(103, 45). link(103, 83). node(116). link(101, 120). node(127). link(100, 124). link(1, 125). node(100). colour(cyan0). node(36). link(104, 5). link(105, 115). node(29). node(102). node(125). link(1, 2). link(101, 111). link(1, 13). node(84). link(102, 8). node(119). link(105, 101). link(100, 111). link(104, 36).
+link(105, 125). node(131). link(101, 123). node(14). link(100, 105). node(104). link(104, 116). link(105, 3). link(100, 114). node(37). node(120). node(1). node(24). node(111). node(128). node(23). link(1, 28). link(10, 128). node(40). link(103, 40). link(1, 19). link(104, 28). link(100, 133). link(102, 119). link(1, 24). node(16). node(3). link(101, 11). link(10, 29). colour(blue0). link(10, 45). link(101, 21). link(103, 129). link(10, 127). colour(red0). link(103, 69). node(118). link(103, 70). link(101, 23). node(82). link(102, 31). node(112). link(102, 15). link(104, 82). node(2). node(70). link(103, 67). link(102, 133). node(38). node(103). colour(green0). link(102, 106). node(106). link(103, 128). link(100, 2). link(101, 114). link(105, 111). link(105, 29). link(10, 21). node(31). link(102, 28). node(11). node(67). node(108). link(103, 48). node(21). node(123). node(19). node(101). colour(yellow0). node(133). node(113). node(10). node(45). node(115). link(101, 112). node(105). link(10, 63). link(1, 31). link(105, 14). link(105, 118). link(1, 119). link(1, 100). node(15). link(100, 16). node(107). node(117). link(101, 131). link(100, 40). node(48). link(102, 113). node(28). node(116). link(101, 120). node(127). link(1, 23). link(1, 125). node(100). node(30). node(109). colour(cyan0). link(100, 1). node(110). node(36). link(105, 37). link(102, 109). node(63). link(105, 100). node(29). link(10, 116). node(102). node(125). link(100, 30). node(69). link(103, 115). link(10, 36). node(114). node(119). link(104, 118). link(104, 38). node(129).
+node(14). node(104). node(120). node(146). link(1, 135). link(102, 26). node(1). link(102, 43). link(103, 120). link(103, 124). node(135). node(134). link(102, 12). link(10, 138). link(101, 108). node(24). link(105, 116). node(55). node(128). node(23). link(1, 28). link(101, 142). node(26). link(1, 101). link(104, 29). link(101, 31). link(10, 16). link(103, 102). link(10, 121). link(104, 142). node(16). link(104, 148). node(43). link(103, 121). node(49). colour(blue0). link(100, 119). link(105, 11). node(136). colour(red0). node(122). link(10, 27). link(105, 12). node(142). node(25). node(112). link(100, 128). link(104, 134). link(102, 144). link(10, 109). node(103). colour(green0). node(144). link(10, 139). node(145). node(121). link(103, 128). link(100, 25). link(101, 114). link(102, 51). node(124). link(104, 39). node(56). node(31). link(102, 28). node(11). node(108). link(100, 136). link(101, 1). node(101). node(33). colour(yellow0). node(133). node(27). link(102, 56). node(10). link(1, 107). node(105). link(104, 133). link(105, 122). node(139). link(104, 112). node(51). link(1, 100). node(107). link(101, 33). link(100, 55). node(116). node(28). link(103, 140). link(103, 145). link(101, 24). link(105, 136). link(1, 23). link(100, 124). node(100). link(105, 110). node(39). node(109). colour(cyan0). link(103, 122). node(148). link(100, 1). link(10, 12). node(12). node(110). node(29). link(102, 103). link(105, 124). node(102). link(10, 107). link(104, 146). link(1, 120). node(138). node(140). link(101, 140). node(114). node(119). link(1, 49). link(100, 121).
+link(101, 15). link(103, 105). link(102, 105). link(104, 108). node(14). link(102, 111). node(41). node(50). node(37). link(101, 91). link(100, 60). node(8). node(1). link(1, 109). node(32). link(102, 110). link(105, 102). link(103, 33). node(24). node(55). link(103, 110). node(23). node(26). node(40). link(103, 46). link(103, 40). link(10, 129). link(104, 107). node(47). link(10, 121). node(16). link(102, 3). link(100, 28). node(3). node(43). node(22). node(46). node(18). node(49). colour(blue0). link(105, 38). link(101, 85). link(100, 7). link(105, 27). colour(red0). node(7). link(105, 23). node(4). link(102, 31). node(25). link(1, 127). link(101, 74). node(2). node(35). node(17). link(102, 133). node(38). colour(green0). link(102, 106). node(20). link(100, 25). node(42). node(44). link(100, 2). link(10, 20). link(104, 39). link(105, 111). link(10, 119). node(56). node(31). link(10, 108). node(11). link(101, 75). link(1, 33). node(21). link(100, 113). node(19). node(53). node(6). link(104, 14). node(13). link(1, 80). link(102, 25). node(33). colour(yellow0). link(10, 34). node(27). link(105, 103). node(52). link(101, 46). node(10). node(45). link(105, 42). node(58). link(10, 18). link(1, 54). link(104, 49). node(51). link(1, 119). node(5). node(15). link(104, 47). link(104, 124). link(104, 50). link(103, 125). link(10, 120). node(48). node(28). node(30). node(39). colour(cyan0). node(12). node(36). node(9). node(34). link(103, 106). node(29). node(54). link(101, 19). link(1, 82). link(100, 24). link(1, 81). link(105, 35). link(103, 109). link(101, 65). node(57).
+link(102, 129). node(131). link(100, 135). link(100, 60). link(104, 117). node(120). link(105, 36). link(105, 46). node(1). node(135). node(134). link(104, 147). link(10, 138). node(24). link(102, 36). node(111). link(100, 6). node(128). node(150). node(23). node(26). link(101, 122). link(101, 136). node(126). link(10, 16). link(103, 123). node(60). link(1, 24). link(1, 147). node(16). node(3). link(102, 22). link(1, 115). node(22). link(101, 11). node(46). colour(blue0). link(101, 107). node(130). link(103, 27). link(104, 123). node(136). link(103, 3). colour(red0). node(122). link(101, 104). node(118). link(105, 131). node(25). link(103, 136). node(112). link(1, 12). link(10, 25). link(100, 116). link(10, 11). link(105, 133). link(102, 125). link(1, 21). link(104, 150). node(103). colour(green0). link(10, 24). link(102, 108). node(145). link(10, 108). node(11). link(103, 133). node(108). node(132). node(21). node(123). link(10, 135). link(102, 134). node(6). node(13). colour(yellow0). link(105, 16). link(103, 111). node(133). link(102, 112). node(27). node(10). node(115). link(101, 130). link(104, 13). link(1, 26). node(105). node(147). link(105, 114). node(139). link(1, 111). node(107). node(117). link(105, 139). node(116). link(101, 120). link(103, 145). link(1, 23). link(102, 128). link(100, 66). node(100). colour(cyan0). link(103, 122). node(12). node(36). node(66). node(63). link(10, 118). link(100, 125). link(100, 46). node(102). link(100, 63). node(125). link(104, 101). link(104, 122). link(105, 21). node(138). link(104, 126). link(101, 111). node(114). node(129).
+node(131). node(104). link(101, 16). link(103, 87). link(104, 117). node(120). link(105, 46). link(1, 135). node(1). link(103, 56). node(135). node(134). node(111). link(101, 20). node(137). node(40). link(105, 112). link(105, 48). link(1, 19). link(103, 85). node(126). link(10, 121). link(10, 13). link(102, 137). link(100, 133). link(103, 114). node(16). node(22). link(105, 126). link(101, 11). node(18). node(46). link(100, 107). colour(blue0). link(102, 16). link(102, 135). colour(red0). link(104, 35). node(122). node(118). link(102, 123). link(102, 127). node(4). link(104, 115). node(25). node(112). link(1, 12). link(101, 18). node(2). node(35). node(17). link(103, 67). node(103). colour(green0). node(20). node(106). link(105, 108). node(121). link(100, 25). link(100, 117). link(101, 114). link(10, 20). node(56). node(11). link(102, 122). link(10, 140). node(67). link(100, 109). link(104, 17). node(108). link(103, 48). link(102, 10). node(123). link(105, 4). link(10, 135). node(19). link(102, 134). node(101). node(13). colour(yellow0). node(133). link(100, 106). link(1, 108). node(10). node(45). link(1, 30). node(115). link(101, 30). node(105). link(104, 106). link(105, 122). link(1, 16). link(100, 118). node(107). node(117). link(10, 120). node(48). link(10, 102). link(101, 22). link(103, 45). node(116). node(127). link(103, 131). node(109). node(30). colour(cyan0). node(12). node(110). link(10, 125). link(105, 22). node(102). node(125). link(104, 22). link(1, 2). link(104, 122). node(140). link(1, 13). node(114). node(119). link(100, 112). node(87).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+curr_on_instance(21, 5). curr_job_start(14, 39). curr_on_instance(10, 1). job_len(10, 9). precedes(17, 18). job_device(17, 2). job_device(15, 5). precedes(10, 11). job_len(21, 27). importance(30, 1). curr_job_start(11, 14). curr_on_instance(11, 3). job_len(16, 17). curr_job_start(21, 154). curr_on_instance(20, 3). job_len(12, 19). job_device(18, 3). job_device(24, 1). job_len(23, 0). precedes(15, 16). precedes(14, 15). curr_on_instance(17, 2). curr_on_instance(1, 1). curr_on_instance(27, 2). job_len(22, 0). curr_on_instance(18, 5). curr_job_start(15, 52). job_len(14, 15). job_len(30, 18). curr_job_start(12, 19). job_device(13, 1). job_len(20, 0). job_device(30, 2). job_len(1, 14). offline_instance(1, 1). importance(2, 1). instances(1, 2). job_len(13, 11). job_len(17, 20). instances(4, 1). importance(1, 2). importance(12, 2). job_len(26, 0). curr_on_instance(30, 5). curr_on_instance(16, 1). curr_job_start(19, 120). curr_job_start(13, 24). job_len(15, 13). job_len(11, 5). curr_job_start(1, 0). curr_on_instance(24, 5). curr_on_instance(19, 1). curr_job_start(10, 9). importance(3, 1). instances(3, 2). importance(15, 3). job_device(20, 5). curr_job_start(30, 198). importance(14, 3). curr_job_start(18, 103). job_len(19, 20). precedes(12, 13). curr_on_instance(12, 5). curr_on_instance(14, 4). job_device(21, 4). job_device(27, 3). curr_on_instance(15, 5). instances(5, 1). precedes(21, 27). curr_job_start(24, 174). importance(21, 1). curr_on_instance(13, 1). offline_instance(2, 3). importance(17, 1). importance(11, 1). job_device(16, 1). job_device(19, 2). importance(24, 1). offline_instance(3, 1). job_len(18, 36). curr_job_start(17, 86). job_device(1, 1). importance(19, 1). precedes(1, 2). importance(13, 1). curr_job_start(16, 69). precedes(19, 20). importance(27, 1). precedes(13, 14). curr_job_start(20, 137). precedes(16, 17). importance(10, 3). importance(18, 1). curr_job_start(27, 191). instances(2, 1). job_device(14, 4). job_len(24, 21). importance(20, 1). job_len(27, 37). job_len(25, 0). importance(16, 2).
+deadline(87, -1). deadline(21, -1). deadline(58, -1). importance(108, 0). importance(21, 0). deadline(78, -1). deadline(72, -1). deadline(110, -1). job_len(104, 19). importance(61, 0). deadline(77, -1). importance(118, 0). job_device(116, 3). importance(30, 0). importance(25, 0). importance(49, 0). deadline(85, -1). importance(13, 0). importance(72, 0). job_len(116, 0). importance(113, 0). importance(39, 0). deadline(81, -1). deadline(76, -1). deadline(62, -1). deadline(94, -1). importance(59, 0). importance(53, 0). precedes(100, 101). deadline(59, -1). importance(66, 0). importance(116, 0). importance(69, 0). importance(109, 0). deadline(33, -1). deadline(60, -1). deadline(99, -1). importance(47, 0). importance(5, 0). importance(37, 0). deadline(1, 60). importance(54, 0). importance(75, 0). deadline(109, -1). job_len(102, 6). deadline(116, -1). importance(99, 0). importance(119, 0). deadline(24, -1). importance(68, 0). importance(3, 0). importance(22, 3). importance(35, 0). precedes(103, 104). importance(56, 0). deadline(20, -1). importance(77, 0). job_len(106, 0). importance(100, 1). importance(11, 0). deadline(66, -1). deadline(64, -1). deadline(37, -1). precedes(1, 2). importance(2, 0). curr_on_instance(109, 1). deadline(16, -1). precedes(120, 121). deadline(82, -1). deadline(2, -1). importance(81, 0). curr_job_start(110, 14). importance(111, 0). deadline(91, -1). importance(106, 0). deadline(44, -1). curr_job_start(105, 22). importance(17, 0). importance(76, 0). job_len(105, 14). job_len(112, 0). deadline(27, -1). importance(16, 0). job_len(114, 0). deadline(43, -1). deadline(10, -1). importance(18, 0). importance(31, 2). importance(44, 0). deadline(61, -1). job_len(119, 0). importance(65, 0). importance(102, 2). job_len(107, 0). importance(79, 0). importance(9, 0). importance(41, 0). job_device(101, 3). deadline(115, -1). importance(19, 0). importance(89, 0). deadline(92, -1). deadline(6, -1). precedes(101, 102). instances(1, 4). importance(6, 0). precedes(104, 105). deadline(5, -1). job_len(120, 0). importance(117, 0). job_len(117, 17). deadline(48, -1). importance(85, 0). deadline(93, -1). importance(86, 0). curr_on_instance(111, 1). importance(45, 0). deadline(80, -1). deadline(39, 17). deadline(19, -1). deadline(28, -1). importance(14, 0). job_device(110, 1). deadline(49, -1). importance(98, 0). deadline(36, 17). deadline(104, -1). deadline(112, -1). deadline(70, -1). curr_on_instance(105, 1). instances(3, 2). importance(38, 0). deadline(18, -1). deadline(53, -1). importance(34, 0). job_len(111, 0). deadline(26, -1). deadline(42, -1). curr_on_instance(103, 1). instances(5, 1). deadline(38, -1). deadline(29, -1). deadline(95, -1). deadline(84, -1). deadline(118, -1). deadline(101, -1). importance(55, 0). importance(90, 0). importance(114, 0). importance(48, 0). importance(96, 0). importance(12, 0). importance(92, 0). importance(110, 0). job_device(114, 2). importance(50, 0). deadline(103, -1). deadline(102, 32). importance(104, 3). precedes(106, 107). deadline(51, -1). deadline(119, -1). deadline(63, -1). importance(27, 0). curr_on_instance(107, 1). job_device(120, 1). deadline(32, -1). deadline(7, -1). deadline(34, -1). importance(1, 1). curr_on_instance(120, 1). deadline(105, 35). importance(43, 0). importance(40, 0). deadline(68, -1). deadline(57, -1). importance(62, 0). deadline(3, -1). deadline(13, -1). importance(58, 0). importance(26, 0). precedes(107, 108). curr_on_instance(108, 1). deadline(41, -1). importance(28, 0). importance(84, 0). importance(46, 0). deadline(97, -1). deadline(15, -1). importance(73, 0). deadline(74, -1). deadline(45, -1). curr_job_start(111, 36). deadline(111, 12). importance(32, 0). deadline(40, -1). importance(105, 3). curr_on_instance(104, 1). importance(103, 2). job_device(111, 5). deadline(9, -1). deadline(47, -1). importance(82, 0). deadline(31, -1). deadline(69, -1). importance(78, 0). job_len(103, 3). deadline(12, 19). importance(52, 0). deadline(75, -1). importance(51, 0). deadline(106, -1). importance(8, 0). importance(29, 0). curr_on_instance(116, 1). importance(80, 0). deadline(90, -1). importance(57, 0). curr_job_start(16, 31). importance(23, 0). job_len(100, 8). importance(95, 0). importance(120, 0). curr_job_start(103, 0). job_device(103, 1). importance(42, 0). deadline(30, -1). deadline(117, 17). deadline(56, -1). deadline(11, -1). job_len(108, 36). job_len(109, 0). deadline(86, -1). job_len(101, 13). deadline(88, -1). importance(70, 0). job_device(107, 2). importance(7, 0). importance(94, 0). deadline(114, 17). importance(93, 0). importance(33, 0). deadline(89, -1). job_len(118, 0). deadline(79, -1). precedes(10, 11). deadline(52, -1). deadline(67, -1). importance(36, 3). deadline(113, -1). offline_instance(1, 4). deadline(50, -1). importance(88, 0). deadline(54, -1). deadline(35, 12). job_len(110, 0). deadline(73, -1). deadline(120, 39). instances(4, 1). importance(115, 0). importance(74, 0). curr_job_start(1, 60). curr_on_instance(110, 1). importance(97, 0). importance(20, 0). deadline(22, -1). deadline(98, -1). curr_job_start(109, 0). deadline(8, -1). importance(107, 0). curr_on_instance(114, 1). importance(71, 0). job_len(113, 0). deadline(23, -1). importance(64, 0). deadline(14, -1). job_device(109, 1). deadline(83, -1). deadline(65, -1). deadline(4, -1). deadline(25, -1). job_device(104, 3). deadline(107, -1). importance(63, 0). job_device(108, 4). importance(24, 0). deadline(71, -1). job_len(115, 0). importance(112, 0). importance(15, 0). job_device(117, 4). job_device(105, 5). curr_job_start(104, 3). deadline(55, -1). importance(60, 1). importance(4, 0). importance(67, 0). deadline(17, 17). deadline(108, 36). deadline(46, -1). importance(10, 3). importance(91, 0). instances(2, 1). importance(101, 3). deadline(96, -1). importance(87, 0). deadline(100, -1). importance(83, 0).
+job_len(12, 12). job_device(16, 1). curr_job_start(11, 24). curr_on_instance(10, 1). job_len(11, 6). job_len(1, 6). instances(3, 2). importance(24, 40). importance(13, 2). curr_job_start(10, 18). job_device(10, 1). job_len(10, 13). curr_job_start(13, 34). importance(20, 19). curr_job_start(12, 30). curr_on_instance(13, 2). importance(27, 28). job_device(1, 2). precedes(20, 30). curr_job_start(21, 91). importance(17, 16). job_device(15, 5). job_device(18, 1). job_len(15, 3). job_device(3, 2). curr_job_start(16, 58). instances(1, 2). job_device(13, 2). importance(10, 1). precedes(13, 14). instances(4, 1). importance(1, 2). importance(12, 2). curr_job_start(20, 89). job_len(13, 4). curr_on_instance(14, 4). curr_job_start(14, 52). job_len(14, 18). curr_on_instance(15, 5). job_len(24, 40). curr_job_start(19, 83). precedes(11, 12). importance(16, 1). precedes(16, 17). job_device(27, 1). importance(18, 38). curr_on_instance(16, 1). curr_job_start(17, 62). curr_job_start(27, 108). instances(5, 1). curr_job_start(30, 110). curr_job_start(18, 78). importance(21, 21). curr_job_start(24, 100). curr_job_start(1, 0). job_device(17, 1). curr_job_start(2, 6). instances(2, 1). job_device(14, 4). job_device(21, 1). importance(30, 40). importance(3, 19). importance(11, 1). job_len(16, 4). curr_job_start(15, 55). job_device(30, 1). importance(14, 1). offline_instance(1, 2). importance(15, 1). job_device(12, 5).
+curr_on_instance(10, 1). job_len(24, 0). precedes(17, 18). job_device(9, 2). job_len(13, 19). importance(21, 0). job_device(15, 5). importance(27, 0). precedes(2, 1). job_len(14, 18). max_value(1440). job_device(5, 1). job_len(2, 0). job_device(7, 5). job_len(18, 22). importance(19, 0). curr_job_start(21, 0). precedes(15, 16). curr_job_start(17, 0). curr_job_start(20, 0). job_len(30, 18). importance(30, 0). job_device(13, 1). job_len(20, 0). curr_job_start(14, 0). instances(1, 2). instances(4, 1). importance(12, 3). curr_job_start(16, 0). curr_job_start(27, 0). curr_on_instance(11, 2). job_len(27, 21). job_len(19, 0). curr_job_start(1, 0). job_device(3, 5). job_len(21, 31). importance(20, 0). job_len(4, 0). importance(14, 1). offline_instance(1, 2). instances(3, 2). job_device(12, 5). job_len(8, 0). curr_job_start(12, 0). job_len(1, 18). importance(11, 3). curr_job_start(13, 0). job_device(10, 1). job_len(5, 0). curr_job_start(10, 0). job_len(9, 0). curr_on_instance(14, 4). importance(10, 2). curr_on_instance(15, 5). job_device(11, 3). instances(5, 1). job_len(10, 10). job_device(6, 3). importance(24, 0). curr_on_instance(12, 3). job_len(15, 12). importance(1, 3). job_device(4, 2). job_len(12, 14). importance(13, 2). offline_instance(3, 1). job_device(1, 1). importance(2, 0). curr_job_start(15, 0). curr_job_start(11, 0). job_device(8, 4). precedes(13, 14). job_len(7, 0). curr_job_start(19, 0). curr_job_start(30, 0). job_len(3, 10). importance(15, 2). precedes(16, 17). job_len(11, 19). curr_job_start(24, 0). job_len(17, 0). importance(17, 0). curr_job_start(18, 0). instances(2, 1). job_device(14, 4). job_len(16, 14). job_device(2, 1). importance(16, 2). job_len(6, 0). importance(18, 0).
+curr_on_instance(117, 3). job_device(103, 2). curr_job_start(100, 5). importance(108, 0). job_len(111, 32). job_len(108, 17). job_len(107, 0). curr_job_start(111, 32). job_len(10, 15). precedes(10, 11). curr_on_instance(101, 2). job_device(111, 3). curr_on_instance(107, 3). job_len(102, 3). curr_job_start(107, 17). curr_on_instance(104, 5). curr_on_instance(113, 4). curr_on_instance(111, 2). curr_on_instance(120, 1). precedes(101, 102). curr_on_instance(108, 4). curr_job_start(117, 0). curr_job_start(10, 15). job_device(100, 2). curr_on_instance(118, 4). curr_on_instance(109, 5). importance(117, 0). curr_on_instance(119, 5). importance(105, 2). instances(1, 2). precedes(107, 108). precedes(100, 101). job_device(101, 4). importance(10, 1). curr_on_instance(115, 1). instances(4, 1). job_len(105, 3). importance(1, 2). curr_job_start(102, 21). curr_on_instance(100, 1). curr_on_instance(112, 3). curr_job_start(1, 0). curr_on_instance(116, 2). curr_on_instance(110, 1). curr_job_start(12, 40). importance(102, 3). curr_job_start(114, 0). job_len(100, 5). curr_on_instance(106, 2). offline_instance(1, 2). curr_on_instance(105, 1). instances(3, 2). curr_job_start(104, 8). curr_job_start(120, 0). job_len(1, 12). job_device(10, 2). curr_on_instance(103, 4). job_device(12, 1). importance(107, 0). job_len(103, 4). importance(103, 3). job_len(101, 18). curr_job_start(103, 4). instances(5, 1). job_device(104, 3). curr_job_start(108, 0). precedes(103, 104). curr_job_start(101, 18). importance(100, 3). curr_job_start(11, 20). curr_job_start(105, 3). importance(120, 0). job_device(102, 5). offline_instance(3, 1). job_device(105, 5). importance(114, 0). curr_on_instance(102, 3). job_device(1, 1). importance(12, 0). importance(104, 1). job_device(107, 1). importance(111, 0). curr_job_start(106, 14). importance(106, 0). curr_on_instance(114, 5). instances(2, 1). importance(101, 3). job_device(108, 1). job_len(104, 8). job_len(12, 40). precedes(106, 107).
+job_device(23, 2). precedes(17, 18). precedes(21, 29). curr_job_start(29, 17). importance(21, 0). job_device(15, 5). job_len(27, 13). precedes(10, 11). job_len(21, 27). importance(27, 0). precedes(11, 12). importance(16, 1). deadline(17, -1). job_len(6, 10). deadline(21, 27). job_device(24, 1). job_device(25, 2). importance(19, 0). job_len(23, 0). job_len(16, 6). curr_on_instance(20, 1). precedes(14, 15). curr_job_start(20, 39). job_len(22, 0). importance(30, 0). job_device(26, 4). curr_on_instance(28, 1). job_device(30, 3). job_len(20, 0). deadline(13, -1). offline_instance(2, 1). job_len(30, 14). instances(1, 2). job_device(13, 2). job_len(1, 20). instances(4, 1). job_device(2, 3). importance(1, 2). importance(28, 0). job_len(26, 0). deadline(28, -1). deadline(19, -1). importance(12, 3). deadline(24, 18). deadline(15, -1). job_len(19, 0). curr_job_start(22, 15). precedes(30, 31). importance(20, 0). job_len(15, 16). offline_instance(1, 2). job_len(10, 6). job_len(29, 0). importance(15, 1). instances(3, 2). job_device(12, 5). curr_on_instance(22, 1). job_len(28, 0). curr_job_start(23, 28). job_device(28, 1). job_device(10, 1). job_len(2, 15). job_len(24, 18). job_len(11, 15). importance(14, 3). job_len(12, 5). curr_on_instance(29, 2). precedes(12, 13). job_len(7, 15). deadline(30, 14). job_device(29, 2). deadline(14, -1). importance(10, 2). job_len(4, 6). job_device(17, 5). job_device(11, 3). instances(5, 1). importance(3, 0). deadline(18, 21). curr_job_start(19, 20). job_device(21, 1). importance(29, 0). importance(24, 0). deadline(29, -1). importance(23, 0). offline_instance(3, 2). deadline(12, 23). deadline(3, 28). deadline(20, -1). job_device(16, 1). job_device(20, 1). curr_job_start(24, 70). job_device(19, 2). curr_job_start(28, 0). job_device(1, 1). precedes(28, 30). importance(13, 1). job_device(22, 1). job_len(5, 16). deadline(16, -1). precedes(19, 20). deadline(27, 13). job_device(27, 4). deadline(11, -1). precedes(16, 17). job_len(9, 13). job_len(8, 3). job_len(14, 3). job_len(17, 0). job_len(13, 6). importance(17, 0). curr_on_instance(23, 2). job_len(3, 28). job_device(18, 2). importance(11, 2). precedes(22, 23). instances(2, 1). job_device(14, 4). importance(22, 0). job_len(25, 0). job_len(18, 21). deadline(10, -1). importance(18, 0).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+givemove(36, 44, 35, 46). givemove(40, 11, 39, 13). givemove(1, 42, 2, 44).
+size(58). givemove(26, 29, 25, 31). givemove(26, 22, 27, 20). givemove(56, 5, 55, 7). givemove(16, 36, 17, 38).
+givemove(19, 10, 20, 8). givemove(1, 6, 2, 8). givemove(2, 4, 1, 6).
+givemove(50, 20, 48, 19). givemove(9, 1, 7, 2). givemove(2, 8, 3, 6).
+givemove(27, 8, 28, 10). size(58). givemove(27, 22, 28, 20). givemove(37, 13, 36, 15).
+givemove(3, 4, 5, 6). givemove(1, 1, 2, 2). size(56).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+forbidden(23, 52). forbidden(32, 42). forbidden(2, 50). forbidden(16, 26). forbidden(26, 26). forbidden(24, 36). forbidden(48, 41). forbidden(29, 4).
+forbidden(32, 21). forbidden(12, 63). forbidden(16, 1). forbidden(23, 9). forbidden(2, 59). forbidden(1, 81). forbidden(27, 38). forbidden(3, 53).
+forbidden(22, 20). forbidden(17, 40). forbidden(2, 12). forbidden(18, 29). forbidden(14, 18). forbidden(16, 2). forbidden(24, 32). forbidden(19, 26).
+forbidden(27, 4). forbidden(25, 48). forbidden(21, 9). forbidden(45, 42). forbidden(32, 47). forbidden(31, 64). forbidden(3, 38). forbidden(14, 35).
+forbidden(4, 65). forbidden(42, 23). forbidden(22, 74). forbidden(24, 81). forbidden(20, 69). forbidden(28, 81). forbidden(41, 55). forbidden(4, 64).
+forbidden(15, 45). forbidden(10, 17). forbidden(18, 21). forbidden(15, 27). forbidden(10, 20). forbidden(16, 25). forbidden(10, 80). forbidden(13, 34).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+connect(1, 10, s). field(9, 10). field(12, 10). connect(1, 9, n). field(9, 12). field(11, 3). field(7, 13). field(6, 7). field(12, 5). connect(10, 5, n). connect(1, 2, e). connect(10, 11, e). field(1, 8). field(1, 12). field(3, 11). field(8, 9). field(13, 6). field(1, 6). field(7, 2). field(3, 8). field(7, 11). field(11, 2). field(13, 13). field(9, 11). field(1, 3). field(9, 5). field(5, 10). field(6, 8). field(4, 7). field(10, 9). connect(1, 13, w). field(13, 10). connect(10, 10, e). connect(1, 2, w). field(3, 6). connect(1, 9, s). field(10, 6). connect(10, 3, n). field(7, 6). connect(1, 12, s). field(7, 3). field(10, 5). field(11, 9). connect(1, 12, n). field(11, 6). field(4, 3). field(7, 5). field(8, 4). field(3, 13). field(7, 12). field(10, 3). field(9, 2). field(4, 6). field(8, 8). field(13, 7). field(13, 8). field(4, 1). field(6, 6). field(3, 2). connect(10, 5, s). field(7, 8). field(4, 4). field(4, 13). field(5, 1). field(4, 2). field(12, 4). field(5, 11). field(5, 4). field(2, 2). field(3, 9). connect(1, 6, n). connect(1, 1, w). field(3, 4). field(1, 9). field(2, 1). field(2, 6). connect(1, 6, s). field(5, 7). field(11, 11). connect(1, 5, w). field(10, 2). field(12, 3). field(3, 3). field(3, 5). field(5, 3). field(13, 12). connect(1, 7, e). field(4, 9). field(6, 1). field(4, 12). field(6, 2). field(6, 4). field(5, 8). field(12, 2). field(12, 6). field(11, 13). field(4, 8). field(6, 9). field(10, 13). connect(1, 4, e). field(5, 2). connect(10, 13, n). field(1, 5). field(13, 11). connect(1, 4, s). field(8, 2). connect(1, 8, w). field(6, 11). field(13, 3). field(5, 6). field(11, 4). field(8, 7). connect(10, 1, e). field(3, 1). field(8, 1). field(4, 11). field(6, 13). field(12, 9). field(9, 7). field(10, 4). field(2, 11). field(9, 8). field(8, 10). field(5, 12). field(8, 3). field(11, 10). field(7, 4). field(9, 1). field(8, 5). field(4, 5). field(8, 12). field(12, 7). field(1, 1). field(3, 10). field(10, 1). field(2, 4). field(12, 1). connect(1, 11, s). field(13, 5). connect(1, 6, e). field(9, 6). field(4, 10). field(6, 3). field(1, 2). field(1, 10). field(11, 12). field(12, 8). field(1, 7). field(11, 1). field(1, 4). field(11, 5). connect(1, 9, e). field(2, 3). field(8, 11). field(11, 8). field(2, 8). field(2, 10). field(6, 5). field(1, 11). field(2, 9). field(13, 1). field(13, 9). field(2, 13). connect(1, 5, s). field(10, 11). field(10, 12). field(10, 7). field(8, 13). field(12, 11). connect(1, 11, w). field(2, 12). field(10, 8). field(9, 3). field(10, 10). field(9, 4). field(9, 13). field(12, 12). field(7, 10). field(7, 7). connect(1, 9, w). field(5, 5). field(7, 1). field(5, 9). field(9, 9). field(6, 10). field(2, 7). field(6, 12). field(3, 7). field(3, 12). field(8, 6). connect(1, 3, n). connect(1, 11, n). field(2, 5). field(11, 7). field(12, 13). field(13, 2). field(7, 9). field(1, 13). connect(1, 12, w). field(5, 13). field(13, 4).
+field(9, 10). connect(1, 2, n). field(11, 3). field(6, 7). connect(10, 5, n). connect(1, 2, e). field(1, 8). field(3, 11). field(8, 9). field(1, 6). field(7, 2). field(3, 8). field(7, 11). field(11, 2). field(9, 11). connect(1, 3, w). field(1, 3). field(9, 5). field(5, 10). field(6, 8). field(4, 7). field(10, 9). field(3, 6). connect(10, 7, w). connect(1, 5, e). field(10, 6). field(7, 6). field(7, 3). field(10, 5). field(11, 9). field(11, 6). field(4, 3). field(7, 5). field(8, 4). field(10, 3). field(9, 2). field(4, 6). connect(1, 6, w). field(8, 8). field(4, 1). field(6, 6). field(3, 2). field(7, 8). field(4, 4). field(5, 1). field(4, 2). connect(10, 6, s). field(5, 11). field(5, 4). field(2, 2). field(3, 9). connect(1, 6, n). field(3, 4). field(1, 9). field(2, 1). field(2, 6). connect(1, 6, s). field(5, 7). field(11, 11). connect(10, 11, n). connect(1, 5, w). field(10, 2). field(3, 3). connect(10, 10, s). field(3, 5). field(5, 3). connect(1, 7, e). field(4, 9). field(6, 1). field(6, 2). field(6, 4). field(5, 8). field(4, 8). field(6, 9). connect(10, 11, s). field(5, 2). field(1, 5). connect(1, 10, n). field(8, 2). connect(10, 6, n). connect(1, 8, w). field(6, 11). connect(10, 2, e). field(5, 6). field(11, 4). field(8, 7). field(3, 1). field(8, 1). field(4, 11). field(9, 7). field(10, 4). field(2, 11). field(9, 8). field(8, 10). field(8, 3). field(11, 10). connect(1, 1, n). field(7, 4). connect(1, 5, n). field(9, 1). field(8, 5). field(4, 5). field(1, 1). field(3, 10). field(10, 1). field(2, 4). connect(1, 11, s). connect(1, 6, e). field(9, 6). field(4, 10). field(6, 3). field(1, 2). field(1, 10). field(1, 7). field(11, 1). field(1, 4). field(11, 5). connect(1, 9, e). field(2, 3). field(8, 11). field(11, 8). field(2, 8). field(2, 10). field(6, 5). field(1, 11). field(2, 9). connect(1, 5, s). connect(10, 11, w). field(10, 11). field(10, 7). connect(10, 4, s). field(10, 8). field(9, 3). field(10, 10). field(9, 4). connect(10, 10, w). connect(1, 4, w). field(7, 10). field(7, 7). field(5, 5). field(7, 1). field(5, 9). field(9, 9). field(6, 10). field(2, 7). connect(1, 11, e). field(3, 7). field(8, 6). connect(10, 3, e). field(2, 5). field(11, 7). connect(10, 1, s). field(7, 9).
+connect(10, 11, s). connect(1, 10, s). connect(1, 4, n). connect(1, 4, e). connect(1, 10, w). connect(1, 1, e). connect(1, 7, n). connect(1, 5, s). connect(10, 12, s). connect(1, 8, w). connect(1, 11, w). connect(1, 6, n). connect(10, 2, n). connect(1, 9, w). connect(1, 4, w). connect(10, 10, w). connect(1, 13, n). connect(1, 6, s). connect(10, 1, w). connect(1, 1, n). connect(1, 5, n). connect(1, 7, s). connect(1, 2, w). connect(1, 3, e). connect(10, 12, n). connect(1, 7, w). connect(10, 2, s). connect(10, 13, s). connect(1, 12, w). connect(1, 12, n).
+field(8, 14). field(14, 1). field(9, 10). field(12, 10). connect(1, 9, n). field(9, 12). field(11, 3). field(5, 14). field(7, 13). field(6, 7). field(12, 5). connect(1, 2, e). field(1, 8). field(1, 12). field(14, 3). field(3, 11). field(8, 9). field(13, 6). field(1, 6). field(7, 2). field(3, 8). field(7, 11). field(11, 2). field(13, 13). field(9, 11). field(1, 3). field(9, 5). field(5, 10). field(6, 8). field(9, 14). field(12, 14). field(4, 7). connect(10, 12, w). field(10, 9). field(14, 2). field(13, 10). field(3, 6). field(10, 6). field(7, 6). connect(1, 12, s). field(14, 12). field(7, 3). field(10, 5). field(11, 9). connect(1, 12, n). field(11, 6). field(4, 3). field(7, 5). field(8, 4). field(3, 13). field(7, 12). field(10, 3). field(9, 2). field(4, 6). field(14, 10). field(8, 8). field(13, 7). field(3, 14). field(13, 8). field(10, 14). field(4, 1). field(6, 6). connect(1, 1, e). field(3, 2). field(7, 14). field(7, 8). field(4, 4). field(4, 13). connect(1, 8, e). field(5, 1). connect(1, 6, w). field(4, 2). field(4, 14). field(12, 4). field(5, 11). field(5, 4). field(2, 2). field(3, 9). field(14, 6). connect(1, 6, n). field(3, 4). field(1, 9). field(2, 1). field(2, 6). connect(1, 6, s). field(5, 7). field(11, 11). field(10, 2). field(12, 3). connect(1, 7, s). field(3, 3). connect(1, 3, s). field(3, 5). field(5, 3). field(13, 12). field(4, 9). connect(1, 14, n). field(6, 1). field(4, 12). field(6, 2). field(6, 4). field(5, 8). field(12, 2). field(12, 6). field(11, 13). field(4, 8). field(6, 9). field(14, 5). field(10, 13). field(5, 2). field(1, 5). field(13, 11). connect(1, 4, s). field(8, 2). field(6, 11). field(14, 9). field(13, 3). field(5, 6). field(11, 4). field(8, 7). field(6, 14). field(3, 1). field(8, 1). field(4, 11). field(6, 13). field(12, 9). field(9, 7). connect(1, 13, n). field(10, 4). field(2, 11). field(9, 8). field(8, 10). field(5, 12). field(8, 3). field(11, 10). connect(1, 5, n). field(7, 4). field(9, 1). field(8, 5). field(4, 5). field(8, 12). field(14, 8). field(12, 7). field(14, 4). field(1, 1). field(3, 10). field(10, 1). field(2, 4). field(12, 1). field(13, 5). field(9, 6). field(4, 10). field(6, 3). field(1, 2). field(1, 10). field(11, 12). field(12, 8). field(1, 7). field(11, 1). field(1, 4). field(11, 5). field(2, 3). field(8, 11). field(11, 8). field(14, 13). field(2, 8). field(2, 10). field(6, 5). field(1, 11). field(2, 9). field(11, 14). field(13, 1). field(2, 13). field(13, 9). connect(10, 11, w). field(10, 11). field(10, 12). field(10, 7). field(2, 14). field(8, 13). field(12, 11). field(2, 12). field(10, 8). field(9, 3). field(10, 10). field(9, 4). connect(10, 10, w). field(9, 13). field(12, 12). field(7, 10). field(7, 7). connect(1, 9, w). field(5, 5). field(7, 1). field(5, 9). field(13, 14). field(14, 7). field(9, 9). field(6, 10). field(2, 7). field(6, 12). field(14, 11). field(3, 7). field(3, 12). field(14, 14). field(8, 6). field(1, 14). connect(1, 11, n). field(2, 5). field(11, 7). field(12, 13). field(13, 2). connect(10, 1, s). field(7, 9). field(1, 13). connect(1, 12, w). field(5, 13). field(13, 4).
+field(12, 10). field(5, 14). field(12, 5). field(16, 3). field(3, 11). field(3, 16). field(5, 10). field(15, 3). field(15, 14). field(12, 14). field(13, 17). field(7, 17). field(11, 17). connect(1, 13, w). field(17, 3). field(16, 10). connect(1, 15, s). field(4, 3). field(3, 13). field(5, 16). field(7, 12). connect(1, 6, w). field(3, 14). field(16, 1). field(10, 14). connect(1, 1, w). field(16, 4). field(3, 3). connect(1, 3, s). field(5, 3). field(4, 9). field(9, 16). field(15, 2). field(6, 4). field(16, 16). field(6, 9). field(14, 5). field(10, 17). field(17, 1). connect(1, 4, e). field(8, 2). field(14, 9). field(17, 11). field(8, 1). field(10, 4). field(9, 15). field(7, 4). field(9, 1). field(4, 5). field(7, 16). field(3, 10). field(13, 15). field(13, 5). connect(11, 1, s). field(12, 8). field(1, 4). field(2, 3). field(15, 9). field(7, 15). field(16, 6). field(10, 8). field(9, 4). field(5, 5). field(1, 16). connect(1, 11, e). field(8, 6). field(11, 7). field(7, 9). field(15, 16). field(5, 13). field(16, 9). field(9, 10). field(16, 8). field(7, 13). field(1, 12). field(14, 3). field(8, 9). connect(1, 14, w). field(17, 15). field(1, 6). field(7, 11). field(13, 13). field(17, 12). field(16, 17). field(10, 9). field(8, 17). field(3, 6). connect(1, 5, e). field(11, 9). field(8, 4). field(10, 3). field(4, 6). field(6, 6). field(17, 10). field(15, 6). field(4, 4). field(4, 14). field(11, 11). connect(10, 10, s). field(15, 13). field(17, 7). field(6, 2). field(5, 17). field(5, 8). field(15, 10). connect(1, 8, n). field(15, 11). field(13, 11). connect(1, 4, s). field(6, 11). field(5, 6). field(6, 15). field(2, 15). field(9, 7). field(4, 17). field(6, 17). field(8, 12). connect(1, 10, e). field(12, 16). field(17, 6). field(14, 4). connect(11, 12, s). field(17, 8). field(16, 15). field(9, 6). field(6, 3). field(11, 12). field(11, 5). field(8, 11). field(15, 17). field(14, 13). field(6, 5). field(13, 1). field(10, 11). field(2, 12). field(16, 7). field(9, 3). field(16, 12). field(15, 1). field(12, 12). connect(1, 17, w). field(13, 14). field(14, 11). field(2, 7). field(3, 7). field(3, 12). field(1, 14). field(2, 5). connect(1, 17, n). field(8, 14). field(14, 1). connect(1, 9, n). field(9, 12). field(11, 3). connect(1, 2, e). field(16, 13). field(13, 6). field(11, 2). field(9, 11). field(10, 15). field(1, 3). field(9, 5). field(6, 8). field(4, 7). field(16, 5). field(13, 10). field(17, 16). field(1, 17). field(7, 6). field(14, 12). field(7, 3). connect(1, 12, n). field(11, 6). field(3, 17). field(9, 2). field(14, 10). field(13, 7). field(13, 8). field(7, 14). field(4, 13). field(12, 4). field(5, 4). field(1, 9). field(2, 6). field(5, 7). connect(10, 11, n). field(10, 2). field(12, 3). field(3, 5). field(17, 4). field(13, 12). field(6, 16). field(6, 1). field(15, 15). field(12, 2). connect(1, 15, e). field(4, 8). field(17, 14). field(10, 13). field(5, 2). field(16, 11). field(1, 5). field(8, 15). field(13, 3). field(11, 4). field(4, 16). field(2, 16). field(8, 7). field(6, 14). field(3, 1). field(5, 15). field(6, 13). field(2, 11). field(8, 10). field(8, 5). field(10, 16). field(12, 7). field(17, 5). field(1, 1). field(3, 15). field(10, 1). field(12, 1). field(1, 7). field(11, 1). field(11, 15). field(13, 9). field(2, 10). field(1, 11). field(2, 9). field(11, 14). field(10, 12). field(2, 14). field(8, 13). field(12, 11). field(9, 13). connect(1, 4, w). field(7, 10). field(15, 5). field(5, 9). connect(1, 16, w). field(9, 9). field(6, 12). field(14, 14). field(13, 16). connect(10, 14, n). field(12, 13). field(17, 2). connect(10, 1, s). field(1, 13). field(14, 16). field(6, 7). field(1, 8). field(7, 2). field(3, 8). field(17, 9). field(9, 14). field(9, 17). field(14, 2). field(10, 6). field(10, 5). field(14, 17). field(7, 5). field(8, 8). field(4, 1). field(3, 2). field(7, 8). connect(1, 8, e). field(5, 1). field(1, 15). field(4, 2). field(5, 11). field(2, 2). field(3, 9). field(14, 6). field(3, 4). field(2, 1). field(12, 15). connect(1, 14, n). field(4, 12). connect(1, 7, w). field(17, 17). field(15, 4). field(17, 13). field(12, 6). field(11, 13). field(15, 12). connect(1, 14, e). field(4, 11). field(12, 9). field(9, 8). field(5, 12). field(8, 3). field(11, 10). connect(1, 15, n). field(14, 8). field(11, 16). connect(10, 16, s). field(14, 15). field(2, 4). field(4, 10). field(8, 16). field(15, 8). field(1, 2). field(1, 10). field(16, 2). field(4, 15). field(12, 17). field(11, 8). field(2, 8). field(2, 13). field(10, 7). field(15, 7). field(10, 10). field(7, 7). field(7, 1). field(16, 14). field(14, 7). field(2, 17). field(6, 10). field(13, 2). field(13, 4).
+field(12, 10). field(5, 14). field(12, 5). field(16, 3). field(3, 11). field(3, 16). field(5, 10). field(15, 3). field(15, 14). field(2, 18). field(12, 14). field(13, 17). field(18, 18). field(7, 17). field(11, 17). connect(1, 13, w). field(17, 3). field(16, 10). field(4, 3). field(3, 13). field(5, 16). field(7, 12). connect(1, 6, w). field(3, 14). field(16, 1). field(10, 14). field(7, 19). field(4, 18). field(19, 18). field(16, 4). field(19, 10). field(3, 3). field(5, 3). field(13, 19). field(4, 9). field(9, 16). field(15, 2). field(3, 19). field(16, 19). field(19, 3). field(6, 4). field(16, 16). field(6, 9). field(14, 5). field(10, 17). field(17, 1). connect(1, 4, e). field(19, 17). field(18, 9). field(8, 2). field(19, 13). field(14, 9). field(17, 11). field(8, 1). field(19, 4). field(10, 4). field(9, 15). field(7, 4). field(9, 1). field(4, 5). field(16, 18). field(7, 16). field(15, 18). field(3, 10). field(13, 15). field(13, 5). field(12, 8). field(1, 4). field(2, 3). field(15, 9). field(7, 15). field(18, 1). field(16, 6). field(10, 8). field(18, 3). field(9, 4). field(5, 5). field(1, 16). field(18, 2). connect(1, 11, e). field(8, 6). field(11, 7). connect(1, 3, e). field(7, 9). field(15, 16). field(5, 13). field(16, 9). field(9, 10). field(11, 19). field(16, 8). field(7, 13). field(1, 12). field(14, 3). field(8, 9). connect(1, 14, w). field(17, 15). field(1, 6). field(7, 11). field(13, 13). field(17, 12). connect(1, 18, n). field(16, 17). field(10, 9). field(8, 17). field(3, 6). connect(1, 5, e). field(11, 9). field(8, 4). field(10, 3). field(4, 6). field(6, 6). field(17, 10). field(15, 6). field(4, 4). field(19, 9). field(4, 14). field(18, 16). field(11, 11). connect(10, 10, s). field(15, 13). connect(1, 7, e). field(17, 7). field(6, 2). field(5, 17). field(5, 8). field(15, 10). field(15, 11). field(13, 11). connect(1, 4, s). field(17, 18). field(6, 11). field(2, 19). field(5, 6). field(6, 15). field(1, 19). field(2, 15). field(18, 7). field(18, 12). field(19, 15). field(18, 14). field(9, 7). field(4, 17). field(19, 12). field(6, 17). field(13, 18). connect(1, 19, n). field(8, 12). connect(1, 10, e). field(12, 16). field(17, 6). field(14, 4). field(14, 19). field(17, 8). field(16, 15). field(18, 17). field(9, 6). field(6, 3). field(11, 12). field(11, 5). field(8, 11). field(15, 17). field(14, 13). field(6, 5). field(13, 1). field(10, 11). field(2, 12). field(16, 7). field(9, 3). field(16, 12). field(15, 1). field(12, 12). connect(1, 17, w). field(9, 18). field(13, 14). field(14, 11). field(2, 7). field(3, 7). field(3, 12). field(18, 4). field(1, 14). connect(1, 11, n). field(2, 5). field(6, 18). connect(1, 12, w). field(8, 14). field(14, 1). field(9, 12). field(19, 2). field(11, 3). connect(1, 2, e). field(16, 13). field(13, 6). field(19, 5). field(11, 2). field(9, 11). field(10, 15). field(1, 3). connect(1, 3, w). field(9, 5). field(18, 5). field(6, 8). field(4, 7). field(16, 5). field(1, 18). field(13, 10). field(17, 16). field(1, 17). field(19, 11). field(7, 6). field(14, 12). field(7, 3). field(12, 19). connect(1, 12, n). field(11, 6). field(3, 17). field(9, 2). connect(1, 4, n). field(8, 19). field(14, 10). field(13, 7). field(13, 8). field(7, 14). field(4, 13). field(3, 18). field(10, 18). field(18, 15). field(19, 6). field(12, 4). field(19, 19). field(17, 19). field(5, 4). field(18, 11). field(14, 18). field(1, 9). field(2, 6). field(5, 7). field(19, 1). field(10, 2). field(12, 3). field(3, 5). field(17, 4). field(4, 19). field(13, 12). field(6, 16). field(19, 16). field(6, 1). field(19, 7). field(15, 15). field(10, 19). field(12, 2). field(4, 8). field(17, 14). field(10, 13). field(5, 2). field(16, 11). field(1, 5). connect(1, 16, e). field(8, 15). field(13, 3). field(11, 4). field(4, 16). field(2, 16). field(8, 7). field(6, 14). field(3, 1). field(5, 15). field(6, 13). field(2, 11). field(8, 10). field(8, 5). field(10, 16). field(6, 19). field(12, 7). field(17, 5). field(1, 1). field(3, 15). field(10, 1). field(12, 1). field(1, 7). field(5, 18). field(11, 1). field(7, 18). field(11, 15). field(13, 9). field(2, 10). field(1, 11). field(2, 9). field(11, 14). field(10, 12). field(2, 14). field(8, 13). field(12, 11). field(9, 13). field(7, 10). field(15, 5). field(5, 9). connect(1, 16, w). field(9, 9). field(6, 12). field(14, 14). field(13, 16). field(12, 13). field(17, 2). field(1, 13). field(14, 16). field(6, 7). field(18, 10). field(1, 8). field(12, 18). field(7, 2). field(18, 19). field(3, 8). field(18, 6). field(17, 9). field(9, 14). field(9, 17). field(14, 2). field(10, 6). field(10, 5). field(14, 17). field(5, 19). field(7, 5). field(8, 8). field(4, 1). field(3, 2). field(7, 8). field(5, 1). field(1, 15). field(4, 2). field(5, 11). field(2, 2). field(3, 9). field(14, 6). field(3, 4). field(2, 1). field(19, 8). field(12, 15). field(4, 12). field(17, 17). field(15, 4). field(17, 13). field(12, 6). field(11, 13). field(15, 12). field(8, 18). field(15, 19). connect(1, 14, e). field(4, 11). field(12, 9). field(9, 8). field(5, 12). field(8, 3). field(11, 10). field(14, 8). field(11, 16). field(14, 15). field(2, 4). field(4, 10). field(8, 16). field(15, 8). field(1, 2). field(1, 10). field(16, 2). field(4, 15). field(19, 14). field(12, 17). field(11, 8). field(2, 8). field(2, 13). field(18, 13). field(10, 7). field(15, 7). field(9, 19). field(10, 10). field(18, 8). field(7, 7). field(7, 1). field(16, 14). field(11, 18). field(14, 7). field(2, 17). field(6, 10). field(13, 2). field(13, 4).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+edge(1, 101). node(1000). node(1013). node(100). node(1001). edge(1, 1000). node(101). node(1007). node(1). edge(1, 1013). edge(1, 1008). edge(1, 10). node(1004). edge(1, 1010). node(10). node(1008). edge(1, 1007). node(1010). node(1002). edge(1, 100). node(1003).
+node(1012). node(1000). edge(1, 1011). edge(1, 1003). node(100). node(1001). edge(1, 1000). node(101). node(1). node(1009). node(1004). edge(1, 1010). edge(1, 1012). edge(1, 1009). node(10). node(1010). node(1002). node(1011). edge(1, 100). node(1003).
+edge(1, 1001). edge(1, 101). node(1000). node(100). node(1001). edge(1, 1000). node(101). node(1007). node(1). edge(1, 1008). edge(1, 10). node(1004). node(10). node(1008). edge(1, 1004). edge(1, 1007). node(1002). edge(1, 100). node(1003).
+edge(1, 101). node(11). node(107). node(1000). node(104). node(108). edge(1, 109). node(109). edge(1, 1000). edge(1, 11). node(101). node(1). edge(1, 106). edge(1, 10). node(10). node(102). edge(1, 108). edge(1, 107). node(103). node(106).
+edge(1, 1001). node(1000). edge(1, 1002). node(100). node(1001). edge(1, 1000). node(1). node(1009). edge(1, 1008). edge(1, 10). node(1004). edge(1, 1009). node(10). node(1008). edge(1, 1004). node(1002). edge(1, 100). node(1003).
+edge(1, 1001). node(1000). edge(1, 1002). edge(1, 1005). node(100). node(1001). node(1005). edge(1, 1006). node(1007). node(1006). node(1). edge(1, 10). node(1004). node(10). edge(1, 1004). edge(1, 1007). node(1002). edge(1, 100). node(1003).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fuelcost(4, l5, l0). goal(p5, l5). goal(p3, l5). at(p5, l1). fuelcost(1, l0, l1). fuelcost(13, l4, l3). at(p0, l5). at(t0, l3). fuelcost(1, l3, l0). goal(p0, l2). at(p3, l0). at(p4, l2). at(p1, l3). at(p2, l4). goal(p2, l0).
+fuelcost(11, l2, l4). fuelcost(11, l4, l2). goal(p1, l4). at(t0, l3). fuelcost(18, l4, l0). fuelcost(18, l0, l4). at(p0, l3). fuelcost(1, l3, l2). at(p3, l0). fuelcost(17, l4, l1). at(p4, l2). goal(p0, l0). at(p2, l4). at(p1, l2).
+at(p2, l1). at(p3, l1). fuelcost(18, l3, l0). fuelcost(18, l3, l2). at(p0, l1). at(p1, l0). fuelcost(22, l2, l1). at(t0, l3). fuelcost(18, l0, l3). fuelcost(11, l3, l1). fuelcost(22, l1, l2). fuelcost(18, l2, l3). fuelcost(11, l1, l3).
+fuelcost(12, l5, l3). at(p1, l5). fuelcost(12, l3, l5). goal(p1, l4). goal(p5, l3). at(p0, l3). fuelcost(10, l5, l2). fuelcost(12, l1, l3). goal(p0, l3). at(t0, l4). at(p5, l1). goal(p4, l4). fuelcost(10, l2, l5). at(p2, l1). at(p4, l1). fuelcost(12, l5, l0). at(p3, l0). fuelcost(12, l3, l1). fuelcost(12, l0, l5).
+at(p6, l0). fuelcost(1, l2, l3). fuelcost(12, l1, l0). at(p2, l7). goal(p3, l3). fuelcost(14, l1, l6). at(p1, l5). fuelcost(11, l1, l4). at(t0, ). fuelcost(14, l6, l1). at(p7, l7). fuelcost(11, l4, l1). at(p4, l7). fuelcost(1, l3, l2). fuelcost(12, l0, l1). goal(p1, l0). goal(p2, l6). at(p5, l6). at(p0, l2). at(p3, l6).
+fuelcost(10, l4, l3). at(p4, l2). fuelcost(1, l0, l2). fuelcost(16, l4, l0). goal(p1, l3). at(p1, l4). at(p3, l3). at(t0, l0). goal(p0, l3). goal(p2, l0). goal(p3, l4). fuelcost(18, l2, l0). fuelcost(19, l1, l3). at(p0, l4). at(p2, l1). fuelcost(16, l0, l4). fuelcost(10, l3, l4). fuelcost(19, l3, l1). goal(p4, l0).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+zone2sensor(24, 10). zone2sensor(61, 12). zone2sensor(46, 14). zone2sensor(54, 14). zone2sensor(62, 13). zone2sensor(58, 15). zone2sensor(9, 100). zone2sensor(10, 100). zone2sensor(61, 13). zone2sensor(64, 1). zone2sensor(31, 10). zone2sensor(27, 11). zone2sensor(28, 11). zone2sensor(69, 12). zone2sensor(57, 15).
+zone2sensor(1, 1). zone2sensor(30, 13). zone2sensor(19, 14). zone2sensor(45, 12). zone2sensor(20, 14). zone2sensor(69, 10). zone2sensor(27, 15). zone2sensor(62, 10). zone2sensor(35, 15). zone2sensor(23, 13). zone2sensor(61, 11). zone2sensor(54, 11). zone2sensor(41, 100). zone2sensor(33, 100). zone2sensor(52, 12).
+zone2sensor(50, 12). zone2sensor(12, 13). zone2sensor(49, 12). zone2sensor(13, 13). zone2sensor(37, 14). zone2sensor(35, 100). zone2sensor(23, 11). zone2sensor(39, 15). zone2sensor(43, 100). zone2sensor(22, 1). zone2sensor(29, 14). zone2sensor(24, 11). zone2sensor(38, 10). zone2sensor(47, 15). zone2sensor(39, 10).
+zone2sensor(53, 14). zone2sensor(1, 15). zone2sensor(60, 10). zone2sensor(2, 15). zone2sensor(10, 12). zone2sensor(1, 13). zone2sensor(72, 1). zone2sensor(61, 10). zone2sensor(24, 100). zone2sensor(52, 14). zone2sensor(11, 12). zone2sensor(45, 11). zone2sensor(44, 11). zone2sensor(8, 13). maxpu(4). zone2sensor(17, 100).
+zone2sensor(40, 100). zone2sensor(3, 10). zone2sensor(60, 11). zone2sensor(8, 12). zone2sensor(72, 1). zone2sensor(39, 13). zone2sensor(28, 14). zone2sensor(50, 15). zone2sensor(29, 14). zone2sensor(41, 100). zone2sensor(2, 10). zone2sensor(7, 12). zone2sensor(31, 13). zone2sensor(49, 15). zone2sensor(52, 11).
+zone2sensor(6, 11). zone2sensor(73, 12). zone2sensor(65, 13). zone2sensor(6, 14). zone2sensor(20, 10). zone2sensor(23, 15). zone2sensor(74, 12). zone2sensor(66, 13). zone2sensor(61, 100). zone2sensor(14, 11). zone2sensor(60, 100). zone2sensor(5, 14). zone2sensor(39, 1). zone2sensor(15, 15). zone2sensor(12, 10).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+t(14, 42). p(16, 14). p(14, 42). p(11, 39). t(10, 34). p(1, 33). p(13, 23). t(15, 24). t(12, 38). t(10, 6). t(102, 22). t(13, 23). t(11, 39). t(103, 13). t(1, 106). p(10, 6). t(104, 65). t(16, 14). t(1, 33). p(12, 38). t(101, 32). t(105, 130). t(100, 136).
+p(16, 24). p(10, 21). t(1, 6). t(100, 66). t(101, 77). p(13, 16). t(10, 39). t(105, 14). p(12, 9). t(103, 36). t(104, 25). p(14, 12). p(11, 4). p(15, 8). t(102, 118). p(1, 6).
+p(12, 14). p(21, 56). t(15, 9). p(11, 24). t(18, 8). t(4, 10). p(14, 5). p(13, 56). p(13, 14). p(2, 10). t(21, 15). t(10, 28). p(1, 45). t(14, 5). t(17, 19). t(3, 56). t(9, 5). p(14, 1). t(6, 28). t(20, 11). p(45, 24). t(13, 56). t(12, 14). t(19, 2). t(8, 24). patternlength(21). p(16, 19). t(2, 9). p(5, 8). t(11, 24). p(28, 15). t(5, 21). p(10, 21). p(12, 2). p(16, 21). p(15, 9). t(1, 45). t(7, 14). t(16, 21). p(11, 11).
+t(100, 113). p(2, 47). t(10, 43). t(1, 92). p(7, 1). t(16, 15). t(105, 93). p(8, 15). p(3, 22). t(101, 61). p(1, 27). t(104, 69). p(4, 20). t(102, 62). p(6, 13). t(103, 73). p(5, 45).
+t(15, 5). t(11, 48). p(1, 1). t(10, 18). t(2, 6). p(3, 2). t(3, 2). patternlength(7). t(4, 5). t(5, 7). t(13, 23). t(6, 4). p(2, 6). t(7, 3). t(1, 3). p(6, 4). t(12, 55). t(16, 38). p(5, 7). p(4, 5). t(14, 2). t(1, 1). p(7, 3).
+p(5, 78). p(14, 246). p(3, 91). p(11, 7). t(9, 22). p(6, 40). p(7, 50). t(15, 52). t(10, 54). t(1, 326). p(9, 22). t(2, 132). t(3, 91). t(4, 7). t(6, 246). p(15, 52). t(12, 75). p(10, 54). t(13, 264). t(14, 287). t(11, 78). p(8, 104). p(1, 326). t(5, 40). t(7, 104). p(2, 132). patternlength(105). p(12, 287). p(13, 264). t(8, 50). p(4, 75).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+barrier(1, 6, south). barrier(11, 12, east). barrier(10, 14, south). barrier(10, 8, west). pos(blue, 16, 1). barrier(10, 15, south). pos(red, 1, 1). barrier(9, 9, west). barrier(11, 1, east). barrier(1, 12, south). barrier(10, 9, west). barrier(10, 1, east). barrier(10, 15, east). target(blue, 2, 4). barrier(16, 16, ). barrier(9, 8, west).
+barrier(1, 6, south). barrier(11, 12, east). barrier(9, 8, west). barrier(10, 14, south). barrier(1, 13, south). pos(red, 1, 1). pos(green, 16, 1). barrier(10, 15, east). barrier(1, 7, south). barrier(10, 9, west). target(green, 6, 5). pos(blue, 1, 16). pos(yellow, 16, 16).
+pos(yellow, 10, 12). barrier(10, 9, west). barrier(1, 7, east). barrier(10, 15, east). barrier(11, 15, west). barrier(10, 14, west). barrier(9, 9, east). barrier(1, 12, west). pos(blue, 1, 16). barrier(10, 8, west). target(yellow, 10, 12). pos(red, 1, 1). pos(green, 16, 1). barrier(11, 1, east). barrier(10, 12, west). barrier(11, 12, east). barrier(10, 1, west). barrier(1, 6, west). barrier(1, 13, east). barrier(9, 8, east). barrier(12, 12, west).
+barrier(1, 6, south). barrier(11, 12, east). pos(red, 1, 1). pos(green, 16, 1). barrier(1, 12, south). barrier(10, 15, east). target(blue, 4, 14). barrier(10, 9, west). pos(blue, 1, 16).
+barrier(9, 8, west). barrier(11, 12, east). barrier(1, 13, south). barrier(10, 14, south). pos(red, 1, 1). barrier(16, 8, west). pos(green, 16, 1). barrier(9, 9, west). barrier(1, 7, south). barrier(16, 1, ). barrier(12, 12, west). barrier(10, 1, east). barrier(10, 15, east). barrier(11, 1, west). barrier(10, 12, south). pos(blue, 1, 16).
+barrier(1, 6, north). barrier(10, 14, south). barrier(10, 8, west). barrier(11, 15, south). barrier(10, 1, west). pos(red, 1, 1). barrier(11, 12, west). barrier(10, 15, north). barrier(12, 12, east). pos(green, 16, 1). barrier(9, 9, east). barrier(1, 12, south). barrier(11, 1, east). barrier(1, 13, north). barrier(9, 8, east). pos(blue, 1, 16). pos(yellow, 16, 16).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+isnongoal(pos_01_04). isnongoal(pos_01_07). movedir(pos_02_04, pos_02_03, dir_up). isnongoal(pos_01_01). clear(pos_03_02). at(stone_01, pos_05_04). isnongoal(pos_01_02). clear(pos_01_01). clear(pos_02_06). at(player_01, pos_09_04). movedir(pos_01_06, pos_01_07, dir_down). movedir(pos_02_04, pos_03_04, dir_right). isnongoal(pos_02_01). clear(pos_01_06). at(stone_03, pos_06_05). movedir(pos_01_07, pos_02_07, dir_right). movedir(pos_02_07, pos_01_07, dir_left). isnongoal(pos_01_05). clear(pos_02_03). movedir(pos_03_04, pos_02_04, dir_left). movedir(pos_02_03, pos_02_04, dir_down). at(stone_04, pos_08_05). clear(pos_02_07). movedir(pos_02_03, pos_03_03, dir_right). clear(pos_01_07). at(stone_02, pos_07_04). clear(pos_02_04). isnongoal(pos_01_06). isnongoal(pos_01_03). movedir(pos_01_07, pos_01_06, dir_up).
+at(stone_05, pos_03_12). at(stone_03, ). movedir(pos_01_09, pos_01_10, dir_down). at(player_01, ). at(stone_06, pos_07_12). clear(pos_01_10). at(stone_03, pos_05_10). at(stone_05, ). movedir(pos_01_08, pos_01_09, dir_up). at(stone_04, pos_05_11). at(stone_02, pos_03_05). clear(pos_01_08). clear(pos_02_05). at(stone_04, ). clear(pos_02_02). clear(pos_02_03). at(stone_01, pos_03_03). clear(pos_01_15). clear(pos_02_04). at(player_01, pos_05_12). clear(pos_01_09).
+isnongoal(pos_01_04). isnongoal(pos_01_07). isnongoal(pos_01_01). isnongoal(pos_01_08). isnongoal(pos_01_02). clear(pos_01_01). clear(pos_02_06). movedir(pos_01_02, pos_01_03, dir_down). at(stone_05, pos_08_05). at(stone_02, pos_03_05). at(stone_04, pos_06_05). isnongoal(pos_02_01). clear(pos_01_08). at(stone_01, pos_08_03). at(stone_03, pos_05_05). clear(pos_02_05). isnongoal(pos_01_05). movedir(pos_01_01, pos_01_02, dir_up). at(player_01, pos_11_05). clear(pos_02_08). clear(pos_01_03). clear(pos_01_02). isnongoal(pos_02_06). isnongoal(pos_01_06). isnongoal(pos_02_05). isnongoal(pos_01_03). clear(pos_02_01).
+clear(pos_01_06). clear(pos_01_08). clear(pos_01_10). movedir(pos_01_09, pos_01_08, dir_up). clear(pos_01_07). movedir(pos_01_08, pos_02_08, dir_right). at(player_01, pos_05_08). movedir(pos_01_08, pos_01_09, dir_down). movedir(pos_01_07, pos_01_06, dir_up). clear(pos_02_02). clear(pos_02_03). at(stone_02, pos_06_08). movedir(pos_01_09, pos_01_10, dir_down). at(stone_04, pos_06_09). movedir(pos_01_07, pos_01_08, dir_down). movedir(pos_01_08, pos_01_07, dir_up). clear(pos_01_09).
+movedir(pos_2_3, pos_2_4, dir_down). movedir(pos_2_4, pos_3_4, dir_right). isnongoal(pos_2_1). movedir(pos_2_4, pos_2_3, dir_up). movedir(pos_3_3, pos_2_3, dir_left). at(stone_01, pos_5_3). isnongoal(pos_1_1). movedir(pos_3_2, pos_3_3, dir_down). movedir(pos_2_3, pos_3_3, dir_right). isnongoal(pos_1_4). at(player_01, pos_7_3). at(stone_02, pos_6_3). isnongoal(pos_2_2). isnongoal(pos_1_3). isnongoal(pos_1_2). isnongoal(pos_1_5). movedir(pos_3_2, pos_4_2, dir_right).
+isnongoal(pos_1_7). movedir(pos_2_2, pos_2_3, dir_down). movedir(pos_2_4, pos_3_4, dir_right). isnongoal(pos_1_6). at(stone_01, pos_4_4). movedir(pos_2_3, pos_2_4, dir_up). isnongoal(pos_2_1). at(player_01, pos_6_4). isnongoal(pos_1_1). isnongoal(pos_1_4). movedir(pos_2_4, pos_2_5, dir_down). isnongoal(pos_1_3). isnongoal(pos_1_2). isnongoal(pos_1_5). movedir(pos_2_3, pos_2_2, dir_up). at(stone_02, pos_5_4).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+manassignsscore(m1, w105, 76). womanassignsscore(w102, m1, 98). womanassignsscore(w1, m1, 83). womanassignsscore(w1, m104, 14). womanassignsscore(m102, w1, 34). womanassignsscore(w1, m101, 70). manassignsscore(m1, w1, 83). womanassignsscore(w104, m1, 56). manassignsscore(m104, w1, 14). manassignsscore(m1, w10, 59). womanassignsscore(w10, m1, 59). manassignsscore(m1, w103, 36). manassignsscore(m105, w1, 97). womanassignsscore(w103, m1, 36). womanassignsscore(w101, m1, 33). manassignsscore(m1, w102, 98). manassignsscore(m1, w104, 56). womanassignsscore(w1, m105, 97). womanassignsscore(w1, m10, 38). manassignsscore(m102, w1, 34). womanassignsscore(w100, m1, 28). womanassignsscore(w1, m1, 29). manassignsscore(m100, w1, 8). womanassignsscore(w1, m100, 8). womanassignsscore(w105, m1, 76). manassignsscore(m1, w101, 33). manassignsscore(m10, w1, 38). womanassignsscore(m103, w1, 96).
+manassignsscore(m1, w100, 87). womanassignsscore(w1, m103, 39). womanassignsscore(w1, m101, 4). manassignsscore(m1, w105, 52). manassignsscore(m1, w10, 66). manassignsscore(m1, w102, 64). womanassignsscore(w1, m10, 80). womanassignsscore(w1, m102, 61). womanassignsscore(w1, m105, 91). womanassignsscore(w1, m100, 3). womanassignsscore(w1, m1, 30). manassignsscore(m1, w104, 1). manassignsscore(m1, w101, 11). womanassignsscore(w1, m104, 56). manassignsscore(m1, w103, 86).
+manassignsscore(m1, w105, 76). manassignsscore(m103, w1, 6). manassignsscore(m101, w1, 89). manassignsscore(m1, w1, 9). manassignsscore(m102, w1, 71). womanassignsscore(w1, m102, 71). womanassignsscore(w10, m1, 55). manassignsscore(m1, w104, 95). womanassignsscore(w102, m1, 55). womanassignsscore(w103, m1, 56). womanassignsscore(w101, m1, 68). manassignsscore(m1, w1, 87). manassignsscore(m1, w100, 72). womanassignsscore(w100, m1, 72). manassignsscore(m10, w1, 8). womanassignsscore(w1, m10, 8). womanassignsscore(w1, m103, 6). manassignsscore(m100, w1, 53). manassignsscore(m1, w10, 55). womanassignsscore(w1, m105, 96). manassignsscore(m1, w101, 68). manassignsscore(m1, w103, 56). womanassignsscore(w1, m100, 53). womanassignsscore(w1, m101, 89). manassignsscore(m1, w102, 55). womanassignsscore(w105, m1, 76). womanassignsscore(w1, m1, 87). manassignsscore(m105, w1, 96).
+manassignsscore(m1, w105, 73). womanassignsscore(w1, m10, 59). womanassignsscore(w1, m105, 70). manassignsscore(m1, w100, 21). manassignsscore(m1, w10, 22). womanassignsscore(w1, m100, 30). womanassignsscore(w1, m101, 34). manassignsscore(m1, w103, 20). manassignsscore(m1, w102, 70). manassignsscore(m1, w1, 57). womanassignsscore(w1, m103, 12). womanassignsscore(w1, m104, 39). manassignsscore(m1, w104, 50). manassignsscore(m1, w101, 48).
+manassignsscore(m1, w104, 72). womanassignsscore(m1, w100, 87). womanassignsscore(w1, m102, 93). womanassignsscore(w105, m1, 17). manassignsscore(m1, w100, 87). manassignsscore(m1, w102, 92). manassignsscore(m1, w105, 34). manassignsscore(m1, w101, 38). womanassignsscore(w1, m103, 90). manassignsscore(m1, w10, 60). womanassignsscore(m1, w10, 60). womanassignsscore(w104, m1, 72). womanassignsscore(w1, m1, 18). womanassignsscore(m101, w1, 50). womanassignsscore(w1, m104, 73). womanassignsscore(m1, w1, 90). womanassignsscore(w1, m100, 23).
+manassignsscore(m1, w103, 41). womanassignsscore(w1, m10, 29). womanassignsscore(w102, m1, 10). manassignsscore(m1, w105, 46). womanassignsscore(w1, m103, 5). manassignsscore(m1, w1, 11). womanassignsscore(w1, m104, 1). womanassignsscore(w1, m100, 2). manassignsscore(m1, w100, 33). womanassignsscore(w101, m1, 71). manassignsscore(m1, w10, 33). womanassignsscore(w1, m101, 42). womanassignsscore(w103, m1, 41). manassignsscore(m1, w104, 66). manassignsscore(m100, w1, 2). womanassignsscore(w105, m1, 46). manassignsscore(m1, w102, 10). manassignsscore(m1, w101, 71). womanassignsscore(w1, m105, 29). womanassignsscore(w100, m1, 33). womanassignsscore(w10, m1, 33). womanassignsscore(w1, m102, 44).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dem(11, 12, 64). dem(12, 13, 48). pipe(11, 12). pipe(1, 15). pipe(12, 17). dem(1, 15, 142). pipe(11, 18). pipe(1, 2). pipe(12, 19). pipe(10, 11). pipe(12, 13).
+pipe(102, 103). dem(101, 103, 122). dem(1, 92, 108). tank(1). dem(1, 96, 60). dem(102, 103, 125). valves_per_pipe(1). pipe(100, 101). dem(1, 95, 89). dem(100, 104, 96). pipe(100, 104). pipe(1, 95). pipe(101, 102). dem(101, 102, 163). pipe(1, 92).
+pipe(102, 103). dem(1, 92, 108). pipe(101, 103). dem(102, 103, 125). valves_number(22). pipe(1, 96). pipe(1, 95). pipe(100, 104). pipe(101, 102). pipe(1, 92).
+pipe(13, 14). pipe(1, 12). valves_per_pipe(2). pipe(1, 15). pipe(11, 24). pipe(1, 2). pipe(1, 11). pipe(11, 14). dem(12, 13, 53). pipe(10, 11). dem(1, 11, 59). tank(1). tank(7). dem(12, 15, 56). tank(9). dem(1, 2, 39). dem(1, 12, 56). pipe(12, 15). dem(10, 11, 73). pipe(12, 13).
+dem(13, 14, 39). pipe(7, 9). pipe(13, 14). pipe(1, 12). pipe(11, 24). pipe(1, 2). pipe(1, 11). dem(12, 13, 53). pipe(10, 11). tank(1). tank(7). dem(12, 15, 56). tank(9). dem(1, 2, 39). dem(1, 12, 56). dem(11, 24, 48). pipe(12, 15). dem(10, 11, 73). pipe(12, 13).
+dem(1, 2, 205). pipe(11, 12). dem(12, 13, 49). dem(13, 17, 90). pipe(13, 17). dem(10, 11, 55). dem(13, 14, 76). pipe(1, 2). pipe(11, 14). pipe(1, 9). pipe(10, 11). dem(1, 9, 47). dem(11, 14, 82). pipe(13, 14). pipe(12, 13).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+connected(3, 7). connected(3, 6). connected(5, 8). connected(2, 4). connected(1, 2). connected(1, 3). connected(6, 7). connected(2, 5). connected(4, 8).
+connected(3, 7). connected(3, 6). connected(5, 8). connected(2, 4). connected(1, 2). connected(1, 3). connected(6, 7). connected(2, 5). connected(4, 8).
+connected(3, 7). connected(3, 6). connected(5, 8). connected(2, 4). connected(1, 2). connected(1, 3). connected(6, 7). connected(2, 5). connected(4, 8).
+connected(3, 7). connected(3, 6). connected(5, 8). connected(2, 4). connected(1, 2). connected(1, 3). connected(6, 7). connected(2, 5). connected(4, 8).
+connected(3, 7). connected(3, 6). connected(5, 8). connected(2, 4). connected(1, 2). connected(1, 3). connected(6, 7). connected(2, 5). connected(4, 8).
+connected(3, 7). connected(3, 6). connected(5, 8). connected(2, 4). connected(1, 2). connected(1, 3). connected(6, 7). connected(2, 5). connected(4, 8).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+size(11).
+size(14).
+size(10).
+size(13).
+size(12).
+size(13).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+in_layer(2, n19). edge(n2, n26). in_layer(0, n8). in_layer(2, n21). in_layer(3, n29). edge(n15, n21). edge(n14, n21). in_layer(1, n17). edge(n10, n26). in_layer(0, n3). in_layer(2, n20). in_layer(3, n35). in_layer(3, n34). in_layer(0, n1). in_layer(1, n14). in_layer(2, n26). in_layer(1, n12). in_layer(3, n30). in_layer(0, n5). in_layer(1, n13). in_layer(1, n16). edge(n13, n20). in_layer(1, n10). in_layer(1, n15). edge(n12, n20). in_layer(2, n25). edge(n12, n24). edge(n1, n10). edge(n11, n26). in_layer(3, n28). in_layer(3, n31). in_layer(0, n7). in_layer(0, n6). in_layer(2, n24). in_layer(0, n4). in_layer(3, n33). in_layer(0, n2). in_layer(3, n32). in_layer(2,n19). in_layer(0,n8). in_layer(2,n21). in_layer(3,n29). in_layer(1,n17). in_layer(0,n3). in_layer(2,n20). in_layer(3,n35). in_layer(3,n34). in_layer(0,n1). in_layer(1,n14). in_layer(2,n26). in_layer(1,n12). in_layer(3,n30). in_layer(0,n5). in_layer(1,n13). in_layer(1,n16). in_layer(1,n10). in_layer(1,n15). in_layer(2,n25). in_layer(3,n28). in_layer(3,n31). in_layer(0,n7). in_layer(0,n6). in_layer(2,n24). in_layer(0,n4). in_layer(3,n33). in_layer(0,n2). in_layer(3,n32). in_layer(2,n22). in_layer(2,n23). in_layer(1,n11). edge(n2,n26). edge(n15,n21). edge(n14,n21). edge(n10,n26). edge(n13,n20). edge(n12,n20). edge(n12,n24). edge(n1,n10). edge(n11,n26). in_layer(2, n22). in_layer(2, n23). in_layer(1, n11).
+in_layer(2, n19). in_layer(0, n8). in_layer(4, n39). in_layer(2, n21). in_layer(3, n25). in_layer(3, n29). edge(n11, n18). edge(n1, n12). in_layer(5, n43). in_layer(0, n3). in_layer(2, n20). in_layer(5, n45). edge(n1, n13). in_layer(0, n1). edge(n12, n19). in_layer(1, n14). in_layer(1, n12). in_layer(3, n30). in_layer(0, n5). in_layer(1, n13). in_layer(5, n44). in_layer(5, n47). in_layer(1, n16). in_layer(1, n10). in_layer(3, n26). in_layer(1, n15). in_layer(2, n18). in_layer(4, n33). in_layer(5, n41). in_layer(4, n35). in_layer(4, n36). in_layer(5, n46). in_layer(2,n19). in_layer(0,n8). in_layer(4,n39). in_layer(2,n21). in_layer(3,n25). in_layer(3,n29). in_layer(5,n43). in_layer(0,n3). in_layer(2,n20). in_layer(5,n45). in_layer(0,n1). in_layer(1,n14). in_layer(1,n12). in_layer(3,n30). in_layer(0,n5). in_layer(1,n13). in_layer(5,n44). in_layer(5,n47). in_layer(1,n16). in_layer(1,n10). in_layer(3,n26). in_layer(1,n15). in_layer(2,n18). in_layer(4,n33). in_layer(5,n41). in_layer(4,n35). in_layer(4,n36). in_layer(5,n46). in_layer(3,n28). in_layer(4,n34). in_layer(3,n31). in_layer(0,n7). in_layer(0,n6). in_layer(2,n24). in_layer(0,n4). in_layer(4,n38). in_layer(5,n42). in_layer(4,n37). in_layer(0,n2). in_layer(3,n32). in_layer(4,n40). in_layer(2,n17). in_layer(3,n27). in_layer(2,n22). in_layer(2,n23). in_layer(1,n11). in_layer(5,n48). edge(n11,n18). edge(n1,n12). edge(n1,n13). edge(n12,n19). edge(n11,n23). in_layer(3, n28). in_layer(4, n34). in_layer(3, n31). in_layer(0, n7). in_layer(0, n6). in_layer(2, n24). in_layer(0, n4). in_layer(4, n38). in_layer(5, n42). in_layer(4, n37). edge(n11, n23). in_layer(0, n2). in_layer(3, n32). in_layer(4, n40). in_layer(2, n17). in_layer(3, n27). in_layer(2, n22). in_layer(2, n23). in_layer(1, n11). in_layer(5, n48).
+in_layer(2,n21). in_layer(1,n17). in_layer(0,n3). in_layer(3,n35). in_layer(3,n34). in_layer(0,n1). in_layer(0,n10). in_layer(1,n14). in_layer(2,n26). in_layer(1,n12). in_layer(2,n27). in_layer(0,n5). in_layer(1,n13). in_layer(1,n16). in_layer(1,n15). in_layer(2,n25). in_layer(1,n18). in_layer(3,n38). in_layer(3,n37). in_layer(3,n31). in_layer(0,n7). in_layer(0,n6). in_layer(2,n24). in_layer(0,n4). in_layer(3,n33). in_layer(0,n2). in_layer(3,n32). in_layer(2,n28). in_layer(2,n22). in_layer(2,n23). in_layer(1,n11). in_layer(3,n36). edge(n12,n22). edge(n10,n13). edge(n12,n23). edge(n1,n20). edge(n10,n19). edge(n11,n25). edge(n11,n30). edge(n11,n22). in_layer(2, n21). edge(n12, n22). in_layer(1, n17). in_layer(0, n3). edge(n10, n13). in_layer(3, n35). in_layer(3, n34). in_layer(0, n1). in_layer(0, n10). in_layer(1, n14). in_layer(2, n26). in_layer(1, n12). in_layer(2, n27). in_layer(0, n5). in_layer(1, n13). in_layer(1, n16). in_layer(1, n15). in_layer(2, n25). in_layer(1, n18). in_layer(3, n38). edge(n12, n23). in_layer(3, n37). in_layer(3, n31). edge(n1, n20). in_layer(0, n7). in_layer(0, n6). edge(n10, n19). in_layer(2, n24). in_layer(0, n4). in_layer(3, n33). edge(n11, n25). in_layer(0, n2). edge(n11, n30). in_layer(3, n32). in_layer(2, n28). edge(n11, n22). in_layer(2, n22). in_layer(2, n23). in_layer(1, n11). in_layer(3, n36).
+in_layer(2, n19). in_layer(0, n8). in_layer(2, n21). in_layer(3, n25). in_layer(3, n29). edge(n11, n18). edge(n1, n12). in_layer(0, n3). in_layer(2, n20). in_layer(0, n1). in_layer(2,n19). in_layer(0,n8). in_layer(2,n21). in_layer(3,n25). in_layer(3,n29). in_layer(0,n3). in_layer(2,n20). in_layer(0,n1). in_layer(1,n14). in_layer(1,n12). in_layer(3,n30). in_layer(0,n5). in_layer(1,n13). in_layer(1,n16). in_layer(1,n10). in_layer(3,n26). in_layer(1,n15). in_layer(2,n18). in_layer(3,n28). in_layer(3,n31). in_layer(0,n7). in_layer(0,n6). in_layer(2,n24). in_layer(0,n4). in_layer(0,n2). in_layer(3,n32). in_layer(2,n17). in_layer(3,n27). in_layer(2,n22). in_layer(2,n23). in_layer(1,n11). in_layer(1,n9). edge(n11,n18). edge(n1,n12). edge(n11,n17). edge(n10,n20). edge(n12,n23). edge(n1,n11). edge(n13,n18). in_layer(1, n14). in_layer(1, n12). in_layer(3, n30). in_layer(0, n5). in_layer(1, n13). in_layer(1, n16). in_layer(1, n10). edge(n11, n17). in_layer(3, n26). in_layer(1, n15). edge(n10, n20). in_layer(2, n18). edge(n12, n23). in_layer(3, n28). in_layer(3, n31). edge(n1, n11). in_layer(0, n7). in_layer(0, n6). in_layer(2, n24). in_layer(0, n4). edge(n13, n18). in_layer(0, n2). in_layer(3, n32). in_layer(2, n17). in_layer(3, n27). in_layer(2, n22). in_layer(2, n23). in_layer(1, n11). in_layer(1, n9).
+in_layer(2, n19). in_layer(0, n8). in_layer(4, n39). in_layer(2, n21). in_layer(3, n29). in_layer(4, n43). in_layer(1, n17). in_layer(4, n41). in_layer(2,n19). in_layer(0,n8). in_layer(4,n39). in_layer(2,n21). in_layer(3,n29). in_layer(4,n43). in_layer(1,n17). in_layer(4,n41). in_layer(0,n3). in_layer(4,n42). in_layer(2,n20). in_layer(3,n35). in_layer(3,n34). in_layer(0,n1). in_layer(1,n14). in_layer(1,n12). in_layer(2,n26). in_layer(3,n30). in_layer(0,n5). in_layer(1,n13). in_layer(1,n16). in_layer(1,n10). in_layer(4,n44). in_layer(1,n15). in_layer(2,n25). in_layer(3,n28). in_layer(3,n31). in_layer(0,n7). in_layer(0,n6). in_layer(2,n24). in_layer(0,n4). in_layer(3,n33). in_layer(4,n38). in_layer(4,n37). in_layer(0,n2). in_layer(3,n32). in_layer(4,n40). in_layer(2,n22). in_layer(2,n23). in_layer(1,n11). edge(n12,n19). edge(n14,n23). edge(n11,n24). edge(n1,n10). edge(n12,n23). edge(n1,n18). edge(n13,n23). edge(n2,n3). in_layer(0, n3). in_layer(4, n42). in_layer(2, n20). in_layer(3, n35). in_layer(3, n34). in_layer(0, n1). edge(n12, n19). edge(n14, n23). in_layer(1, n14). in_layer(1, n12). in_layer(2, n26). in_layer(3, n30). in_layer(0, n5). in_layer(1, n13). in_layer(1, n16). in_layer(1, n10). edge(n11, n24). in_layer(4, n44). in_layer(1, n15). in_layer(2, n25). edge(n1, n10). edge(n12, n23). edge(n1, n18). in_layer(3, n28). edge(n13, n23). in_layer(3, n31). in_layer(0, n7). in_layer(0, n6). in_layer(2, n24). in_layer(0, n4). in_layer(3, n33). in_layer(4, n38). in_layer(4, n37). in_layer(0, n2). in_layer(3, n32). edge(n2, n3). in_layer(4, n40). in_layer(2, n22). in_layer(2, n23). in_layer(1, n11).
+edge(n12, n29). in_layer(2, n21). in_layer(1, n17). in_layer(0, n3). edge(n10, n11). in_layer(0, n1). in_layer(0, n10). edge(n11, n27). in_layer(1, n14). in_layer(2, n26). in_layer(1, n12). in_layer(2, n27). in_layer(0, n5). in_layer(1, n13). edge(n13, n21). in_layer(1, n16). in_layer(2,n21). in_layer(1,n17). in_layer(0,n3). in_layer(0,n1). in_layer(0,n10). in_layer(1,n14). in_layer(2,n26). in_layer(1,n12). in_layer(2,n27). in_layer(0,n5). in_layer(1,n13). in_layer(1,n16). in_layer(1,n15). in_layer(2,n25). in_layer(1,n18). in_layer(0,n7). in_layer(0,n6). in_layer(2,n24). in_layer(0,n4). in_layer(0,n2). in_layer(2,n28). in_layer(2,n22). in_layer(2,n23). in_layer(1,n11). edge(n12,n29). edge(n10,n11). edge(n11,n27). edge(n13,n21). edge(n10,n18). edge(n1,n18). edge(n11,n25). edge(n1,n19). edge(n10, n18). in_layer(1, n15). in_layer(2, n25). in_layer(1, n18). edge(n1, n18). in_layer(0, n7). in_layer(0, n6). in_layer(2, n24). in_layer(0, n4). edge(n11, n25). in_layer(0, n2). in_layer(2, n28). in_layer(2, n22). in_layer(2, n23). in_layer(1, n11). edge(n1, n19).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+edge(1, 2). edge(10, 14). edge(1, 4). edge(1, 3). edge(10, 12). edge(10, 11). edge(1, 5). edge(11, 12).
+edge(10, 14). edge(1, 4). edge(1, 3). edge(10, 12). edge(1, 5). edge(11, 12).
+edge(1, 2). edge(12, 27). edge(12, 13). edge(11, 27). edge(1, 27). edge(10, 27). edge(10, 11). edge(11, 12).
+edge(1, 2). edge(11, 15).
+edge(1, 2). edge(10, 31). edge(11, 31). edge(10, 1). edge(12, 31). edge(11, 12).
+edge(10, 15). edge(11, 16). edge(1, 6). edge(12, 13). edge(12, 17). edge(10, 6). edge(11, 12).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+link(117, 125). link(10, 119). node(105). node(24). link(104, 116). link(131, 24). colour(green0). link(103, 127). link(134, 36). node(102). link(111, 117). node(4). link(104, 100). node(125). colour(yellow0). node(100). node(119). link(37, 43). node(21). node(121). node(93). link(125, 13). node(23). link(5, 58). node(1). link(8, 100). link(88, 99). link(75, 83). node(58). link(21, 100). link(124, 13). node(20). node(5). link(20, 23). link(16, 17). node(112). link(25, 45). link(111, 113). link(101, 105). node(53). link(120, 121). node(75). node(104). node(45). link(113, 115). node(88). node(27). node(131). node(113). link(105, 101). colour(blue0). link(50, 75). node(32). node(101). link(100, 104). link(130, 15). colour(red0). node(130). node(124). link(22, 27). link(84, 93). node(127). node(37). node(99). node(84). node(120). node(43). link(29, 100). link(1, 113). node(115). node(16). node(50). node(117). node(29). node(22). link(13, 16). node(10). link(134, 20). node(17). node(116). node(15). link(102, 112). node(25). node(2). link(116, 125). link(32, 100). node(8). node(13). link(4, 100). node(46). link(46, 53). colour(cyan0). node(103). link(2, 21).
+size(11).
+size(14).
+size(10).
+size(13).
+size(12).
+size(13).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+edge(n12, n20). in_layer(0, n2). in_layer(2, n20). in_layer(1, n13). in_layer(3, n33). in_layer(0, n6). in_layer(3, n31). edge(n15, n21). in_layer(0, n1). in_layer(0, n8). in_layer(0, n4). edge(n12, n24). edge(n13, n20). in_layer(3, n28). edge(n10, n26). in_layer(2, n26). in_layer(1, n16). in_layer(0, n5). in_layer(3, n35). in_layer(0,n2). in_layer(2,n20). in_layer(1,n13). in_layer(3,n33). in_layer(0,n6). in_layer(3,n31). in_layer(0,n1). in_layer(0,n8). in_layer(0,n4). in_layer(3,n28). in_layer(2,n26). in_layer(1,n16). in_layer(0,n5). in_layer(3,n35). in_layer(1,n14). in_layer(1,n15). in_layer(2,n21). in_layer(0,n7). in_layer(1,n11). in_layer(3,n34). in_layer(1,n12). in_layer(3,n29). in_layer(2,n24). in_layer(1,n17). in_layer(1,n10). in_layer(2,n19). in_layer(2,n22). in_layer(3,n30). in_layer(3,n32). in_layer(0,n3). in_layer(2,n23). in_layer(2,n25). edge(n12,n20). edge(n15,n21). edge(n12,n24). edge(n13,n20). edge(n10,n26). edge(n11,n26). edge(n2,n26). edge(n14,n21). edge(n1,n10). in_layer(1, n14). in_layer(1, n15). in_layer(2, n21). in_layer(0, n7). in_layer(1, n11). in_layer(3, n34). in_layer(1, n12). in_layer(3, n29). in_layer(2, n24). edge(n11, n26). in_layer(1, n17). edge(n2, n26). in_layer(1, n10). in_layer(2, n19). in_layer(2, n22). edge(n14, n21). in_layer(3, n30). in_layer(3, n32). in_layer(0, n3). edge(n1, n10). in_layer(2, n23). in_layer(2, n25).
+edge(n11, n18). in_layer(0, n2). in_layer(2, n18). in_layer(2, n20). in_layer(3, n25). in_layer(4, n35). in_layer(1, n13). in_layer(0, n6). in_layer(3, n31). in_layer(5, n45). in_layer(0, n1). in_layer(0, n8). in_layer(4, n34). in_layer(5, n41). edge(n11, n23). edge(n1, n13). in_layer(0, n4). edge(n1, n12). in_layer(3, n28). edge(n12, n19). in_layer(1, n16). in_layer(2, n17). in_layer(0,n2). in_layer(2,n18). in_layer(2,n20). in_layer(3,n25). in_layer(4,n35). in_layer(1,n13). in_layer(0,n6). in_layer(3,n31). in_layer(5,n45). in_layer(0,n1). in_layer(0,n8). in_layer(4,n34). in_layer(5,n41). in_layer(0,n4). in_layer(3,n28). in_layer(1,n16). in_layer(2,n17). in_layer(0,n5). in_layer(5,n42). in_layer(5,n46). in_layer(1,n14). in_layer(1,n15). in_layer(4,n33). in_layer(2,n21). in_layer(0,n7). in_layer(1,n11). in_layer(1,n12). in_layer(3,n29). in_layer(5,n48). in_layer(3,n26). in_layer(4,n40). in_layer(5,n44). in_layer(2,n24). in_layer(5,n43). in_layer(2,n19). in_layer(3,n30). in_layer(2,n22). in_layer(1,n10). in_layer(3,n32). in_layer(5,n47). in_layer(4,n36). in_layer(4,n38). in_layer(0,n3). in_layer(3,n27). in_layer(4,n39). in_layer(2,n23). in_layer(4,n37). edge(n11,n18). edge(n11,n23). edge(n1,n13). edge(n1,n12). edge(n12,n19). in_layer(0, n5). in_layer(5, n42). in_layer(5, n46). in_layer(1, n14). in_layer(1, n15). in_layer(4, n33). in_layer(2, n21). in_layer(0, n7). in_layer(1, n11). in_layer(1, n12). in_layer(3, n29). in_layer(5, n48). in_layer(3, n26). in_layer(4, n40). in_layer(5, n44). in_layer(2, n24). in_layer(5, n43). in_layer(2, n19). in_layer(3, n30). in_layer(2, n22). in_layer(1, n10). in_layer(3, n32). in_layer(5, n47). in_layer(4, n36). in_layer(4, n38). in_layer(0, n3). in_layer(3, n27). in_layer(4, n39). in_layer(2, n23). in_layer(4, n37).
+edge(n1, n20). edge(n10, n13). in_layer(0, n2). edge(n11, n25). in_layer(1, n13). in_layer(3, n33). in_layer(0, n6). in_layer(3, n31). in_layer(0, n1). in_layer(0, n4). in_layer(3, n38). in_layer(3, n37). in_layer(2, n26). in_layer(1, n16). in_layer(2, n28). edge(n10, n19). in_layer(3, n36). in_layer(0, n5). in_layer(3, n35). edge(n11, n22). in_layer(1, n18). in_layer(1, n14). in_layer(1, n15). in_layer(2, n21). in_layer(0, n7). in_layer(1, n11). in_layer(3, n34). edge(n12, n22). in_layer(1, n12). in_layer(0,n2). in_layer(1,n13). in_layer(3,n33). in_layer(0,n6). in_layer(3,n31). in_layer(0,n1). in_layer(0,n4). in_layer(3,n38). in_layer(3,n37). in_layer(2,n26). in_layer(1,n16). in_layer(2,n28). in_layer(3,n36). in_layer(0,n5). in_layer(3,n35). in_layer(1,n18). in_layer(1,n14). in_layer(1,n15). in_layer(2,n21). in_layer(0,n7). in_layer(1,n11). in_layer(3,n34). in_layer(1,n12). in_layer(2,n27). in_layer(2,n24). in_layer(1,n17). in_layer(2,n22). in_layer(3,n32). in_layer(0,n10). in_layer(0,n3). in_layer(2,n23). in_layer(2,n25). edge(n1,n20). edge(n10,n13). edge(n11,n25). edge(n10,n19). edge(n11,n22). edge(n12,n22). edge(n12,n23). edge(n11,n30). in_layer(2, n27). edge(n12, n23). in_layer(2, n24). in_layer(1, n17). in_layer(2, n22). in_layer(3, n32). in_layer(0, n10). edge(n11, n30). in_layer(0, n3). in_layer(2, n23). in_layer(2, n25).
+edge(n11, n18). in_layer(0, n2). in_layer(2, n18). in_layer(2, n20). in_layer(3, n25). in_layer(1, n13). in_layer(0,n2). in_layer(2,n18). in_layer(2,n20). in_layer(3,n25). in_layer(1,n13). in_layer(0,n6). in_layer(3,n31). in_layer(0,n1). in_layer(0,n8). in_layer(0,n4). in_layer(3,n28). in_layer(1,n16). in_layer(2,n17). in_layer(0,n5). in_layer(1,n14). in_layer(1,n15). in_layer(2,n21). in_layer(0,n7). in_layer(1,n11). in_layer(1,n12). in_layer(3,n29). in_layer(1,n9). in_layer(3,n26). in_layer(2,n24). in_layer(2,n19). in_layer(3,n30). in_layer(2,n22). in_layer(1,n10). in_layer(3,n32). in_layer(0,n3). in_layer(3,n27). in_layer(2,n23). edge(n11,n18). edge(n1,n12). edge(n13,n18). edge(n10,n20). edge(n1,n11). edge(n12,n23). edge(n11,n17). in_layer(0, n6). in_layer(3, n31). in_layer(0, n1). in_layer(0, n8). in_layer(0, n4). edge(n1, n12). edge(n13, n18). in_layer(3, n28). in_layer(1, n16). in_layer(2, n17). in_layer(0, n5). edge(n10, n20). edge(n1, n11). in_layer(1, n14). in_layer(1, n15). in_layer(2, n21). in_layer(0, n7). in_layer(1, n11). in_layer(1, n12). in_layer(3, n29). in_layer(1, n9). in_layer(3, n26). edge(n12, n23). in_layer(2, n24). in_layer(2, n19). in_layer(3, n30). in_layer(2, n22). in_layer(1, n10). in_layer(3, n32). in_layer(0, n3). in_layer(3, n27). in_layer(2, n23). edge(n11, n17).
+in_layer(0, n2). in_layer(2, n20). in_layer(0,n2). in_layer(2,n20). in_layer(1,n13). in_layer(3,n33). in_layer(0,n6). in_layer(3,n31). in_layer(0,n1). in_layer(0,n8). in_layer(0,n4). in_layer(3,n28). in_layer(4,n42). in_layer(2,n26). in_layer(1,n16). in_layer(4,n44). in_layer(0,n5). in_layer(3,n35). in_layer(4,n41). in_layer(1,n14). in_layer(1,n15). in_layer(2,n21). in_layer(0,n7). in_layer(1,n11). in_layer(3,n34). in_layer(1,n12). in_layer(3,n29). in_layer(4,n40). in_layer(2,n24). in_layer(1,n17). in_layer(2,n19). in_layer(2,n22). in_layer(1,n10). in_layer(3,n30). in_layer(3,n32). in_layer(4,n43). in_layer(4,n38). in_layer(0,n3). in_layer(4,n39). in_layer(2,n23). in_layer(4,n37). in_layer(2,n25). edge(n12,n19). edge(n13,n23). edge(n14,n23). edge(n1,n18). edge(n2,n3). edge(n12,n23). edge(n1,n10). edge(n11,n24). in_layer(1, n13). in_layer(3, n33). in_layer(0, n6). in_layer(3, n31). in_layer(0, n1). in_layer(0, n8). in_layer(0, n4). in_layer(3, n28). in_layer(4, n42). edge(n12, n19). in_layer(2, n26). in_layer(1, n16). in_layer(4, n44). edge(n13, n23). in_layer(0, n5). in_layer(3, n35). edge(n14, n23). in_layer(4, n41). in_layer(1, n14). in_layer(1, n15). in_layer(2, n21). in_layer(0, n7). in_layer(1, n11). in_layer(3, n34). in_layer(1, n12). in_layer(3, n29). edge(n1, n18). edge(n2, n3). in_layer(4, n40). edge(n12, n23). in_layer(2, n24). in_layer(1, n17). in_layer(2, n19). in_layer(2, n22). in_layer(1, n10). in_layer(3, n30). in_layer(3, n32). in_layer(4, n43). in_layer(4, n38). in_layer(0, n3). edge(n1, n10). edge(n11, n24). in_layer(4, n39). in_layer(2, n23). in_layer(4, n37). in_layer(2, n25).
+in_layer(0, n2). edge(n11, n25). in_layer(1, n13). in_layer(0, n6). in_layer(0, n1). edge(n11, n27). in_layer(0, n4). edge(n10, n11). in_layer(2, n26). in_layer(0,n2). in_layer(1,n13). in_layer(0,n6). in_layer(0,n1). in_layer(0,n4). in_layer(2,n26). in_layer(1,n16). in_layer(2,n28). in_layer(0,n5). in_layer(1,n18). in_layer(1,n14). in_layer(1,n15). in_layer(2,n21). in_layer(0,n7). in_layer(1,n11). in_layer(1,n12). in_layer(2,n27). in_layer(2,n24). in_layer(1,n17). in_layer(2,n22). in_layer(0,n10). in_layer(0,n3). in_layer(2,n23). in_layer(2,n25). edge(n11,n25). edge(n11,n27). edge(n10,n11). edge(n12,n29). edge(n1,n19). edge(n13,n21). edge(n1,n18). edge(n10,n18). in_layer(1, n16). in_layer(2, n28). in_layer(0, n5). in_layer(1, n18). in_layer(1, n14). edge(n12, n29). in_layer(1, n15). in_layer(2, n21). in_layer(0, n7). edge(n1, n19). in_layer(1, n11). in_layer(1, n12). edge(n13, n21). edge(n1, n18). in_layer(2, n27). in_layer(2, n24). in_layer(1, n17). in_layer(2, n22). in_layer(0, n10). in_layer(0, n3). edge(n10, n18). in_layer(2, n23). in_layer(2, n25).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+edge(1, 4). edge(1, 2). edge(1, 3). edge(10, 11). edge(11, 12). edge(10, 14). edge(10, 12). edge(1, 5).
+edge(1, 4). edge(1, 3). edge(11, 12). edge(10, 14). edge(10, 12). edge(1, 5).
+edge(10, 27). edge(1, 2). edge(11, 27). edge(1, 27). edge(10, 11). edge(11, 12). edge(12, 13). edge(12, 27).
+edge(11, 15). edge(1, 2).
+edge(10, 31). edge(1, 2). edge(10, 1). edge(12, 31). edge(11, 31). edge(11, 12).
+edge(1, 6). edge(11, 16). edge(11, 12). edge(10, 15). edge(12, 13). edge(12, 17). edge(10, 6).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+colour(red0). colour(blue0). link(10, 119). colour(yellow0). link(32, 100). node(50). colour(cyan0). node(23). node(22). node(46). node(93). colour(green0). link(131, 24). node(2). node(115). node(99). link(1, 113). link(88, 99). link(111, 113). node(105). node(29). node(88). link(101, 105). link(117, 125). link(105, 101). link(125, 13). link(16, 17). link(111, 117). node(121). node(104). node(5). node(27). link(120, 121). link(104, 116). link(29, 100). node(15). node(112). node(45). node(17). link(124, 13). node(100). node(1). node(102). node(16). node(20). node(10). node(101). link(21, 100). link(100, 104). node(8). link(37, 43). node(103). node(124). link(8, 100). node(120). link(46, 53). node(13). link(5, 58). node(125). link(102, 112). node(116). link(134, 36). node(58). link(103, 127). link(4, 100). node(131). node(25). node(43). node(84). link(25, 45). link(134, 20). link(2, 21). node(130). node(21). node(113). node(127). link(22, 27). link(84, 93). node(119). node(37). node(24). node(53). link(13, 16). node(75). node(32). node(4). link(116, 125). link(113, 115). link(50, 75). link(20, 23). link(130, 15). link(75, 83). node(117). link(104, 100).
+link(1, 28). link(105, 14). node(23). node(30). node(40). node(133). node(67). colour(blue). link(1, 125). node(2). link(103, 67). link(10, 36). link(1, 119). node(115). link(103, 128). link(102, 133). link(105, 3). link(100, 105). node(123). link(100, 114). node(105). link(100, 40). node(29). link(1, 100). link(101, 23). node(70). link(101, 21). node(104). link(101, 131). link(1, 24). link(104, 116). link(102, 106). node(118). link(103, 48). node(36). link(101, 11). node(15). node(69). node(112). node(45). node(108). node(114). node(100). node(107). link(10, 128). node(38). node(1). colour(yellow). link(102, 28). node(102). node(16). link(104, 38). node(10). link(104, 28). node(101). link(103, 40). link(10, 63). link(101, 120). link(101, 123). link(100, 30). link(1, 23). link(102, 113). link(10, 116). link(105, 29). node(128). link(100, 2). link(101, 112). node(103). node(110). link(102, 109). node(120). colour(cyan). link(103, 70). link(10, 29). link(100, 16). node(14). node(125). link(103, 69). link(105, 118). node(116). link(10, 45). node(129). node(48). colour(red). link(105, 100). link(101, 114). link(105, 111). node(63). node(131). link(10, 127). link(105, 125). node(3). node(31). link(100, 1). node(111). node(21). link(102, 15). node(113). link(104, 118). link(1, 31). node(127). link(1, 19). node(119). node(37). node(109). node(24). link(10, 21). link(100, 133). link(104, 82). link(103, 129). node(19). node(106). node(28). link(102, 31). node(11). node(82). link(102, 119). link(105, 37). colour(green). link(103, 115). node(117).
+size(11).
+size(14).
+size(10).
+size(13).
+size(12).
+size(13).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+in_layer(0, n2). edge(n12, n20). in_layer(2, n20). in_layer(2, n21). in_layer(1, n12). in_layer(1, n11). in_layer(0, n8). in_layer(1, n13). in_layer(2, n24). in_layer(2, n23). in_layer(1, n14). in_layer(0, n5). in_layer(0, n6). in_layer(3, n34). in_layer(3, n31). in_layer(2, n19). edge(n11, n26). edge(n14, n21). in_layer(3, n29). in_layer(1, n15). in_layer(2, n25). edge(n2, n26). edge(n1, n10). in_layer(0, n7). in_layer(0, n3). in_layer(1, n10). in_layer(3, n35). edge(n10, n26). edge(n12, n24). in_layer(1, n16). in_layer(3, n32). in_layer(3, n28). in_layer(1, n17). in_layer(3, n30). in_layer(0, n1). edge(n13, n20). in_layer(2, n26). in_layer(2, n22). in_layer(0, n4). edge(n15, n21). in_layer(3, n33).
+in_layer(0, n2). in_layer(2, n20). in_layer(2, n21). edge(n11, n23). in_layer(1, n12). in_layer(1, n11). edge(n1, n13). in_layer(5, n45). in_layer(0, n8). in_layer(3, n26). in_layer(4, n37). in_layer(1, n13). in_layer(5, n48). in_layer(2, n24). edge(n12, n19). in_layer(4, n35). in_layer(2, n23). in_layer(1, n14). in_layer(0, n5). in_layer(0, n6). edge(n11, n18). in_layer(3, n27). in_layer(5, n47). in_layer(3, n31). in_layer(2, n19). in_layer(3, n29). in_layer(5, n43). in_layer(5, n46). in_layer(1, n15). in_layer(0, n7). in_layer(2, n17). in_layer(2, n18). edge(n1, n12). in_layer(0, n3). in_layer(4, n40). in_layer(1, n10). in_layer(3, n25). in_layer(1, n16). in_layer(3, n32). in_layer(4, n33). in_layer(3, n28). in_layer(3, n30). in_layer(4, n34). in_layer(0, n1). in_layer(5, n42). in_layer(5, n41). in_layer(2, n22). in_layer(5, n44). in_layer(0, n4). in_layer(4, n39). in_layer(4, n38). in_layer(4, n36).
+size(11).
+size(14).
+size(10).
+size(13).
+size(12).
+size(13).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+in_layer(0, n2). in_layer(1, n11). in_layer(0, n7). in_layer(3, n30). in_layer(1, n10). edge(n15, n21). in_layer(2, n25). in_layer(3, n29). in_layer(3, n35). in_layer(1, n17). in_layer(2, n23). edge(n1, n10). edge(n12, n24). edge(n11, n26). in_layer(3, n31). layers(4). width(0,8). width(1,8). width(3,8). width(2,8). edge(n13, n20). in_layer(2, n20). in_layer(2, n21). in_layer(3, n33). in_layer(0, n5). in_layer(1, n15). edge(n10, n26). in_layer(0, n3). in_layer(1, n12). in_layer(1, n14). in_layer(2, n22). in_layer(1, n13). edge(n14, n21). in_layer(0, n6). in_layer(2, n19). in_layer(3, n28). edge(n12, n20). in_layer(3, n32). in_layer(0, n1). in_layer(2, n26). in_layer(3, n34). edge(n2, n26). in_layer(0, n8). in_layer(0, n4). in_layer(2, n24). in_layer(1, n16).
+in_layer(0, n2). in_layer(4, n35). in_layer(2, n17). in_layer(1, n11). in_layer(0, n7). in_layer(3, n26). in_layer(3, n30). in_layer(5, n48). in_layer(1, n10). in_layer(3, n29). in_layer(5, n43). in_layer(2, n23). layers(6). width(0,8). width(4,8). width(2,8). width(1,7). width(3,8). width(5,8). in_layer(5, n41). in_layer(3, n27). in_layer(3, n31). in_layer(4, n38). edge(n1, n13). edge(n1, n12). in_layer(5, n42). in_layer(2, n20). in_layer(2, n21). in_layer(4, n40). in_layer(3, n25). in_layer(0, n5). in_layer(5, n44). edge(n11, n23). in_layer(1, n15). in_layer(0, n3). in_layer(1, n12). in_layer(1, n14). in_layer(2, n18). in_layer(2, n22). in_layer(4, n39). in_layer(1, n13). in_layer(4, n34). in_layer(5, n45). edge(n12, n19). in_layer(0, n6). in_layer(2, n19). in_layer(3, n28). in_layer(4, n37). in_layer(3, n32). in_layer(4, n36). in_layer(0, n1). in_layer(5, n46). edge(n11, n18). in_layer(0, n8). in_layer(5, n47). in_layer(0, n4). in_layer(2, n24). in_layer(1, n16). in_layer(4, n33).
+edge(n11, n22). in_layer(0, n2). in_layer(3, n37). in_layer(1, n11). in_layer(0, n7). edge(n1, n20). in_layer(1, n18). in_layer(2, n25). in_layer(3, n35). in_layer(1, n17). in_layer(2, n23). layers(4). width(0,8). width(3,8). width(1,8). width(2,8). edge(n10, n19). edge(n10, n13). in_layer(3, n31). edge(n11, n30). in_layer(3, n36). in_layer(2, n21). in_layer(3, n33). in_layer(2, n24). in_layer(0, n5). in_layer(2, n27). in_layer(1, n15). edge(n12, n23). in_layer(0, n3). in_layer(1, n12). in_layer(1, n14). in_layer(2, n22). in_layer(3, n38). in_layer(1, n13). in_layer(0, n10). in_layer(0, n6). in_layer(2, n28). in_layer(3, n32). in_layer(0, n1). in_layer(2, n26). in_layer(3, n34). edge(n11, n25). in_layer(0, n4). edge(n12, n22). in_layer(1, n16).
+edge(n11, n17). in_layer(0, n2). in_layer(2, n17). edge(n1, n11). in_layer(1, n11). in_layer(0, n7). in_layer(1, n9). in_layer(3, n26). in_layer(3, n30). in_layer(1, n10). layers(4). width(0,8). width(2,8). width(1,8). width(3,8). in_layer(3, n29). in_layer(2, n23). edge(n13, n18). in_layer(3, n27). in_layer(3, n31). edge(n1, n12). in_layer(2, n20). in_layer(2, n21). in_layer(3, n25). in_layer(0, n5). in_layer(1, n15). edge(n12, n23). in_layer(0, n3). in_layer(1, n12). in_layer(1, n14). edge(n10, n20). in_layer(2, n18). in_layer(2, n22). in_layer(1, n13). in_layer(0, n6). in_layer(2, n19). in_layer(3, n28). in_layer(3, n32). in_layer(0, n1). edge(n11, n18). in_layer(0, n8). in_layer(0, n4). in_layer(2, n24). in_layer(1, n16).
+in_layer(0, n2). in_layer(4, n44). in_layer(1, n11). in_layer(0, n7). in_layer(3, n30). in_layer(1, n10). in_layer(2, n25). in_layer(3, n29). in_layer(3, n35). edge(n13, n23). in_layer(1, n17). in_layer(4, n41). in_layer(2, n23). edge(n1, n10). in_layer(3, n31). in_layer(4, n38). in_layer(2, n20). in_layer(2, n21). in_layer(4, n40). in_layer(3, n33). in_layer(0, n5). in_layer(1, n15). edge(n12, n23). in_layer(0, n3). in_layer(1, n12). in_layer(1, n14). in_layer(2, n22). edge(n2, n3). in_layer(4, n39). in_layer(1, n13). layers(5). width(0,8). width(4,8). width(1,8). width(3,8). width(2,8). edge(n12, n19). in_layer(0, n6). in_layer(2, n19). in_layer(3, n28). in_layer(4, n43). in_layer(4, n37). in_layer(3, n32). in_layer(0, n1). in_layer(2, n26). in_layer(3, n34). in_layer(4, n42). in_layer(0, n8). in_layer(0, n4). edge(n11, n24). edge(n1, n18). in_layer(2, n24). edge(n14, n23). in_layer(1, n16).
+edge(n12, n29). edge(n10, n11). layers(3). width(0,8). width(1,8). width(2,8). in_layer(0, n2). in_layer(1, n11). in_layer(0, n7). in_layer(1, n18). in_layer(2, n25). in_layer(1, n17). in_layer(2, n23). edge(n10, n18). in_layer(2, n21). in_layer(0, n5). in_layer(2, n27). in_layer(1, n15). in_layer(0, n3). in_layer(1, n12). in_layer(1, n14). in_layer(2, n22). in_layer(1, n13). edge(n11, n27). in_layer(0, n10). in_layer(0, n6). in_layer(2, n28). in_layer(0, n1). in_layer(2, n26). edge(n11, n25). edge(n13, n21). edge(n1, n19). in_layer(0, n4). edge(n1, n18). in_layer(2, n24). in_layer(1, n16).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+edge(1, 4). edge(11, 12). edge(10, 14). edge(1, 2). edge(10, 11). edge(1, 5). edge(1, 3). edge(10, 12).
+edge(11, 12). edge(1, 4). edge(10, 14). edge(1, 5). edge(1, 3). edge(10, 12).
+edge(11, 12). edge(12, 13). edge(1, 27). edge(11, 27). edge(10, 27). edge(1, 2). edge(10, 11). edge(12, 27).
+edge(11, 15). edge(1, 2).
+edge(11, 12). edge(10, 31). edge(10, 1). edge(1, 2). edge(11, 31). edge(12, 31).
+edge(11, 12). edge(12, 13). edge(1, 6). edge(10, 15). edge(11, 16). edge(10, 6). edge(12, 17).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+node(121). link(125, 13). link(20, 23). link(102, 112). node(84). node(113). node(32). node(43). node(1). link(10, 119). node(37). colour(yellow0). node(58). node(105). link(2, 21). colour(green0). link(8, 100). colour(cyan0). link(120, 121). node(29). node(101). node(20). node(23). link(1, 113). link(32, 100). node(116). node(100). link(105, 101). link(124, 13). node(17). node(46). node(130). link(117, 125). link(113, 115). node(22). node(25). node(131). node(75). link(46, 53). link(29, 100). link(131, 24). link(22, 27). link(5, 58). link(116, 125). link(84, 93). node(103). link(4, 100). node(125). node(16). link(111, 113). link(100, 104). link(25, 45). node(21). node(102). node(45). link(88, 99). link(130, 15). link(50, 75). link(134, 20). node(15). link(21, 100). node(119). link(16, 17). node(50). link(104, 100). link(101, 105). node(13). node(93). link(37, 43). node(127). node(104). link(103, 127). node(4). colour(red0). node(5). link(111, 117). node(10). node(24). node(27). node(88). link(75, 83). node(99). node(53). link(13, 16). link(104, 116). node(117). colour(blue0). node(115). node(8). node(124). node(112). node(2). node(120). link(134, 36).

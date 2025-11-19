@@ -1,6 +1,4 @@
-preprocessing:
-- _: |
-    Problem description:
+problem_definition: |
     Sokoban is a classic problem which appeared so far in all the ASP Competitions. This year the problem specifications were adapted in order to adhere to the specifications of the homologous problem used at IPC 2011 and 2008, in order to achieve a clearer comparative picture between planners and ASP solvers. 
     Sokoban is a game puzzle developed by the Japanese company Thinking Rabbit, Inc. in 1982. 'Sokoban' means 'warehouse-keeper' in Japanese. Each puzzle consists of a room layout (a number of square fields representing walls or parts of the floor, some of which are marked as storage space) and a starting situation (one sokoban and a number of boxes, all of which must reside on some floor location, where one box occupies precisely one location and each location can hold at most one box). 
     The goal is to move all boxes onto storage locations. To this end, the sokoban can walk on floor locations (unless occupied by some box), and push single boxes onto unoccupied floor locations. In the decision version of this problem, the question to answer is whether a solution involving at most N actions exists, for N given as input. If so, a witness containing the sequence of actions should be produced; otherwise no solution should be output.
@@ -20,6 +18,8 @@ preprocessing:
     Each instance has exactly one fact for player/1. There can be in principle non-goal stones (i.e. there can be s such that stone(s) holds, but not goal(s)).
     An instance also contains a sequence of time-steps for warehouse configurations, between which the actions occur:
     step(s): s is an allowed step. It can be assumed steps are consecutive integers ranging from 1 towards a limit value N. Steps are associated to actions. It's up to problem modeller's how to treat properly the presence of N+1 intermediate states.
+
+predicates:
 - at(object:str,position:str): |
     For each object (an unquoted string), provide its initial position (an unquoted string).
 - clear(position:str): |

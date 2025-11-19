@@ -1,6 +1,4 @@
-preprocessing:
-- _: |
-    Problem description:
+problem_definition: |
     A given people counting system includes three types of components, namely door sensor, zone, and communication unit. The problem requirements are: 
     1. Each zone as well as each door sensor must be connected to exactly one unit; 
     2. Each unit can control at most two door sensors and at most two zones; 
@@ -11,6 +9,8 @@ preprocessing:
     Format description of the predicates to be extracted:
     The predicates comUnit/1 and maxPU/1 define available units and the number of allowed partner units respectively. 
     The fact that a door sensor belongs to a zone is given by means of zone2sensor/2 predicate, e.g. zone2sensor(1,1) means that doorSensor(1) belongs to zone(1).
+
+predicates:
 - comUnit(unit_id:int): |
     List all the available units by specifying their unit_id (an integer).
     Units form a sequence from 1 to the total number of units.

@@ -1,6 +1,4 @@
-preprocessing:
-- _: |
-    Problem description:
+problem_definition: |
     An ubiquitous feature of planning problems is the need to economize limited resources such as fuel or money. While heuristic search, mostly based on relaxation heuristics, is currently the superior method for most varieties of planning, its ability to solve critically resource-constrained problems is limited: relaxation heuristics basically ignore the resource consumption by actions. Nomystery is a nice test domain to study the behavior of planning algorithms in planning problems with resources.
     In Nomystery, a truck moves in a weighted graph where a set of packages must be transported between nodes. Actions move the truck along edges and load/unload packages. Each move consumes the edge weight in fuel. The edge weights are uniformly drawn between 1 and an integer W. The initial fuel supply is set to C * M where M is the minimum required amount of fuel, calculated using a domain-specific optimal solver, and C >= 1 is a (float) input parameter that denotes the ratio between the available fuel vs. the minimum amount required. The closer C to 1, the more constrained the problem. If C=1only the optimal plan solves the problem.
     The authors originally provided two versions of the domain, called Hard and Hard-cost. They differ only in the cost of the actions. In the first one, all the actions have unitary cost, while in the second version the cost of moving a track equals the fuel consumed. According to the author:
@@ -15,6 +13,8 @@ preprocessing:
     - goal(p,l): at the final step, the package p must stay at location
     - l step(s): s is an allowed step, for s a positive integer value
     the predicate step is intended in order to encode the maximum number of allowed steps. It can be assumed that for 1..n the allowed steps, then step(1) .. step(n) assertions hold.
+
+predicates:
 - at(object:str,location:str): |
     For each object (an unquoted string), specify its initial location (an unquoted string).
 - fuel(truck:str,quantity:str): |

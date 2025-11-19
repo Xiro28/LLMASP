@@ -1,6 +1,4 @@
-preprocessing:
-- _: |
-    Problem description:
+problem_definition: |
     A still life is a set of connected live cells from a grid that is fixed under the transition function of John Horton Conway 1970's Game of Life:
     1. Any cell with 3 neighbours becomes a live cell. 
     2. Any live cell with 2-3 live neighbours lives on. 
@@ -12,8 +10,9 @@ preprocessing:
     We here consider square shaped regions. 
     The size n of the region is provided by an instance of the predicate size/1. 
     Cells connect horizontally, vertically, and diagonally.
-- size(value:int): |
-    value is the size of the region.
+
+predicates:
+- size(value:int): value is the size of the region.
 
 knowledge_base:
 
