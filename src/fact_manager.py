@@ -1,18 +1,18 @@
 class FactManager:
     _facts = set()
 
-    @classmethod
-    def add_fact(cls, fact: str):
-        cls._facts.add(fact)
+    @staticmethod
+    def add_fact(fact: str):
+        FactManager._facts.add(fact)
 
-    @classmethod
-    def remove_fact(cls, fact: str):
-        cls._facts.discard(fact)
+    @staticmethod
+    def remove_fact(fact: str):
+        FactManager._facts.discard(fact)
 
-    @classmethod
-    def reset_facts(cls):
-        cls._facts = set()
+    @staticmethod
+    def reset_facts():
+        FactManager._facts = set()
 
-    @classmethod
-    def get_all_facts(cls):
-        return "\n".join(cls._facts)
+    @staticmethod
+    def get_all_facts():
+        return "\n".join(FactManager._facts)

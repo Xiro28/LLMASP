@@ -2,8 +2,16 @@ import json
 import matplotlib.pyplot as plt
 import numpy as np
 
+import sys
+
+
 def check_validity(time=None, mode=None, graph_name=None, full_description=False, tokens=None):
-    with open("./temp.txt", "r") as f:
+    path = sys.argv[1]
+    
+    if (path.endswith(".txt") == False):
+        path = "./temp.txt"
+
+    with open(path, "r") as f:
         output = f.readlines()
 
     _dataset = json.load(open("./dataset.json", "r"))
@@ -135,31 +143,31 @@ def check_validity(time=None, mode=None, graph_name=None, full_description=False
     print(f"  FP:      {FP_total}")
     print(f"  FN:      {FN_total}")
 
-    description = "descr" if full_description else "no_descr"
-    with open("validity_results.txt", "a") as f:
-        f.write("Tokens in output: " + str(tokens) + "\n")
-        f.write("Time taken: " + str(time) + "\n")
-        f.write("Global metrics for " + mode + description + ":\n")
-        f.write(f"  Accuracy: {global_accuracy:.3f}\n")
-        f.write(f"  F1:       {global_f1:.3f}\n")
-        f.write(f"  TP:      {TP_total}\n")
-        f.write(f"  FP:      {FP_total}\n")
-        f.write(f"  FN:      {FN_total}\n\n")
+    # description = "descr" if full_description else "no_descr"
+    # with open("validity_results.txt", "a") as f:
+    #     f.write("Tokens in output: " + str(tokens) + "\n")
+    #     f.write("Time taken: " + str(time) + "\n")
+    #     f.write("Global metrics for " + mode + description + ":\n")
+    #     f.write(f"  Accuracy: {global_accuracy:.3f}\n")
+    #     f.write(f"  F1:       {global_f1:.3f}\n")
+    #     f.write(f"  TP:      {TP_total}\n")
+    #     f.write(f"  FP:      {FP_total}\n")
+    #     f.write(f"  FN:      {FN_total}\n\n")
 
-        for name, stats in problem_acc.items():
-            tp = stats["TP"]
-            fp = stats["FP"]
-            fn = stats["FN"]
-            denom_local = tp + fp + fn
-            accuracy = (tp / denom_local) if denom_local else 0.0
-            f1 = (2 * tp / (2 * tp + fp + fn)) if (2 * tp + fp + fn) else 0.0
+    #     for name, stats in problem_acc.items():
+    #         tp = stats["TP"]
+    #         fp = stats["FP"]
+    #         fn = stats["FN"]
+    #         denom_local = tp + fp + fn
+    #         accuracy = (tp / denom_local) if denom_local else 0.0
+    #         f1 = (2 * tp / (2 * tp + fp + fn)) if (2 * tp + fp + fn) else 0.0
 
-            f.write(f"Problem: {name}\n")
-            f.write(f"  TP: {tp}\n")
-            f.write(f"  FP: {fp}\n")
-            f.write(f"  FN: {fn}\n")
-            f.write(f"  Accuracy: {accuracy:.3f}\n")
-            f.write(f"  F1: {f1:.3f}\n\n")
+    #         f.write(f"Problem: {name}\n")
+    #         f.write(f"  TP: {tp}\n")
+    #         f.write(f"  FP: {fp}\n")
+    #         f.write(f"  FN: {fn}\n")
+    #         f.write(f"  Accuracy: {accuracy:.3f}\n")
+    #         f.write(f"  F1: {f1:.3f}\n\n")
 
 
     # Creiamo lo Spider Plot

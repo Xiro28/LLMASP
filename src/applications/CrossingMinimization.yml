@@ -17,9 +17,9 @@ problem_definition: |
     The predicate edge/2 defines edges between nodes. For example edge(n1,n3). edge(n2,n3).
 
 predicates:
-- edge(source:str, target:str): List all the edges from source (a string) to target (a string).
+- edge(source:str, target:str): List all the edges from source to target.
 - in_layer(layer:int, node:str): 
-    - prompt: For each layer (an integer), list every node (a string) that belongs to that layer.
+    - prompt: For each layer, list every node that belongs to that layer.
     - kb: |
         layer(L) :- in_layer(L, _).
 
@@ -32,14 +32,15 @@ predicates:
 
         #show layers/1.
         #show width/2.
+        #show in_layer/2.
     
 - width(layer:int, number_of_nodes:int): 
     - prompt: For each layer, specify the number of nodes.
-    - if: not width && any in_layer
-    
+    - if: not width(_, _)
+        
 - layers(value:int): 
     - prompt: value is the total number of layers.
-    - if: not layers && any in_layer
+    - if: not layers(_)
 
 knowledge_base:
 

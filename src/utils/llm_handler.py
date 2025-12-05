@@ -1,4 +1,4 @@
-from ollama import chat
+import ollama
 
 total_tokens = 0
 
@@ -12,7 +12,8 @@ class LLMHandler:
         self.llm_model = llm_model
         
         self.system_prompt = system_prompt
-        self.__llm = chat
+        self.__llm = ollama.Client(host='http://localhost:11435').chat
+        #self.__llm = ollama.chat
         self.tokens = 0
 
         self.CONTEXT_WINDOW = 8192
@@ -134,10 +135,15 @@ class LLMHandler:
         total_tokens += self.tokens
         # TODO: add tokens and register them in base of the type of problem we are solving
         print(f"LLM tokens: {total_tokens} output: {_ret}")
-        if type(class_response) != str:
-            return class_response.model_validate_json(_ret)
-        
-        return _ret
+
+        try:
+            if type(class_response) != str:
+                return class_response.model_validate_json(_ret)
+            
+            return _ret
+        except Exception as e:
+            print(f"Error validating model response: {e}")
+            return None
 
     def invoke_llm(self, prompts: list, temperature = 0.0) -> dict:
         """

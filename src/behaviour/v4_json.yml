@@ -12,18 +12,12 @@ preprocessing:
     - [INPUT]Joe is a developer[/INPUT], the instructions are "the job of a person", and the output format is [OUTPUT]{"list_job": [ {"person": value}, {"value": value} ] }[/OUTPUT]: you MUST reply [OUTPUT]{"list_job": [ {"object": joe}, {"value": developer} ] }[/OUTPUT]
     - [INPUT]Mario is a professor[/INPUT], the instructions are "where is the person", and the output format is [OUTPUT]{"list_location": [ {"person": value}, {"value": value} ] }[/OUTPUT]: you MUST reply [OUTPUT]{"list_location": [] }[/OUTPUT]
 
-    Remember these instructions and don't say anything!
   context: |
-    Here is some context that you MUST analyze and always remember.
-    
     {context}
     
-    Remember this context and don't say anything!
   mapping: |
-    [INPUT]{input}[/INPUT]
-    
-    Process the INPUT according to the following instructions:
-    {instructions}
+    {instructions}:
+    {input}
 
     The output format is
     [OUTPUT]{atom}[/OUTPUT]

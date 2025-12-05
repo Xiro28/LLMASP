@@ -6,79 +6,79 @@ class Predicate:
 
     def __init__(self, predicate, value):
         
-        self._predicate = predicate.replace(":str", "").replace(":int", "")
+        self.advanced_prompt_type = False
+        self.defined_predicate = predicate.replace(":str", "").replace(":int", "")
+
+        self.__prompt = ""
+        self.__condition = ""
+        self.__kb = ""
 
         if isinstance(value, list):
-            self.obj_type = True
+            self.advanced_prompt_type = True
 
-            # in value we have a list that contains prompt and optionally if and kb, They are stored in a dict
-            value_dict = {}
             for v in value:
                 if "prompt" in v:
-                    value_dict["prompt"] = v["prompt"]
+                    self.__prompt = v["prompt"]
                 elif "kb" in v:
-                    value_dict["kb"] = v["kb"]
+                    self.__kb = v["kb"]
                 elif "if" in v:
-                    value_dict["if"] = v["if"]
-
-            self.value = value_dict
+                    self.__condition = v["if"]
         else:
-            self.obj_type = False
-            self.value = value
+            self.__prompt = value
 
 
     def __str__(self):
-        return self._predicate
+        return self.defined_predicate
 
     @property
-    def prompt(self):
-        if self.obj_type:
-            return self.value["prompt"]
-        
-        return self.value
+    def prompt_description(self):
+        return self.__prompt
 
     @property
     def predicate(self):
-        return self._predicate
+        return self.defined_predicate
+
+    @property
+    def predicate_head(self):
+        return self.defined_predicate.split("(")[0]
 
     def execute_condition(self, condition: str):
 
-        if "&&" in condition:
-            conditions = condition.split("&&")
-            for cond in conditions:
-                if not self.execute_condition(cond.strip()):
-                    return False
-            return True
-        elif "||" in condition:
-            conditions = condition.split("||")
-            for cond in conditions:
-                if self.execute_condition(cond.strip()):
-                    return True
-            return False
+        complex_condition = False
 
-        parameters = condition.split(" ")
+        try:
+            uuid8 = f"uid{rand() * 1000}"
+            model = Model.of_program(f"""
+                {uuid8} :- {condition}.
+                #show {uuid8}.
+            """, sort=False)
+        except Exception as e:
+            complex_condition = True
 
-        op = parameters[0]
-        if op == "any":
-            return parameters[1] in FactManager.get_all_facts()
-        elif op == "not":
-            return parameters[1] not in FactManager.get_all_facts()
+
+        if complex_condition:
+            try:
+                model = Model.of_program(condition, FactManager.get_all_facts(), sort=False)
+            except Exception as e:    
+                raise ValueError(f"Error executing condition: {e}")
+                return False
         
-        return False
+        return len(model.as_facts) > 0
             
 
-    def check_existence_condition(self):
-        if self.obj_type:
-            condition = self.value.get("if", "")
-            if condition != "":
-                return self.execute_condition(condition)
+    def has_to_be_extracted(self):
+        if self.advanced_prompt_type and self.__condition != "":
+            return self.execute_condition(self.__condition)
         return True
 
-    def run_kb(self):
-        if self.obj_type:
-            kb = self.value.get("kb", "")
-            if kb != "":
-                new_facts = Model.of_program(kb, FactManager.get_all_facts(), sort=False).as_facts
-                print(f"Adding KB facts for predicate {self._predicate}:\n{new_facts}")
-                return new_facts
-        return ""
+    def run_kb(self, extracted_facts=""):
+
+        result = extracted_facts
+
+        if self.advanced_prompt_type and self.__kb != "":
+            try:
+                result = Model.of_program(self.__kb, FactManager.get_all_facts() + extracted_facts, sort=False).as_facts
+            except Exception as e:
+                raise ValueError(f"Error running kb: {e}")
+
+        return result

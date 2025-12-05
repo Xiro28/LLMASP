@@ -4,7 +4,7 @@ from typing import Optional
 
 class ClassBuilder:
 
-    def __init__(self, predicates: list):
+    def __init__(self, predicates: list, enable_types: bool = False):
 
         """
             Build classes from the predicates dictionary.
@@ -59,8 +59,6 @@ class ClassBuilder:
                 class_dict = {}
                 annotations = {}
 
-                ENABLE_TYPES = True
-
                 for term in terms:
                     term_name = term.strip().replace(")", "")
 
@@ -72,7 +70,7 @@ class ClassBuilder:
 
                         class_dict[name] = Field()
 
-                        if ENABLE_TYPES:
+                        if enable_types:
                             if term_type == "int":
                                 annotations[name] = int
                             else:
@@ -103,7 +101,6 @@ class ClassBuilder:
 
                 # Create the new class dynamically
                 new_class = type(class_name, (BaseModel,), class_dict)
-                self.__classes[class_name] = new_class
 
                 wrapper_name = f"list_{class_name}"
 

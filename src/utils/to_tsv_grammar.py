@@ -23,29 +23,6 @@ class GrammarsBuilder:
 
         self.__grammars = {}
 
-        classes_name = ""
-        for predicate in predicates:
-            for key in predicate.keys():
-                if key == "_":
-                    continue
-                classes_name += key.split("(")[0].replace("_", "") + " | "
-        
-        # Remove the last " | "
-        classes_name = classes_name[:-3]
-
-    
-
-        # Build the main grammar rule; note the use of escaped newline and tab.
-        classes_name_no_tab = f"(({classes_name}) newline?)+"
-        final_grammar = (
-            f"root ::= (output | none)\n"
-            f"output ::= {classes_name_no_tab}\n"
-            f"none ::= \"empty_predicate\"\n"
-            f"newline ::= \"\\n\"\n"
-        )
-
-        base_atoms = ""
-
         for predicate in predicates:
             for key in predicate.keys():
                 if key == "_":
@@ -69,12 +46,36 @@ class GrammarsBuilder:
                     if ":" in term:
                         term = term.split(":")[0]
                     terms_no_type.append(term.strip().replace("_", ""))
-
-
+                
+                
                 joined_terms = '"\t"'.join(terms_no_type).lower()
-                base_atoms += f"{class_name} {joined_terms}\n"
-                class_name_no_tab = class_name.replace("_", "")
-                final_grammar+= f"{class_name_no_tab} ::= \"{class_name}\t\" {joined_terms}\n"
+                joined_terms_no_tab = " ".join(terms_no_type)
+
+                structure_str = class_name + " " + " ".join(terms_no_type)
+
+                class_name_no_tab = class_name.replace("_", " ")
+                #Make the first letter of each word uppercase
+                class_name_no_tab = "".join([word.capitalize() for word in class_name_no_tab.split()])
+
+                if type(predicate[key]) is list:
+                    # in value we have a list that contains prompt and optionally if and kb, They are stored in a dict
+                    for v in predicate[key]:
+                        if "prompt" in v:
+                            description = v["prompt"].strip().replace("\n", " ").replace("\t", " ")
+                else:
+                    description = predicate[key].strip().replace("\n", " ").replace("\t", " ")
+
+
+                # Build the main grammar rule; note the use of escaped newline and tab.
+                current_grammar = (
+                    f"root ::= (output | \"empty_predicate\")\n"
+                    f"output ::= {class_name_no_tab} newline ({class_name_no_tab} newline?)*\n"
+                    f"newline ::= \"\\n\"\n"
+                    f"{class_name_no_tab} ::= \"{class_name}\t\"{joined_terms}\n"
+                )
+
+                # This is needed to be instruct the LLM to generate the predicates how we want
+                # output_example = f"{class_name} {joined_terms_no_tab}\n"
 
                 ENABLE_TYPES = True
 
@@ -93,12 +94,14 @@ class GrammarsBuilder:
 
                         term_type = term_type.strip()
                         if term_type == "int":
-                            final_grammar += f"{name} ::= {G_INT}+\n"
+                            current_grammar += f"{name} ::= {G_INT}+\n"
                         elif "$" in term_type:
                             # Custom type
                             custom_grammar = f"{name} ::= "
                             for el in term_type.split("$"):
                                 el = el.strip()
+
+                                print(el)
 
                                 if el == "?int":
                                     custom_grammar += f"{G_INT}*"
@@ -112,19 +115,18 @@ class GrammarsBuilder:
 
                                 else:
                                     custom_grammar += f"\"{el}\""
+                            
+                            print(f"Custom grammar for {name}: {custom_grammar}")
                                 
-                            final_grammar += custom_grammar + "\n"
+                            current_grammar += custom_grammar + "\n"
 
                         else:
-                            final_grammar += f"{name} ::= {G_COMBINED}+\n"
+                            current_grammar += f"{name} ::= {G_COMBINED}+\n"
                     else:
-                        final_grammar += f"{name} ::= {G_COMBINED}+\n"
+                        current_grammar += f"{name} ::= {G_COMBINED}+\n"
 
-        print("Final grammar:")
-        print(final_grammar)
-        print("Base atoms:")
-        print(base_atoms)
-        self.__grammars["single"] = [final_grammar, base_atoms]
+
+                self.__grammars[class_name] = [current_grammar, (class_name, joined_terms_no_tab)]
 
     def get_grammars(self):
         return self.__grammars

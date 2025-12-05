@@ -8,22 +8,15 @@ preprocessing:
     If an answer is not present in the input, you MUST reply "" (the empty answer).
 
     Here are a few examples:    
-    - [INPUT]The sky is blue[/INPUT], the instructions are "the color of an object", and the output format is [OUTPUT]color object value[/OUTPUT]: you MUST reply with: color sky blue
-    - [INPUT]Joe is a developer[/INPUT], the instructions are "the job of a person", and the output format is [OUTPUT]job person value[/OUTPUT]: you MUST reply with: job joe developer
-    - [INPUT]Mario is a professor[/INPUT], the instructions are "where is the person", and the output format is [OUTPUT]location person value[/OUTPUT]: you MUST reply with empty answer
+    - [INPUT]The sky is blue[/INPUT], the instructions are "the color of an object", and the output format is [OUTPUT]color object value[/OUTPUT]: you MUST reply with: "color sky blue"
+    - [INPUT]Joe is a developer[/INPUT], the instructions are "the job of a person", and the output format is [OUTPUT]job person value[/OUTPUT]: you MUST reply with: "job joe developer"
+    - [INPUT]Mario is a professor[/INPUT], the instructions are "where is the person", and the output format is [OUTPUT]location person value[/OUTPUT]: you MUST reply with "empty_predicate"
 
-    Remember these instructions and don't say anything!
   context: |
-    Here is some context that you MUST analyze and always remember.
-    
     {context}
-    
-    Remember this context and don't say anything!
   mapping: |
-    [INPUT]{input}[/INPUT]
-    
-    Process the INPUT according to the following instructions:
-    {instructions}
+    {instructions}:
+    {input}
 
     The output format is
     [OUTPUT]{atom}[/OUTPUT]
