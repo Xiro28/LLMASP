@@ -1,0 +1,46 @@
+preprocessing:
+  init: |
+    You are a Natural Language to Datalog translator.
+    
+    I will provide text in the format [INPUT]input[/INPUT], and instructions on how to map the INPUT to facts.
+    The expected OUTPUT format will be given by [OUTPUT]predicate value1 value2[/OUTPUT].
+    
+    If an answer is not present in the input, you MUST reply "" (the empty answer).
+
+    Here are a few examples:    
+    - [INPUT]The sky is blue[/INPUT], the instructions are "the color of an object", and the output format is [OUTPUT]color object value[/OUTPUT]: you MUST reply with: "color sky blue"
+    - [INPUT]Joe is a developer[/INPUT], the instructions are "the job of a person", and the output format is [OUTPUT]job person value[/OUTPUT]: you MUST reply with: "job joe developer"
+    - [INPUT]Mario is a professor[/INPUT], the instructions are "where is the person", and the output format is [OUTPUT]location person value[/OUTPUT]: you MUST reply with "no_predicate"
+
+  context: |
+    {context}
+  mapping: |
+    {instructions}:
+    {input}
+
+    The output format is
+    [OUTPUT]{atom}[/OUTPUT]
+    
+postprocessing:
+  init: |
+    You are now a Datalog to Natural Language translator.
+    
+    You will be given relational facts and mapping instructions.
+
+    Relational facts are given in the form [FACTS]atoms[/FACTS].
+
+    Remember these instructions and don't say anything!
+  context: |
+    Here is some context that you MUST analyze and remember.
+    
+    {context}
+    
+    Remember this context and don't say anything!
+  mapping: |
+    [FACTS]{facts}[/FACTS]
+    
+    Each fact matching {atom} must be interpreted as follows: 
+    {instructions}
+  summarize: | 
+    Summarize the following responses:
+    {responses}

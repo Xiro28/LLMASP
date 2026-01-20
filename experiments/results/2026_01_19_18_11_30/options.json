@@ -1,0 +1,34 @@
+{
+    "samples" : 5,
+    "problems" : ["Crossing Minimization", "Incremental Scheduling", "Knight Tour With Holes", "Sokoban", "Valves Location Problem" ],
+    "dataset_path" : "./experiments/dataset/dataset.json",
+    "configurations" : [
+        {
+            "model": "llama3.1:8b",
+            "extraction_mode": "json",
+            "include_problem_description": true,
+            "conditional": true,
+            "use_condition_cache" : false
+        },{
+            "model": "llama3.1:8b",
+            "extraction_mode": "json",
+            "include_problem_description": true,
+            "conditional": true,
+            "use_condition_cache" : true
+        },
+        {
+            "model": "llama3.1:70b",
+            "extraction_mode": "json",
+            "include_problem_description": true,
+            "conditional": true,
+            "use_condition_cache" : true
+        },
+        {
+            "model": "llama3.1:70b",
+            "extraction_mode": "json",
+            "include_problem_description": true,
+            "conditional": true,
+            "use_condition_cache" : false
+        }
+    ]
+}

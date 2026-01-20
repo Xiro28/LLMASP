@@ -1,0 +1,170 @@
+problem_definition: |
+    The user provides a prompt with a problem that requires extracting certain predicates from a given text.
+    Your task is to recognize the problem type and extract the relevant predicates of the recognized problem. 
+    Skip extracting predicates that do not belong to the recognized problem type.
+
+    crossing_minimization:
+        - edge(source, target)
+        - in_layer(layer, node)
+        - width(layer, number_of_nodes)
+        - layers(value)
+
+    incremental_scheduling:
+        - max_value(value)
+        - device(id)
+        - instances(device, quantity)
+        - offline_instance(device, instance)
+        - job(id)
+        - job_device(job, device)
+        - job_len(job, time)
+        - deadline(job, deadline)
+        - importance(job, value)
+        - precedes(job_1, job_2)
+
+
+    knight_tour_with_holes:
+        - size(value)
+        - forbidden(x,y)
+
+
+    sokoban:
+        - at(object,position)
+        - clear(position)
+        - goal(stone)
+        - isgoal(location)
+        - isnongoal(location)
+        - movedir(source,target,direction)
+        - player(id)
+        - step(value)
+        - stone(id)
+    
+    valves_location_problem:
+        - junction(id)
+        - pipe(source,target)
+        - dem(source,target, weight)
+        - tank(junction)
+        - valves_number(number)
+        - valves_per_pipe(number)
+
+predicates:
+- problem_name(name):  Specify the name of problem being addressed from the following options [crossing_minimization, incremental_scheduling, knight_tour_with_holes, sokoban, valves_location_problem]
+
+# Crossing Minimization predicates
+- edge(source, target):
+    - prompt: List all the edges from source to target.
+    
+- in_layer(layer, node): 
+    - prompt: For each layer, list every node that belongs to that layer.
+
+- width(layer, number_of_nodes): 
+    - prompt: For each layer, specify the number of nodes.
+        
+- layers(value): 
+    - prompt: value is the total number of layers.
+
+# Incremental Scheduling predicates
+- max_value(value): 
+    - prompt: Indicate the maximum possible value for the numerical quantities.
+    
+- device(id):
+    - prompt: List all devices id (an integer).
+    
+- instances(device, quantity):
+    - prompt: List all the instances quantities (integer) by devices (integer).
+    
+- offline_instance(device, instance):
+    - prompt: List all the offline instances (integer) by device (integer).
+    
+- job(id):
+    - prompt: List all the jobs id (integer).
+    
+- job_device(job, device):
+    - prompt: List all jobs (integer) by devices (integer).
+    
+- job_len(job, time): 
+    - prompt: List the time (integer) needed for executing each job (integer).
+    
+- deadline(job, deadline):
+    - prompt: List the deadline (an integer) for each job (an integer).
+    
+- importance(job, value):
+    - prompt: List the importance (an integer) for each job (an integer).
+    
+- precedes(job_1, job_2):
+    - prompt: List all precedences where job_1 (an integer) must precede job_2 (an integer).
+    
+- max_total_penalty(value):
+    - prompt: Specify the total penalty of the schedule (an integer).
+    
+- curr_job_start(job, time):
+    - prompt: List all the starting times (integer) for the jobs (integer).
+    
+- curr_on_instance(job, instance): 
+    - prompt: List all the jobs (integer) scheduled to run on device instance (integer).
+    
+- curr_time(value):
+    - prompt: Specify the current time (an integer).
+    
+
+# Knight Tour With Holes
+- size(value):
+    - prompt: value is the chess board size (an integer).
+    
+- forbidden(x,y): 
+    - prompt: List all the forbidden positions (or holes) by providing their coordinates (x,y). Coordinates are integers.
+    
+#sokoban predicates
+- at(object,position):
+    - prompt: For each object (an unquoted string), provide its initial position (an unquoted string).
+    
+- clear(position):
+    - prompt: List every position (an unquoted string) that is clear of objects. 
+    
+- goal(stone): 
+    - prompt: List every stone (an unquoted string) that is a goal, i.e., a stone that must reach a goal location.
+    
+- isgoal(location): 
+    - prompt: List every location (an unquoted string) that is a goal, i.e., that must hold a stone at the end.
+    
+- isnongoal(location): 
+    - prompt: List all locations (unquoted string) that are not a goal location.
+    
+- movedir(source,target,direction): 
+    - prompt: List all possible movements from location source (an unquoted string) to location target (an unquoted string) towards a given direction. Direction is an unquoted string among dir_up, dir_down, dir_left, dir_right.
+    
+- player(id): 
+    - prompt: Specify the sokoban player id (an unquoted string).
+    
+- step(value): 
+    - prompt: List all the allowed steps. Steps form a sequence starting from 1.
+    
+- stone(id): 
+    - prompt: List all the stones id (an unquoted string).
+    
+
+# Valves Location Problem predicates
+- junction(id):
+    - prompt: List all the junctions present by providing their ids (integer).
+    
+- pipe(source,target): 
+    - prompt: List all the pipes connecting junctions source (an integer) and target (an integer).
+    
+- dem(source,target, weight): 
+    - prompt: List all the specified weights (integer) for pipes connecting junctions source (an integer) and target (an integer).
+    
+- tank(junction): 
+    - prompt: List all the tanks present at a given junction (an integer).
+    
+- valves_number(number): 
+    - prompt: Specify the maximum number of valves to be placed in the network.
+    
+- valves_per_pipe(number): 
+    - prompt: Specify the maximum number of valves in a pipe.
+    
+
+knowledge_base:
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- position(n, p): Say that node 'n' is assigned to position 'p' in its layer.

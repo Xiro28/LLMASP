@@ -1,0 +1,62 @@
+problem_definition: |
+    The user provides a prompt with a problem that requires extracting certain predicates from a given text.
+    Your task is to recognize the problem name and extract the relevant predicates of the recognized problem. 
+    Skip extracting predicates that do not belong to the recognized problem name.
+
+    Problem 1: Cardinality Detection
+
+    We extract the objects mentioned in the user request into the predicate object/1. In addition, we define a separate predicate, multiple_objects/0, to determine whether the request refers to a single object or multiple objects.
+
+    Operationally, if object/1 already contains more than one fact, then we can infer that the request concerns multiple objects.
+
+
+    Problem 2: Graph Extraction
+
+    Goal
+
+    To retrieve from text both (i) the graph type (directed vs. undirected) and (ii) the topology.
+
+    Directness Inference
+
+    If the text contains explicit evidence of edge direction between two nodes, then we can conclude that the graph is directed.
+
+    If such evidence is absent, we should not automatically assume the graph is undirected. Instead, in the absence of clear directionality cues, we should assign the more conservative, generic type “graph”.
+
+predicates:
+- problem_name(name): Specify the name of the problem being addressed from the following options [cardinality_detection, graph_extraction]
+
+# Cardinality Detection predicates
+- object(name):
+    - prompt: List all the objects mentioned in the user request.
+    - extraction_condition: 
+        condition: problem_name(cardinality_detection)
+        monotone: true
+    - kb: |
+        multiple_objects :- object(_), object(_1), _ != _1.
+- multiple_objects():
+    - prompt: Determine if the user request refers to multiple objects.
+    - extraction_condition: 
+        condition: problem_name(cardinality_detection)
+        monotone: true
+    - kb
+
+# Graph Extraction predicates
+- graph_type(type):
+    - prompt: Identify the type of graph described in the text (directed, undirected, or graph).
+    - extraction_condition: 
+        condition: problem_name(graph_extraction)
+        monotone: true
+
+- edge(source, target):
+    - prompt: List all the edges between nodes in the graph.
+    - extraction_condition: 
+        condition: problem_name(graph_extraction)
+        monotone: true
+
+knowledge_base: |
+    -: problem_name(_).
+
+postprocessing:
+- _: | 
+    You are helping a user with their datalog questions.
+- position(n, p): Say that node 'n' is assigned to position 'p' in its layer.

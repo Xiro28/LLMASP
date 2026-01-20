@@ -1,0 +1,121 @@
+{
+    "Crossing Minimization": {
+        "results": [
+            "problem_name(crossing_minimization).\nedge(n12, n24). edge(n14, n21). edge(n15, n21). edge(n1, n10). edge(n10, n26). edge(n11, n26). edge(n13, n20). edge(n12, n20).\nin_layer(0, n1). in_layer(0, n2). in_layer(0, n3). in_layer(0, n4). in_layer(0, n5). in_layer(0, n6). in_layer(0, n7). in_layer(0, n8). in_layer(1, n10). in_layer(1, n11). in_layer(1, n12). in_layer(1, n13). in_layer(1, n14). in_layer(1, n15). in_layer(1, n16). in_layer(1, n17). in_layer(2, n19). in_layer(2, n20). in_layer(2, n21). in_layer(2, n22). in_layer(2, n23). in_layer(2, n24). in_layer(2, n25). in_layer(2, n26). in_layer(3, n28). in_layer(3, n29). in_layer(3, n30). in_layer(3, n31). in_layer(3, n32). in_layer(3, n33). in_layer(3, n34). in_layer(3, n35).\nwidth(0, 8). width(1, 8). width(2, 8). width(3, 8).\nlayers(4).\n",
+            "problem_name(crossing_minimization).\nedge(n1, n13). edge(n12, n19). edge(n11, n23). edge(n1, n12). edge(n11, n18). edge(n10, n17). edge(n1, n10). edge(n12, n18).\nin_layer(0, n1). in_layer(0, n2). in_layer(0, n3). in_layer(0, n4). in_layer(0, n5). in_layer(0, n6). in_layer(0, n7). in_layer(0, n8). in_layer(1, n10). in_layer(1, n11). in_layer(1, n12). in_layer(1, n13). in_layer(1, n14). in_layer(1, n15). in_layer(1, n16). in_layer(1, n9). in_layer(2, n17). in_layer(2, n18). in_layer(2, n19). in_layer(2, n20). in_layer(2, n21). in_layer(2, n22). in_layer(2, n23). in_layer(2, n24). in_layer(3, n25). in_layer(3, n26). in_layer(3, n27). in_layer(3, n28). in_layer(3, n29). in_layer(3, n30). in_layer(3, n31). in_layer(3, n32). in_layer(4, n33). in_layer(4, n34). in_layer(4, n35). in_layer(4, n36). in_layer(4, n37). in_layer(4, n38). in_layer(4, n39). in_layer(4, n40). in_layer(5, n41). in_layer(5, n42). in_layer(5, n43). in_layer(5, n44). in_layer(5, n45). in_layer(5, n46). in_layer(5, n47). in_layer(5, n48).\nwidth(0, 8). width(1, 8). width(2, 8). width(3, 8). width(4, 8). width(5, 8).\nlayers(6).\n",
+            "problem_name(crossing_minimization).\nedge(n12, n22). edge(n10, n19). edge(n1, n20). edge(n11, n25). edge(n11, n22). edge(n11, n30). edge(n10, n13). edge(n12, n23).\nin_layer(0, n1). in_layer(0, n10). in_layer(0, n2). in_layer(0, n3). in_layer(0, n4). in_layer(0, n5). in_layer(0, n6). in_layer(0, n7). in_layer(1, n11). in_layer(1, n12). in_layer(1, n13). in_layer(1, n14). in_layer(1, n15). in_layer(1, n16). in_layer(1, n17). in_layer(1, n18). in_layer(2, n21). in_layer(2, n22). in_layer(2, n23). in_layer(2, n24). in_layer(2, n25). in_layer(2, n26). in_layer(2, n27). in_layer(2, n28). in_layer(3, n31). in_layer(3, n32). in_layer(3, n33). in_layer(3, n34). in_layer(3, n35). in_layer(3, n36). in_layer(3, n37). in_layer(3, n38).\nwidth(0, 8). width(1, 8). width(2, 8). width(3, 8).\nlayers(4).\n",
+            "problem_name(crossing_minimization).\nedge(n10, n20). edge(n10, n21). edge(n11, n17). edge(n1, n11). edge(n1, n12). edge(n12, n23). edge(n13, n18). edge(n11, n18).\nin_layer(0, n1). in_layer(0, n2). in_layer(0, n3). in_layer(0, n4). in_layer(0, n5). in_layer(0, n6). in_layer(0, n7). in_layer(0, n8). in_layer(1, n9). in_layer(1, n10). in_layer(1, n11). in_layer(1, n12). in_layer(1, n13). in_layer(1, n14). in_layer(1, n15). in_layer(1, n16). in_layer(2, n17). in_layer(2, n18). in_layer(2, n19). in_layer(2, n20). in_layer(2, n21). in_layer(2, n22). in_layer(2, n23). in_layer(2, n24). in_layer(3, n25). in_layer(3, n26). in_layer(3, n27). in_layer(3, n28). in_layer(3, n29). in_layer(3, n30). in_layer(3, n31). in_layer(3, n32).\nwidth(0, 8). width(1, 8). width(2, 8). width(3, 8).\nlayers(4).\n",
+            "problem_name(crossing_minimization).\nedge(n1, n10). edge(n13, n23). edge(n11, n24). edge(n12, n23). edge(n1, n18). edge(n12, n19). edge(n10, n23). edge(n14, n23).\nin_layer(0, n1). in_layer(0, n2). in_layer(0, n3). in_layer(0, n4). in_layer(0, n5). in_layer(0, n6). in_layer(0, n7). in_layer(0, n8). in_layer(1, n10). in_layer(1, n11). in_layer(1, n12). in_layer(1, n13). in_layer(1, n14). in_layer(1, n15). in_layer(1, n16). in_layer(1, n17). in_layer(2, n19). in_layer(2, n20). in_layer(2, n21). in_layer(2, n22). in_layer(2, n23). in_layer(2, n24). in_layer(2, n25). in_layer(2, n26). in_layer(3, n28). in_layer(3, n29). in_layer(3, n30). in_layer(3, n31). in_layer(3, n32). in_layer(3, n33). in_layer(3, n34). in_layer(3, n35). in_layer(4, n37). in_layer(4, n38). in_layer(4, n39). in_layer(4, n40). in_layer(4, n41). in_layer(4, n42). in_layer(4, n43). in_layer(4, n44).\nwidth(0, 8). width(1, 8). width(2, 8). width(3, 8). width(4, 8).\nlayers(5).\n"
+        ],
+        "total_energy_uJ": 11789271663.59375,
+        "total_time_seconds": 290.050212,
+        "llm_calls": 25,
+        "llm_tokens_in": 32735,
+        "llm_tokens_out": 3584,
+        "solver_calls": 25,
+        "cache_hits_monotone": 150,
+        "cache_miss_monotone": 25,
+        "cache_hits_non_monotone": 0,
+        "cache_miss_non_monotone": 0,
+        "monotone_cache_invalidations": 0,
+        "non_monotone_cache_invalidations": 25
+    },
+    "Incremental Scheduling": {
+        "results": [
+            "problem_name(incremental_scheduling).\nmax_value(1800).\ndevice(1). device(2). device(3). device(4). device(5).\ninstances(1, 2). instances(2, 1). instances(3, 2). instances(4, 1). instances(5, 1).\noffline_instance(1, 1). offline_instance(2, 3).\njob(1). job(2). job(3). job(10). job(11). job(12). job(13). job(14). job(15). job(16). job(17). job(18). job(19). job(20). job(21). job(24). job(27). job(30).\njob_device(1, 1). job_device(11, 3). job_device(13, 1). job_device(14, 4). job_device(15, 5). job_device(16, 1). job_device(18, 0). job_device(10, 1). job_device(12, 5).\njob_len(1, 14). job_len(10, 9). job_len(11, 5). job_len(12, 19). job_len(13, 11). job_len(14, 15). job_len(15, 13). job_len(16, 17).\ndeadline(3, 14). deadline(18, 36). deadline(30, 18). deadline(15, 24). deadline(27, 37). deadline(24, 21). deadline(12, 29). deadline(21, 27).\nimportance(1, 2). importance(11, 1). importance(13, 1). importance(12, 2). importance(15, 3). importance(14, 3). importance(16, 2). importance(10, 3).\nprecedes(13, 14). precedes(19, 20). precedes(17, 18). precedes(10, 11). precedes(16, 17). precedes(14, 15). precedes(1, 2). precedes(11, 12).\nmax_total_penalty(1638).\ncurr_time(0).\n",
+            "problem_name(incremental_scheduling).\nmax_value(5013).\ndevice(1). device(2). device(3). device(4). device(5).\ninstances(1, 2). instances(2, 1). instances(3, 2). instances(4, 1). instances(5, 1).\noffline_instance(1, 4).\njob(1). job(2). job(10). job(11). job(100). job(101). job(102). job(103). job(104). job(105). job(106). job(107). job(108). job(109). job(110). job(111). job(112). job(114). job(116). job(117). job(120).\njob_device(101, 3). job_device(105, 5). job_device(103, 1). job_device(104, 3). job_device(100, 1). job_device(1, 2). job_device(10, 1). job_device(102, 5).\njob_len(101, 13). job_len(105, 14). job_len(103, 3). job_len(104, 19). job_len(1, 17). job_len(10, 15). job_len(100, 8). job_len(102, 6).\ndeadline(111, 12). deadline(117, 17). deadline(105, 35). deadline(114, 17). deadline(108, 36). deadline(120, 39). deadline(12, 19). deadline(102, 32).\nimportance(101, 3). importance(105, 3). importance(103, 2). importance(104, 3). importance(1, 1). importance(10, 3). importance(100, 1). importance(102, 2).\nprecedes(106, 107). precedes(10, 11). precedes(100, 101). precedes(103, 104). precedes(1, 2). precedes(107, 108).\nmax_total_penalty(4597).\ncurr_job_start(1, 60). curr_job_start(103, 0). curr_job_start(104, 3). curr_job_start(105, 22). curr_job_start(109, 0). curr_job_start(110, 14). curr_job_start(111, 36). curr_job_start(16, 31).\ncurr_on_instance(1, 1). curr_on_instance(103, 1). curr_on_instance(104, 1). curr_on_instance(105, 1). curr_on_instance(109, 1). curr_on_instance(110, 1). curr_on_instance(111, 1). curr_on_instance(16, 1).\ncurr_time(208).\n",
+            "problem_name(incremental_scheduling).\nmax_value(3000).\ndevice(1). device(2). device(3). device(4). device(5).\ninstances(1, 2). instances(2, 1). instances(3, 2). instances(4, 1). instances(5, 1).\noffline_instance(1, 3).\njob(10). job(13). job(14). job(15). job(16). job(17). job(18). job(21). job(24). job(27). job(30). job(1). job(2). job(3). job(11). job(12).\njob_device(10, 1). job_device(16, 1). job_device(13, 2). job_device(14, 4). job_device(15, 5). job_device(12, 5). job_device(11, 3). job_device(1, 2).\njob_len(10, 13). job_len(16, 4). job_len(13, 4). job_len(14, 18). job_len(15, 3). job_len(1, 6). job_len(12, 12). job_len(11, 6).\ndeadline(21, 21). deadline(18, 38). deadline(27, 28). deadline(24, 40). deadline(15, 35). deadline(3, 19). deadline(12, 16). deadline(30, 40).\nimportance(10, 1). importance(16, 1). importance(13, 2). importance(14, 1). importance(15, 1). importance(1, 2). importance(12, 2). importance(11, 1).\nprecedes(16, 17). precedes(13, 14). precedes(14, 15). precedes(1, 2). precedes(17, 18). precedes(10, 11). precedes(11, 12). precedes(19, 20).\nmax_total_penalty(2760).\ncurr_time(0).\n",
+            "problem_name(incremental_scheduling).\nmax_value(1440).\ndevice(1). device(2). device(3). device(4). device(5).\ninstances(1, 2). instances(2, 1). instances(3, 2). instances(4, 1). instances(5, 1).\noffline_instance(1, 2).\njob(1). job(2). job(3). job(10). job(11). job(12). job(13). job(14). job(15). job(16). job(17). job(18). job(19). job(20). job(21). job(24). job(27). job(30).\njob_device(1, 1). job_device(2, 0). job_device(3, 0). job_device(10, 1). job_device(11, 3). job_device(12, 5). job_device(13, 1). job_device(14, 4). job_device(15, 5). job_device(16, 2). job_device(17, 0). job_device(18, 0). job_device(19, 0). job_device(20, 0). job_device(21, 0). job_device(24, 0). job_device(27, 0). job_device(30, 0).\njob_len(1, 18). job_len(2, 0). job_len(3, 0). job_len(10, 10). job_len(11, 19). job_len(12, 14). job_len(13, 19). job_len(14, 18). job_len(15, 12). job_len(16, 14). job_len(17, 0). job_len(18, 0). job_len(19, 0). job_len(20, 0). job_len(21, 0). job_len(24, 0). job_len(27, 0). job_len(30, 0).\ndeadline(24, 19). deadline(15, 18). deadline(21, 31). deadline(18, 22). deadline(30, 18). deadline(27, 21). deadline(12, 13). deadline(3, 10).\nimportance(15, 2). importance(14, 1). importance(13, 2). importance(10, 2). importance(12, 3). importance(11, 3). importance(16, 2). importance(1, 3).\nprecedes(1, 2). precedes(13, 14). precedes(10, 11). precedes(11, 12). precedes(17, 18). precedes(19, 20). precedes(14, 15). precedes(16, 17).\nmax_total_penalty(1400).\ncurr_time(0).\n",
+            "problem_name(incremental_scheduling).\nmax_value(4800).\ndevice(1). device(2). device(3). device(4). device(5).\ninstances(1, 2). instances(2, 1). instances(3, 2). instances(4, 1). instances(5, 1).\njob(1). job(2). job(10). job(11). job(100). job(101). job(102). job(103). job(104). job(105). job(106). job(107). job(108). job(111). job(114). job(117). job(120).\njob_device(1, 1). job_device(10, 2). job_device(100, 2). job_device(101, 4). job_device(102, 5). job_device(103, 2). job_device(104, 3). job_device(105, 5). job_device(106, 0). job_device(107, 0). job_device(108, 0). job_device(111, 0). job_device(114, 0). job_device(117, 0). job_device(120, 0).\njob_len(1, 12). job_len(10, 15). job_len(100, 5). job_len(101, 18). job_len(102, 3). job_len(103, 4). job_len(104, 8). job_len(105, 3). job_len(106, 0). job_len(107, 0). job_len(108, 0). job_len(111, 0). job_len(114, 0). job_len(117, 0). job_len(120, 0).\ndeadline(114, 14). deadline(105, 24). deadline(120, 10). deadline(117, 11). deadline(102, 20). deadline(12, 40). deadline(108, 17). deadline(111, 32).\nimportance(1, 2). importance(101, 3). importance(104, 1). importance(105, 2). importance(10, 1). importance(103, 3). importance(102, 3). importance(100, 3).\nprecedes(1, 2). precedes(100, 101). precedes(101, 102). precedes(103, 104). precedes(104, 105). precedes(106, 107). precedes(10, 11). precedes(107, 108).\nmax_total_penalty(4702).\ncurr_time(0).\n"
+        ],
+        "total_energy_uJ": 21183022970.5,
+        "total_time_seconds": 523.626918,
+        "llm_calls": 75,
+        "llm_tokens_in": 154455,
+        "llm_tokens_out": 5118,
+        "solver_calls": 25,
+        "cache_hits_monotone": 150,
+        "cache_miss_monotone": 25,
+        "cache_hits_non_monotone": 0,
+        "cache_miss_non_monotone": 0,
+        "monotone_cache_invalidations": 0,
+        "non_monotone_cache_invalidations": 66
+    },
+    "Knight Tour With Holes": {
+        "results": [
+            "problem_name(knight_tour_with_holes).\nsize(70).\nforbidden(23, 52). forbidden(48, 41). forbidden(2, 50). forbidden(26, 26). forbidden(16, 26). forbidden(24, 36). forbidden(29, 4). forbidden(32, 42).\n",
+            "problem_name(knight_tour_with_holes).\nsize(85).\nforbidden(23, 9). forbidden(2, 59). forbidden(16, 1). forbidden(27, 38). forbidden(32, 21). forbidden(12, 63). forbidden(3, 53). forbidden(1, 81).\n",
+            "problem_name(knight_tour_with_holes).\nsize(45).\nforbidden(24, 32). forbidden(19, 26). forbidden(16, 2). forbidden(22, 20). forbidden(17, 40). forbidden(2, 12). forbidden(14, 18). forbidden(18, 29).\n",
+            "problem_name(knight_tour_with_holes).\nsize(70).\nforbidden(45, 42). forbidden(25, 48). forbidden(21, 9). forbidden(14, 35). forbidden(3, 38). forbidden(27, 4). forbidden(31, 64). forbidden(32, 47).\n",
+            "problem_name(knight_tour_with_holes).\nsize(85).\nforbidden(4, 65). forbidden(28, 81). forbidden(4, 64). forbidden(42, 23). forbidden(24, 81). forbidden(41, 55). forbidden(22, 74). forbidden(20, 69).\n"
+        ],
+        "total_energy_uJ": 2497006420.71875,
+        "total_time_seconds": 61.885742,
+        "llm_calls": 15,
+        "llm_tokens_in": 13472,
+        "llm_tokens_out": 715,
+        "solver_calls": 25,
+        "cache_hits_monotone": 150,
+        "cache_miss_monotone": 25,
+        "cache_hits_non_monotone": 0,
+        "cache_miss_non_monotone": 0,
+        "monotone_cache_invalidations": 0,
+        "non_monotone_cache_invalidations": 15
+    },
+    "Sokoban": {
+        "results": [
+            "problem_name(sokoban).\nat(stone_02, pos_07_04). at(player_01, pos_09_04). at(stone_04, pos_08_05). at(stone_01, pos_05_04). at(stone_03, pos_06_05).\nclear(pos_01_01). clear(pos_01_06). clear(pos_01_07). clear(pos_02_03). clear(pos_02_04). clear(pos_02_06). clear(pos_02_07). clear(pos_03_02).\ngoal(stone_02). goal(stone_03). goal(stone_04). goal(stone_01).\nisgoal(pos_04_02). isgoal(pos_05_02). isgoal(pos_06_02). isgoal(pos_07_02).\nisnongoal(pos_01_01). isnongoal(pos_01_02). isnongoal(pos_01_03). isnongoal(pos_01_04). isnongoal(pos_01_05). isnongoal(pos_01_06). isnongoal(pos_01_07). isnongoal(pos_02_01).\nmovedir(pos_02_03, pos_02_04, dir_down). movedir(pos_02_04, pos_03_04, dir_right). movedir(pos_01_07, pos_02_07, dir_right). movedir(pos_02_03, pos_03_03, dir_right). movedir(pos_01_06, pos_02_06, dir_right). movedir(pos_02_04, pos_02_03, dir_up). movedir(pos_01_07, pos_01_06, dir_up).\nplayer(player_01).\nstep(1). step(2). step(3). step(4). step(5). step(6). step(7). step(8).\nstone(stone_02). stone(stone_04). stone(stone_03). stone(stone_01).\n",
+            "problem_name(sokoban).\nat(stone_05, pos_03_12). at(stone_04, pos_05_11). at(stone_03, pos_05_10). at(stone_01, pos_03_03). at(stone_02, pos_03_05). at(player_01, pos_05_12). at(stone_06, pos_07_12).\nclear(pos_01_08). clear(pos_01_09). clear(pos_01_10). clear(pos_01_15). clear(pos_02_02). clear(pos_02_03). clear(pos_02_04). clear(pos_02_05).\ngoal(stone_03). goal(stone_04). goal(stone_05). goal(stone_06). goal(stone_02). goal(stone_01).\nisgoal(pos_03_04). isgoal(pos_03_06). isgoal(pos_03_13). isgoal(pos_04_13). isgoal(pos_06_13). isgoal(pos_07_13).\nisnongoal(pos_01_08). isnongoal(pos_01_09). isnongoal(pos_01_10). isnongoal(pos_01_15). isnongoal(pos_02_02). isnongoal(pos_02_03). isnongoal(pos_02_04). isnongoal(pos_02_05). isnongoal(pos_01_01). isnongoal(pos_01_02). isnongoal(pos_01_03). isnongoal(pos_01_04). isnongoal(pos_01_05). isnongoal(pos_01_06). isnongoal(pos_01_07).\nmovedir(pos_01_09, pos_01_10, dir_down). movedir(pos_01_08, pos_01_09, dir_up). movedir(pos_02_08, pos_01_08, dir_left). movedir(pos_01_10, pos_01_09, dir_up). movedir(pos_01_09, pos_01_08, dir_down). movedir(pos_02_02, pos_02_03, dir_down). movedir(pos_01_15, pos_02_15, dir_right). movedir(pos_02_02, pos_03_02, dir_right).\nplayer(player_01).\nstep(1). step(2). step(3). step(4). step(5). step(6). step(7). step(8).\nstone(stone_01). stone(stone_02). stone(stone_03). stone(stone_04). stone(stone_05). stone(stone_06).\n",
+            "problem_name(sokoban).\nat(player_01, pos_11_05). at(stone_03, pos_05_05). at(stone_04, pos_06_05). at(stone_05, pos_08_05). at(stone_01, pos_08_03). at(stone_02, pos_03_05).\nclear(pos_01_01). clear(pos_01_02). clear(pos_01_03). clear(pos_01_08). clear(pos_02_01). clear(pos_02_05). clear(pos_02_06). clear(pos_02_08).\ngoal(stone_01). goal(stone_02). goal(stone_03). goal(stone_04). goal(stone_05).\nisgoal(pos_07_04). isgoal(pos_08_04). isgoal(pos_12_04). isgoal(pos_13_04). isgoal(pos_14_04).\nisnongoal(pos_01_01). isnongoal(pos_01_02). isnongoal(pos_01_03). isnongoal(pos_01_04). isnongoal(pos_01_05). isnongoal(pos_01_06). isnongoal(pos_01_07). isnongoal(pos_01_08).\nmovedir(pos_01_02, pos_01_03, dir_down). movedir(pos_01_02, pos_01_01, dir_up). movedir(pos_01_03, pos_01_02, dir_up). movedir(pos_01_01, pos_01_02, dir_down). movedir(pos_02_01, pos_01_01, dir_left). movedir(pos_01_01, pos_02_01, dir_right). movedir(pos_02_01, pos_03_01, dir_right). movedir(pos_01_08, pos_02_08, dir_right).\nplayer(player_01).\nstep(1). step(2). step(3). step(4). step(5). step(6). step(7). step(8).\nstone(stone_01). stone(stone_02). stone(stone_03). stone(stone_04). stone(stone_05).\n",
+            "problem_name(sokoban).\nat(stone_03, pos_05_09). at(player_01, pos_05_08). at(stone_02, pos_06_08). at(stone_04, pos_06_09). at(stone_01, pos_03_04).\nclear(pos_01_06). clear(pos_01_07). clear(pos_01_08). clear(pos_01_09). clear(pos_01_10). clear(pos_01_11). clear(pos_02_02). clear(pos_02_03).\ngoal(stone_03). goal(stone_01). goal(stone_02). goal(stone_04).\nisgoal(pos_04_03). isgoal(pos_09_03). isgoal(pos_09_04). isgoal(pos_09_05).\nisnongoal(pos_01_01). isnongoal(pos_01_02). isnongoal(pos_01_03). isnongoal(pos_01_04). isnongoal(pos_01_05). isnongoal(pos_01_06). isnongoal(pos_01_07). isnongoal(pos_01_08).\nmovedir(pos_01_08, pos_01_07, dir_up). movedir(pos_01_07, pos_01_08, dir_down). movedir(pos_01_08, pos_01_09, dir_down). movedir(pos_01_08, pos_02_08, dir_right). movedir(pos_01_07, pos_01_06, dir_up). movedir(pos_01_09, pos_01_08, dir_up). movedir(pos_01_09, pos_01_10, dir_down). movedir(pos_01_06, pos_01_07, dir_down).\nplayer(player_01).\nstep(1). step(2). step(3). step(4). step(5). step(6). step(7). step(8).\nstone(stone_03). stone(stone_04). stone(stone_02). stone(stone_01).\n",
+            "problem_name(sokoban).\nat(stone_01, pos_5_3). at(player_01, pos_7_3). at(stone_02, pos_6_3).\nclear(pos_1_1). clear(pos_2_3). clear(pos_2_4). clear(pos_3_2). clear(pos_3_3). clear(pos_3_4). clear(pos_4_2). clear(pos_4_3).\ngoal(stone_01). goal(stone_02).\nisgoal(pos_7_2). isgoal(pos_7_4).\nisnongoal(pos_1_1). isnongoal(pos_1_2). isnongoal(pos_1_3). isnongoal(pos_1_4). isnongoal(pos_1_5). isnongoal(pos_2_1). isnongoal(pos_2_2). isnongoal(pos_2_3).\nmovedir(pos_2_3, pos_2_4, dir_down). movedir(pos_3_2, pos_4_2, dir_right). movedir(pos_3_2, pos_3_3, dir_down). movedir(pos_2_3, pos_3_3, dir_right). movedir(pos_2_4, pos_3_4, dir_right). movedir(pos_2_4, pos_2_3, dir_up). movedir(pos_3_3, pos_2_3, dir_left). movedir(pos_3_3, pos_3_2, dir_up).\nplayer(player_01).\nstep(1). step(2). step(3). step(4). step(5). step(6). step(7). step(8).\nstone(stone_01). stone(stone_02).\n"
+        ],
+        "total_energy_uJ": 14885693489.84375,
+        "total_time_seconds": 368.149991,
+        "llm_calls": 50,
+        "llm_tokens_in": 88400,
+        "llm_tokens_out": 3752,
+        "solver_calls": 25,
+        "cache_hits_monotone": 150,
+        "cache_miss_monotone": 25,
+        "cache_hits_non_monotone": 0,
+        "cache_miss_non_monotone": 0,
+        "monotone_cache_invalidations": 0,
+        "non_monotone_cache_invalidations": 50
+    },
+    "Valves Location Problem": {
+        "results": [
+            "problem_name(valves_location_problem).\njunction(1). junction(10). junction(11). junction(12). junction(13). junction(14). junction(15). junction(16).\npipe(12, 17). pipe(11, 18). pipe(1, 15). pipe(12, 13). pipe(11, 12). pipe(12, 19). pipe(12, 17). pipe(12, 19). pipe(1, 15). pipe(10, 11). pipe(11, 12). pipe(12, 13). pipe(1, 2). pipe(11, 18). pipe(10, 11). pipe(1, 2).\ndem(12, 17, 94). dem(12, 19, 61). dem(1, 15, 142). dem(11, 12, 64). dem(12, 13, 48). dem(1, 2, 116). dem(10, 11, 42). dem(11, 18, 64).\ntank(1).\nvalves_number(16).\nvalves_per_pipe(1).\n",
+            "problem_name(valves_location_problem).\njunction(1). junction(10). junction(100). junction(101). junction(102). junction(103). junction(104). junction(105).\npipe(1, 95). pipe(1, 96). pipe(101, 102). pipe(100, 104). pipe(1, 92). pipe(101, 103). pipe(102, 103). pipe(100, 101).\ndem(101, 102, 163). dem(1, 95, 89). dem(1, 96, 60). dem(101, 103, 122). dem(102, 103, 125). dem(100, 104, 96). dem(1, 92, 108). dem(100, 101, 133).\ntank(1).\nvalves_number(20).\nvalves_per_pipe(1).\n",
+            "problem_name(valves_location_problem).\njunction(1). junction(10). junction(100). junction(101). junction(102). junction(103). junction(104). junction(105).\npipe(1, 92). pipe(1, 95). pipe(1, 96). pipe(100, 101). pipe(100, 104). pipe(101, 102). pipe(101, 103). pipe(102, 103).\ndem(1, 96, 60). dem(101, 102, 163). dem(1, 92, 108). dem(1, 95, 89). dem(100, 104, 96). dem(101, 103, 122). dem(100, 101, 133). dem(102, 103, 125).\ntank(1).\nvalves_number(22).\nvalves_per_pipe(2).\n",
+            "problem_name(valves_location_problem).\njunction(1). junction(10). junction(11). junction(12). junction(13). junction(14). junction(15). junction(16).\npipe(12, 15). pipe(1, 11). pipe(11, 24). pipe(1, 2). pipe(12, 13). pipe(1, 12). pipe(10, 11). pipe(13, 14).\ndem(1, 11, 59). dem(10, 11, 73). dem(12, 13, 53). dem(12, 15, 56). dem(1, 12, 56). dem(11, 24, 48). dem(13, 14, 39). dem(1, 2, 39).\ntank(1). tank(7). tank(9).\nvalves_number(27).\nvalves_per_pipe(2).\n",
+            "problem_name(valves_location_problem).\njunction(1). junction(10). junction(11). junction(12). junction(13). junction(14). junction(15). junction(16).\npipe(11, 24). pipe(12, 15). pipe(10, 11). pipe(1, 11). pipe(13, 14). pipe(1, 2). pipe(12, 13). pipe(1, 12).\ndem(11, 24, 48). dem(12, 15, 56). dem(1, 11, 59). dem(10, 11, 73). dem(1, 12, 56). dem(13, 14, 39). dem(1, 2, 39). dem(12, 13, 53).\ntank(9). tank(7). tank(1).\nvalves_number(20).\nvalves_per_pipe(2).\n"
+        ],
+        "total_energy_uJ": 7785476073.75,
+        "total_time_seconds": 192.690415,
+        "llm_calls": 35,
+        "llm_tokens_in": 52595,
+        "llm_tokens_out": 2050,
+        "solver_calls": 25,
+        "cache_hits_monotone": 150,
+        "cache_miss_monotone": 25,
+        "cache_hits_non_monotone": 0,
+        "cache_miss_non_monotone": 0,
+        "monotone_cache_invalidations": 0,
+        "non_monotone_cache_invalidations": 35
+    },
+    "final_data": {
+        "total_energy_uJ": 58167865467.65625,
+        "total_time_seconds": 1436.622101,
+        "llm_calls": 200,
+        "llm_tokens_in": 341657,
+        "llm_tokens_out": 15219,
+        "solver_calls": 125,
+        "cache_hits_monotone": 750,
+        "cache_miss_monotone": 125,
+        "cache_hits_non_monotone": 0,
+        "cache_miss_non_monotone": 0,
+        "monotone_cache_invalidations": 0,
+        "non_monotone_cache_invalidations": 191
+    }
+}
