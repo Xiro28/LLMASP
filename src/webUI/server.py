@@ -5,40 +5,40 @@ import plotly.express as px
 import os
 import re
 
-# --- CONFIGURAZIONE PERCORSI ---
+# --- PATH CONFIGURATION ---
 BASE_RESULT_DIR = "../../experiments/results/" 
 DATASET_PATH = "../../experiments/dataset/dataset.json"
 
-# --- CONFIGURAZIONE PAGINA ---
-st.set_page_config(page_title="LLM Datalog Benchmark Analyzer", layout="wide")
+# --- PAGE CONFIGURATION ---
+st.set_page_config(page_title="LLMASP", layout="wide")
 
-# --- FUNZIONI DI UTILITÀ ---
+# --- UTILITY FUNCTIONS ---
 
 def load_json_from_path(path):
-    """Carica un file JSON da un percorso locale."""
+    """Loads a JSON file from a local path."""
     try:
         with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
     except FileNotFoundError:
-        st.error(f"File non trovato: {path}")
+        st.error(f"File not found: {path}")
         return None
     except json.JSONDecodeError:
-        st.error(f"Errore nel decodificare il JSON: {path}")
+        st.error(f"Error decoding JSON: {path}")
         return None
 
 def parse_datalog_facts(text):
-    """Estrae i fatti datalog da una stringa (Versione Regex Robusta)."""
+    """Extracts datalog facts from a string (Robust Regex Version)."""
     if not isinstance(text, str):
         return [], False
     clean_text = text.replace('\n', ' ').strip()
     if not clean_text:
         return [], False
     
-    # Regex migliorata per catturare predicati (es. edge(n1, n2).)
+    # Improved regex to capture predicates (e.g., edge(n1, n2).)
     pattern = r"\w+\([a-zA-Z0-9_]+(?:,\s*[a-zA-Z0-9_]+)*\)\."
     raw_facts = re.findall(pattern, clean_text)
     
-    # Fallback semplice se la regex non trova nulla ma c'è testo
+    # Fallback if regex fails but text exists
     if not raw_facts and clean_text:
          raw_facts = [f.strip() for f in clean_text.split('.') if f.strip()]
 
@@ -46,7 +46,7 @@ def parse_datalog_facts(text):
     return raw_facts, has_duplicates
 
 def calculate_metrics(ground_truth_str, predicted_str):
-    """Calcola metriche basate su insiemi."""
+    """Calculates set-based metrics."""
     gt_list, _ = parse_datalog_facts(ground_truth_str)
     pred_list, has_duplicates = parse_datalog_facts(predicted_str)
     
@@ -77,7 +77,7 @@ def process_data(dataset_json, result_json, model_name="Model"):
     instance_rows = []
     problem_rows = []
     
-    # Mappa dataset
+    # Map dataset
     dataset_map = {}
     for item in dataset_json:
         p_name = item.get("problem_name")
@@ -92,9 +92,9 @@ def process_data(dataset_json, result_json, model_name="Model"):
         predictions = problem_data.get("results", [])
         ground_truths = dataset_map.get(problem_name, [])
         
-        # --- DATI AGGREGATI (Problem Level) ---
+        # --- AGGREGATED DATA (Problem Level) ---
         llm_calls = problem_data.get("llm_calls", 0)
-        solver_calls = problem_data.get("solver_calls", 0) # <--- ESTRAZIONE SOLVER CALLS
+        solver_calls = problem_data.get("solver_calls", 0)
         
         c_hit_m = problem_data.get("cache_hits_monotone", 0)
         c_miss_m = problem_data.get("cache_miss_monotone", 0)
@@ -114,7 +114,7 @@ def process_data(dataset_json, result_json, model_name="Model"):
             "Tokens In": problem_data.get("llm_tokens_in", 0),
             "Tokens Out": problem_data.get("llm_tokens_out", 0),
             "LLM Calls": llm_calls,
-            "Solver Calls": solver_calls, # <--- AGGIUNTO AL DATAFRAME
+            "Solver Calls": solver_calls,
             "Cache Hits (Monotone)": c_hit_m,
             "Cache Hits (Non-Mono)": c_hit_nm,
             "Cache Misses": total_misses,
@@ -123,7 +123,7 @@ def process_data(dataset_json, result_json, model_name="Model"):
         }
         problem_rows.append(prob_row)
         
-        # --- DATI ISTANZA (Instance Level) ---
+        # --- INSTANCE DATA (Instance Level) ---
         limit = min(len(predictions), len(ground_truths))
         for i in range(limit):
             gt = ground_truths[i]
@@ -140,62 +140,163 @@ def process_data(dataset_json, result_json, model_name="Model"):
             
     return pd.DataFrame(instance_rows), pd.DataFrame(problem_rows)
 
-# --- INTERFACCIA UTENTE ---
+# --- FILE PARSING HELPERS ---
 
-st.title("📊 LLM Datalog Benchmark Analyzer")
+def get_file_metadata(filename):
+    """
+    Parses the filename to extract metadata.
+    Expected format parts: 8b/70b, a1/a2, conditional/nonconditional, cached/noncached
+    """
+    # 1. Model Size
+    if "70b" in filename: model = "70B"
+    elif "8b" in filename: model = "8B"
+    else: model = "Unknown"
+    
+    # 2. Strategy
+    if "a2" in filename: strategy = "A2 (PBD)"
+    elif "a1" in filename: strategy = "A1 (Std)"
+    else: strategy = "Unknown"
+    
+    # 3. Condition
+    # Check 'nonconditional' first as it contains 'conditional'
+    if "nonconditional" in filename: condition = "No"
+    elif "conditional" in filename: condition = "Yes"
+    else: condition = "Unknown"
+    
+    # 4. Cache
+    # Check 'noncached' first
+    if "noncached" in filename: cache = "No"
+    elif "cached" in filename: cache = "Yes"
+    else: cache = "Unknown"
+    
+    return {
+        "Filename": filename,
+        "Model": model,
+        "Strategy": strategy,
+        "Condition": condition,
+        "Cache": cache
+    }
 
-# --- SIDEBAR: SELEZIONE CARTELLE E FILE ---
-st.sidebar.header("📁 Selezione Test Locale")
+def render_file_selector(label, key_prefix, all_files):
+    """
+    Renders a set of dropdowns to filter and select a file.
+    Returns the selected filename or None.
+    """
+    st.sidebar.markdown(f"### {label}")
+    
+    if not all_files:
+        st.sidebar.warning("No files available.")
+        return None
 
-# 1. Verifica esistenza cartella base
+    # Parse all files into a DataFrame
+    meta_list = [get_file_metadata(f) for f in all_files]
+    df = pd.DataFrame(meta_list)
+    
+    # --- FILTERS ---
+    c1, c2 = st.sidebar.columns(2)
+    
+    # Filter: Model
+    avail_models = sorted(df['Model'].unique())
+    sel_model = c1.selectbox("Model", avail_models, key=f"{key_prefix}_model")
+    df = df[df['Model'] == sel_model]
+    
+    # Filter: Strategy
+    avail_strat = sorted(df['Strategy'].unique())
+    sel_strat = c2.selectbox("Strategy", avail_strat, key=f"{key_prefix}_strat")
+    df = df[df['Strategy'] == sel_strat]
+    
+    c3, c4 = st.sidebar.columns(2)
+    
+    # Filter: Conditional
+    avail_cond = sorted(df['Condition'].unique())
+    sel_cond = c3.selectbox("Conditional?", avail_cond, key=f"{key_prefix}_cond")
+    df = df[df['Condition'] == sel_cond]
+    
+    # Filter: Cache
+    avail_cache = sorted(df['Cache'].unique())
+    sel_cache = c4.selectbox("Cached?", avail_cache, key=f"{key_prefix}_cache")
+    df = df[df['Cache'] == sel_cache]
+    
+    # --- FINAL SELECTION ---
+    if df.empty:
+        st.sidebar.error("No file matches these criteria.")
+        return None
+    
+    # If multiple files remain (e.g. different timestamps or modes), let user pick
+    # Otherwise auto-select the only one
+    final_options = df['Filename'].tolist()
+    selected_file = st.sidebar.selectbox("Select File", final_options, key=f"{key_prefix}_final")
+    
+    return selected_file
+
+# --- USER INTERFACE ---
+
+st.title("LLMASP Benchmark Analyzer")
+
+# --- SIDEBAR ---
+st.sidebar.header("Data Selection")
+
+# 1. Check Base Directory
 if not os.path.exists(BASE_RESULT_DIR):
-    st.sidebar.error(f"La cartella base '{BASE_RESULT_DIR}' non esiste. Modifica la variabile `BASE_RESULT_DIR` nel codice.")
+    st.sidebar.error(f"Base directory '{BASE_RESULT_DIR}' does not exist. Please update `BASE_RESULT_DIR` code.")
     st.stop()
 
-# 2. Dropdown Data (Cartelle)
+# 2. Select Date (Folder)
 try:
     dates_folders = [d for d in os.listdir(BASE_RESULT_DIR) if os.path.isdir(os.path.join(BASE_RESULT_DIR, d))]
     dates_folders.sort(reverse=True) 
 except Exception as e:
-    st.sidebar.error(f"Errore lettura cartella: {e}")
+    st.sidebar.error(f"Error reading directory: {e}")
     dates_folders = []
 
-selected_date = st.sidebar.selectbox("1. Seleziona Data Test", dates_folders)
+selected_date = st.sidebar.selectbox("1. Test Date", dates_folders)
 
-# 3. Dropdown File JSON 
+# 3. File Selection Logic
 json_files = []
 if selected_date:
     date_path = os.path.join(BASE_RESULT_DIR, selected_date)
     try:
-        json_files = [f for f in os.listdir(date_path) if f.endswith('.json')]
+        json_files = [f for f in os.listdir(date_path) if f.endswith('.json') and f != "options.json"]
         json_files.sort()
     except:
         pass
 
-if not json_files:
-    st.sidebar.warning("Nessun file .json trovato nella cartella selezionata.")
-else:
-    file_a = st.sidebar.selectbox("2. Seleziona Test A (Principale)", json_files, index=0)
-    file_b_options = ["None"] + json_files
-    file_b = st.sidebar.selectbox("3. Seleziona Test B (Confronto - Opzionale)", file_b_options, index=0)
+file_a = None
+file_b = None
 
-    # --- LOGICA DI CARICAMENTO ---
+if not json_files:
+    st.sidebar.warning("No JSON files found in selected date.")
+else:
+    # --- SELECTOR FOR TEST A ---
+    file_a = render_file_selector("2. Select Test A (Main)", "test_a", json_files)
+    
+    st.sidebar.markdown("---")
+    
+    # --- SELECTOR FOR TEST B ---
+    use_comparison = st.sidebar.checkbox("Compare with another test?", value=False)
+    if use_comparison:
+        file_b = render_file_selector("3. Select Test B (Comparison)", "test_b", json_files)
+
+    # --- LOADING & PROCESSING ---
     
     if not os.path.exists(DATASET_PATH):
-        st.error(f"Dataset non trovato al percorso: {DATASET_PATH}. Verifica la variabile `DATASET_PATH`.")
+        st.error(f"Dataset not found at: {DATASET_PATH}")
     else:
         dataset_data = load_json_from_path(DATASET_PATH)
-        option_data = load_json_from_path(os.path.join(BASE_RESULT_DIR, selected_date, "options.json"))
         
-        path_a = os.path.join(BASE_RESULT_DIR, selected_date, file_a)
-        res1_data = load_json_from_path(path_a)
+        # Load A
+        res1_data = None
+        if file_a:
+            path_a = os.path.join(BASE_RESULT_DIR, selected_date, file_a)
+            res1_data = load_json_from_path(path_a)
         
         if dataset_data and res1_data:
             inst_df1, prob_df1 = process_data(dataset_data, res1_data, "Model A")
             final_inst_df = inst_df1
             final_prob_df = prob_df1
             
-            if file_b and file_b != "None":
+            # Load B if selected
+            if file_b:
                 path_b = os.path.join(BASE_RESULT_DIR, selected_date, file_b)
                 res2_data = load_json_from_path(path_b)
                 
@@ -204,15 +305,14 @@ else:
                     final_inst_df = pd.concat([inst_df1, inst_df2], ignore_index=True)
                     final_prob_df = pd.concat([prob_df1, prob_df2], ignore_index=True)
 
-            # --- VISUALIZZAZIONE DASHBOARD ---
+            # --- DASHBOARD VISUALIZATION ---
             
-            st.header(f"Analisi del: {selected_date}")
+            readable_date = selected_date.replace("_", "/", 2).replace("_", " ", 1).replace("_", ":")
+            st.header(f"Analysis: {readable_date}")
             
-            # --- FUNZIONE HELPER PER MOSTRARE I KPI ---
+            # --- KPI DISPLAY HELPER ---
             def display_kpi_row(label, filename, inst_df, prob_df, baseline_metrics=None):
-                """Mostra una riga di metriche per un modello specifico."""
                 
-                # Calcolo metriche correnti
                 curr_f1 = inst_df['f1_score'].mean()
                 curr_acc = inst_df['accuracy'].mean()
                 curr_llm = prob_df['LLM Calls'].sum()
@@ -223,18 +323,15 @@ else:
                 
                 cols = st.columns(5)
                 
-                # Se abbiamo una baseline (cioè siamo nel Modello B)
                 if baseline_metrics:
-                    # 1. QUALITY (Higher is Better) -> Default Color (Pos=Green, Neg=Red)
-                    # Calcolo: Corrente - Vecchio
+                    # 1. QUALITY (Higher is Better) -> Default Color
                     cols[0].metric("Avg F1 Score", f"{curr_f1:.3f}", 
                                    delta=f"{curr_f1 - baseline_metrics['f1']:.3f}")
                     
                     cols[1].metric("Avg Accuracy", f"{curr_acc:.3f}", 
                                    delta=f"{curr_acc - baseline_metrics['acc']:.3f}")
                     
-                    # 2. COSTS (Lower is Better) -> Inverse Color (Neg=Green, Pos=Red)
-                    # Calcolo: Corrente - Vecchio (es. 50 - 100 = -50. Negativo è BENE)
+                    # 2. COSTS (Lower is Better) -> Inverse Color
                     cols[2].metric("Total LLM Calls", f"{curr_llm}", 
                                    delta=f"{curr_llm - baseline_metrics['llm']}", 
                                    delta_color="inverse")
@@ -247,7 +344,6 @@ else:
                     cols[4].metric("Avg Cache Hit %", f"{curr_hit:.1f}%", 
                                    delta=f"{curr_hit - baseline_metrics['hit']:.1f}%")
                 else:
-                    # Nessuna baseline (Modello A), mostriamo valori puri
                     cols[0].metric("Avg F1 Score", f"{curr_f1:.3f}")
                     cols[1].metric("Avg Accuracy", f"{curr_acc:.3f}")
                     cols[2].metric("Total LLM Calls", f"{curr_llm}")
@@ -259,30 +355,28 @@ else:
                     'llm': curr_llm, 'sol': curr_sol, 'hit': curr_hit
                 }
 
-            # 1. MOSTRA MODELLO A
+            # 1. SHOW MODEL A
             df_inst_a = final_inst_df[final_inst_df['Model'] == 'Model A']
             df_prob_a = final_prob_df[final_prob_df['Model'] == 'Model A']
             
-            # Salviamo le metriche di A per usarle come confronto
             metrics_a = display_kpi_row("Model A", file_a, df_inst_a, df_prob_a)
 
-            # 2. MOSTRA MODELLO B (Se esiste)
-            if file_b and file_b != "None":
-                st.markdown("---") # Separatore visivo
+            # 2. SHOW MODEL B (If exists)
+            if file_b:
+                st.markdown("---")
                 df_inst_b = final_inst_df[final_inst_df['Model'] == 'Model B']
                 df_prob_b = final_prob_df[final_prob_df['Model'] == 'Model B']
                 
-                # Passiamo metrics_a per generare i delta (frecce verdi/rosse)
                 display_kpi_row("Model B", file_b, df_inst_b, df_prob_b, baseline_metrics=metrics_a)
             
             st.divider()
             
-            # Tabs Grafici
+            # --- CHARTS ---
             tab_qual, tab_solver, tab_res, tab_pareto = st.tabs([
-                "📈 Quality (F1 & Acc)", 
-                "🧠 Solver & Cache", 
-                "⚡ Resources", 
-                "⚖️ Pareto Frontier"
+                "Quality (F1 & Acc)", 
+                "Solver & Cache", 
+                "Resources", 
+                "Pareto Frontier"
             ])
             
             # TAB 1: Quality
@@ -290,18 +384,17 @@ else:
                 col1, col2 = st.columns(2)
                 with col1:
                     fig_f1 = px.box(final_inst_df, x="Problem", y="f1_score", color="Model", 
-                                    title="Distribuzione F1 Score")
+                                    title="F1 Score Distribution")
                     st.plotly_chart(fig_f1, use_container_width=True)
                 with col2:
                     perf_df = final_inst_df.groupby(["Model", "Problem"])["is_perfect"].mean().reset_index()
                     fig_perf = px.bar(perf_df, x="Problem", y="is_perfect", color="Model", barmode="group",
-                                      title="% Estrazioni Perfette", labels={"is_perfect": "Ratio"})
+                                      title="% Perfect Extraction", labels={"is_perfect": "Ratio"})
                     st.plotly_chart(fig_perf, use_container_width=True)
 
-            # TAB 2: Solver & Cache (AGGIORNATO)
+            # TAB 2: Solver & Cache
             with tab_solver:
-                st.subheader("Analisi Chiamate Solver, LLM e Cache")
-                # Diviso in 3 colonne
+                st.subheader("Solver, LLM & Cache Analysis")
                 col_s1, col_s2, col_s3 = st.columns(3)
                 
                 with col_s1:
@@ -311,7 +404,7 @@ else:
                     )
                     st.plotly_chart(fig_calls, use_container_width=True)
 
-                with col_s2: # <--- NUOVA COLONNA PER SOLVER CALLS
+                with col_s2:
                     fig_solver = px.bar(
                         final_prob_df, x="Problem", y="Solver Calls", color="Model", barmode="group",
                         text_auto=True, title="ASP Solver Calls"
@@ -326,7 +419,7 @@ else:
                     fig_rate.update_layout(yaxis_range=[0, 100])
                     st.plotly_chart(fig_rate, use_container_width=True)
 
-                st.markdown("#### Dettaglio Utilizzo Cache (Hits vs Misses)")
+                st.markdown("#### Cache Usage Detail (Hits vs Misses)")
                 cache_melt = final_prob_df.melt(
                     id_vars=["Problem", "Model"], 
                     value_vars=["Cache Hits (Monotone)", "Cache Hits (Non-Mono)", "Cache Misses"],
@@ -334,7 +427,7 @@ else:
                 )
                 fig_stack = px.bar(
                     cache_melt, x="Problem", y="Count", color="Cache Type", facet_col="Model",
-                    title="Composizione Cache: Hits vs Misses",
+                    title="Cache Composition",
                     color_discrete_map={
                         "Cache Hits (Monotone)": "#2ca02c", 
                         "Cache Hits (Non-Mono)": "#98df8a", 
@@ -343,21 +436,20 @@ else:
                 )
                 st.plotly_chart(fig_stack, use_container_width=True)
 
-            # TAB 3: Risorse
+            # TAB 3: Resources
             with tab_res:
-                res_metric = st.selectbox("Metrica Risorse:", ["Energy (uJ)", "Time (s)", "Tokens In", "Tokens Out"])
+                res_metric = st.selectbox("Resource Metric:", ["Energy (uJ)", "Time (s)", "Tokens In", "Tokens Out"])
                 fig_res = px.bar(
                     final_prob_df, x="Problem", y=res_metric, color="Model", barmode="group",
-                    title=f"Consumo Totale: {res_metric}"
+                    title=f"Total Consumption: {res_metric}"
                 )
                 st.plotly_chart(fig_res, use_container_width=True)
 
             # TAB 4: Pareto
             with tab_pareto:
                 col_x, col_y = st.columns(2)
-                # Aggiunto "Solver Calls" alle opzioni di costo
-                x_ax = col_x.selectbox("Asse X (Costo)", ["Energy (uJ)", "Time (s)", "LLM Calls", "Solver Calls", "Tokens In"])
-                y_ax = col_y.selectbox("Asse Y (Qualità)", ["f1_score", "accuracy", "is_perfect"])
+                x_ax = col_x.selectbox("X Axis (Cost)", ["Energy (uJ)", "Time (s)", "LLM Calls", "Solver Calls", "Tokens In"])
+                y_ax = col_y.selectbox("Y Axis (Quality)", ["f1_score", "accuracy", "is_perfect"])
                 
                 quality_agg = final_inst_df.groupby(["Model", "Problem"])[y_ax].mean().reset_index()
                 cost_agg = final_prob_df[["Model", "Problem", x_ax]]
